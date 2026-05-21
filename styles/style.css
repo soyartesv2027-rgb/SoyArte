@@ -1,0 +1,92 @@
+body{
+    background-image: url(../img/ChatGPT\ Image\ 22\ abr\ 2026\,\ 08_35_02\ p.m..png);
+    background-size: cover;      /* Cubre todo el espacio */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.form{
+    background-color: rgb(255, 255, 255);
+    margin: 40px;
+    width: 450px;
+    height: 450px;
+    border-radius: 15px;
+    border: solid black 1.5px;
+
+}
+
+.contenedorLogin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:transparent;
+    height: 100vh;
+}
+
+.titulo{
+    display: flex;
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+    padding-top:60px;
+    color: #2d3a5c;
+}
+
+.inputBlock{
+    margin: 30px;
+    font-family: sans-serif;
+    border-radius: 5px;
+}
+
+.inputs{
+    border-radius: 5px;
+    width: 400px;
+    margin-top: 10px;
+    border-color: darkgrey;
+    padding: 5px;
+}
+
+.forget-password{
+    margin-left: 240px;
+}
+
+button{
+    width: 100%;
+    height: 30px;
+    font-weight: bold;
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.button1{
+    display: flex;          /* ← alinea imagen y texto en fila */
+    align-items: center;    /* ← centra verticalmente */
+    justify-content: center;/* ← centra horizontalmente */
+    gap: 10px;              /* ← espacio entre logo y texto */
+    width: 390px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: white;
+    border: 1.5px solid darkgray;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.button1 img{
+    width: 20px;            /* ← tamaño del logo */
+    height: 20px;
+}
+
+.opciones{
+    text-align: center;
+}
+
+.register{
+    display: flex;
+    text-align: center;
+    gap: 8px;
+    padding: 10px;
+}
