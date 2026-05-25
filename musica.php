@@ -11,8 +11,6 @@
 <body>
 
     <?php include("components/navbar.php"); ?>
-
-
   <section class="banner">
     <img src="images/banner.jpeg" alt="Banner Image">
         <div class="overlay">
