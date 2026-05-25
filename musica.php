@@ -10,34 +10,7 @@
 </head>
 <body>
 
-   <header class="topbar">
-    
-        <svg id="menuBtn" class="menu-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-
-            <path fill="black" d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z"></path>
-        </svg>
-
-        <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="index.php">
-
-            Soy Arte
-
-            <img src="images/Arty.png" alt="Arty" width="40" height="40" style="object-fit: contain;">
-
-        </a>
-
-        <div class="icons">
-            <div class="color-boxes">
-                <div class="box naranja"> <i class="fa-solid fa-paintbrush"></i> </div>
-                <div class="box rosa">  <i class="fa-solid fa-music"></i> </div>
-                <div class="box verde"> <i class="fa-solid fa-earth-americas"> </i></div>
-            </div>
-
-           
-          
-          
-            
-        </div>
-    </header> 
+    <?php include("components/navbar.php"); ?>
 
 
   <section class="banner">
@@ -104,6 +77,6 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-
+    <script src="JavaScrip/script.js"></script>
 </body>
 </html>
