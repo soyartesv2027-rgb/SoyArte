@@ -32,22 +32,22 @@
         </li>
 
         <li class="mb-2">
-            <a href="pinturas.php" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-pintura.html" class="nav-link link-dark">
                 <i class="fa-solid fa-image me-2"></i>
                 Pinturas
             </a>
         </li>
 
         <li class="mb-2">
-            <a href="Musica.php" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-musica.html" class="nav-link link-dark">
                 <i class="fa-solid fa-music" style="color: rgb(0, 0, 0);"></i>
                 Musica
             </a>
         </li>
 
         <li class="mb-2">
-            <a href="poesia.php" class="nav-link link-dark">
-               <i class="fa-solid fa-feather-pointed" style="color: rgb(0, 0, 0);"></i>
+            <a href="Pantalla-de-carga/PC-poesia.html" class="nav-link link-dark">
+                <i class="fa-solid fa-feather-pointed" style="color: rgb(0, 0, 0);"></i>
                 Poesia
             </a>
         </li>
