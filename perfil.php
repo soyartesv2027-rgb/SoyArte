@@ -6,7 +6,7 @@ include("php/conexion.php");
 // Obtener datos del usuario 
 $id = $_SESSION['usuario_id']; 
  
-$sql = "SELECT nombre, correo, rol, biografia FROM usuarios WHERE usuarioID = ?"; 
+$sql = "SELECT nombre, correo, rol, biografia FROM usuarios WHERE id = ?"; 
 $stmt = $conn->prepare($sql); 
 $stmt->bind_param("i", $id); 
 $stmt->execute(); 
@@ -20,7 +20,7 @@ $usuario = $resultado->fetch_assoc();
 <head> 
     <meta charset="UTF-8"> 
     <title>Perfil</title> 
-    <link rel="stylesheet" href="styles/perfil.css" />
+    
 <body class="bg-light"> 
  
 <div class="container mt-5"> 
@@ -31,7 +31,8 @@ $usuario = $resultado->fetch_assoc();
         <p><strong>Nombre:</strong> <?php echo $usuario['nombre']; ?></p> 
         <p><strong>Correo:</strong> <?php echo $usuario['correo']; ?></p>         
         <p><strong>Rol:</strong> <?php echo $usuario['rol']; ?></p> 
-        <p><strong>Biografía:</strong> <?php echo $usuario['biografia']; ?></p> 
+        <label for="biografia">Biografía:</label>
+        <input type="text > 
         <a href="index.php" class="btn btn-secondary mt-3">Volver</a> 
     </div> 
  
