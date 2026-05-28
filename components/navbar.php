@@ -53,7 +53,7 @@
         </li>
 
         <li class="mb-2">
-            <a href="Manualidaddes.php" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-manualidades.html" class="nav-link link-dark">
                 <i class="fa-solid fa-cube" style="color: rgb(0, 0, 0);"></i>
                 Manualidades
             </a>
