@@ -32,7 +32,7 @@ $usuario = $resultado->fetch_assoc();
         <p><strong>Correo:</strong> <?php echo $usuario['correo']; ?></p>         
         <p><strong>Rol:</strong> <?php echo $usuario['rol']; ?></p> 
         <label for="biografia">Biografía:</label>
-        <input type="text > 
+        <input type="text <?php echo $usuario['biografia']; ?>> 
         <a href="index.php" class="btn btn-secondary mt-3">Volver</a> 
     </div> 
  
