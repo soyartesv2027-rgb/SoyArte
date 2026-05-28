@@ -6,7 +6,7 @@ include("php/conexion.php");
 // Obtener datos del usuario 
 $id = $_SESSION['usuario_id']; 
  
-$sql = "SELECT nombre, correo, rol FROM usuarios WHERE usuarioID = ?"; 
+$sql = "SELECT nombre, correo, rol, biografia FROM usuarios WHERE usuarioID = ?"; 
 $stmt = $conn->prepare($sql); 
 $stmt->bind_param("i", $id); 
 $stmt->execute(); 
