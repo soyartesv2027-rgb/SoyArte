@@ -53,14 +53,14 @@
         </li>
 
         <li class="mb-2">
-            <a href="Manualidaddes.php" class="nav-link link-dark">
+            <a href="M#" class="nav-link link-dark">
                 <i class="fa-solid fa-cube" style="color: rgb(0, 0, 0);"></i>
                 Manualidades
             </a>
         </li>
-         <li class="mb-2">
+        <li class="mb-2">
             <a href="Mnualidaddes.php" class="nav-link link-dark">
-               <i class="fa-solid fa-vr-cardboard" style="color: rgb(0, 0, 0);"></i>
+                <i class="fa-solid fa-vr-cardboard" style="color: rgb(0, 0, 0);"></i>
                 Realidad Virtual
             </a>
         </li>
@@ -79,9 +79,9 @@
     <div class="dropdown">
 
         <a href="#"
-           class="d-flex align-items-center text-decoration-none dropdown-toggle"
-           data-bs-toggle="dropdown"
-           aria-expanded="false">
+            class="d-flex align-items-center text-decoration-none dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
 
             <img 
                 src=""

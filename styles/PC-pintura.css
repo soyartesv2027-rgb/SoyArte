@@ -6,17 +6,12 @@
 
 body{
     overflow:hidden;
-    background:
-    linear-gradient(
-        135deg,
-        #fff7ed,
-        #fde68a,
-        #fecaca
-    );
+    background:#ffffff;
+    opacity:1;
 }
 
 canvas{
-    display:block;
     width:100vw;
     height:100vh;
+    display:block;
 }
