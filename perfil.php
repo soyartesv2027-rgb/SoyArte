@@ -31,8 +31,7 @@ $usuario = $resultado->fetch_assoc();
         <p><strong>Nombre:</strong> <?php echo $usuario['nombre']; ?></p> 
         <p><strong>Correo:</strong> <?php echo $usuario['correo']; ?></p>         
         <p><strong>Rol:</strong> <?php echo $usuario['rol']; ?></p> 
-        <label for="biografia">Biografía:</label>
-        <input type="text <?php echo $usuario['biografia']; ?>> 
+        <textarea name="biografia" id="biografia"><?php echo $usuario['biografia']; ?></textarea>
         <a href="index.php" class="btn btn-secondary mt-3">Volver</a> 
     </div> 
  
