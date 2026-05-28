@@ -1,11 +1,12 @@
-body{
-    background-image: url(../img/ChatGPT\ Image\ 22\ abr\ 2026\,\ 08_35_02\ p.m..png);
-    background-size: cover;      /* Cubre todo el espacio */
-    background-position: center; /* Centra la imagen */
-    background-repeat: no-repeat;
-    min-height: 100vh;
+body {
     margin: 0;
+    height: 100vh;
+    background-image: url("../img/Designer.png"); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
+
 
 .form{
     background-color: rgb(255, 255, 255);
