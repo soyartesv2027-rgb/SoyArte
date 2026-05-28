@@ -59,13 +59,13 @@
             </a>
         </li>
         <li class="mb-2">
-            <a href="Mnualidaddes.php" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-realidad.html" class="nav-link link-dark">
                 <i class="fa-solid fa-vr-cardboard" style="color: rgb(0, 0, 0);"></i>
                 Realidad Virtual
             </a>
         </li>
             <li class="mb-2">
-            <a href="Mnualidaddes.php" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-shop.html" class="nav-link link-dark">
             <i class="fa-solid fa-cart-shopping" style="color: rgb(0, 0, 0);"></i>
                 Tienda
             </a>
