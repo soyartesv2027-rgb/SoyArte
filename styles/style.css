@@ -1,0 +1,85 @@
+body {
+    background-color: #e9ecef !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333333;
+}
+
+h2 {
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: #212529;
+    text-transform: uppercase;
+}
+
+.card {
+    border: none !important;
+    border-radius: 15px !important;
+    overflow: hidden;
+    background-color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.card-img-top {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.card-body {
+    padding: 1.5rem !important;
+}
+
+.card-title {
+    font-weight: 600;
+    color: #2b2d42;
+}
+
+.card-text {
+    font-style: italic;
+    color: #4a4e69;
+    line-height: 1.6;
+}
+
+/* Botones Rosa Estilo Soy Arte */
+.btn-pink {
+    background-color: #d896b7 !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 25px !important;
+    padding: 8px 20px !important;
+    font-weight: 500;
+}
+
+.btn-pink:hover {
+    background-color: #c782a4 !important;
+}
+
+.btn-outline-pink {
+    border: 2px solid #d896b7 !important;
+    color: #d896b7 !important;
+    background: transparent !important;
+    border-radius: 25px !important;
+    font-weight: 500;
+}
+
+.btn-outline-pink:hover {
+    background-color: #d896b7 !important;
+    color: #ffffff !important;
+}
+
+.navbar {
+    background-color: #212529 !important;
+}
+
+.form-control {
+    border: 1px solid #ced4da !important;
+    border-radius: 10px !important;
+}
+
+.form-control:focus {
+    border-color: #d896b7 !important;
+    box-shadow: 0 0 0 0.25rem rgba(216, 150, 183, 0.25) !important;
+}
