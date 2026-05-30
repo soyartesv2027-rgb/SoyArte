@@ -1,215 +1,244 @@
-/* =====================
-  Variables y base
-   ===================== */
-:root {
-  --crema:     #FDF6EC;
-  --durazno:   #F2A97E;
-  --terracota: #C96A3A;
-  --cafe:      #7A3B1E;
-  --texto:     #3D1F0D;
-  --gris:      #9E8A7A;
-  --blanco:    #FFFFFF;
-  --radio:     14px;
-  --sombra:    0 4px 24px rgba(120, 60, 20, 0.10);
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+body{
+    background:#f5f7fb;
+    color:#1f2937;
 }
 
-body {
-  background-color: var(--crema);
-  font-family: 'DM Sans', sans-serif;
-  color: var(--texto);
-  min-height: 100vh;
+.container{
+    max-width:1400px;
+    margin:auto;
+    padding:40px;
 }
 
-/* =====================
-  Topbar
-   ===================== */
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 32px;
-  background: var(--blanco);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+/* PERFIL */
+
+.perfil-card{
+    background:white;
+    border-radius:25px;
+    padding:40px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    margin-bottom:40px;
 }
 
-.logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
-  color: var(--terracota);
-  font-weight: 700;
+.perfil-header{
+    display:flex;
+    align-items:center;
+    gap:30px;
+    flex-wrap:wrap;
 }
 
-.btn-salir {
-  font-size: 0.85rem;
-  color: var(--gris);
-  text-decoration: none;
-  border: 1px solid #ddd;
-  padding: 6px 14px;
-  border-radius: 20px;
-  transition: all 0.2s;
+.foto-perfil img{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid white;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
 
-.btn-salir:hover {
-  border-color: var(--terracota);
-  color: var(--terracota);
+.avatar-default{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:4rem;
+    background:linear-gradient(135deg,#C96A3A,#f4a261);
+    color:white;
 }
 
-/* =====================
-  Tarjeta principal
-   ===================== */
-.page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 60px;
+.info-usuario h1{
+    font-size:2.2rem;
+    margin-bottom:8px;
 }
 
-.card {
-  background: var(--blanco);
-  border-radius: var(--radio);
-  box-shadow: var(--sombra);
-  padding: 40px 36px;
-  width: 100%;
-  max-width: 520px;
-  margin-top: 40px;
+.info-usuario p{
+    color:#6b7280;
+    margin-bottom:12px;
 }
 
-/* =====================
-  Avatar y nombre
-   ===================== */
-.avatar-area {
-  text-align: center;
-  margin-bottom: 32px;
+.rol{
+    background:#fff3e9;
+    color:#C96A3A;
+    padding:8px 15px;
+    border-radius:999px;
+    font-weight:600;
 }
 
-.avatar {
-  width: 80px;
-  height: 80px;
-  background: var(--crema);
-  border: 3px solid var(--durazno);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  margin: 0 auto 14px;
+/* ESTADISTICAS */
+
+.estadisticas{
+    margin-top:35px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
 }
 
-.avatar-area h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  color: var(--cafe);
+.stat{
+    background:#fafafa;
+    border-radius:15px;
+    padding:20px;
+    text-align:center;
 }
 
-.subtitulo {
-  color: var(--gris);
-  font-size: 0.9rem;
-  margin-top: 4px;
+.stat h2{
+    color:#C96A3A;
+    margin-bottom:5px;
 }
 
-/* =====================
-  Formulario
-   ===================== */
-.grupo {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 18px;
+.stat span{
+    color:#6b7280;
 }
 
-label {
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--terracota);
-  margin-bottom: 6px;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+/* BIO */
+
+.biografia{
+    margin-top:35px;
 }
 
-input, textarea {
-  border: 1.5px solid #E8D8CC;
-  border-radius: 10px;
-  padding: 10px 14px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.95rem;
-  color: var(--texto);
-  background: var(--crema);
-  transition: border 0.2s;
-  resize: none;
-  outline: none;
+.biografia h3{
+    margin-bottom:15px;
 }
 
-input:focus, textarea:focus {
-  border-color: var(--durazno);
-  background: var(--blanco);
+.biografia textarea{
+    width:100%;
+    min-height:120px;
+    border:none;
+    background:#fafafa;
+    padding:20px;
+    border-radius:15px;
+    resize:none;
 }
 
-.divisor {
-  border: none;
-  border-top: 1.5px dashed #E8D8CC;
-  margin: 24px 0 16px;
+.btn-volver{
+    display:inline-block;
+    margin-top:20px;
+    text-decoration:none;
+    background:#C96A3A;
+    color:white;
+    padding:12px 20px;
+    border-radius:10px;
 }
 
-.nota {
-  font-size: 0.82rem;
-  color: var(--gris);
-  margin-bottom: 16px;
+.btn-volver:hover{
+    background:#a9542d;
 }
 
-/* =====================
-  Botón guardar
-   ===================== */
-.btn-guardar {
-  width: 100%;
-  padding: 13px;
-  background: var(--terracota);
-  color: var(--blanco);
-  border: none;
-  border-radius: 10px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  margin-top: 8px;
-  transition: background 0.2s, transform 0.1s;
+/* OBRAS */
+
+.mis-obras h2{
+    margin-bottom:25px;
 }
 
-.btn-guardar:hover {
-  background: var(--cafe);
+.contenedor-obras{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    gap:25px;
 }
 
-.btn-guardar:active {
-  transform: scale(0.98);
+.card-obra{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    transition:.3s;
 }
 
-/* =====================
-  Mensajes
-   ===================== */
-.mensaje {
-  padding: 12px 16px;
-  border-radius: 10px;
-  font-size: 0.9rem;
-  margin-bottom: 20px;
-  text-align: center;
+.card-obra:hover{
+    transform:translateY(-5px);
 }
 
-.mensaje.exito {
-  background: #FFF0E6;
-  color: var(--terracota);
-  border: 1px solid var(--durazno);
+.card-obra img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
 }
 
-.mensaje.error {
-  background: #FDE8E8;
-  color: #B03030;
-  border: 1px solid #F5B8B8;
+.info-obra{
+    padding:18px;
 }
 
-.oculto {
-  display: none;
+.info-obra h3{
+    margin-bottom:10px;
+}
+
+.precio{
+    color:#C96A3A;
+    font-weight:bold;
+    font-size:1.2rem;
+    margin-bottom:15px;
+}
+
+.acciones-obra{
+    display:flex;
+    gap:10px;
+}
+
+.acciones-obra a{
+    flex:1;
+    text-align:center;
+    text-decoration:none;
+    color:white;
+    padding:10px;
+    border-radius:10px;
+}
+
+.btn-ver{
+    background:#2563eb;
+}
+
+.btn-eliminar{
+    background:#dc2626;
+}
+
+@media(max-width:768px){
+
+    .container{
+        padding:20px;
+    }
+
+    .perfil-header{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .estadisticas{
+        grid-template-columns:1fr;
+    }
+}
+
+.form-foto{
+    margin-top:20px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.form-foto input[type="file"]{
+    flex:1;
+    padding:10px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    background:white;
+}
+
+.form-foto button{
+    background:#C96A3A;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.form-foto button:hover{
+    background:#a9542d;
 }
