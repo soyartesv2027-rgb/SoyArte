@@ -13,7 +13,7 @@
 <div id="sidebar" class="d-flex flex-column flex-shrink-0 p-3">
 
     <!-- TITULO -->
-    <a href="../index.php" class="d-flex align-items-center mb-3 text-decoration-none">
+    <a href="index.php" class="d-flex align-items-center mb-3 text-decoration-none">
         <span class="fs-4 text-dark fw-bold">
             Soy Arte
         </span>
@@ -25,47 +25,47 @@
     <ul class="nav nav-pills flex-column mb-auto">
 
         <li class="nav-item mb-2">
-            <a href="../index.php" class="nav-link active">
+            <a href="index.php" class="nav-link active">
                 <i class="fa-solid fa-house me-2"></i>
                 Inicio
             </a>
         </li>
 
         <li class="mb-2">
-            <a href="../Pantalla-de-carga/PC-pintura.html" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-pintura.html" class="nav-link link-dark">
                 <i class="fa-solid fa-image me-2"></i>
                 Pinturas
             </a>
         </li>
 
         <li class="mb-2">
-            <a href="../Pantalla-de-carga/PC-musica.html" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-musica.html" class="nav-link link-dark">
                 <i class="fa-solid fa-music" style="color: rgb(0, 0, 0);"></i>
                 Musica
             </a>
         </li>
 
         <li class="mb-2">
-            <a href="../Pantalla-de-carga/PC-poesia.html" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-poesia.html" class="nav-link link-dark">
                 <i class="fa-solid fa-feather-pointed" style="color: rgb(0, 0, 0);"></i>
                 Poesia
             </a>
         </li>
 
         <li class="mb-2">
-            <a href="../Pantalla-de-carga/PC-manualidades.html" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-manualidades.html" class="nav-link link-dark">
                 <i class="fa-solid fa-cube" style="color: rgb(0, 0, 0);"></i>
                 Manualidades
             </a>
         </li>
         <li class="mb-2">
-            <a href="../Pantalla-de-carga/PC-realidad.html" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-realidad.html" class="nav-link link-dark">
                 <i class="fa-solid fa-vr-cardboard" style="color: rgb(0, 0, 0);"></i>
                 Realidad Virtual
             </a>
         </li>
             <li class="mb-2">
-            <a href="../Pantalla-de-carga/PC-shop.html" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-shop.html" class="nav-link link-dark">
             <i class="fa-solid fa-cart-shopping" style="color: rgb(0, 0, 0);"></i>
                 Tienda
             </a>
@@ -99,13 +99,13 @@
         <ul class="dropdown-menu text-small shadow">
 
             <li>
-                <a class="dropdown-item" href="../php/perfil.php">
+                <a class="dropdown-item" href="perfil.php">
                     Perfil
                 </a>
             </li>
 
             <li>
-                <a class="dropdown-item" href="../configuracion.php">
+                <a class="dropdown-item" href="configuracion.php">
                     Configuración
                 </a>
             </li>
@@ -115,7 +115,7 @@
             </li>
 
             <li>
-                <a class="dropdown-item text-danger" href="../php-conexion/logout.php">
+                <a class="dropdown-item text-danger" href="logout,php">
                     Cerrar sesión
                 </a>
             </li>
@@ -145,12 +145,12 @@
 
         <!-- LOGO -->
         <a class="navbar-brand d-flex align-items-center gap-2 fw-bold"
-            href="../index.php">
+            href="index.php">
 
             Soy Arte
 
             <img
-                src="../images/Arty.png"
+                src="images/Arty.png"
                 alt="Arty"
                 width="40"
                 height="40"
@@ -178,25 +178,25 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../php/galeria.php">
+                    <a class="nav-link" href="galeria.php">
                         Galería
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../php/artistas.php">
+                    <a class="nav-link" href="artistas.php">
                         Artistas
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../php/talleres.php">
+                    <a class="nav-link" href="talleres.php">
                         Talleres
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="../php/contacto.php">
+                    <a class="nav-link" href="contacto.php">
                         Contacto
                     </a>
                 </li>
@@ -226,7 +226,7 @@
                         <ul class="dropdown-menu dropdown-menu-end shadow-sm">
 
                             <li>
-                                <a class="dropdown-item" href="../php/perfil.php">
+                                <a class="dropdown-item" href="perfil.php">
                                     <i class="fa-solid fa-id-card me-2"></i>
                                     Perfil
                                 </a>
@@ -238,7 +238,7 @@
 
                             <li>
                                 <a class="dropdown-item text-danger"
-                                    href="../php-conexion/logout.php">
+                                    href="php/logout.php">
 
                                     <i class="fa-solid fa-right-from-bracket me-2"></i>
                                     Cerrar sesión
@@ -254,14 +254,14 @@
 
                     <!-- SIN SESION -->
                     <a class="btn btn-outline-primary me-2"
-                        href="../html/login.html">
+                        href="login.html">
 
                         Login
 
                     </a>
 
                     <a class="btn btn-primary"
-                        href="../html/register.html">
+                        href="register.html">
 
                         Registrarse
 

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../php-conexion/conexion.php';
+require_once 'php/conexion.php';
 
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: login.html");
@@ -38,7 +38,7 @@ $totalObras = $misObras->num_rows;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil - SoyArte</title>
 
-    <link rel="stylesheet" href="../styles/perfil.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="styles/perfil.css?v=<?php echo time(); ?>">
 </head>
 <body>
 

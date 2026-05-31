@@ -6,7 +6,7 @@
     <title>Realidad Virtual</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../styles/realidad-virtual.css">
+    <link rel="stylesheet" href="styles/realidad-virtual.css">
 
     <!-- Font Awesome -->
     <link rel="stylesheet"

@@ -9,16 +9,16 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SoyArte-Musica</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <link rel="stylesheet" href="../styles/musica.css">
+    <link rel="stylesheet" href="styles/musica.css">
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
 
-  <?php include("../components/navbar.php"); ?>
+    <?php include("components/navbar.php"); ?>
 
     <section class="banner">
-    <img src="../images/banner.jpeg" alt="Banner Image">
+    <img src="images/banner.jpeg" alt="Banner Image">
         <div class="overlay">
             <h2>
                 <i class="fa-solid fa-music"></i>
@@ -92,6 +92,6 @@ session_start();
       }
     });
   </script>
-<script src="../JavaScrip/script.js"></script>
+<script src="JavaScrip/script.js"></script>
 </body>
 </html>

@@ -41,7 +41,7 @@
                     </li>
 
                     <li>
-                        <a href="html/apoyanos.html">
+                        <a href="apoyanos.html">
                             Apóyanos
                         </a>
                     </li>

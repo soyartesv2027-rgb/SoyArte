@@ -8,7 +8,7 @@
     <title>Music Page</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../styles/publicaciones-musica.css">
+    <link rel="stylesheet" href="styles/publicaciones-musica.css">
 
     <!-- FONT AWESOME -->
     <link rel="stylesheet"

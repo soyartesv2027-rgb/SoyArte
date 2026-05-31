@@ -409,6 +409,6 @@ setTimeout(()=>{
 setTimeout(()=>{
 
     window.location.href =
-    "../php/tienda.php";
+    "../tienda.php";
 
 },5000);
