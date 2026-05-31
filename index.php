@@ -16,7 +16,7 @@ session_start();
   
   <!-- El resto de tu index queda exactamente igual -->
   <div class="header text-center my-4">
-    <img src="images/Arty.png" class="arty" alt="Arty Grande">
+    <img src="../images/Arty.png" class="arty" alt="Arty Grande">
     <div class="textos">
       <h1>Soy Arte</h1>
       <h3 class="subtitulo">El arte es la ventana a tu alma</h3>
