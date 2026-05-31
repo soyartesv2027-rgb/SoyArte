@@ -40,7 +40,7 @@ $usuarioActual = $_SESSION['usuario_id'] ?? 0;
         <?php echo htmlspecialchars($producto['nombre']); ?>
     </title>
 
-    <link rel="stylesheet" href="styles/producto.css">
+    <link rel="stylesheet" href="../styles/producto.css">
 
 </head>
 

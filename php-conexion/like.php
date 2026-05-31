@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("php/conexion.php");
+include("conexion.php");
 
 
 if (!isset($_SESSION['usuario_id']) || !isset($_GET['id'])) {

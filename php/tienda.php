@@ -3,7 +3,7 @@ session_start();
 ?>
 
 <?php
-require_once 'php/conexion.php';
+require_once '../php-conexion/conexion.php';
 
 $buscar = $_GET['buscar'] ?? '';
 
@@ -42,14 +42,14 @@ if (!$resultado) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="styles/tienda.css">
+<link rel="stylesheet" href="../styles/tienda.css">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <title>Tienda SoyArte</title>
 </head>
 <body>
 
-<?php include 'components/navbar.php'; ?>
+     <?php include("../components/navbar.php"); ?>
 
 <section class="encabezado-tienda">
 

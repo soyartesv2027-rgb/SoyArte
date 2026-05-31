@@ -13,6 +13,7 @@ session_start();
 </head>
 <body>
   <?php include("components/navbar.php"); ?>
+  
   <!-- El resto de tu index queda exactamente igual -->
   <div class="header text-center my-4">
     <img src="images/Arty.png" class="arty" alt="Arty Grande">

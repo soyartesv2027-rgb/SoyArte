@@ -99,7 +99,7 @@
         <ul class="dropdown-menu text-small shadow">
 
             <li>
-                <a class="dropdown-item" href="perfil.php">
+                <a class="dropdown-item" href="php/perfil.php">
                     Perfil
                 </a>
             </li>
@@ -115,7 +115,7 @@
             </li>
 
             <li>
-                <a class="dropdown-item text-danger" href="logout,php">
+                <a class="dropdown-item text-danger" href="php-conexion/logout.php">
                     Cerrar sesión
                 </a>
             </li>
@@ -226,7 +226,7 @@
                         <ul class="dropdown-menu dropdown-menu-end shadow-sm">
 
                             <li>
-                                <a class="dropdown-item" href="perfil.php">
+                                <a class="dropdown-item" href="php/perfil.php">
                                     <i class="fa-solid fa-id-card me-2"></i>
                                     Perfil
                                 </a>
@@ -238,7 +238,7 @@
 
                             <li>
                                 <a class="dropdown-item text-danger"
-                                    href="php/logout.php">
+                                    href="php-conexion/logout.php">
 
                                     <i class="fa-solid fa-right-from-bracket me-2"></i>
                                     Cerrar sesión
@@ -254,14 +254,14 @@
 
                     <!-- SIN SESION -->
                     <a class="btn btn-outline-primary me-2"
-                        href="login.html">
+                        href="html/login.html">
 
                         Login
 
                     </a>
 
                     <a class="btn btn-primary"
-                        href="register.html">
+                        href="html/register.html">
 
                         Registrarse
 

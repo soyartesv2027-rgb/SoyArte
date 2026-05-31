@@ -164,5 +164,5 @@ setTimeout(()=>{
 },4000);
 
 setTimeout(()=>{
-    window.location.href ="../poesia.php";
+    window.location.href ="../php/poesia.php";
 },5000);

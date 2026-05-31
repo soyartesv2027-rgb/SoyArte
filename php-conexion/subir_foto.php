@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require_once 'php/conexion.php';
+require_once 'conexion.php';
 
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: login.html");

@@ -1,3 +1,4 @@
+
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
@@ -101,5 +102,5 @@ setTimeout(() => {
 
 setTimeout(() => {
     window.location.href =
-    "../Musica.php";
+    "../php/musica.php";
 }, 4000);
