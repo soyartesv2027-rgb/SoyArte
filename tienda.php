@@ -147,6 +147,6 @@ if (!$resultado) {
       }
     });
   </script>
-<script src="JavaScrip/script.js"></script>
+<script src="JavaScript/script.js"></script>
 </body>
 </html>
