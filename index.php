@@ -13,6 +13,7 @@ session_start();
 </head>
 <body>
   <?php include("components/navbar.php"); ?>
+  
   <!-- El resto de tu index queda exactamente igual -->
   <div class="header text-center my-4">
     <img src="images/Arty.png" class="arty" alt="Arty Grande">
@@ -31,7 +32,7 @@ session_start();
         </div>
         <div class="carousel-item">
           <img src="images/musica.jpeg" class="d-block w-100" alt="Música">
-          <div class="carousel-caption"><h5>Música</h5></div>
+          <div src="musica.php" class="carousel-caption"><h5>Música</h5></div>
         </div>
         <div class="carousel-item">
           <img src="images/Poemas.jpeg" class="d-block w-100" alt="Poemas">
@@ -382,6 +383,77 @@ session_start();
 
 </section>
 
+<section class="py-5" id="misionVision">
+
+    <div class="container">
+
+        <!-- TITULO -->
+        <div class="text-center mb-5">
+            <h2 class="fw-bold display-5">
+                Nuestra Misión y Visión
+            </h2>
+
+            <p class="text-muted">
+                Impulsando el talento artístico juvenil de El Salvador
+            </p>
+        </div>
+
+        <!-- CONTENIDO -->
+        <div class="row g-4 justify-content-center">
+
+            <!-- MISION -->
+            <div class="col-md-6">
+
+                <div class="card border-0 shadow-lg h-100 p-4 rounded-4 card-hover">
+
+                    <div class="icon-box mb-4">
+                        <i class="fa-solid fa-paintbrush"></i>
+                    </div>
+
+                    <h3 class="fw-bold mb-3">
+                        Misión
+                    </h3>
+
+                    <p class="text-muted">
+                        Impulsar, apoyar y visibilizar el talento artístico
+                        de jóvenes salvadoreños mediante una plataforma
+                        digital inclusiva donde puedan compartir y difundir
+                        sus obras, como pintura, música, poesía y otras
+                        expresiones creativas, fomentando el arte,
+                        la cultura y nuevas oportunidades de crecimiento.
+                    </p>
+
+                </div>
+            </div>
+
+            <!-- VISION -->
+            <div class="col-md-6">
+
+                <div class="card border-0 shadow-lg h-100 p-4 rounded-4 card-hover">
+
+                    <div class="icon-box mb-4">
+                        <i class="fa-regular fa-lightbulb"></i>
+                    </div>
+
+                    <h3 class="fw-bold mb-3">
+                        Visión
+                    </h3>
+
+                    <p class="text-muted">
+                        Ser la principal plataforma digital de arte juvenil
+                        en El Salvador, reconocida por proyectar el talento
+                        de jóvenes artistas a nivel nacional e internacional,
+                        creando una comunidad creativa que inspire,
+                        conecte y transforme la cultura a través del arte.
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
 
      
   <?php include("components/footer.php"); ?>
@@ -400,6 +472,6 @@ session_start();
       }
     });
   </script>
-  <script src="JavaScrip/script.js"></script>
+  <script src="JavaScript/script.js"></script>
 </body>
 </html>

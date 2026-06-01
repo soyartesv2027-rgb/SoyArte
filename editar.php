@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="poesia.css">
 </head>
 <body class="bg-light p-5">
-    <?php include("componentes/navbar.php"); ?>
+    <?php include("components/navbar.php"); ?>
     
     <div class="container" style="max-width: 600px;">
         <div class="card shadow p-4">
