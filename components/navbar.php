@@ -32,40 +32,40 @@
         </li>
 
         <li class="mb-2">
-            <a href="pinturas.php" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-pintura.html" class="nav-link link-dark">
                 <i class="fa-solid fa-image me-2"></i>
                 Pinturas
             </a>
         </li>
 
         <li class="mb-2">
-            <a href="Musica.php" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-musica.html" class="nav-link link-dark">
                 <i class="fa-solid fa-music" style="color: rgb(0, 0, 0);"></i>
                 Musica
             </a>
         </li>
 
         <li class="mb-2">
-            <a href="poesia.php" class="nav-link link-dark">
-               <i class="fa-solid fa-feather-pointed" style="color: rgb(0, 0, 0);"></i>
+            <a href="Pantalla-de-carga/PC-poesia.html" class="nav-link link-dark">
+                <i class="fa-solid fa-feather-pointed" style="color: rgb(0, 0, 0);"></i>
                 Poesia
             </a>
         </li>
 
         <li class="mb-2">
-            <a href="Manualidaddes.php" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-manualidades.html" class="nav-link link-dark">
                 <i class="fa-solid fa-cube" style="color: rgb(0, 0, 0);"></i>
                 Manualidades
             </a>
         </li>
-         <li class="mb-2">
-            <a href="Mnualidaddes.php" class="nav-link link-dark">
-               <i class="fa-solid fa-vr-cardboard" style="color: rgb(0, 0, 0);"></i>
+        <li class="mb-2">
+            <a href="Pantalla-de-carga/PC-realidad.html" class="nav-link link-dark">
+                <i class="fa-solid fa-vr-cardboard" style="color: rgb(0, 0, 0);"></i>
                 Realidad Virtual
             </a>
         </li>
             <li class="mb-2">
-            <a href="Mnualidaddes.php" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-shop.html" class="nav-link link-dark">
             <i class="fa-solid fa-cart-shopping" style="color: rgb(0, 0, 0);"></i>
                 Tienda
             </a>
@@ -79,9 +79,9 @@
     <div class="dropdown">
 
         <a href="#"
-           class="d-flex align-items-center text-decoration-none dropdown-toggle"
-           data-bs-toggle="dropdown"
-           aria-expanded="false">
+            class="d-flex align-items-center text-decoration-none dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
 
             <img 
                 src=""
@@ -145,7 +145,7 @@
 
         <!-- LOGO -->
         <a class="navbar-brand d-flex align-items-center gap-2 fw-bold"
-           href="index.php">
+            href="index.php">
 
             Soy Arte
 
@@ -212,10 +212,10 @@
                     <div class="dropdown">
 
                         <a class="btn btn-secondary dropdown-toggle d-flex align-items-center gap-2"
-                           href="#"
-                           role="button"
-                           data-bs-toggle="dropdown"
-                           aria-expanded="false">
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
 
                             <i class="fa-solid fa-circle-user"></i>
 
@@ -238,7 +238,7 @@
 
                             <li>
                                 <a class="dropdown-item text-danger"
-                                   href="php/logout.php">
+                                    href="php/logout.php">
 
                                     <i class="fa-solid fa-right-from-bracket me-2"></i>
                                     Cerrar sesión
@@ -254,14 +254,14 @@
 
                     <!-- SIN SESION -->
                     <a class="btn btn-outline-primary me-2"
-                       href="login.html">
+                        href="login.html">
 
                         Login
 
                     </a>
 
                     <a class="btn btn-primary"
-                       href="register.html">
+                        href="register.html">
 
                         Registrarse
 

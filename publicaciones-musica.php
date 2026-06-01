@@ -16,7 +16,7 @@
 </head>
 
 <body>
-
+    <canvas id="canvas"></canvas>
     <!-- CONTENEDOR PRINCIPAL -->
     <div class="app">
 
@@ -97,7 +97,7 @@
         </main>
 
     </div>
-
+    
 </body>
 
 </html>
