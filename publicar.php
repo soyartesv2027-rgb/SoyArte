@@ -15,7 +15,7 @@ if (!isset($_SESSION['usuario_id'])) {
 </head>
 <body class="bg-light">
     
-    <?php include("componentes/navbar.php"); ?>
+    <?php include("components/navbar.php"); ?>
 
     <div class="container mt-5" style="max-width: 600px;">
         <div class="card shadow p-4">
