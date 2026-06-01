@@ -1,11 +1,11 @@
 <?php
 session_start();
-include("php/conexion.php");
+include("php/conexion.php"); //
 
 // Si no hay sesión, usuario_actual será 0
 $usuario_actual = $_SESSION['usuario_id'] ?? 0;
 
-// Carga las obras
+// Carga las obras conectando con la tabla usuarios
 $sql = "SELECT o.*, u.nombre AS autor,
         (SELECT COUNT(*) FROM likes WHERE obra_id = o.id) AS total_likes,
         (SELECT COUNT(*) FROM likes WHERE obra_id = o.id AND usuario_id = ?) AS dio_like
@@ -25,58 +25,61 @@ $resultado = $stmt->get_result();
     <title>Soy Arte - Poesías</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="poesia.css">
-</head>
+    <link rel="stylesheet" href="poesia.css"> </head>
 <body class="bg-light">
 
-    <?php include("components/navbar.php"); ?>
-
-    <div class="container">
-        <h2 class="text-center mb-4">- Galería de Poesías -</h2>
+    <?php include("componentes/nav.php"); ?> <div class="container mt-4">
+        <div class="text-center p-4 bg-white shadow-sm rounded mb-4">
+            <h1 class="display-6 fw-bold text-dark"><i class="fa-solid fa-book-open"></i> Poesía</h1>
+            <p class="fst-italic text-muted">"Todo lo que se puede imaginar es real, si tienes el valor de perseguirlo con la mirada del alma."</p>
+            <span class="small text-secondary d-block text-end">- Dante Alighieri</span>
+        </div>
         
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-8">
+                <div class="input-group">
+                    <span class="input-group-text bg-white border-end-0"><i class="fa-solid fa-magnifying-glass text-muted"></i></span>
+                    <input type="text" class="form-control border-start-0 py-2 rounded-end" placeholder="Buscar">
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <?php while ($obra = $resultado->fetch_assoc()): ?>
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card h-100 shadow-sm">
+                <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="card h-100 shadow-sm border-1 text-center p-2" style="border-radius: 12px;">
                         
                         <?php if (!empty($obra['imagen'])): ?>
-                            <img src="data:image/jpeg;base64,<?php echo base64_encode($obra['imagen']); ?>" class="card-img-top" style="height: 250px; object-fit: cover;">
+                            <img src="data:image/jpeg;base64,<?php echo base64_encode($obra['imagen']); ?>" class="card-img-top border rounded" style="height: 200px; object-fit: cover;">
                         <?php else: ?>
-                            <div class="bg-secondary text-white text-center py-5" style="height: 250px;">Sin ilustración</div>
+                            <div class="d-flex align-items-center justify-content-center border rounded" style="height: 200px; background-color: #f3eade; color: #555; font-weight: bold;">Foto</div>
                         <?php endif; ?>
 
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title"><?php echo htmlspecialchars($obra['titulo']); ?></h5>
-                            <p class="text-muted small">Por: <?php echo htmlspecialchars($obra['autor']); ?></p>
-                            <p class="card-text flex-grow-1" style="white-space: pre-line;"><?php echo htmlspecialchars($obra['poema']); ?></p>
+                        <div class="card-body d-flex flex-column p-2">
+                            <h6 class="card-title fw-normal mb-1 text-truncate"><?php echo htmlspecialchars($obra['titulo']); ?></h6>
+                            <p class="text-muted small mb-2"><?php echo htmlspecialchars($obra['autor']); ?></p>
                             
-                            <hr>
-                            
-                            <div class="d-flex justify-content-between align-items-center mt-auto">
-                                <a href="like.php?id=<?php echo $obra['id']; ?>" class="btn <?php echo $obra['dio_like'] > 0 ? 'btn-pink' : 'btn-outline-pink'; ?> btn-sm">
-                                    <i class="fa-<?php echo $obra['dio_like'] > 0 ? 'solid' : 'regular'; ?> fa-heart"></i> 
-                                    <?php if (isset($_SESSION['usuario_id'])): ?>
-                                        <a href="like.php?id=<?php echo $obra['id']; ?>"
-                                        class="btn <?php echo $obra['dio_like'] > 0 ? 'btn-pink' : 'btn-outline-pink'; ?> btn-sm">
-                                            <i class="fa-<?php echo $obra['dio_like'] > 0 ? 'solid' : 'regular'; ?> fa-heart"></i>
-                                            <?php echo $obra['total_likes']; ?> Me gusta
-                                        </a>
-                                        <?php else: ?>
-                                        <button class="btn btn-outline-secondary btn-sm" disabled>
-                                            <i class="fa-regular fa-heart"></i>
-                                            <?php echo $obra['total_likes']; ?> Me gusta
-                                        </button>
-                                    <?php endif; ?>
+                            <div class="mt-auto">
+                                <a href="detalle.php?id=<?php echo $obra['id']; ?>" class="btn w-100 fw-bold py-1" style="background-color: #e8b4b8; color: #4a3b32; border-radius: 20px; font-size: 0.9rem;">
+                                    Más información
                                 </a>
+                            </div>
 
-                                <?php if ($obra['usuario_id'] == $usuario_actual): ?>
+                            <div class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top">
+                                <?php if ($usuario_actual > 0): ?>
+                                    <a href="like.php?id=<?php echo $obra['id']; ?>" class="text-decoration-none <?php echo $obra['dio_like'] > 0 ? 'text-danger' : 'text-muted'; ?>" style="font-size: 0.85rem;">
+                                        <i class="fa-<?php echo $obra['dio_like'] > 0 ? 'solid' : 'regular'; ?> fa-heart"></i> <?php echo $obra['total_likes']; ?>
+                                    </a>
+                                <?php else: ?>
+                                    <span class="text-muted" style="font-size: 0.85rem;">
+                                        <i class="fa-regular fa-heart"></i> <?php echo $obra['total_likes']; ?>
+                                    </span>
+                                <?php endif; ?>
+
+                                <?php if ($obra['usuario_id'] == $usuario_actual && $usuario_actual > 0): ?>
                                     <div>
-                                        <a href="editar.php?id=<?php echo $obra['id']; ?>" class="btn btn-warning btn-sm text-white">
-                                            <i class="fa-solid fa-pen"></i>
-                                        </a>
-                                        <a href="eliminar-poesia.php?id=<?php echo $obra['id']; ?>" onclick="return confirm('¿Seguro que deseas eliminar tu poema?');" class="btn btn-danger btn-sm">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </a>
+                                        <a href="editar.php?id=<?php echo $obra['id']; ?>" class="text-warning me-2"><i class="fa-solid fa-pen"></i></a>
+                                        <a href="eliminar-poesia.php?id=<?php echo $obra['id']; ?>" onclick="return confirm('¿Seguro que deseas eliminar tu poema?');" class="text-danger"><i class="fa-solid fa-trash"></i></a>
                                     </div>
                                 <?php endif; ?>
                             </div>
@@ -88,20 +91,12 @@ $resultado = $stmt->get_result();
         </div>
     </div>
 
+    <?php if ($usuario_actual > 0): ?>
+        <a href="publicar.php" class="d-flex align-items-center justify-content-center shadow-lg text-white" style="position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; background-color: #ff99cc; border-radius: 50%; text-decoration: none; font-size: 1.5rem; z-index: 1000;">
+            <i class="fa-solid fa-plus"></i>
+        </a>
+    <?php endif; ?>
 
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    window.addEventListener("scroll", () => {
-      const section = document.querySelector(".info-soyarte");
-      if (section) {
-        const position = section.getBoundingClientRect().top;
-        const screen = window.innerHeight;
-        if (position < screen - 100) {
-          section.classList.add("visible");
-        }
-      }
-    });
-  </script>
-<script src="JavaScript/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,45 +1,26 @@
 <?php
 session_start();
-include("php/conexion.php");
+include("php/conexion.php"); //
 
-if (!isset($_SESSION['usuario_id']) || !isset($_GET['id'])) {
-    header("Location: poesia.php");
+// SEGURIDAD: Si no está logueado, afuera
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: index.php");
     exit();
 }
 
-$id = $_GET['id'];
 $usuario_actual = $_SESSION['usuario_id'];
+$id_obra = $_GET['id'] ?? 0;
 
-// Busca la obra validando que pertenezca al usuario logueado
+// Traer la obra actual para rellenar los cuadros
 $sql = "SELECT * FROM obras WHERE id = ? AND usuario_id = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ii", $id, $usuario_actual);
+$stmt->bind_param("ii", $id_obra, $usuario_actual);
 $stmt->execute();
-$obra = $stmt->get_result()->fetch_assoc();
+$resultado = $stmt->get_result();
+$obra = $resultado->fetch_assoc();
 
+// Si la obra no existe o no le pertenece, lo saca al muro
 if (!$obra) {
-    header("Location: poesia.php");
-    exit();
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $titulo = $_POST['titulo'];
-    $poema = $_POST['poema'];
-
-    if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] == 0) {
-        $contenidoImagen = file_get_contents($_FILES['imagen']['tmp_name']);
-        $sqlUp = "UPDATE obras SET titulo = ?, poema = ?, imagen = ? WHERE id = ?";
-        $stmtUp = $conn->prepare($sqlUp);
-        $null = null;
-        $stmtUp->bind_param("ssbi", $titulo, $poema, $null, $id);
-        $stmtUp->send_long_data(2, $contenidoImagen);
-    } else {
-        $sqlUp = "UPDATE obras SET titulo = ?, poema = ? WHERE id = ?";
-        $stmtUp = $conn->prepare($sqlUp);
-        $stmtUp->bind_param("ssi", $titulo, $poema, $id);
-    }
-
-    $stmtUp->execute();
     header("Location: poesia.php");
     exit();
 }
@@ -48,33 +29,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Editar Obra</title>
+    <title>Soy Arte - Editar Obra</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="poesia.css">
-</head>
-<body class="bg-light p-5">
-    <?php include("components/navbar.php"); ?>
-    
-    <div class="container" style="max-width: 600px;">
-        <div class="card shadow p-4">
-            <h3>Editar tu Obra</h3>
-            <form action="" method="POST" enctype="multipart/form-data">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/style.css"> </head>
+<body class="bg-light"> <?php include("componentes/nav.php"); ?> <div class="container mt-5" style="max-width: 600px;">
+        <div class="card shadow p-4 border-0" style="border-radius: 15px;">
+            <h3 class="text-center mb-4 text-dark"><i class="fa-solid fa-pen-to-square"></i> Editar tu Obra</h3>
+            
+            <form action="procesar_actualizacion.php" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<?php echo $obra['id']; ?>">
+
                 <div class="mb-3">
-                    <label class="form-label">Título</label>
+                    <label class="form-label fw-bold">Título</label>
                     <input type="text" name="titulo" class="form-control" value="<?php echo htmlspecialchars($obra['titulo']); ?>" required>
                 </div>
+                
                 <div class="mb-3">
-                    <label class="form-label">Poema</label>
+                    <label class="form-label fw-bold">Poema</label>
                     <textarea name="poema" class="form-control" rows="6" required><?php echo htmlspecialchars($obra['poema']); ?></textarea>
                 </div>
+                
                 <div class="mb-3">
-                    <label class="form-label">Cambiar ilustración (Opcional)</label>
+                    <label class="form-label fw-bold">Cambiar ilustración (Opcional)</label>
                     <input type="file" name="imagen" class="form-control" accept="image/*">
                 </div>
-                <button type="submit" class="btn btn-pink text-white">Guardar Cambios</button>
-                <a href="poesia.php" class="btn btn-secondary">Cancelar</a>
+                
+                <div class="d-flex gap-2 justify-content-end mt-4">
+                    <a href="poesia.php" class="btn btn-secondary px-4" style="border-radius: 20px;">Cancelar</a>
+                    <button type="submit" class="btn text-white px-4" style="background-color: #e8b4b8; border-radius: 20px;">Guardar Cambios</button>
+                </div>
             </form>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
