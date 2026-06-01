@@ -2,19 +2,15 @@
 session_start();
 include("php/conexion.php");
 
-if (!isset($_SESSION['usuario_id'])) {
-    header("Location: index.php");
-    exit();
-}
+// Si no hay sesión, usuario_actual será 0
+$usuario_actual = $_SESSION['usuario_id'] ?? 0;
 
-$usuario_actual = $_SESSION['usuario_id'];
-
-// Carga las obras, sus autores, cuenta los likes y mira si el usuario actual le dio like
+// Carga las obras
 $sql = "SELECT o.*, u.nombre AS autor,
         (SELECT COUNT(*) FROM likes WHERE obra_id = o.id) AS total_likes,
         (SELECT COUNT(*) FROM likes WHERE obra_id = o.id AND usuario_id = ?) AS dio_like
-        FROM obras o 
-        JOIN usuarios u ON o.usuario_id = u.id 
+        FROM obras o
+        JOIN usuarios u ON o.usuario_id = u.id
         ORDER BY o.fecha_publicacion DESC";
 
 $stmt = $conn->prepare($sql);
@@ -59,7 +55,18 @@ $resultado = $stmt->get_result();
                             <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <a href="like.php?id=<?php echo $obra['id']; ?>" class="btn <?php echo $obra['dio_like'] > 0 ? 'btn-pink' : 'btn-outline-pink'; ?> btn-sm">
                                     <i class="fa-<?php echo $obra['dio_like'] > 0 ? 'solid' : 'regular'; ?> fa-heart"></i> 
-                                    <?php echo $obra['total_likes']; ?> Me gusta
+                                    <?php if (isset($_SESSION['usuario_id'])): ?>
+                                        <a href="like.php?id=<?php echo $obra['id']; ?>"
+                                        class="btn <?php echo $obra['dio_like'] > 0 ? 'btn-pink' : 'btn-outline-pink'; ?> btn-sm">
+                                            <i class="fa-<?php echo $obra['dio_like'] > 0 ? 'solid' : 'regular'; ?> fa-heart"></i>
+                                            <?php echo $obra['total_likes']; ?> Me gusta
+                                        </a>
+                                        <?php else: ?>
+                                        <button class="btn btn-outline-secondary btn-sm" disabled>
+                                            <i class="fa-regular fa-heart"></i>
+                                            <?php echo $obra['total_likes']; ?> Me gusta
+                                        </button>
+                                    <?php endif; ?>
                                 </a>
 
                                 <?php if ($obra['usuario_id'] == $usuario_actual): ?>
