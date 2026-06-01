@@ -242,3 +242,11 @@ body{
 .form-foto button:hover{
     background:#a9542d;
 }
+
+.btn-editar{
+    background:#f59e0b;
+}
+
+.btn-editar:hover{
+    background:#d97706;
+}

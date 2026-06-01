@@ -32,7 +32,8 @@ $resultado = $stmt->get_result();
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-light">
-<?php include("componentes/navbar.php"); ?>
+
+    <?php include("components/navbar.php"); ?>
 
     <div class="container">
         <h2 class="text-center mb-4">- Galería de Poesías -</h2>
@@ -79,5 +80,21 @@ $resultado = $stmt->get_result();
             <?php endwhile; ?>
         </div>
     </div>
+
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    window.addEventListener("scroll", () => {
+      const section = document.querySelector(".info-soyarte");
+      if (section) {
+        const position = section.getBoundingClientRect().top;
+        const screen = window.innerHeight;
+        if (position < screen - 100) {
+          section.classList.add("visible");
+        }
+      }
+    });
+  </script>
+<script src="JavaScript/script.js"></script>
 </body>
 </html>

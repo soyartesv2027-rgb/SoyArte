@@ -165,20 +165,27 @@ $totalObras = $misObras->num_rows;
 
                         <div class="acciones-obra">
 
-                            <a
-                                href="producto.php?id=<?php echo $obra['id']; ?>"
-                                class="btn-ver"
-                            >
-                                Ver
-                            </a>
+                        <a
+                            href="producto.php?id=<?php echo $obra['id']; ?>"
+                            class="btn-ver"
+                        >
+                            Ver
+                        </a>
 
-                            <a
-                                href="eliminar_producto.php?id=<?php echo $obra['id']; ?>"
-                                class="btn-eliminar"
-                                onclick="return confirm('¿Eliminar esta obra?');"
-                            >
-                                Eliminar
-                            </a>
+                        <a
+                            href="editar_producto.php?id=<?php echo $obra['id']; ?>"
+                            class="btn-editar"
+                        >
+                            Editar
+                        </a>
+
+                        <a
+                            href="eliminar_producto.php?id=<?php echo $obra['id']; ?>"
+                            class="btn-eliminar"
+                            onclick="return confirm('¿Eliminar esta obra?');"
+                        >
+                            Eliminar
+                        </a>
 
                         </div>
 
