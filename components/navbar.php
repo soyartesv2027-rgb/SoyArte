@@ -175,33 +175,7 @@
         <div class="collapse navbar-collapse" id="navSoyArte">
 
             <!-- LINKS -->
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                <li class="nav-item">
-                    <a class="nav-link" href="galeria.php">
-                        Galería
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="artistas.php">
-                        Artistas
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="talleres.php">
-                        Talleres
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="contacto.php">
-                        Contacto
-                    </a>
-                </li>
-
-            </ul>
+   
 
             <!-- SESION -->
             <div class="ms-auto d-flex align-items-center">
