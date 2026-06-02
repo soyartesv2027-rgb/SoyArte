@@ -1,36 +1,44 @@
-<?php 
-session_start(); 
-include("conexion.php"); 
+<?php
+session_start();
+include("conexion.php");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $correo = $_POST['correo']; 
-    $password = $_POST['password']; 
-    $sql = "SELECT * FROM usuarios WHERE correo = ?"; 
-    $stmt = $conn->prepare($sql); 
-    $stmt->bind_param("s", $correo); 
-    $stmt->execute(); 
-    $resultado = $stmt->get_result(); 
+    $correo = $_POST['correo'];
+    $password = $_POST['password'];
 
-    if ($usuario = $resultado->fetch_assoc()) { 
+    $sql = "SELECT * FROM usuarios WHERE correo = ?";
 
-        if (password_verify($password, $usuario['password'])) { 
-            $_SESSION['usuario_id'] = $usuario['id']; 
-            $_SESSION['nombre'] = $usuario['nombre']; 
-            $_SESSION['rol'] = $usuario['rol']; 
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $correo);
+    $stmt->execute();
 
-            // REDIRECCIONES (IMPORTANTE POR LA CARPETA /php) 
-            if ($usuario['rol'] == 'admin') { 
-                header("Location: ../admin/dashboard.php"); 
-            } else { 
-                header("Location: ../index.php"); 
-            } 
-            exit(); 
-        } else { 
-            echo "Contraseña incorrecta"; 
-        } 
-    } else { 
-        echo "Usuario no encontrado"; 
-    } 
-} 
+    $resultado = $stmt->get_result();
+
+    if ($usuario = $resultado->fetch_assoc()) {
+
+        if (password_verify($password, $usuario['password'])) {
+
+            // Guardar datos de sesión
+            $_SESSION['usuario_id'] = $usuario['id'];
+            $_SESSION['nombre'] = $usuario['nombre'];
+            $_SESSION['rol'] = $usuario['rol'];
+
+            // TODOS van al inicio
+            header("Location: ../index.php");
+            exit();
+
+        } else {
+
+            echo "Contraseña incorrecta";
+
+        }
+
+    } else {
+
+        echo "Usuario no encontrado";
+
+    }
+
+}
 ?>
