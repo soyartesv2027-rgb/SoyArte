@@ -1,0 +1,121 @@
+:root{
+    --crema:#FDF6EC;
+    --durazno:#F2A97E;
+    --terracota:#C96A3A;
+    --cafe:#7A3B1E;
+    --texto:#3D1F0D;
+    --blanco:#FFFFFF;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--crema);
+    font-family:'Segoe UI',sans-serif;
+}
+
+.contenedor{
+    max-width:850px;
+    margin:40px auto;
+    padding:20px;
+}
+
+.card-form{
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+
+.btn-volver{
+    text-decoration:none;
+    color:var(--terracota);
+    font-weight:600;
+}
+
+.card-form h1{
+    text-align:center;
+    margin:20px 0 30px;
+    color:var(--cafe);
+}
+
+.form-musica{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.form-musica label{
+    font-weight:600;
+    color:var(--terracota);
+}
+
+.form-musica input,
+.form-musica textarea{
+
+    padding:14px;
+
+    border:1px solid #ddd;
+
+    border-radius:12px;
+
+    font-size:15px;
+}
+
+.form-musica textarea{
+    min-height:180px;
+    resize:vertical;
+}
+
+.form-musica button{
+
+    background:var(--terracota);
+
+    color:white;
+
+    border:none;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:.3s;
+}
+
+.form-musica button:hover{
+    background:var(--cafe);
+}
+
+.mensaje{
+    background:#eaf7e8;
+    color:#2f6b2f;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+@media(max-width:768px){
+
+    .card-form{
+        padding:25px;
+    }
+
+}
+
+.preview-portada{
+    width:100%;
+    max-width:350px;
+    border-radius:15px;
+    margin:10px auto;
+    display:block;
+    box-shadow:0 4px 15px rgba(0,0,0,.1);
+}

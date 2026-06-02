@@ -174,7 +174,7 @@
         <!-- CONTENIDO NAVBAR -->
         <div class="collapse navbar-collapse" id="navSoyArte">
 
-            <!-- LINKS -->
+ 
    
 
             <!-- SESION -->
