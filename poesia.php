@@ -28,7 +28,8 @@ $resultado = $stmt->get_result();
     <link rel="stylesheet" href="poesia.css"> </head>
 <body class="bg-light">
 
-    <?php include("components/nav.php"); ?> <div class="container mt-4">
+    <?php include("components/navbar.php"); ?> 
+    <div class="container mt-4">
         <div class="text-center p-4 bg-white shadow-sm rounded mb-4">
             <h1 class="display-6 fw-bold text-dark"><i class="fa-solid fa-book-open"></i> Poesía</h1>
             <p class="fst-italic text-muted">"Todo lo que se puede imaginar es real, si tienes el valor de perseguirlo con la mirada del alma."</p>
