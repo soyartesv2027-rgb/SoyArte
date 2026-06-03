@@ -47,6 +47,7 @@ body{
 .overlay{
     position:absolute;
     inset:0;
+
     background:rgba(0,0,0,.35);
 
     display:flex;
@@ -91,8 +92,8 @@ body{
     border-radius:30px;
 
     outline:none;
-
     background:white;
+
     font-size:1rem;
 }
 
@@ -101,59 +102,134 @@ body{
 }
 
 /* =========================
-   GRID
+   GRID MUSICA
 ========================= */
 
 .cards{
-    width:90%;
+
+    width:95%;
     max-width:1300px;
 
     margin:auto;
+
     padding-bottom:100px;
 
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
-}
 
-.card-link{
-    text-decoration:none;
-    color:inherit;
+    grid-template-columns:
+    repeat(auto-fill,minmax(260px,1fr));
+
+    gap:25px;
+
 }
 
 /* =========================
-   TARJETA
+   LINKS
+========================= */
+
+.card-link{
+
+    text-decoration:none;
+    color:inherit;
+
+}
+
+/* =========================
+   CARD
 ========================= */
 
 .card{
-    background:var(--blanco);
 
-    border-radius:18px;
+    background:#c6dff5;
 
-    overflow:hidden;
+    border-radius:15px;
 
-    box-shadow:0 4px 20px rgba(0,0,0,.08);
+    padding:15px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
 
     transition:.3s;
+
+    height:100%;
+
 }
 
 .card:hover{
-    transform:translateY(-6px);
+
+    transform:translateY(-5px);
+
 }
 
+/* =========================
+   IMAGEN
+========================= */
+
 .card-image{
-    height:220px;
+
+    height:140px;
+
+    background:#dce7f1;
+
+    border-radius:20px;
+
     overflow:hidden;
+
+    position:relative;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
 }
 
 .card-image img{
+
     width:100%;
     height:100%;
+
     object-fit:cover;
+
 }
 
+/* =========================
+   BOTON PLAY
+========================= */
+
+.play-btn{
+
+    position:absolute;
+
+    width:60px;
+    height:60px;
+
+    border-radius:50%;
+
+    border:2px solid white;
+
+    background:rgba(255,255,255,.85);
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    transition:.3s;
+
+}
+
+.play-btn:hover{
+
+    transform:scale(1.1);
+
+}
+
+/* =========================
+   CONTENIDO
+========================= */
+
 .card-content{
-    padding:18px;
+
+    margin-top:15px;
+
 }
 
 /* =========================
@@ -161,80 +237,89 @@ body{
 ========================= */
 
 .title-row{
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:flex-start;
+
 }
 
 .title-row h3{
-    color:var(--cafe);
-    font-size:1.15rem;
+
+    font-size:18px;
+
+    color:#222;
+
     margin-bottom:5px;
+
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+
 }
 
 .title-row p{
+
     color:#777;
-    font-size:.95rem;
+
+    font-size:14px;
+
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+
 }
 
 .title-row i{
-    color:var(--terracota);
-    font-size:1.2rem;
+
+    font-size:24px;
+
+    color:#333;
+
 }
 
 /* =========================
-   REPRODUCTOR
+   PLAYER
 ========================= */
 
 .player{
-    margin-top:15px;
+
+    margin-top:12px;
 
     display:flex;
+
     align-items:center;
+
     gap:10px;
+
 }
 
 .player i{
-    color:var(--terracota);
-    font-size:1.2rem;
+
+    font-size:20px;
+
+    color:#333;
+
 }
 
 .player input{
+
     flex:1;
-    accent-color:var(--terracota);
+
 }
 
 .player span{
-    font-size:.85rem;
-    color:#666;
+
+    font-size:14px;
+
+    color:#444;
+
 }
 
 /* =========================
-   BOTON PLAY CENTRAL
-========================= */
-
-.play-btn{
-    width:65px;
-    height:65px;
-
-    border:none;
-    border-radius:50%;
-
-    background:var(--terracota);
-    color:white;
-
-    font-size:1.3rem;
-    cursor:pointer;
-
-    transition:.3s;
-}
-
-.play-btn:hover{
-    background:var(--cafe);
-}
-
-/* =========================
-   BOTON FLOTANTE
+   BOTON PUBLICAR
 ========================= */
 
 .floating-btn{
@@ -262,6 +347,8 @@ body{
     box-shadow:0 6px 20px rgba(0,0,0,.18);
 
     transition:.3s;
+
+    z-index:9999;
 }
 
 .floating-btn:hover{
@@ -270,10 +357,36 @@ body{
 }
 
 /* =========================
+   MENSAJE VACIO
+========================= */
+
+.sin-publicaciones{
+    width:100%;
+    text-align:center;
+
+    padding:50px;
+
+    background:white;
+
+    border-radius:20px;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.sin-publicaciones h3{
+    color:var(--cafe);
+    margin-bottom:10px;
+}
+
+/* =========================
    RESPONSIVE
 ========================= */
 
 @media(max-width:768px){
+
+    .banner{
+        height:250px;
+    }
 
     .overlay h2{
         font-size:2rem;
@@ -289,11 +402,12 @@ body{
 
     .cards{
         width:95%;
-        gap:20px;
+        grid-template-columns:
+        repeat(auto-fill,minmax(160px,1fr));
     }
 
     .card-image{
-        height:180px;
+        height:130px;
     }
 
 }

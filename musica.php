@@ -56,51 +56,71 @@ $resultado = $conn->query($sql);
 
 <?php if($resultado->num_rows > 0): ?>
 
-    <?php while($musica = $resultado->fetch_assoc()): ?>
+   <?php while($musica = $resultado->fetch_assoc()): ?>
 
-        <a
-            href="ver_musica.php?id=<?php echo $musica['musica_id']; ?>"
-            class="card-link tarjeta-musica"
-        >
+<a
+    href="ver_musica.php?id=<?php echo $musica['musica_id']; ?>"
+    class="card-link tarjeta-musica"
+>
 
-            <div class="card">
+    <div class="card">
 
-                <div class="card-image">
+        <div class="card-image">
 
-                    <img
-                        src="uploads/musica/<?php echo htmlspecialchars($musica['portada']); ?>"
-                        alt="<?php echo htmlspecialchars($musica['nombre_cancion']); ?>"
-                    >
+            <img
+                src="uploads/musica/<?php echo htmlspecialchars($musica['portada']); ?>"
+                alt="<?php echo htmlspecialchars($musica['nombre_cancion']); ?>"
+            >
+
+            <button class="play-btn">
+
+                <i class="fa-solid fa-play"></i>
+
+            </button>
+
+        </div>
+
+        <div class="card-content">
+
+            <div class="title-row">
+
+                <div>
+
+                    <h3 class="nombre-cancion">
+
+                        <?php echo htmlspecialchars($musica['nombre_cancion']); ?>
+
+                    </h3>
+
+                    <p class="nombre-cantante">
+
+                        <?php echo htmlspecialchars($musica['nombre_cantante']); ?>
+
+                    </p>
 
                 </div>
 
-                <div class="card-content">
-
-                    <div class="title-row">
-
-                        <div>
-
-                            <h3 class="nombre-cancion">
-                                <?php echo htmlspecialchars($musica['nombre_cancion']); ?>
-                            </h3>
-
-                            <p class="nombre-cantante">
-                                <?php echo htmlspecialchars($musica['nombre_cantante']); ?>
-                            </p>
-
-                        </div>
-
-                        <i class="fa-regular fa-heart"></i>
-
-                    </div>
-
-                </div>
+                <i class="fa-regular fa-heart"></i>
 
             </div>
 
-        </a>
+            <div class="player">
 
-    <?php endwhile; ?>
+                <i class="fa-solid fa-circle-play"></i>
+
+                <input type="range">
+
+                <span>0:00</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</a>
+
+<?php endwhile; ?>
 
 <?php else: ?>
 
