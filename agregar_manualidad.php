@@ -22,7 +22,7 @@
                 <h2>Nueva Manualidad</h2>
             </div>
 
-            <form action="php/agregar_manualidades.php" method="POST" enctype="multipart/form-data">
+            <form action="manualidad.php" method="POST" enctype="multipart/form-data">
 
                 <!-- NOMBRE -->
                 <div class="campo">
@@ -50,7 +50,9 @@
 
                 <!-- BOTÓN -->
                 <button type="submit" class="btn-guardar">
+                    <a href="manualidad.php">
                     <i class="fa-solid fa-plus"></i> Guardar
+                    </a>
                 </button>
 
             </form>

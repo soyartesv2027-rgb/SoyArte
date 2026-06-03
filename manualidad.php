@@ -3,8 +3,6 @@ session_start();
 require_once 'php/conexion.php';
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,7 +53,7 @@ require_once 'php/conexion.php';
  
                 <div class="titulo-banner">
  
-                    <img src="images/image.png">
+                    <img src="">
  
                     <h2>Manualidades</h2>
  
@@ -89,38 +87,6 @@ require_once 'php/conexion.php';
             <i class="fa-solid fa-plus"></i>
         </a>
         </button>
-
-        <section class="cards-m">
-
-<?php while ($fila = mysqli_fetch_assoc($resultado)): ?>
-
-    <div class="card">
-
-        <!-- IMAGEN -->
-        <div class="imagen-card">
-            <img src="<?= $fila['imagen'] ?>" 
-                 style="width:100%; height:180px; object-fit:cover;">
-        </div>
-
-        <!-- CONTENIDO -->
-        <div class="contenido-card">
-
-            <h3><?= $fila['nombre'] ?></h3>
-
-            <div class="autor-favorito">
-                <p><?= $fila['autor'] ?></p>
-                <i class="fa-regular fa-heart"></i>
-            </div>
-
-            <span class="tipo"><?= $fila['descripcion'] ?></span>
-
-        </div>
-
-    </div>
-
-<?php endwhile; ?>
-
-</section>
  
 </body>
 </html>
