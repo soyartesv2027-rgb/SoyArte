@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("php/conexion.php"); //
+include("php/conexion.php"); 
 
 // Si no hay sesión, usuario_actual será 0
 $usuario_actual = $_SESSION['usuario_id'] ?? 0;
@@ -25,14 +25,34 @@ $resultado = $stmt->get_result();
     <title>Soy Arte - Poesías</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
     <link rel="stylesheet" href="style.css">
+=======
+>>>>>>> bf03b9a (actualice)
+>>>>>>> c7012318110b505b1ac1f8c52f2ef10e4334d4ef
     <link rel="stylesheet" href="poesia.css"> 
 </head>
 <body class="bg-light">
 
     <?php include("components/navbar.php"); ?> 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
     <div class="container mt-4">
         <div class="text-center p-4 bg-white shadow-sm rounded mb-4">
+=======
+>>>>>>> c7012318110b505b1ac1f8c52f2ef10e4334d4ef
+
+    <div class="container mt-4">
+        <div class="text-center p-4 bg-white shadow-sm rounded mb-4" 
+             style="background-image: url('img/download.jpg'); background-size: cover; background-position: center;">
+            
+<<<<<<< HEAD
+=======
+>>>>>>> bf03b9a (actualice)
+>>>>>>> c7012318110b505b1ac1f8c52f2ef10e4334d4ef
             <h1 class="display-6 fw-bold text-dark"><i class="fa-solid fa-book-open"></i> Poesía</h1>
             <p class="fst-italic text-muted">"Todo lo que se puede imaginar es real, si tienes el valor de perseguirlo con la mirada del alma."</p>
             <span class="small text-secondary d-block text-end">- Dante Alighieri</span>
@@ -95,8 +115,17 @@ $resultado = $stmt->get_result();
     </div>
 
     <?php if ($usuario_actual > 0): ?>
-        <a href="publicar.php" class="d-flex align-items-center justify-content-center shadow-lg text-white" style="position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; background-color: #ff99cc; border-radius: 50%; text-decoration: none; font-size: 1.5rem; z-index: 1000;">
-            <i class="fa-solid fa-plus"></i>
+        <a href="publicar.php" class="d-flex align-items-center justify-content-center shadow-sm text-dark btn-flotante-pildora" 
+           style="position: fixed; 
+                  bottom: 25px; 
+                  right: 20px; 
+                  width: 110px; 
+                  height: 42px; 
+                  background-color: #fca1f3; 
+                  border-radius: 50px; 
+                  text-decoration: none; 
+                  z-index: 1000;">
+            <i class="fa-regular fa-circle-plus" style="font-size: 1.8rem;"></i>
         </a>
     <?php endif; ?>
 
