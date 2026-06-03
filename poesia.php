@@ -22,22 +22,23 @@ $resultado = $stmt->get_result();
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soy Arte - Poesías</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="poesia.css"> 
+    <link rel="stylesheet" href="styles/poesia.css"> 
 </head>
 <body class="bg-light">
 
     <?php include("components/navbar.php"); ?> 
 
     <div class="container mt-4">
-        <div class="text-center p-4 bg-white shadow-sm rounded mb-4" 
-             style="background-image: url('img/download.jpg'); background-size: cover; background-position: center;">
+        <div class="text-center p-5 rounded mb-4 shadow-sm text-white" 
+             style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('img/download.jpg'); background-size: cover; background-position: center; min-height: 200px;">
             
-            <h1 class="display-6 fw-bold text-dark"><i class="fa-solid fa-book-open"></i> Poesía</h1>
-            <p class="fst-italic text-muted">"Todo lo que se puede imaginar es real, si tienes el valor de perseguirlo con la mirada del alma."</p>
-            <span class="small text-secondary d-block text-end">- Dante Alighieri</span>
+            <h1 class="display-5 fw-bold mb-2"><i class="fa-solid fa-book-open"></i> Poesía</h1>
+            <p class="fst-italic fs-5 mb-1">"Todo lo que se puede imaginar es real, si tienes el valor de perseguirlo con la mirada del alma."</p>
+            <span class="small d-block text-end opacity-75">- Dante Alighieri</span>
         </div>
         
         <div class="row justify-content-center mb-5">
