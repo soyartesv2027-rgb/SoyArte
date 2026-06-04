@@ -1,3 +1,7 @@
+/* =============================================
+   POESIA.CSS — Soy Arte
+   ============================================= */
+
 body {
     background-color: #d8e4f0 !important;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -46,7 +50,7 @@ body {
     color: white !important;
 }
 
-
+/* ---------- CONTENEDOR (buscador y cards) ---------- */
 .muro-poesia-container {
     max-width: 1100px;
     margin: 0 auto;
@@ -54,7 +58,7 @@ body {
     box-sizing: border-box;
 }
 
-
+/* ---------- BUSCADOR ---------- */
 .search-box {
     max-width: 100%;
     margin: 0 auto 28px;
@@ -76,7 +80,7 @@ body {
     gap: 20px;
 }
 
-
+/* ---------- CARD ---------- */
 .card-poesia {
     background: white;
     border-radius: 14px;
@@ -180,7 +184,9 @@ body {
 #overlay.show { display: block; }
 .menu-btn { width: 28px; height: 28px; cursor: pointer; flex-shrink: 0; }
 
-
+/* =============================================
+   DETALLE / PUBLICAR / EDITAR
+   ============================================= */
 .detalle-container,
 .form-obra-container {
     max-width: 600px;
@@ -288,8 +294,7 @@ body {
 .btn-like-detalle:hover,
 .btn-like-detalle.activo { background: #e05070; color: white; }
 
-
-
+/* ---------- RESPONSIVE ---------- */
 @media (max-width: 576px) {
     .grid-poesias { grid-template-columns: repeat(2, 1fr); gap: 14px; }
     .hero-banner h1 { font-size: 1.6rem; }
