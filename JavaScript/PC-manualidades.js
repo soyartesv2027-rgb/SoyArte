@@ -421,6 +421,6 @@ setTimeout(()=>{
 setTimeout(()=>{
 
     window.location.href =
-    "manualidades.php";
+    "../manualidades.php";
 
 },5000);
