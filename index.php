@@ -32,7 +32,9 @@ session_start();
         </div>
         <div class="carousel-item">
           <img src="images/musica.jpeg" class="d-block w-100" alt="Música">
-          <div src="musica.php" class="carousel-caption"><h5>Música</h5></div>
+          <div src="musica.php" class="carousel-caption">
+            <h5>Música</h5>
+        </div>
         </div>
         <div class="carousel-item">
           <img src="images/Poemas.jpeg" class="d-block w-100" alt="Poemas">
@@ -108,7 +110,7 @@ session_start();
 
         <div class="imagen-box">
 
-            <img class="fondo" src="images/fondo.jpg" alt="Arte">
+            <img class="fondo" src="images/Arty.RV.jpeg" alt="Arte">
 
             <div class="floating-card">
 
