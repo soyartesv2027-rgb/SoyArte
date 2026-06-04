@@ -264,14 +264,50 @@ button:hover{
     box-shadow: 0 8px 20px rgba(108,99,255,0.15);
 }
 
+/* PERFIL ARTISTICO */
 
-
-.btn btn-primary{
-    text-decoration: none; /* quita subrayado */
-    color: white; /* texto negro */
+.perfil-artistico{
+    margin-top:35px;
 }
 
-.btn btn-primary:hover {
-    text-decoration: none;
-    color: black;
+.perfil-artistico h3{
+    margin-bottom:20px;
+}
+
+.datos-artista{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.dato-card{
+    background:#fafafa;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.dato-card:hover{
+    transform:translateY(-5px);
+}
+
+.dato-card span{
+    font-size:2rem;
+    display:block;
+    margin-bottom:10px;
+}
+
+.dato-card h4{
+    color:#C96A3A;
+    margin-bottom:8px;
+}
+
+.dato-card p{
+    color:#555;
+    line-height:1.5;
+}
+
+.dato-card.full{
+    grid-column:1 / -1;
 }

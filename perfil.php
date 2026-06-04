@@ -9,10 +9,10 @@ if (!isset($_SESSION['usuario_id'])) {
 
 $id = $_SESSION['usuario_id'];
 
-$sql = "SELECT nombre, correo, rol, biografia, foto_perfil
+$sql = "SELECT *
         FROM usuarios
         WHERE id = ?";
-
+    
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $id);
 $stmt->execute();
@@ -129,6 +129,45 @@ $totalObras = $misObras->num_rows;
                 <h3>Sobre mí</h3>
 
                 <textarea readonly><?php echo htmlspecialchars($usuario['biografia']); ?></textarea>
+
+            </div>
+            <div class="perfil-artistico">
+
+                <h3>🎨 Perfil Artístico</h3>
+
+                <div class="datos-artista">
+
+                    <div class="dato-card">
+                        <span>👤</span>
+                        <h4>Tipo de usuario</h4>
+                        <p><?php echo htmlspecialchars($usuario['tipo_usuario'] ?? 'No especificado'); ?></p>
+                    </div>
+
+                    <div class="dato-card">
+                        <span>🎨</span>
+                        <h4>Intereses</h4>
+                        <p><?php echo htmlspecialchars($usuario['intereses'] ?? 'No especificado'); ?></p>
+                    </div>
+
+                    <div class="dato-card">
+                        <span>🎥</span>
+                        <h4>Formato favorito</h4>
+                        <p><?php echo htmlspecialchars($usuario['tipo_tutorial'] ?? 'No especificado'); ?></p>
+                    </div>
+
+                    <div class="dato-card">
+                        <span>📅</span>
+                        <h4>Frecuencia</h4>
+                        <p><?php echo htmlspecialchars($usuario['frecuencia'] ?? 'No especificado'); ?></p>
+                    </div>
+
+                    <div class="dato-card full">
+                        <span>📚</span>
+                        <h4>Quiero aprender</h4>
+                        <p><?php echo htmlspecialchars($usuario['aprendizaje'] ?? 'No especificado'); ?></p>
+                    </div>
+
+                </div>
 
             </div>
 
