@@ -1,22 +1,16 @@
 <!-- ===== FOOTER ===== -->
 <footer class="footer-soyarte">
-
     <div class="container py-5">
-
         <div class="row gy-4">
-
             <!-- LOGO Y DESCRIPCION -->
             <div class="col-lg-4 col-md-6">
-
                 <h2 class="footer-logo">
                     Soy Arte 🎨
                 </h2>
-
                 <p class="footer-description">
                     Un espacio creado para inspirar, conectar y compartir
                     el talento artístico en todas sus formas.
                 </p>
-
             </div>
 
             <!-- ENLACES -->
