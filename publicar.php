@@ -16,7 +16,6 @@ if (!isset($_SESSION['usuario_id'])) {
 <body class="bg-light">
     
     <?php include("components/navbar.php"); ?>
-
     <div class="container mt-5" style="max-width: 600px;">
         <div class="card shadow p-4">
             <h2 class="text-center mb-4">Nueva Publicación</h2>
