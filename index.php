@@ -14,7 +14,6 @@ session_start();
 <body>
   <?php include("components/navbar.php"); ?>
   
-  <!-- El resto de tu index queda exactamente igual -->
   <div class="header text-center my-4">
     <img src="images/Arty.png" class="arty" alt="Arty Grande">
     <div class="textos">
@@ -27,21 +26,29 @@ session_start();
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="images/pinturas.jpeg" class="d-block w-100" alt="Pinturas">
+          <a href="pintura.php">
+            <img src="images/pinturas.jpeg" class="d-block w-100" alt="Pinturas">
+          </a>
           <div class="carousel-caption"><h5>Pinturas</h5></div>
         </div>
         <div class="carousel-item">
-          <img src="images/musica.jpeg" class="d-block w-100" alt="Música">
-          <div src="musica.php" class="carousel-caption">
+        <a href="musica.php">
+            <img src="images/musica.jpeg" class="d-block w-100" alt="Música">
+        </a>
+         <div src="musica.php" class="carousel-caption">
             <h5>Música</h5>
         </div>
         </div>
         <div class="carousel-item">
-          <img src="images/Poemas.jpeg" class="d-block w-100" alt="Poemas">
-          <div class="carousel-caption"><h5>Poemas</h5></div>
+            <a href="poesia.php">
+                <img src="images/Poemas.jpeg" class="d-block w-100" alt="Poesía">
+            </a>
+            <div class="carousel-caption"><h5>Poemas</h5></div>
         </div>
         <div class="carousel-item">
-          <img src="images/manualidades.jpeg" class="d-block w-100" alt="Manualidades">
+         <a href="manualidad.php">
+            <img src="images/manualidades.jpeg" class="d-block w-100" alt="Manualidades">
+          </a>
           <div class="carousel-caption"><h5>Manualidades</h5></div>
         </div>
       </div>
