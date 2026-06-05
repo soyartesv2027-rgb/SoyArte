@@ -144,9 +144,35 @@ $totalObras = $misObras->num_rows;
                     </div>
 
                     <div class="dato-card">
+
                         <span>🎨</span>
+
                         <h4>Intereses</h4>
-                        <p><?php echo htmlspecialchars($usuario['intereses'] ?? 'No especificado'); ?></p>
+
+                        <div class="intereses-chips">
+
+                            <?php
+
+                            if(!empty($usuario['intereses'])){
+
+                                $intereses = explode(',', $usuario['intereses']);
+
+                                foreach($intereses as $interes){
+
+                                    echo '<span class="chip">'.trim($interes).'</span>';
+
+                                }
+
+                            }else{
+
+                                echo '<span class="chip">No especificado</span>';
+
+                            }
+
+                            ?>
+
+                        </div>
+
                     </div>
 
                     <div class="dato-card">
@@ -219,7 +245,7 @@ $totalObras = $misObras->num_rows;
                             </a>
 
                             <a
-                                href="eliminar_producto.php?id=<?php echo $obra['id']; ?>"
+                                href="php/eliminar_producto.php?id=<?php echo $obra['id']; ?>"
                                 class="btn-eliminar"
                                 onclick="return confirm('¿Eliminar esta obra?');"
                             >
