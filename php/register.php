@@ -1,22 +1,42 @@
-<?php 
-include("conexion.php"); // ← mismo nivel
+<?php
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+session_start();
 
-    $nombre = $_POST['nombre']; 
-    $correo = $_POST['correo']; 
-    $password = password_hash($_POST['contrasena'], PASSWORD_DEFAULT);
+include("conexion.php");
 
-    $sql = "INSERT INTO usuarios (nombre, correo, password, rol) VALUES (?, ?, ?, 'usuario')";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $stmt = $conn->prepare($sql); 
-    $stmt->bind_param("sss", $nombre, $correo, $password);
+    $nombre = $_POST['nombre'];
+    $correo = $_POST['correo'];
 
-    if ($stmt->execute()) { 
-        header("Location: ../login.html");
+    $password = password_hash(
+        $_POST['contrasena'],
+        PASSWORD_DEFAULT
+    );
+
+    $sql = "INSERT INTO usuarios
+    (nombre, correo, password, rol)
+    VALUES (?, ?, ?, 'usuario')";
+
+    $stmt = $conn->prepare($sql);
+
+    $stmt->bind_param(
+        "sss",
+        $nombre,
+        $correo,
+        $password
+    );
+
+    if ($stmt->execute()) {
+
+        $_SESSION['usuario_id'] = $stmt->insert_id;
+
+        header("Location: ../formulario.php");
         exit();
-    } else { 
-        echo "Error al registrar: " . $conn->error;
-    } 
-} 
+
+    } else {
+
+        echo "Error al registrar";
+    }
+}
 ?>

@@ -250,3 +250,83 @@ body{
 .btn-editar:hover{
     background:#d97706;
 }
+
+/* PERFIL ARTISTICO */
+
+.perfil-artistico{
+    margin-top:40px;
+}
+
+.perfil-artistico h3{
+    font-size:1.5rem;
+    margin-bottom:20px;
+}
+
+.datos-artista{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.dato-card{
+    background:linear-gradient(135deg,#ffffff,#f8fafc);
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+    transition:.3s;
+    border:1px solid #eef2f7;
+}
+
+.dato-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(0,0,0,.12);
+}
+
+.dato-card span{
+    font-size:2rem;
+    display:block;
+    margin-bottom:12px;
+}
+
+.dato-card h4{
+    color:#374151;
+    margin-bottom:10px;
+}
+
+.dato-card p{
+    color:#6b7280;
+    line-height:1.6;
+}
+
+.dato-card.full{
+    grid-column:1/-1;
+}
+
+@media(max-width:768px){
+
+    .dato-card.full{
+        grid-column:auto;
+    }
+
+}
+
+.intereses-chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:10px;
+}
+
+.chip{
+    background:#fff3e9;
+    color:#C96A3A;
+    padding:8px 14px;
+    border-radius:999px;
+    font-size:.9rem;
+    font-weight:600;
+    transition:.3s;
+}
+
+.chip:hover{
+    transform:translateY(-2px);
+}

@@ -9,10 +9,10 @@ if (!isset($_SESSION['usuario_id'])) {
 
 $id = $_SESSION['usuario_id'];
 
-$sql = "SELECT nombre, correo, rol, biografia, foto_perfil
+$sql = "SELECT *
         FROM usuarios
         WHERE id = ?";
-
+    
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $id);
 $stmt->execute();
@@ -42,164 +42,229 @@ $totalObras = $misObras->num_rows;
 </head>
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <div class="perfil-card">
+        <div class="perfil-card">
 
-        <div class="perfil-header">
+            <div class="perfil-header">
 
-            <div class="foto-perfil">
+                <div class="foto-perfil">
 
-                <?php if (!empty($usuario['foto_perfil'])): ?>
+                    <?php if (!empty($usuario['foto_perfil'])): ?>
 
-                    <img
-                        src="uploads/perfiles/<?php echo htmlspecialchars($usuario['foto_perfil']); ?>"
-                        alt="Foto de perfil"
-                    >
+                        <img
+                            src="uploads/perfiles/<?php echo htmlspecialchars($usuario['foto_perfil']); ?>"
+                            alt="Foto de perfil"
+                        >
 
-                <?php else: ?>
+                    <?php else: ?>
 
-                    <div class="avatar-default">
-                        🎨
-                    </div>
+                        <div class="avatar-default">
+                            🎨
+                        </div>
 
-                <?php endif; ?>
+                    <?php endif; ?>
+
+                </div>
+
+                <div class="info-usuario">
+
+                    <h1>
+                        <?php echo htmlspecialchars($usuario['nombre']); ?>
+                    </h1>
+
+                    <p>
+                        <?php echo htmlspecialchars($usuario['correo']); ?>
+                    </p>
+
+                    <span class="rol">
+                        <?php echo htmlspecialchars($usuario['rol']); ?>
+                    </span>
+
+                </div>
 
             </div>
 
-            <div class="info-usuario">
-
-                <h1>
-                    <?php echo htmlspecialchars($usuario['nombre']); ?>
-                </h1>
-
-                <p>
-                    <?php echo htmlspecialchars($usuario['correo']); ?>
-                </p>
-
-                <span class="rol">
-                    <?php echo htmlspecialchars($usuario['rol']); ?>
-                </span>
-
-            </div>
-
-        </div>
-
-        <form
-            action="subir_foto.php"
-            method="POST"
-            enctype="multipart/form-data"
-            class="form-foto"
-        >
-
-            <input
-                type="file"
-                name="foto_perfil"
-                accept="image/*"
-                required
+            <form
+                action="subir_foto.php"
+                method="POST"
+                enctype="multipart/form-data"
+                class="form-foto"
             >
 
-            <button type="submit">
-                Cambiar Foto
-            </button>
+                <input
+                    type="file"
+                    name="foto_perfil"
+                    accept="image/*"
+                    required
+                >
 
-        </form>
+                <button type="submit">
+                    Cambiar Foto
+                </button>
 
-        <div class="estadisticas">
+            </form>
 
-            <div class="stat">
-                <h2><?php echo $totalObras; ?></h2>
-                <span>Obras</span>
+            <div class="estadisticas">
+
+                <div class="stat">
+                    <h2><?php echo $totalObras; ?></h2>
+                    <span>Obras</span>
+                </div>
+
+                <div class="stat">
+                    <h2>0</h2>
+                    <span>Ventas</span>
+                </div>
+
+                <div class="stat">
+                    <h2>0</h2>
+                    <span>Seguidores</span>
+                </div>
+
             </div>
 
-            <div class="stat">
-                <h2>0</h2>
-                <span>Ventas</span>
+            <div class="biografia">
+
+                <h3>Sobre mí</h3>
+
+                <textarea readonly><?php echo htmlspecialchars($usuario['biografia']); ?></textarea>
+
             </div>
+            <div class="perfil-artistico">
 
-            <div class="stat">
-                <h2>0</h2>
-                <span>Seguidores</span>
-            </div>
+                <h3>🎨 Perfil Artístico</h3>
 
-        </div>
+                <div class="datos-artista">
 
-        <div class="biografia">
+                    <div class="dato-card">
+                        <span>👤</span>
+                        <h4>Tipo de usuario</h4>
+                        <p><?php echo htmlspecialchars($usuario['tipo_usuario'] ?? 'No especificado'); ?></p>
+                    </div>
 
-            <h3>Sobre mí</h3>
+                    <div class="dato-card">
 
-            <textarea readonly><?php echo htmlspecialchars($usuario['biografia']); ?></textarea>
+                        <span>🎨</span>
 
-        </div>
+                        <h4>Intereses</h4>
 
-        <a href="index.php" class="btn-volver">
-            Volver al inicio
-        </a>
+                        <div class="intereses-chips">
 
-    </div>
+                            <?php
 
-    <div class="mis-obras">
+                            if(!empty($usuario['intereses'])){
 
-        <h2>🎨 Mis Obras</h2>
+                                $intereses = explode(',', $usuario['intereses']);
 
-        <div class="contenedor-obras">
+                                foreach($intereses as $interes){
 
-            <?php while ($obra = $misObras->fetch_assoc()): ?>
+                                    echo '<span class="chip">'.trim($interes).'</span>';
 
-                <div class="card-obra">
+                                }
 
-                    <img
-                        src="uploads/<?php echo htmlspecialchars($obra['imagen']); ?>"
-                        alt="<?php echo htmlspecialchars($obra['nombre']); ?>"
-                    >
+                            }else{
 
-                    <div class="info-obra">
+                                echo '<span class="chip">No especificado</span>';
 
-                        <h3>
-                            <?php echo htmlspecialchars($obra['nombre']); ?>
-                        </h3>
+                            }
 
-                        <p class="precio">
-                            $<?php echo number_format($obra['precio'], 2); ?>
-                        </p>
-
-                        <div class="acciones-obra">
-
-                        <a
-                            href="producto.php?id=<?php echo $obra['id']; ?>"
-                            class="btn-ver"
-                        >
-                            Ver
-                        </a>
-
-                        <a
-                            href="editar_producto.php?id=<?php echo $obra['id']; ?>"
-                            class="btn-editar"
-                        >
-                            Editar
-                        </a>
-
-                        <a
-                            href="eliminar_producto.php?id=<?php echo $obra['id']; ?>"
-                            class="btn-eliminar"
-                            onclick="return confirm('¿Eliminar esta obra?');"
-                        >
-                            Eliminar
-                        </a>
+                            ?>
 
                         </div>
 
                     </div>
 
+                    <div class="dato-card">
+                        <span>🎥</span>
+                        <h4>Formato favorito</h4>
+                        <p><?php echo htmlspecialchars($usuario['tipo_tutorial'] ?? 'No especificado'); ?></p>
+                    </div>
+
+                    <div class="dato-card">
+                        <span>📅</span>
+                        <h4>Frecuencia</h4>
+                        <p><?php echo htmlspecialchars($usuario['frecuencia'] ?? 'No especificado'); ?></p>
+                    </div>
+
+                    <div class="dato-card full">
+                        <span>📚</span>
+                        <h4>Quiero aprender</h4>
+                        <p><?php echo htmlspecialchars($usuario['aprendizaje'] ?? 'No especificado'); ?></p>
+                    </div>
+
                 </div>
 
-            <?php endwhile; ?>
+            </div>
+
+            <a href="index.php" class="btn-volver">
+                Volver al inicio
+            </a>
+
+        </div>
+
+        <div class="mis-obras">
+
+            <h2>🎨 Mis Obras</h2>
+
+            <div class="contenedor-obras">
+
+                <?php while ($obra = $misObras->fetch_assoc()): ?>
+
+                    <div class="card-obra">
+
+                        <img
+                            src="uploads/<?php echo htmlspecialchars($obra['imagen']); ?>"
+                            alt="<?php echo htmlspecialchars($obra['nombre']); ?>"
+                        >
+
+                        <div class="info-obra">
+
+                            <h3>
+                                <?php echo htmlspecialchars($obra['nombre']); ?>
+                            </h3>
+
+                            <p class="precio">
+                                $<?php echo number_format($obra['precio'], 2); ?>
+                            </p>
+
+                            <div class="acciones-obra">
+
+                            <a
+                                href="producto.php?id=<?php echo $obra['id']; ?>"
+                                class="btn-ver"
+                            >
+                                Ver
+                            </a>
+
+                            <a
+                                href="editar_producto.php?id=<?php echo $obra['id']; ?>"
+                                class="btn-editar"
+                            >
+                                Editar
+                            </a>
+
+                            <a
+                                href="php/eliminar_producto.php?id=<?php echo $obra['id']; ?>"
+                                class="btn-eliminar"
+                                onclick="return confirm('¿Eliminar esta obra?');"
+                            >
+                                Eliminar
+                            </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                <?php endwhile; ?>
+
+            </div>
 
         </div>
 
     </div>
-
-</div>
 
 </body>
 </html>

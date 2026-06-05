@@ -466,7 +466,7 @@ function animate(){
 
         setTimeout(()=>{
 
-            window.location.href = "pinturas.php";
+            window.location.href = "pintura.php";
 
         },2600);
 

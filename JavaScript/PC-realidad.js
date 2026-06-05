@@ -471,6 +471,6 @@ setTimeout(()=>{
 setTimeout(()=>{
 
     window.location.href =
-    "../realidad.php";
+    "../realidad_virtual.php";
 
 },5000);
