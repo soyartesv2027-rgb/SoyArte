@@ -32,40 +32,40 @@
         </li>
 
         <li class="mb-2">
-            <a href="pinturas.php" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-pintura.html" class="nav-link link-dark">
                 <i class="fa-solid fa-image me-2"></i>
                 Pinturas
             </a>
         </li>
 
         <li class="mb-2">
-            <a href="Musica.php" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-musica.html" class="nav-link link-dark">
                 <i class="fa-solid fa-music" style="color: rgb(0, 0, 0);"></i>
                 Musica
             </a>
         </li>
 
         <li class="mb-2">
-            <a href="poesia.php" class="nav-link link-dark">
-               <i class="fa-solid fa-feather-pointed" style="color: rgb(0, 0, 0);"></i>
+            <a href="Pantalla-de-carga/PC-poesia.html" class="nav-link link-dark">
+                <i class="fa-solid fa-feather-pointed" style="color: rgb(0, 0, 0);"></i>
                 Poesia
             </a>
         </li>
 
         <li class="mb-2">
-            <a href="Manualidaddes.php" class="nav-link link-dark">
+            <a href="manualidad.php" class="nav-link link-dark">
                 <i class="fa-solid fa-cube" style="color: rgb(0, 0, 0);"></i>
                 Manualidades
             </a>
         </li>
-         <li class="mb-2">
-            <a href="Mnualidaddes.php" class="nav-link link-dark">
-               <i class="fa-solid fa-vr-cardboard" style="color: rgb(0, 0, 0);"></i>
+        <li class="mb-2">
+            <a href="Pantalla-de-carga/PC-realidad.html" class="nav-link link-dark">
+                <i class="fa-solid fa-vr-cardboard" style="color: rgb(0, 0, 0);"></i>
                 Realidad Virtual
             </a>
         </li>
             <li class="mb-2">
-            <a href="Mnualidaddes.php" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-shop.html" class="nav-link link-dark">
             <i class="fa-solid fa-cart-shopping" style="color: rgb(0, 0, 0);"></i>
                 Tienda
             </a>
@@ -79,9 +79,9 @@
     <div class="dropdown">
 
         <a href="#"
-           class="d-flex align-items-center text-decoration-none dropdown-toggle"
-           data-bs-toggle="dropdown"
-           aria-expanded="false">
+            class="d-flex align-items-center text-decoration-none dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
 
             <img 
                 src=""
@@ -133,10 +133,13 @@
 
         <!-- BOTON MENU -->
         <svg
-            id="menuBtn"
-            class="menu-btn"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 640 640">
+             id="menuBtn"
+                class="menu-btn"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"
+                width="30"
+                height="30"
+                style="cursor:pointer; flex-shrink:0;">
 
             <path
                 fill="black"
@@ -145,7 +148,7 @@
 
         <!-- LOGO -->
         <a class="navbar-brand d-flex align-items-center gap-2 fw-bold"
-           href="index.php">
+            href="index.php">
 
             Soy Arte
 
@@ -174,34 +177,8 @@
         <!-- CONTENIDO NAVBAR -->
         <div class="collapse navbar-collapse" id="navSoyArte">
 
-            <!-- LINKS -->
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                <li class="nav-item">
-                    <a class="nav-link" href="galeria.php">
-                        Galería
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="artistas.php">
-                        Artistas
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="talleres.php">
-                        Talleres
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="contacto.php">
-                        Contacto
-                    </a>
-                </li>
-
-            </ul>
+ 
+   
 
             <!-- SESION -->
             <div class="ms-auto d-flex align-items-center">
@@ -212,10 +189,10 @@
                     <div class="dropdown">
 
                         <a class="btn btn-secondary dropdown-toggle d-flex align-items-center gap-2"
-                           href="#"
-                           role="button"
-                           data-bs-toggle="dropdown"
-                           aria-expanded="false">
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
 
                             <i class="fa-solid fa-circle-user"></i>
 
@@ -238,7 +215,7 @@
 
                             <li>
                                 <a class="dropdown-item text-danger"
-                                   href="php/logout.php">
+                                    href="php/logout.php">
 
                                     <i class="fa-solid fa-right-from-bracket me-2"></i>
                                     Cerrar sesión
@@ -254,14 +231,14 @@
 
                     <!-- SIN SESION -->
                     <a class="btn btn-outline-primary me-2"
-                       href="login.html">
+                        href="login.html">
 
                         Login
 
                     </a>
 
                     <a class="btn btn-primary"
-                       href="register.html">
+                        href="register.html">
 
                         Registrarse
 
