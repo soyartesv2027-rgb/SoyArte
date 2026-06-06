@@ -85,10 +85,18 @@
   margin-top: 4px;
 }
 
+<<<<<<< HEAD
+.añadir-boton{
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  bottom: 130px;
+=======
 .añadir-boton {
     position: fixed;
     right: 20px;
     bottom: 150px; 
+>>>>>>> f1bcea9e7831bda9ef5a99c55b4f8f28c18f2e58
 }
 
 

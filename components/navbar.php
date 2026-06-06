@@ -133,10 +133,13 @@
 
         <!-- BOTON MENU -->
         <svg
-            id="menuBtn"
-            class="menu-btn"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 640 640">
+             id="menuBtn"
+                class="menu-btn"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"
+                width="30"
+                height="30"
+                style="cursor:pointer; flex-shrink:0;">
 
             <path
                 fill="black"
