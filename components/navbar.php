@@ -35,7 +35,6 @@
             <a href="Pantalla-de-carga/PC-pintura.html" class="nav-link link-dark">
                 <i class="fa-solid fa-image me-2"></i>
                 Pinturas
-            </a>
         </li>
 
         <li class="mb-2">
