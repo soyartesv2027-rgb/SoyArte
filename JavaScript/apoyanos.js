@@ -20,3 +20,8 @@ document.getElementById("donateBtn").addEventListener("click", () => {
   );
 
 });
+
+// Botón regresar
+document.getElementById("backBtn").addEventListener("click", () => {
+  history.back();
+});
