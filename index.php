@@ -26,7 +26,7 @@ session_start();
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <a href="pintura.php">
+          <a href="pinturas.php">
             <img src="images/pinturas.jpeg" class="d-block w-100" alt="Pinturas">
           </a>
           <div class="carousel-caption"><h5>Pinturas</h5></div>

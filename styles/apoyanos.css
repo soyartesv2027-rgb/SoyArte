@@ -1,7 +1,11 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: #0f0c29;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(120, 40, 200, 0.35) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(79, 70, 229, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 80%, rgba(16, 185, 129, 0.2) 0%, transparent 50%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,32 +18,47 @@ body {
   border-radius: 20px;
   text-align: center;
   width: 320px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 h1 {
   font-size: 20px;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+
+p {
+  color: #666;
+  font-size: 14px;
+  margin-top: 0;
 }
 
 .amounts {
   display: flex;
   justify-content: space-between;
   margin: 20px 0;
+  gap: 6px;
 }
 
 .amount {
   flex: 1;
-  margin: 5px;
   padding: 10px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   background: #eee;
+  font-size: 14px;
+  color: #333;
+  transition: background 0.2s, color 0.2s;
 }
 
 .amount.active {
   background: #7c3aed;
   color: white;
+}
+
+.amount:hover:not(.active) {
+  background: #d8d8d8;
 }
 
 #donateBtn {
@@ -51,4 +70,30 @@ h1 {
   color: white;
   font-size: 16px;
   cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+#donateBtn:hover {
+  opacity: 0.9;
+}
+
+#backBtn {
+  width: 100%;
+  padding: 10px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 12px;
+  background: transparent;
+  color: #6b7280;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: background 0.2s;
+}
+
+#backBtn:hover {
+  background: #f3f4f6;
 }

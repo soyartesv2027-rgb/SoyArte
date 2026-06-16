@@ -2,34 +2,33 @@
 session_start();
 include("php/conexion.php");
 
-
-if (!isset($_SESSION['usuario_id']) || !isset($_GET['id'])) {
-    header("Location: poesia.php");
-    exit();
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: php/login.php");
+    exit;
 }
 
-$obra_id = $_GET['id'];
-$usuario_id = $_SESSION['usuario_id'];
+$usuario_actual = $_SESSION['usuario_id'];
+$obra_id        = intval($_GET['id']       ?? 0);
+$redirect       = $_GET['redirect']        ?? 'lista';
 
-// Revisa si ya diste like
-$sqlCheck = "SELECT id FROM likes WHERE obra_id = ? AND usuario_id = ?";
-$stmtCheck = $conn->prepare($sqlCheck);
-$stmtCheck->bind_param("ii", $obra_id, $usuario_id);
-$stmtCheck->execute();
-$resultado = $stmtCheck->get_result();
+if ($obra_id > 0) {
+    $check = $conn->prepare("SELECT id FROM likes WHERE obra_id = ? AND usuario_id = ?");
+    $check->bind_param("ii", $obra_id, $usuario_actual);
+    $check->execute();
+    $check->store_result();
 
-if ($resultado->num_rows > 0) {
-    // Si ya existe, lo quita (Toggle Unlike)
-    $sqlAction = "DELETE FROM likes WHERE obra_id = ? AND usuario_id = ?";
-} else {
-    // Si no existe, lo agrega
-    $sqlAction = "INSERT INTO likes (obra_id, usuario_id) VALUES (?, ?)";
+    if ($check->num_rows > 0) {
+        $del = $conn->prepare("DELETE FROM likes WHERE obra_id = ? AND usuario_id = ?");
+        $del->bind_param("ii", $obra_id, $usuario_actual);
+        $del->execute();
+    } else {
+        $ins = $conn->prepare("INSERT INTO likes (obra_id, usuario_id) VALUES (?, ?)");
+        $ins->bind_param("ii", $obra_id, $usuario_actual);
+        $ins->execute();
+    }
 }
 
-$stmtAction = $conn->prepare($sqlAction);
-$stmtAction->bind_param("ii", $obra_id, $usuario_id);
-$stmtAction->execute();
-
-header("Location: poesia.php");
-exit();
-?>
+header($redirect === 'detalle'
+    ? "Location: detalle.php?id=$obra_id"
+    : "Location: poesia.php");
+exit;
