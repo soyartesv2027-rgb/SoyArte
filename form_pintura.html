@@ -12,41 +12,34 @@
 </head>
 <body>
     <a href="pinturas.php">
-     <div class="flecha">
-                <i class="fa-solid fa-arrow-left"></i>
-           </div>
-     </a>
-     
-  <form action="guardar-pintura.php"
-      method="POST"
-      enctype="multipart/form-data">
-
-    <h2>Publicar una pintura</h2>
-
-    <label>Foto de la pintura</label>
-    <input type="file" name="imagen" required>
-
-    <label>Nombre de la pintura</label>
-    <input type="text"
-           name="nombre_pintura"
-           required>
-
-    <label>Autor</label>
-    <input type="text"
-           name="autor"
-           required>
-
-    <label>Descripción</label>
-    <textarea
-        name="descripcion"
-        rows="5"
-        required></textarea>
-
-    <button type="submit">
-        Publicar
-    </button>
-
- </form>
+    <div class="flecha">
+        <i class="fa-solid fa-arrow-left"></i>
+    </div>
+    </a>
+    
+    <form action="guardar-pintura.php"
+        method="POST"
+        enctype="multipart/form-data">
+            <h2>Publicar una pintura</h2>
+            <label>Foto de la pintura</label>
+            <input type="file" name="imagen" required>
+            <label>Nombre de la pintura</label>
+            <input type="text"
+                name="nombre_pintura"
+                required>
+        <label>Autor</label>
+        <input type="text"
+            name="autor"
+            required>
+        <label>Descripción</label>
+        <textarea
+            name="descripcion"
+            rows="5"
+            required></textarea>
+        <button type="submit">
+            Publicar
+        </button>
+    </form>
 
 </body>
 </html>
