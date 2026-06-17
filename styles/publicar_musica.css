@@ -103,19 +103,35 @@ body{
     text-align:center;
 }
 
-@media(max-width:768px){
+@media screen and (max-width: 768px){
 
-    .card-form{
-        padding:25px;
+    .contenedor{
+        margin: 20px auto;
+        padding: 15px;
     }
 
-}
+    .card-form{
+        padding: 25px;
+        border-radius: 15px;
+    }
 
-.preview-portada{
-    width:100%;
-    max-width:350px;
-    border-radius:15px;
-    margin:10px auto;
-    display:block;
-    box-shadow:0 4px 15px rgba(0,0,0,.1);
+    .card-form h1{
+        font-size: 28px;
+        margin: 15px 0 25px;
+    }
+
+    .form-musica input,
+    .form-musica textarea{
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .form-musica textarea{
+        min-height: 150px;
+    }
+
+    .form-musica button{
+        padding: 14px;
+        font-size: 15px;
+    }
 }

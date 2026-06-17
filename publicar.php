@@ -22,7 +22,6 @@ unset($_SESSION['errores_publicar'], $_SESSION['datos_publicar']);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles/poesia.css">
 </head>
-<<<<<<< HEAD
 <body>
 
     <div class="topbar-detalle">
@@ -57,7 +56,7 @@ unset($_SESSION['errores_publicar'], $_SESSION['datos_publicar']);
                     </label>
                     <input type="file" id="inputImagen" name="imagen" accept="image/*">
                     <img id="previewImagen" src="" alt="Vista previa">
-=======
+
 <body class="bg-light">
     
     <?php include("components/navbar.php"); ?>
@@ -68,7 +67,6 @@ unset($_SESSION['errores_publicar'], $_SESSION['datos_publicar']);
                 <div class="mb-3">
                     <label class="form-label">Título</label>
                     <input type="text" name="titulo" class="form-control" required>
->>>>>>> 0c5faa6b462c3546a2263bd803e57347cafee744
                 </div>
 
                 <!-- AUTOR (solo lectura) -->

@@ -28,7 +28,7 @@ $resultado = $conn->query($sql);
 
     <div class="encabezado-vr">
 
-        <h1>🥽 Realidad Virtual</h1>
+        <h1>Realidad Virtual</h1>
 
         <?php if(isset($_SESSION['rol']) && $_SESSION['rol'] == 'admin'): ?>
 
