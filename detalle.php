@@ -1,5 +1,4 @@
 
-
 <?php
 session_start();
 include("php/conexion.php");
@@ -22,6 +21,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accion'])) {
     if (!$usuario_id) {
         header("Location: php/login.php");
         exit;
+    }
+ 
+    if ($_POST['accion'] === 'like') {
+        $check = $conn->prepare("SELECT id FROM likes WHERE obra_id = ? AND usuario_id = ?");
+        $check->bind_param("ii", $obra_id, $usuario_id);
+        $check->execute();
+        if ($check->get_result()->num_rows > 0) {
+            $del = $conn->prepare("DELETE FROM likes WHERE obra_id = ? AND usuario_id = ?");
+            $del->bind_param("ii", $obra_id, $usuario_id);
+            $del->execute();
+        } else {
+            $ins = $conn->prepare("INSERT INTO likes (obra_id, usuario_id) VALUES (?, ?)");
+            $ins->bind_param("ii", $obra_id, $usuario_id);
+            $ins->execute();
+        }
     }
  
     if ($_POST['accion'] === 'favorito') {
@@ -86,8 +100,9 @@ $esPropietario = $usuario_id && $usuario_id === (int) $obra['usuario_id'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles del Poema - Soy Arte</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/poesia.css">
 </head>
 <body>
@@ -150,9 +165,12 @@ $esPropietario = $usuario_id && $usuario_id === (int) $obra['usuario_id'];
  
             <div class="d-flex gap-2 mt-4 flex-wrap">
                 <?php if ($usuario_id): ?>
-                    <a href="php/like.php?id=<?= $obra_id ?>&redirect=detalle" class="btn <?= $yaLeDioLike ? 'btn-danger' : 'btn-outline-danger' ?>">
-                        <i class="fa-solid fa-thumbs-up"></i> Like (<?= $totalLikes ?>)
-                    </a>
+                    <form method="POST" class="m-0">
+                        <input type="hidden" name="accion" value="like">
+                        <button type="submit" class="btn <?= $yaLeDioLike ? 'btn-danger' : 'btn-outline-danger' ?>">
+                            <i class="fa-solid fa-thumbs-up"></i> Like (<?= $totalLikes ?>)
+                        </button>
+                    </form>
                 <?php else: ?>
                     <span class="btn btn-outline-secondary disabled"><i class="fa-solid fa-thumbs-up"></i> Like (<?= $totalLikes ?>)</span>
                 <?php endif; ?>
@@ -166,6 +184,8 @@ $esPropietario = $usuario_id && $usuario_id === (int) $obra['usuario_id'];
         </div>
     </div>
  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JavaScript/script.js"></script>
 </body>
 </html>
 <?php $conn->close(); ?>

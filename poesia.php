@@ -31,19 +31,27 @@ $resultado = $stmt->get_result();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poesía - Soy Arte</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/poesia.css">
 </head>
 <body class="bg-light">
+    <?php $colorNavbar = '#ec7b8c'; // Rosa para la seccion de Poesia ?>
+    <?php include("components/navbar.php"); ?>
  
-   
-    <?php include("components/navbar.php"); ?> 
+    <!-- Tu nav ya se carga desde la plantilla general de tu sitio.
+         Si necesitas incluirlo aqui manualmente, escribe el include()
+         como PHP real (sin comentario de HTML alrededor), porque PHP
+         SI ejecuta codigo aunque este dentro de un comentario de HTML. -->
  
-    <div class="text-center mt-4">
-        <h2><i class="fa-solid fa-feather-pointed"></i> Poesía</h2>
-        <p class="text-muted fst-italic mb-0">"Todo lo que se puede imaginar es real, si tienes el valor de perseguirlo con la mirada del alma."</p>
-        <p class="text-muted small">- Dante Alighieri</p>
+    <div class="hero-poesia">
+        <div class="hero-poesia-img"></div>
+        <div class="text-center hero-poesia-texto">
+            <h2><i class="fa-solid fa-feather-pointed"></i> Poesía</h2>
+            <p class="text-muted fst-italic mb-0">"Todo lo que se puede imaginar es real, si tienes el valor de perseguirlo con la mirada del alma."</p>
+            <p class="text-muted small">- Dante Alighieri</p>
+        </div>
     </div>
  
     <div class="d-flex justify-content-center my-4 px-3">
@@ -64,14 +72,16 @@ $resultado = $stmt->get_result();
             <?php while ($obra = $resultado->fetch_assoc()): ?>
                 <?php $src = imagenSrc($obra['imagen']); ?>
                 <div class="col-6 col-md-4 col-lg-3">
-                    <div class="card h-100 shadow-sm">
-                        <?php if ($src): ?>
-                            <img src="<?= $src ?>" class="card-img-top" style="height:160px; object-fit:cover;" alt="Foto de la obra">
-                        <?php else: ?>
-                            <div class="bg-light d-flex align-items-center justify-content-center" style="height:160px;">
-                                <span class="text-muted">Foto</span>
-                            </div>
-                        <?php endif; ?>
+                    <div class="card h-100 shadow-sm tarjeta-obra">
+                        <div class="tarjeta-img-wrap">
+                            <?php if ($src): ?>
+                                <img src="<?= $src ?>" class="card-img-top" alt="Foto de la obra">
+                            <?php else: ?>
+                                <div class="bg-light d-flex align-items-center justify-content-center" style="height:160px;">
+                                    <span class="text-muted">Foto</span>
+                                </div>
+                            <?php endif; ?>
+                        </div>
                         <div class="card-body text-center">
                             <h6 class="card-title mb-1"><?= htmlspecialchars($obra['titulo']) ?></h6>
                             <p class="card-text text-muted small mb-3"><?= htmlspecialchars($obra['creador']) ?></p>
@@ -93,6 +103,9 @@ $resultado = $stmt->get_result();
         </a>
     <?php endif; ?>
  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JavaScript/script.js"></script>
 </body>
 </html>
 <?php $stmt->close(); $conn->close(); ?>
+ 
