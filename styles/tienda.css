@@ -125,3 +125,59 @@ body{
     text-decoration:none;
     color:inherit;
 }
+
+@media screen and (max-width: 768px){
+
+    .encabezado-tienda{
+        padding: 30px 15px;
+    }
+
+    .encabezado-tienda h1{
+        font-size: 2rem;
+    }
+
+    .buscador{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .buscador input{
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .buscador button{
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .productos{
+        grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .card img{
+        height: 180px;
+    }
+
+    .card-body{
+        padding: 12px;
+    }
+
+    .precio{
+        font-size: 1.2rem;
+    }
+
+    .btn-comprar{
+        padding: 10px;
+    }
+
+    .acciones-tienda{
+        gap: 10px;
+    }
+
+    .btn-agregar{
+        padding: 10px 15px;
+    }
+}

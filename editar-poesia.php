@@ -1,58 +1,39 @@
 <?php
 session_start();
 include("php/conexion.php");
-
+ 
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: php/login.php");
     exit;
 }
-
-$usuario_actual = $_SESSION['usuario_id'];
-$id = intval($_GET['id'] ?? 0);
-
-// Cargar obra y verificar que pertenece al usuario logueado
-$stmt = $conn->prepare("SELECT * FROM obras WHERE id = ? AND usuario_id = ?");
-$stmt->bind_param("ii", $id, $usuario_actual);
-$stmt->execute();
-$obra = $stmt->get_result()->fetch_assoc();
-
-// Si no existe o no es suya, redirigir
-if (!$obra) {
+ 
+if (!isset($_GET['id'])) {
     header("Location: poesia.php");
     exit;
 }
-
-$error = "";
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $titulo    = trim($_POST['titulo']    ?? '');
-    $contenido = trim($_POST['contenido'] ?? '');
-
-    if (empty($titulo) || empty($contenido)) {
-        $error = "El título y el contenido son obligatorios.";
-    } else {
-        if (!empty($_FILES['imagen']['tmp_name'])) {
-            $tipo    = $_FILES['imagen']['type'];
-            $allowed = ['image/jpeg','image/png','image/gif','image/webp'];
-            if (!in_array($tipo, $allowed)) {
-                $error = "Solo se permiten imágenes JPG, PNG, GIF o WEBP.";
-            } elseif ($_FILES['imagen']['size'] > 5 * 1024 * 1024) {
-                $error = "La imagen no puede superar 5MB.";
-            } else {
-                $imagen = file_get_contents($_FILES['imagen']['tmp_name']);
-                $s = $conn->prepare("UPDATE obras SET titulo=?, contenido=?, imagen=? WHERE id=? AND usuario_id=?");
-                $s->bind_param("ssbii", $titulo, $contenido, $imagen, $id, $usuario_actual);
-                if ($s->execute()) { header("Location: poesia.php"); exit; }
-                else { $error = "Error al guardar."; }
-            }
-        } else {
-            $s = $conn->prepare("UPDATE obras SET titulo=?, contenido=? WHERE id=? AND usuario_id=?");
-            $s->bind_param("ssii", $titulo, $contenido, $id, $usuario_actual);
-            if ($s->execute()) { header("Location: poesia.php"); exit; }
-            else { $error = "Error al guardar."; }
-        }
-    }
+ 
+$obra_id = (int) $_GET['id'];
+$usuario_id = (int) $_SESSION['usuario_id'];
+ 
+$stmt = $conn->prepare("SELECT * FROM obras WHERE id = ?");
+$stmt->bind_param("i", $obra_id);
+$stmt->execute();
+$obra = $stmt->get_result()->fetch_assoc();
+ 
+if (!$obra || (int) $obra['usuario_id'] !== $usuario_id) {
+    echo "No tienes permiso para editar esta obra.";
+    exit;
 }
+ 
+// Recuperar errores y datos previos si vienen de actualizar-poesia.php
+$errores = $_SESSION['errores_editar'] ?? [];
+$datos   = $_SESSION['datos_editar']   ?? [];
+unset($_SESSION['errores_editar'], $_SESSION['datos_editar']);
+ 
+$autorActual     = $datos['autor']             ?? $obra['autor'];
+$tituloActual    = $datos['titulo']            ?? $obra['titulo'];
+$fechaActual     = $datos['fecha_publicacion'] ?? date('Y-m-d', strtotime($obra['fecha_publicacion']));
+$contenidoActual = $datos['contenido']         ?? $obra['contenido'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -65,71 +46,67 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="styles/poesia.css">
 </head>
 <body>
-
+ 
     <div class="topbar-detalle">
-        <a href="poesia.php" class="btn-regresar">
+        <a href="detalle.php?id=<?= $obra_id ?>" class="btn-regresar">
             <i class="fa-solid fa-chevron-left"></i> Regresar
         </a>
         <h2>Editar Poema</h2>
         <div style="width:80px"></div>
     </div>
-
+ 
     <div class="form-obra-container">
-
-        <?php if (!empty($error)): ?>
-            <div class="alert alert-danger small mb-3"><?= htmlspecialchars($error) ?></div>
+ 
+        <?php if (!empty($errores)): ?>
+            <div class="alert alert-danger small mb-3">
+                <ul class="mb-0">
+                    <?php foreach ($errores as $e): ?>
+                        <li><?= htmlspecialchars($e) ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
         <?php endif; ?>
-
+ 
         <div class="card-form-obra">
-            <form method="POST" enctype="multipart/form-data">
-
-                <!-- IMAGEN ACTUAL -->
+            <form method="POST" action="php/actualizar-poesia.php" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<?= $obra_id ?>">
+ 
                 <div class="campo-detalle">
                     <label><i class="fa-solid fa-image"></i> Imagen de portada</label>
-                    <?php if (!empty($obra['imagen'])): ?>
-                        <img src="data:image/jpeg;base64,<?= base64_encode($obra['imagen']) ?>"
-                             style="width:100%;max-height:180px;object-fit:cover;border-radius:10px;margin-bottom:10px;">
-                    <?php endif; ?>
                     <label class="upload-imagen-label" for="inputImagen">
-                        <i class="fa-solid fa-cloud-arrow-up"></i>
-                        <?= !empty($obra['imagen']) ? 'Cambiar imagen' : 'Subir imagen (opcional)' ?>
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Cambiar imagen (opcional)
                     </label>
                     <input type="file" id="inputImagen" name="imagen" accept="image/*">
-                    <img id="previewImagen" src="" alt="Vista previa">
+                    <img id="previewImagen" src="" alt="Vista previa" style="display:none; max-width:100%; margin-top:10px; border-radius:8px;">
                 </div>
-
-                <!-- AUTOR -->
+ 
                 <div class="campo-detalle">
                     <label><i class="fa-solid fa-feather"></i> Autor:</label>
-                    <div class="valor-campo"><?= htmlspecialchars($_SESSION['nombre']) ?></div>
+                    <input type="text" name="autor" value="<?= htmlspecialchars($autorActual) ?>" required>
                 </div>
-
-                <!-- TÍTULO -->
+ 
                 <div class="campo-detalle">
                     <label><i class="fa-solid fa-book-open"></i> Nombre de la obra:</label>
-                    <input type="text" name="titulo"
-                           value="<?= htmlspecialchars($_POST['titulo'] ?? $obra['titulo']) ?>" required>
+                    <input type="text" name="titulo" value="<?= htmlspecialchars($tituloActual) ?>" required>
                 </div>
-
-                <!-- FECHA -->
+ 
                 <div class="campo-detalle">
                     <label><i class="fa-solid fa-calendar-days"></i> Fecha de Publicación:</label>
-                    <div class="valor-campo"><?= date('d/m/Y', strtotime($obra['fecha_publicacion'])) ?></div>
+                    <input type="date" name="fecha_publicacion" value="<?= htmlspecialchars($fechaActual) ?>" required>
                 </div>
-
-                <!-- CONTENIDO -->
+ 
                 <div class="campo-detalle">
                     <label><i class="fa-solid fa-align-left"></i> Descripción:</label>
-                    <textarea name="contenido"><?= htmlspecialchars($_POST['contenido'] ?? $obra['contenido']) ?></textarea>
+                    <textarea name="contenido"><?= htmlspecialchars($contenidoActual) ?></textarea>
                 </div>
-
+ 
                 <button type="submit" class="btn-guardar">
-                    <i class="fa-solid fa-floppy-disk me-2"></i> Guardar cambios
+                    <i class="fa-solid fa-floppy-disk me-2"></i> Guardar Cambios
                 </button>
             </form>
         </div>
     </div>
-
+ 
     <script>
         document.getElementById('inputImagen').addEventListener('change', function () {
             const preview = document.getElementById('previewImagen');
@@ -138,8 +115,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 const reader = new FileReader();
                 reader.onload = e => { preview.src = e.target.result; preview.style.display = 'block'; };
                 reader.readAsDataURL(file);
+            } else {
+                preview.style.display = 'none';
             }
         });
     </script>
 </body>
 </html>
+<?php $conn->close(); ?>

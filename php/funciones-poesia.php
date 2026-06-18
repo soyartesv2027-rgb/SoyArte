@@ -1,0 +1,13 @@
+<?php
+/* función para obtener la fuente de la imagen */
+function imagenSrc($blobImagen) {
+    if (empty($blobImagen)) {
+        return null;
+    }
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    $mime = $finfo->buffer($blobImagen);
+    if (!$mime || strpos($mime, 'image/') !== 0) {
+        $mime = 'image/jpeg'; // respaldo por si no se detecta el tipo
+    }
+    return 'data:' . $mime . ';base64,' . base64_encode($blobImagen);
+}

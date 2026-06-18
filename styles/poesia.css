@@ -1,25 +1,14 @@
-<<<<<<< HEAD
 
-=======
-/* =============================================
-   POESIA.CSS — Soy Arte
-   ============================================= */
->>>>>>> 0c5faa6b462c3546a2263bd803e57347cafee744
 
+ 
 body {
     background-color: #d8e4f0 !important;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-<<<<<<< HEAD
-/* ---------- HERO ( sin contenedor) ---------- */
-.hero-banner {
-    background-image: linear-gradient(rgba(0,0,0,0.28), rgba(0,0,0,0.28)), url('../img/download\ \(1\).jpg');
-=======
+ 
 /* ---------- HERO (ancho completo, sin contenedor) ---------- */
 .hero-banner {
-    background-image: linear-gradient(rgba(0,0,0,0.28), rgba(0,0,0,0.28)), url('../img/Japan\ _\ Mountain\ Fuji\ _\ cherry\ blossoms.jpg');
->>>>>>> 0c5faa6b462c3546a2263bd803e57347cafee744
+    background-image: linear-gradient(rgba(0,0,0,0.28), rgba(0,0,0,0.28)), url('../img/fondo.png\ \(1\).jpeg');
     background-size: cover;
     background-position: center;
     min-height: 220px;
@@ -34,14 +23,14 @@ body {
     border-radius: 0;
     margin-bottom: 28px;
 }
-
+ 
 .hero-banner h1 {
     font-size: 2.2rem;
     font-weight: bold;
     margin-bottom: 10px;
     color: white !important;
 }
-
+ 
 .hero-banner p {
     font-style: italic;
     font-size: 0.95rem;
@@ -50,7 +39,7 @@ body {
     color: white !important;
     opacity: 0.95;
 }
-
+ 
 .hero-banner .autor-cita {
     font-size: 0.8rem;
     opacity: 0.8;
@@ -58,10 +47,8 @@ body {
     width: 100%;
     max-width: 560px;
     color: white !important;
-<<<<<<< HEAD
-=======
 }
-
+ 
 /* ---------- CONTENEDOR (buscador y cards) ---------- */
 .muro-poesia-container {
     max-width: 1100px;
@@ -69,7 +56,7 @@ body {
     padding: 0 20px 80px;
     box-sizing: border-box;
 }
-
+ 
 /* ---------- BUSCADOR ---------- */
 .search-box {
     max-width: 100%;
@@ -84,14 +71,14 @@ body {
 }
 .search-box i     { color: #aaa; margin-right: 10px; }
 .search-box input { border: none; outline: none; width: 100%; padding: 6px 0; font-size: 0.95rem; background: transparent; }
-
+ 
 /* ---------- GRID ---------- */
 .grid-poesias {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
 }
-
+ 
 /* ---------- CARD ---------- */
 .card-poesia {
     background: white;
@@ -105,75 +92,7 @@ body {
     transition: transform 0.2s, box-shadow 0.2s;
 }
 .card-poesia:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
-
-.card-poesia img,
-.card-poesia .placeholder-foto {
-    width: 100%;
-    height: 170px;
-    object-fit: cover;
-    border-radius: 10px;
-    border: 1px solid #e8ddd0;
-}
-.card-poesia .placeholder-foto {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f3eade;
-    color: #999;
-    font-weight: 600;
-    font-size: 1rem;
-    letter-spacing: 1px;
->>>>>>> 0c5faa6b462c3546a2263bd803e57347cafee744
-}
-
-.card-body-custom { padding: 10px 4px 4px; display: flex; flex-direction: column; flex-grow: 1; }
-.card-title-custom { font-size: 0.95rem; font-weight: 600; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #333; }
-.card-autor-custom { color: #aaa; font-size: 0.82rem; margin-bottom: 12px; }
-
-<<<<<<< HEAD
-.muro-poesia-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px 80px;
-    box-sizing: border-box;
-}
-
-
-.search-box {
-    max-width: 100%;
-    margin: 0 auto 28px;
-    display: flex;
-    align-items: center;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 30px;
-    padding: 6px 16px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-}
-.search-box i     { color: #aaa; margin-right: 10px; }
-.search-box input { border: none; outline: none; width: 100%; padding: 6px 0; font-size: 0.95rem; background: transparent; }
-
-/* ---------- GRID ---------- */
-.grid-poesias {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-
-.card-poesia {
-    background: white;
-    border-radius: 14px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-    padding: 12px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    border: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-.card-poesia:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
-
+ 
 .card-poesia img,
 .card-poesia .placeholder-foto {
     width: 100%;
@@ -192,11 +111,11 @@ body {
     font-size: 1rem;
     letter-spacing: 1px;
 }
-
+ 
 .card-body-custom { padding: 10px 4px 4px; display: flex; flex-direction: column; flex-grow: 1; }
 .card-title-custom { font-size: 0.95rem; font-weight: 600; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #333; }
 .card-autor-custom { color: #aaa; font-size: 0.82rem; margin-bottom: 12px; }
-
+ 
 .btn-info-custom {
     display: block;
     width: 100%;
@@ -212,7 +131,7 @@ body {
     text-align: center;
 }
 .btn-info-custom:hover { background-color: #f5a8b8; color: #5a3040 !important; }
-
+ 
 .card-footer-custom {
     display: flex;
     justify-content: space-between;
@@ -226,7 +145,7 @@ body {
 .text-danger-custom      { color: #e05070 !important; }
 .text-muted-custom       { color: #bbb !important; }
 .text-warning-custom     { color: #f0a500 !important; margin-right: 6px; }
-
+ 
 /* ---------- BOTÓN FLOTANTE ---------- */
 .btn-flotante-pildora {
     position: fixed;
@@ -247,7 +166,7 @@ body {
     transition: background 0.2s, transform 0.2s;
 }
 .btn-flotante-pildora:hover { background-color: #a855b5; transform: scale(1.08); color: white; }
-
+ 
 /* ---------- SIDEBAR ---------- */
 #sidebar {
     position: fixed;
@@ -263,83 +182,7 @@ body {
 #overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 1040; }
 #overlay.show { display: block; }
 .menu-btn { width: 28px; height: 28px; cursor: pointer; flex-shrink: 0; }
-
-
-.detalle-container,
-.form-obra-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-=======
-.btn-info-custom {
-    display: block;
-    width: 100%;
-    background-color: #f9c9d4;
-    color: #5a3040 !important;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 7px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    margin-top: auto;
-    transition: background 0.2s;
-    text-align: center;
-}
-.btn-info-custom:hover { background-color: #f5a8b8; color: #5a3040 !important; }
-
-.card-footer-custom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-    padding-top: 8px;
-    border-top: 1px solid #f0f0f0;
-    font-size: 0.82rem;
-}
-.card-footer-custom a    { text-decoration: none; }
-.text-danger-custom      { color: #e05070 !important; }
-.text-muted-custom       { color: #bbb !important; }
-.text-warning-custom     { color: #f0a500 !important; margin-right: 6px; }
-
-/* ---------- BOTÓN FLOTANTE ---------- */
-.btn-flotante-pildora {
-    position: fixed;
-    bottom: 28px;
-    right: 24px;
-    width: 52px;
-    height: 52px;
-    background-color: #c97dd4;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-decoration: none;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.2);
-    z-index: 1000;
-    font-size: 1.6rem;
-    transition: background 0.2s, transform 0.2s;
-}
-.btn-flotante-pildora:hover { background-color: #a855b5; transform: scale(1.08); color: white; }
-
-/* ---------- SIDEBAR ---------- */
-#sidebar {
-    position: fixed;
-    top: 0; left: -280px;
-    width: 280px; height: 100%;
-    background: white;
-    z-index: 1050;
-    transition: left 0.3s ease;
-    overflow-y: auto;
-    box-shadow: 2px 0 10px rgba(0,0,0,0.15);
-}
-#sidebar.open { left: 0; }
-#overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 1040; }
-#overlay.show { display: block; }
-.menu-btn { width: 28px; height: 28px; cursor: pointer; flex-shrink: 0; }
-
+ 
 /* =============================================
    DETALLE / PUBLICAR / EDITAR
    ============================================= */
@@ -349,8 +192,7 @@ body {
     margin: 0 auto;
     padding: 20px;
 }
-
->>>>>>> 0c5faa6b462c3546a2263bd803e57347cafee744
+ 
 .topbar-detalle {
     display: flex;
     align-items: center;
@@ -368,7 +210,7 @@ body {
 }
 .topbar-detalle h2  { font-size: 1rem; font-weight: 700; margin: 0; color: #333; }
 .topbar-detalle .btn-favorito { background: none; border: none; font-size: 1.4rem; cursor: pointer; color: #e05070; }
-
+ 
 .card-detalle,
 .card-form-obra {
     background: #2a2a3a;
@@ -376,21 +218,21 @@ body {
     padding: 24px;
     color: white;
 }
-
+ 
 .detalle-imagen { width: 100%; max-height: 260px; object-fit: cover; border-radius: 12px; margin-bottom: 20px; }
 .detalle-placeholder-img {
     width: 100%; height: 200px; background: #3a3a4a;
     border-radius: 12px; display: flex; align-items: center; justify-content: center;
     color: #888; font-size: 1rem; margin-bottom: 20px;
 }
-
+ 
 .campo-detalle { margin-bottom: 18px; }
 .campo-detalle label {
     display: flex; align-items: center; gap: 8px;
     font-weight: 600; font-size: 0.9rem; color: #f0f0f0; margin-bottom: 6px;
 }
 .campo-detalle label i { font-size: 1rem; color: #f9c9d4; }
-
+ 
 .campo-detalle input,
 .campo-detalle textarea,
 .campo-detalle .valor-campo {
@@ -404,7 +246,7 @@ body {
 .campo-detalle textarea:focus { background: #44445a; box-shadow: 0 0 0 2px #f9c9d4; }
 .campo-detalle textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
 .campo-detalle .valor-campo { min-height: 40px; display: flex; align-items: center; }
-
+ 
 .upload-imagen-label {
     display: flex; align-items: center; justify-content: center; gap: 10px;
     width: 100%; background: #3a3a4a; border: 2px dashed #666;
@@ -414,14 +256,14 @@ body {
 .upload-imagen-label:hover { border-color: #f9c9d4; color: white; }
 #inputImagen { display: none; }
 #previewImagen { width: 100%; max-height: 200px; object-fit: cover; border-radius: 10px; margin-top: 10px; display: none; }
-
+ 
 .btn-guardar {
     width: 100%; background: #f9c9d4; color: #333; font-weight: 700;
     border: none; border-radius: 20px; padding: 12px; font-size: 1rem;
     cursor: pointer; margin-top: 10px; transition: background 0.2s;
 }
 .btn-guardar:hover { background: #f5a8b8; }
-
+ 
 /* Comentarios */
 .seccion-comentarios { margin-top: 24px; }
 .seccion-comentarios h5 { font-size: 0.95rem; color: #f0f0f0; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
@@ -429,7 +271,7 @@ body {
 .comentario-autor  { font-size: 0.8rem; font-weight: 700; color: #f9c9d4; margin-bottom: 4px; }
 .comentario-texto  { font-size: 0.88rem; color: #ddd; line-height: 1.5; }
 .comentario-fecha  { font-size: 0.72rem; color: #888; margin-top: 4px; }
-
+ 
 .form-comentario { display: flex; gap: 10px; margin-top: 14px; }
 .form-comentario input {
     flex: 1; background: #3a3a4a; border: none; border-radius: 20px;
@@ -441,7 +283,7 @@ body {
     padding: 10px 18px; color: #333; font-weight: 700; cursor: pointer; transition: background 0.2s;
 }
 .form-comentario button:hover { background: #f5a8b8; }
-
+ 
 .btn-like-detalle {
     display: inline-flex; align-items: center; gap: 6px;
     background: none; border: 2px solid #e05070; border-radius: 20px;
@@ -450,10 +292,238 @@ body {
 }
 .btn-like-detalle:hover,
 .btn-like-detalle.activo { background: #e05070; color: white; }
-
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 576px) {
-    .grid-poesias { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-    .hero-banner h1 { font-size: 1.6rem; }
-    .card-detalle, .card-form-obra { padding: 16px; }
+ 
+ 
+/* =============================================
+   RESPONSIVE — MÓVIL
+   ============================================= */
+ 
+/* --- Tablets (≤ 768px) --- */
+@media (max-width: 768px) {
+    .muro-poesia-container {
+        padding: 0 14px 80px;
+    }
+ 
+    .hero-banner {
+        min-height: 180px;
+        padding: 30px 16px 22px;
+    }
+ 
+    .hero-banner h1 {
+        font-size: 1.8rem;
+    }
+ 
+    .hero-banner p {
+        font-size: 0.9rem;
+    }
+ 
+    .grid-poesias {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 16px;
+    }
+ 
+    .detalle-container,
+    .form-obra-container {
+        padding: 14px;
+    }
+ 
+    .topbar-detalle {
+        padding: 10px 14px;
+    }
+ 
+    .topbar-detalle h2 {
+        font-size: 0.9rem;
+    }
 }
+ 
+/* --- Móviles (≤ 480px) --- */
+@media (max-width: 480px) {
+    .hero-banner {
+        min-height: 160px;
+        padding: 24px 14px 18px;
+        margin-bottom: 18px;
+    }
+ 
+    .hero-banner h1 {
+        font-size: 1.4rem;
+        margin-bottom: 6px;
+    }
+ 
+    .hero-banner p {
+        font-size: 0.85rem;
+    }
+ 
+    .hero-banner .autor-cita {
+        font-size: 0.75rem;
+    }
+ 
+    .muro-poesia-container {
+        padding: 0 10px 70px;
+    }
+ 
+    /* Grid de 2 columnas en móvil */
+    .grid-poesias {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+ 
+    .card-poesia {
+        padding: 8px;
+        border-radius: 12px;
+    }
+ 
+    .card-poesia img,
+    .card-poesia .placeholder-foto {
+        height: 130px;
+    }
+ 
+    .card-title-custom {
+        font-size: 0.88rem;
+    }
+ 
+    .card-autor-custom {
+        font-size: 0.75rem;
+        margin-bottom: 8px;
+    }
+ 
+    .btn-info-custom {
+        font-size: 0.78rem;
+        padding: 6px;
+    }
+ 
+    .card-footer-custom {
+        font-size: 0.75rem;
+    }
+ 
+    /* Buscador más compacto */
+    .search-box {
+        padding: 5px 12px;
+        margin-bottom: 18px;
+    }
+ 
+    .search-box input {
+        font-size: 0.88rem;
+    }
+ 
+    /* Botón flotante más pequeño */
+    .btn-flotante-pildora {
+        width: 46px;
+        height: 46px;
+        font-size: 1.4rem;
+        bottom: 20px;
+        right: 16px;
+    }
+ 
+    /* Sidebar ocupa todo el ancho en móvil muy pequeño */
+    #sidebar {
+        width: 85vw;
+        left: -85vw;
+    }
+ 
+    /* Detalle / formularios */
+    .detalle-container,
+    .form-obra-container {
+        padding: 10px;
+    }
+ 
+    .card-detalle,
+    .card-form-obra {
+        padding: 14px;
+        border-radius: 12px;
+    }
+ 
+    .topbar-detalle {
+        padding: 10px 12px;
+        border-radius: 0 0 12px 12px;
+    }
+ 
+    .topbar-detalle h2 {
+        font-size: 0.85rem;
+    }
+ 
+    .topbar-detalle .btn-regresar {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+ 
+    .detalle-imagen {
+        max-height: 200px;
+        border-radius: 10px;
+    }
+ 
+    .campo-detalle label {
+        font-size: 0.82rem;
+    }
+ 
+    .campo-detalle input,
+    .campo-detalle textarea,
+    .campo-detalle .valor-campo {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+    }
+ 
+    .campo-detalle textarea {
+        min-height: 100px;
+    }
+ 
+    /* Comentarios en móvil */
+    .form-comentario {
+        flex-direction: column;
+        gap: 8px;
+    }
+ 
+    .form-comentario input {
+        font-size: 0.85rem;
+        padding: 10px 14px;
+    }
+ 
+    .form-comentario button {
+        width: 100%;
+        padding: 10px;
+    }
+ 
+    .btn-like-detalle {
+        font-size: 0.82rem;
+        padding: 6px 12px;
+    }
+ 
+    .seccion-comentarios h5 {
+        font-size: 0.88rem;
+    }
+ 
+    .comentario-texto {
+        font-size: 0.82rem;
+    }
+ 
+    .btn-guardar {
+        font-size: 0.95rem;
+        padding: 11px;
+    }
+ 
+    .upload-imagen-label {
+        padding: 12px;
+        font-size: 0.85rem;
+    }
+}
+ 
+/* --- Móviles muy pequeños (≤ 360px) --- */
+@media (max-width: 360px) {
+    .hero-banner h1 {
+        font-size: 1.2rem;
+    }
+ 
+    .grid-poesias {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+ 
+    .card-poesia img,
+    .card-poesia .placeholder-foto {
+        height: 110px;
+    }
+ 
+    .topbar-detalle h2 {
+        display: none; /* Oculta el título en pantallas muy chicas para evitar overflow */
+    }
+}
+ 
