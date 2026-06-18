@@ -18,11 +18,10 @@ $resultado = $conexion->query($sql);
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <?php include("components/navbar.php"); ?>
@@ -82,30 +81,32 @@ $resultado = $conexion->query($sql);
       margin-left: 60px;
     }    
   </style>
-  <?php while($fila = $resultado->fetch_assoc()) { ?>
-  <div class="art-card">
-      <div class="card-image-area">
-        <img
-        src="<?php echo $fila['imagen']; ?>"
-        class="imagen-pintura"
-        alt="Pintura">
-          <button class="heart-button">
+    <?php while($fila = $resultado->fetch_assoc()) { ?>
+      <a href="ver_pintura.php?id=<?php echo $fila['ID']; ?> "class="card-link">
+      <div class="art-card">
+        <div class="card-image-area">
+          <img
+          src="<?php echo $fila['imagen']; ?>"
+          class="imagen-pintura"
+          alt="Pintura">
+            <button class="heart-button">
               <i class="fa-regular fa-heart"></i>
-          </button>
+            </button>
+        </div>
+        <div class="card-info-area">
+            <h2 class="paint-title">
+                <?php echo $fila['nombre_pintura']; ?>
+            </h2>
+            <p class="author-name">
+                <?php echo $fila['autor']; ?>
+            </p>
+            <p>
+                <?php echo $fila['descripcion']; ?>
+            </p>
+        </div>
       </div>
-      <div class="card-info-area">
-          <h2 class="paint-title">
-              <?php echo $fila['nombre_pintura']; ?>
-          </h2>
-          <p class="author-name">
-              <?php echo $fila['autor']; ?>
-          </p>
-          <p>
-              <?php echo $fila['descripcion']; ?>
-          </p>
-      </div>
-  </div>
-  <?php } ?>
+      </a>
+    <?php } ?>
   <a href="form_pintura.html" class="añadir-boton">
     <button class="boton-plus">
       <i class="fa-solid fa-plus"></i>
@@ -124,7 +125,7 @@ $resultado = $conexion->query($sql);
     });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="JavaScrip/script.js"></script>
+  <script src="JavaScript/script.js"></script>
 
 </body>
 </html>

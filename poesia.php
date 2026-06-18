@@ -25,10 +25,7 @@ $resultado = $stmt->get_result();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles/poesia.css">
-<<<<<<< HEAD
-=======
     <link rel="stylesheet" href="style.css">
->>>>>>> 0c5faa6b462c3546a2263bd803e57347cafee744
 </head>
 <body>
 
@@ -65,7 +62,7 @@ $resultado = $stmt->get_result();
 
                     <?php if (!empty($obra['imagen'])): ?>
                         <img src="data:image/jpeg;base64,<?= base64_encode($obra['imagen']) ?>"
-                             alt="<?= htmlspecialchars($obra['titulo']) ?>">
+                            alt="<?= htmlspecialchars($obra['titulo']) ?>">
                     <?php else: ?>
                         <div class="placeholder-foto">Foto</div>
                     <?php endif; ?>
@@ -83,7 +80,7 @@ $resultado = $stmt->get_result();
                             <!-- LIKES -->
                             <?php if ($usuario_actual > 0): ?>
                                 <a href="like.php?id=<?= $obra['id'] ?>"
-                                   class="<?= $obra['dio_like'] > 0 ? 'text-danger-custom' : 'text-muted-custom' ?>">
+                                    class="<?= $obra['dio_like'] > 0 ? 'text-danger-custom' : 'text-muted-custom' ?>">
                                     <i class="fa-<?= $obra['dio_like'] > 0 ? 'solid' : 'regular' ?> fa-heart"></i>
                                     <?= $obra['total_likes'] ?>
                                 </a>
