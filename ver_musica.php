@@ -69,14 +69,18 @@ if(isset($_SESSION['usuario_id'])){
 
     </div>
 
-    <div class="video-container">
+    <div class="audio-container">
 
-        <iframe
-            src="<?php echo htmlspecialchars($musica['video']); ?>"
-            allowfullscreen>
-        </iframe>
+    <audio controls style="width:100%;">
 
-    </div>
+        <source
+            src="uploads/musica/<?php echo $musica['audio']; ?>">
+
+        Tu navegador no soporta audio.
+
+    </audio>
+
+</div>
 
     <div class="descripcion">
 

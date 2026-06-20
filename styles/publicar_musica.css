@@ -46,23 +46,22 @@ body{
 .form-musica{
     display:flex;
     flex-direction:column;
-    gap:15px;
+    gap:12px;
 }
 
 .form-musica label{
     font-weight:600;
     color:var(--terracota);
+    margin-top:10px;
 }
 
-.form-musica input,
-.form-musica textarea{
-
+.form-musica input[type="text"],
+.form-musica textarea,
+.form-musica input[type="file"]{
+    width:100%;
     padding:14px;
-
     border:1px solid #ddd;
-
     border-radius:12px;
-
     font-size:15px;
 }
 
@@ -72,21 +71,14 @@ body{
 }
 
 .form-musica button{
-
+    margin-top:15px;
     background:var(--terracota);
-
     color:white;
-
     border:none;
-
     padding:15px;
-
     border-radius:12px;
-
     cursor:pointer;
-
     font-size:16px;
-
     transition:.3s;
 }
 
@@ -103,35 +95,26 @@ body{
     text-align:center;
 }
 
-@media screen and (max-width: 768px){
+@media(max-width:768px){
 
     .contenedor{
-        margin: 20px auto;
-        padding: 15px;
+        margin:20px auto;
+        padding:15px;
     }
 
     .card-form{
-        padding: 25px;
-        border-radius: 15px;
+        padding:25px;
     }
 
     .card-form h1{
-        font-size: 28px;
-        margin: 15px 0 25px;
-    }
-
-    .form-musica input,
-    .form-musica textarea{
-        font-size: 14px;
-        padding: 12px;
+        font-size:28px;
     }
 
     .form-musica textarea{
-        min-height: 150px;
+        min-height:150px;
     }
 
     .form-musica button{
-        padding: 14px;
-        font-size: 15px;
+        font-size:15px;
     }
 }

@@ -16,13 +16,45 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $nombre_cancion = trim($_POST['nombre_cancion']);
     $nombre_cantante = trim($_POST['nombre_cantante']);
     $descripcion = trim($_POST['descripcion']);
-    $video = trim($_POST['video']);
 
+    $audio = "";
     $portada = "";
 
+    // SUBIR AUDIO
+    if(isset($_FILES['audio']) && $_FILES['audio']['error'] == 0){
+
+        $permitidos = ['mp3','wav','ogg'];
+
+        $extension = strtolower(
+            pathinfo($_FILES['audio']['name'], PATHINFO_EXTENSION)
+        );
+
+        if(!in_array($extension, $permitidos)){
+            $mensaje = "❌ Formato de audio no permitido";
+        }else{
+
+            if($_FILES['audio']['size'] > 20 * 1024 * 1024){
+                $mensaje = "❌ El audio supera los 20MB";
+            }else{
+
+                $audio = time() . "_audio." . $extension;
+
+                move_uploaded_file(
+                    $_FILES['audio']['tmp_name'],
+                    "uploads/musica/" . $audio
+                );
+            }
+        }
+    }
+
+    // SUBIR PORTADA
     if(isset($_FILES['portada']) && $_FILES['portada']['error'] == 0){
 
-        $portada = time() . "_" . basename($_FILES['portada']['name']);
+        $extensionPortada = strtolower(
+            pathinfo($_FILES['portada']['name'], PATHINFO_EXTENSION)
+        );
+
+        $portada = time() . "_cover." . $extensionPortada;
 
         move_uploaded_file(
             $_FILES['portada']['tmp_name'],
@@ -30,37 +62,40 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         );
     }
 
-    $sql = "INSERT INTO musica
-    (
-        usuario_id,
-        nombre_cancion,
-        nombre_cantante,
-        descripcion,
-        video,
-        portada
-    )
-    VALUES (?,?,?,?,?,?)";
+    if(empty($mensaje)){
 
-    $stmt = $conn->prepare($sql);
+        $sql = "INSERT INTO musica
+        (
+            usuario_id,
+            nombre_cancion,
+            nombre_cantante,
+            descripcion,
+            audio,
+            portada
+        )
+        VALUES (?,?,?,?,?,?)";
 
-    $stmt->bind_param(
-        "isssss",
-        $usuario_id,
-        $nombre_cancion,
-        $nombre_cantante,
-        $descripcion,
-        $video,
-        $portada
-    );
+        $stmt = $conn->prepare($sql);
 
-    if($stmt->execute()){
+        $stmt->bind_param(
+            "isssss",
+            $usuario_id,
+            $nombre_cancion,
+            $nombre_cantante,
+            $descripcion,
+            $audio,
+            $portada
+        );
 
-        $mensaje = "✅ Música publicada correctamente";
+        if($stmt->execute()){
 
-    }else{
+            $mensaje = "✅ Música publicada correctamente";
 
-        $mensaje = "❌ Error al guardar la publicación";
+        }else{
 
+            $mensaje = "❌ Error al guardar la publicación";
+
+        }
     }
 }
 ?>
@@ -89,65 +124,78 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <?php if(!empty($mensaje)): ?>
 
             <div class="mensaje">
-
                 <?php echo $mensaje; ?>
-
             </div>
 
         <?php endif; ?>
 
-        <form
-            method="POST"
-            enctype="multipart/form-data"
-            class="form-musica"
-        >
+       <form
+    method="POST"
+    enctype="multipart/form-data"
+    class="form-musica"
+>
 
-            <label>Nombre de la canción</label>
+    <label for="nombre_cancion">
+        Nombre de la canción
+    </label>
 
-            <input
-                type="text"
-                name="nombre_cancion"
-                required
-            >
+    <input
+        type="text"
+        id="nombre_cancion"
+        name="nombre_cancion"
+        required
+    >
 
-            <label>Nombre del cantante</label>
+    <label for="nombre_cantante">
+        Nombre del cantante
+    </label>
 
-            <input
-                type="text"
-                name="nombre_cantante"
-                required
-            >
+    <input
+        type="text"
+        id="nombre_cantante"
+        name="nombre_cantante"
+        required
+    >
 
-            <label>Descripción</label>
+    <label for="descripcion">
+        Descripción
+    </label>
 
-            <textarea
-                name="descripcion"
-                required
-            ></textarea>
+    <textarea
+        id="descripcion"
+        name="descripcion"
+        required
+    ></textarea>
 
-            <label>Video de YouTube (Embed)</label>
+    <label for="audio">
+        Archivo de audio
+    </label>
 
-            <input
-                type="text"
-                name="video"
-                placeholder="https://www.youtube.com/embed/..."
-                required
-            >
+    <input
+        type="file"
+        id="audio"
+        name="audio"
+        accept=".mp3,.wav,.ogg"
+        required
+    >
 
-            <label>Portada</label>
+    <label for="portada">
+        Portada
+    </label>
 
-            <input
-                type="file"
-                name="portada"
-                accept="image/*"
-                required
-            >
+    <input
+        type="file"
+        id="portada"
+        name="portada"
+        accept="image/*"
+        required
+    >
 
-            <button type="submit">
-                Publicar Música
-            </button>
+    <button type="submit">
+        Publicar Música
+    </button>
 
-        </form>
+</form>
 
     </div>
 

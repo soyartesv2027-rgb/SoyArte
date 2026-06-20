@@ -11,7 +11,7 @@ $id = $_GET['id'] ?? 0;
 
 $sql = "SELECT * FROM musica WHERE musica_id = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("i",$id);
+$stmt->bind_param("i", $id);
 $stmt->execute();
 
 $musica = $stmt->get_result()->fetch_assoc();
@@ -28,19 +28,47 @@ $mensaje = "";
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-    $nombre_cancion = $_POST['nombre_cancion'];
-    $nombre_cantante = $_POST['nombre_cantante'];
-    $descripcion = $_POST['descripcion'];
-    $video = $_POST['video'];
+    $nombre_cancion = trim($_POST['nombre_cancion']);
+    $nombre_cantante = trim($_POST['nombre_cantante']);
+    $descripcion = trim($_POST['descripcion']);
 
+    $audio = $musica['audio'];
     $portada = $musica['portada'];
 
+    // CAMBIAR AUDIO
+    if(
+        isset($_FILES['audio']) &&
+        $_FILES['audio']['error'] == 0
+    ){
+
+        $extension = strtolower(
+            pathinfo($_FILES['audio']['name'], PATHINFO_EXTENSION)
+        );
+
+        $permitidos = ['mp3','wav','ogg'];
+
+        if(in_array($extension, $permitidos)){
+
+            $audio = time() . "_audio." . $extension;
+
+            move_uploaded_file(
+                $_FILES['audio']['tmp_name'],
+                "uploads/musica/" . $audio
+            );
+        }
+    }
+
+    // CAMBIAR PORTADA
     if(
         isset($_FILES['portada']) &&
         $_FILES['portada']['error'] == 0
     ){
 
-        $portada = time() . "_" . $_FILES['portada']['name'];
+        $extensionPortada = strtolower(
+            pathinfo($_FILES['portada']['name'], PATHINFO_EXTENSION)
+        );
+
+        $portada = time() . "_cover." . $extensionPortada;
 
         move_uploaded_file(
             $_FILES['portada']['tmp_name'],
@@ -51,12 +79,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $sqlUpdate = "
         UPDATE musica
         SET
-            nombre_cancion=?,
-            nombre_cantante=?,
-            descripcion=?,
-            video=?,
-            portada=?
-        WHERE musica_id=?
+            nombre_cancion = ?,
+            nombre_cantante = ?,
+            descripcion = ?,
+            audio = ?,
+            portada = ?
+        WHERE musica_id = ?
     ";
 
     $stmt = $conn->prepare($sqlUpdate);
@@ -66,22 +94,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $nombre_cancion,
         $nombre_cantante,
         $descripcion,
-        $video,
+        $audio,
         $portada,
         $id
     );
 
     if($stmt->execute()){
 
-        header("Location: ver_musica.php?id=".$id);
+        header("Location: ver_musica.php?id=" . $id);
         exit();
 
     }else{
 
-        $mensaje = "Error al actualizar";
+        $mensaje = "❌ Error al actualizar la publicación";
 
     }
-
 }
 ?>
 
@@ -94,6 +121,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 <title>Editar Música</title>
 
 <link rel="stylesheet" href="styles/publicar_musica.css">
+
+<style>
+.preview-portada{
+    width:200px;
+    border-radius:10px;
+    margin-top:10px;
+    margin-bottom:15px;
+}
+
+.audio-preview{
+    width:100%;
+    margin-top:10px;
+    margin-bottom:15px;
+}
+</style>
+
 </head>
 <body>
 
@@ -107,7 +150,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         <h1>✏️ Editar Música</h1>
 
-        <?php if($mensaje): ?>
+        <?php if(!empty($mensaje)): ?>
 
             <div class="mensaje">
                 <?php echo $mensaje; ?>
@@ -146,20 +189,29 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 required
             ><?php echo htmlspecialchars($musica['descripcion']); ?></textarea>
 
-            <label>Video de YouTube</label>
+            <label>Audio actual</label>
+
+            <audio controls class="audio-preview">
+
+                <source
+                    src="uploads/musica/<?php echo htmlspecialchars($musica['audio']); ?>">
+
+            </audio>
+
+            <label>Cambiar audio</label>
 
             <input
-                type="text"
-                name="video"
-                value="<?php echo htmlspecialchars($musica['video']); ?>"
-                required
+                type="file"
+                name="audio"
+                accept=".mp3,.wav,.ogg"
             >
 
             <label>Portada actual</label>
 
             <img
-                src="uploads/musica/<?php echo $musica['portada']; ?>"
+                src="uploads/musica/<?php echo htmlspecialchars($musica['portada']); ?>"
                 class="preview-portada"
+                alt="Portada"
             >
 
             <label>Cambiar portada</label>
