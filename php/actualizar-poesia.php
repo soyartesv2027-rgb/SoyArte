@@ -8,17 +8,30 @@ if (!isset($_SESSION['usuario_id'])) {
 }
  
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header("Location: ../publicar-poesia.php");
+    header("Location: ../poesia.php");
     exit;
 }
  
-$usuario_id        = (int) $_SESSION['usuario_id'];
+$obra_id    = (int) ($_POST['id'] ?? 0);
+$usuario_id = (int) $_SESSION['usuario_id'];
+ 
+// Verificar que la obra exista y le pertenezca al usuario logueado
+$check = $conn->prepare("SELECT usuario_id, imagen FROM obras WHERE id = ?");
+$check->bind_param("i", $obra_id);
+$check->execute();
+$obra = $check->get_result()->fetch_assoc();
+ 
+if (!$obra || (int) $obra['usuario_id'] !== $usuario_id) {
+    echo "No tienes permiso para editar esta obra.";
+    exit;
+}
+ 
 $autor             = trim($_POST['autor'] ?? '');
 $titulo            = trim($_POST['titulo'] ?? '');
 $fecha_publicacion = trim($_POST['fecha_publicacion'] ?? '');
 $contenido         = trim($_POST['contenido'] ?? '');
 $errores           = [];
-$imagenBinaria     = null;
+$nuevaImagen       = $obra['imagen']; // por ley pantiene la imagen actual
  
 if ($autor === '') {
     $errores[] = "El autor es obligatorio.";
@@ -30,47 +43,40 @@ if ($fecha_publicacion === '') {
     $errores[] = "La fecha de publicación es obligatoria.";
 }
  
-// Procesar la imagen de portada (se guarda como BLOB en obras.imagen)
 if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
     $extensionesPermitidas = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
     $extension = strtolower(pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION));
  
     if (in_array($extension, $extensionesPermitidas)) {
-        $imagenBinaria = file_get_contents($_FILES['imagen']['tmp_name']);
+        $nuevaImagen = file_get_contents($_FILES['imagen']['tmp_name']);
     } else {
         $errores[] = "Formato de imagen no permitido. Usa jpg, png, gif o webp.";
     }
 }
  
-// Si algo fallo, regresar al formulario con los errores y los datos que ya habia escrito
 if (!empty($errores)) {
-    $_SESSION['errores_publicar'] = $errores;
-    $_SESSION['datos_publicar'] = [
+    $_SESSION['errores_editar'] = $errores;
+    $_SESSION['datos_editar'] = [
         'autor'             => $autor,
         'titulo'            => $titulo,
         'fecha_publicacion' => $fecha_publicacion,
         'contenido'         => $contenido,
     ];
-    header("Location: ../publicar-poesia.php");
+    header("Location: ../editar.php?id=" . $obra_id);
     exit;
 }
  
-$sql = "INSERT INTO obras (usuario_id, autor, titulo, contenido, fecha_publicacion, imagen)
-        VALUES (?, ?, ?, ?, ?, ?)";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("isssss", $usuario_id, $autor, $titulo, $contenido, $fecha_publicacion, $imagenBinaria);
+$sql = "UPDATE obras SET autor = ?, titulo = ?, contenido = ?, fecha_publicacion = ?, imagen = ?
+        WHERE id = ?";
+$upd = $conn->prepare($sql);
+$upd->bind_param("sssssi", $autor, $titulo, $contenido, $fecha_publicacion, $nuevaImagen, $obra_id);
  
-if ($stmt->execute()) {
-    header("Location: ../poesia.php");
+if ($upd->execute()) {
+    header("Location: ../detalle.php?id=" . $obra_id);
     exit;
 } else {
-    $_SESSION['errores_publicar'] = ["Ocurrió un error al guardar el poema. Intenta de nuevo."];
-    $_SESSION['datos_publicar'] = [
-        'autor'             => $autor,
-        'titulo'            => $titulo,
-        'fecha_publicacion' => $fecha_publicacion,
-        'contenido'         => $contenido,
-    ];
-    header("Location: ../publicar-poesia.php");
+    $_SESSION['errores_editar'] = ["Ocurrió un error al guardar los cambios. Intenta de nuevo."];
+    header("Location: ../editar.php?id=" . $obra_id);
     exit;
 }
+ 

@@ -1,22 +1,22 @@
 <?php
 session_start();
-include("php/conexion.php");
-
+include("conexion.php");
+ 
 if (!isset($_SESSION['usuario_id'])) {
-    header("Location: php/login.php");
+    header("Location: login.php");
     exit;
 }
-
+ 
 $usuario_actual = $_SESSION['usuario_id'];
 $obra_id        = intval($_GET['id']       ?? 0);
 $redirect       = $_GET['redirect']        ?? 'lista';
-
+ 
 if ($obra_id > 0) {
     $check = $conn->prepare("SELECT id FROM likes WHERE obra_id = ? AND usuario_id = ?");
     $check->bind_param("ii", $obra_id, $usuario_actual);
     $check->execute();
     $check->store_result();
-
+ 
     if ($check->num_rows > 0) {
         $del = $conn->prepare("DELETE FROM likes WHERE obra_id = ? AND usuario_id = ?");
         $del->bind_param("ii", $obra_id, $usuario_actual);
@@ -27,8 +27,8 @@ if ($obra_id > 0) {
         $ins->execute();
     }
 }
-
+ 
 header($redirect === 'detalle'
-    ? "Location: detalle.php?id=$obra_id"
-    : "Location: poesia.php");
+    ? "Location: ../detalle.php?id=$obra_id"
+    : "Location: ../poesia.php");
 exit;

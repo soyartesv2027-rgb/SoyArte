@@ -2,10 +2,13 @@
 $conexion = new mysqli("localhost", "root", "", "soyarte");
 
 $id = $_GET['id'] ?? 0;
+$id = intval($id);
 
-$sql = "SELECT * FROM pinturas WHERE ID = $id";
-$resultado = $conexion->query($sql);
+$stmt = $conexion->prepare("SELECT * FROM pinturas WHERE ID = ?");
+$stmt->bind_param("i", $id);
+$stmt->execute();
 
+$resultado = $stmt->get_result();
 $pintura = $resultado->fetch_assoc();
 
 if(!$pintura){
@@ -16,37 +19,42 @@ if(!$pintura){
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title><?php echo $pintura['nombre_pintura']; ?></title>
-
-<link rel="stylesheet" href="styles/pinturas.css">
+    <meta charset="UTF-8">
+    <title><?php echo $pintura['nombre_pintura']; ?></title>
+    <link rel="stylesheet" href="styles/ver_pintura.css">
 </head>
 <body>
-
-<div class="contenedor-pintura">
+    <div class="detalle-pintura">
 
     <img
         src="<?php echo $pintura['imagen']; ?>"
-        class="imagen-grande"
-    >
+        class="imagen-detalle"
+        alt="Pintura">
 
-    <h1>
-        <?php echo $pintura['nombre_pintura']; ?>
+    <h1 class="titulo-detalle">
+        <?php echo htmlspecialchars($pintura['nombre_pintura']); ?>
     </h1>
 
-    <h3>
-        <?php echo $pintura['autor']; ?>
-    </h3>
+    <h3>Descripción:</h3>
 
-    <p>
-        <?php echo $pintura['descripcion']; ?>
+    <p class="descripcion-detalle">
+        <?php echo htmlspecialchars($pintura['descripcion']); ?>
     </p>
 
-    <a href="pinturas.php">
-        Volver
+    <div class="perfil-artista">
+
+        <i class="fa-regular fa-user"></i>
+
+        <span>
+            <?php echo htmlspecialchars($pintura['autor']); ?>
+        </span>
+
+    </div>
+
+    <a href="pinturas.php" class="btn-volver">
+        ← Volver
     </a>
 
 </div>
-
 </body>
 </html>
