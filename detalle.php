@@ -103,7 +103,7 @@ $esPropietario = $usuario_id && $usuario_id === (int) $obra['usuario_id'];
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="styles/poesia.css">
+    <link rel="stylesheet" href="styles/poesia.css?v=2">
 </head>
 <body>
  
@@ -176,7 +176,7 @@ $esPropietario = $usuario_id && $usuario_id === (int) $obra['usuario_id'];
                 <?php endif; ?>
  
                 <?php if ($esPropietario): ?>
-                    <a href="editar.php?id=<?= $obra['id'] ?>" class="btn btn-outline-secondary"><i class="fa-solid fa-pen"></i> Editar</a>
+                    <a href="editar-poesia.php?id=<?= $obra['id'] ?>" class="btn btn-outline-secondary"><i class="fa-solid fa-pen"></i> Editar</a>
                     <a href="php/eliminar-poesia.php?id=<?= $obra['id'] ?>" class="btn btn-outline-danger" onclick="return confirm('¿Seguro que quieres eliminar esta obra?');"><i class="fa-solid fa-trash"></i> Eliminar</a>
                 <?php endif; ?>
             </div>

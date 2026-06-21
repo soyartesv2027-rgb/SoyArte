@@ -1,4 +1,9 @@
-
+/* ============================================================
+   poesia.css
+   Estilos para el módulo de Poesía (complementa Bootstrap).
+   Incluye ajustes para pantallas de teléfono al final del archivo.
+   ============================================================ */
+ 
 :root {
     --coral: #ec7b8c;
     --rosa-claro: #fadbe3;
@@ -7,9 +12,12 @@
     --texto: #3a2e2e;
 }
  
-/* Tarjetas de poemas  */
+/* ---------- Tarjetas de poemas (listado) ---------- */
 .tarjeta-obra {
+    position: relative;
     overflow: hidden;
+    border-radius: 20px;
+    border: none;
 }
  
 .tarjeta-img-wrap {
@@ -28,29 +36,114 @@
     transform: scale(1.1);
 }
  
-/*  (imagen y texto) */
+.btn-like-tarjeta {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    border: none;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--texto);
+    font-size: 0.8rem;
+    padding: 5px 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+ 
+.btn-like-tarjeta.activo {
+    background: var(--coral);
+    border-color: var(--coral);
+    color: #fff;
+}
+ 
+.btn-like-tarjeta:hover {
+    background: var(--coral);
+    border-color: var(--coral);
+    color: #fff;
+}
+ 
+.card-body {
+    border-radius: 0 0 20px 20px;
+}
+ 
+/* ---------- Nav simple solo para Poesia (logo + 3 iconos) ---------- */
+.navbar-poesia {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    background: var(--coral);
+    padding: 0;
+    min-height: 60px;
+}
+ 
+.navbar-poesia-logo {
+    display: flex;
+    align-items: center;
+    padding: 0 22px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.3rem;
+    text-decoration: none;
+}
+ 
+.navbar-poesia-logo span {
+    font-weight: 800;
+}
+ 
+.navbar-poesia-logo:hover {
+    color: #fff;
+}
+ 
+.navbar-poesia-iconos {
+    display: flex;
+}
+ 
+.icono-nav {
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.3rem;
+    border-radius: 0;
+    transition: filter 0.2s ease;
+}
+ 
+.icono-nav:hover {
+    filter: brightness(1.1);
+    color: #fff;
+}
+ 
+.icono-naranja { background: #e65c2b; }
+.icono-azul    { background: #4b8ba2; }
+.icono-verde   { background: #4f861d; }
+ 
+/* ---------- Hero/floral arriba de la pagina de listado ---------- */
 .hero-poesia {
     position: relative;
     overflow: hidden;
-    padding: 40px 20px 10px;
+    padding: 45px 20px 25px;
+    min-height: 200px;
 }
  
 .hero-poesia-img {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 280px;
-    height: 220px;
-    max-width: 280px;
-    opacity: 0.85;
+    inset: 0;
+    opacity: 0.6;
     pointer-events: none;
     z-index: 0;
  
-    /* hero */
-    background-image: url('../img/download.jpg');
-    background-size: contain;
+    /* 👇 AQUI cambias la ruta de tu imagen floral/hero */
+    background-image: url('../img/nueva.jpg');
+    background-size: cover;
+    background-position: top center;
     background-repeat: no-repeat;
-    background-position: top right;
+ 
+    /* Difumina los bordes para que se mezcle con el fondo,
+       sin importar que imagen pongas (no se ve como un cuadro). */
+    mask-image: radial-gradient(ellipse 75% 100% at 50% 0%, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 55%, rgba(0,0,0,0) 85%);
+    -webkit-mask-image: radial-gradient(ellipse 75% 100% at 50% 0%, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 55%, rgba(0,0,0,0) 85%);
 }
  
 .hero-poesia-texto {
@@ -58,7 +151,7 @@
     z-index: 1;
 }
  
-
+/* ---------- Barra superior (detalle, editar, publicar) ---------- */
 .topbar-detalle {
     background: var(--coral);
     color: #fff;
@@ -236,12 +329,26 @@
     }
  
     .hero-poesia-img {
-        max-width: 130px;
-        opacity: 0.5;
+        opacity: 0.4;
     }
  
     .hero-poesia {
-        padding: 25px 15px 5px;
+        padding: 28px 15px 15px;
+        min-height: 150px;
+    }
+ 
+    .navbar-poesia {
+        min-height: 48px;
+    }
+ 
+    .navbar-poesia-logo {
+        font-size: 1.05rem;
+        padding: 0 14px;
+    }
+ 
+    .icono-nav {
+        width: 44px;
+        font-size: 1rem;
     }
 }
  

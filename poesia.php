@@ -3,23 +3,61 @@ session_start();
 include("php/conexion.php");
 include("php/funciones-poesia.php");
  
+$usuario_id = isset($_SESSION['usuario_id']) ? (int) $_SESSION['usuario_id'] : null;
+ 
+/* -------------------------------------------------------------
+   Like desde la tarjeta del listado (boton "Like" en cada poema)
+   ------------------------------------------------------------- */
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accion']) && $_POST['accion'] === 'like') {
+ 
+    if (!$usuario_id) {
+        header("Location: php/login.php");
+        exit;
+    }
+ 
+    $obra_id_like = (int) ($_POST['obra_id'] ?? 0);
+ 
+    $check = $conn->prepare("SELECT id FROM likes WHERE obra_id = ? AND usuario_id = ?");
+    $check->bind_param("ii", $obra_id_like, $usuario_id);
+    $check->execute();
+    if ($check->get_result()->num_rows > 0) {
+        $del = $conn->prepare("DELETE FROM likes WHERE obra_id = ? AND usuario_id = ?");
+        $del->bind_param("ii", $obra_id_like, $usuario_id);
+        $del->execute();
+    } else {
+        $ins = $conn->prepare("INSERT INTO likes (obra_id, usuario_id) VALUES (?, ?)");
+        $ins->bind_param("ii", $obra_id_like, $usuario_id);
+        $ins->execute();
+    }
+ 
+    $queryString = isset($_POST['q']) && $_POST['q'] !== '' ? '?q=' . urlencode($_POST['q']) : '';
+    header("Location: poesia.php" . $queryString);
+    exit;
+}
+ 
 $busqueda = isset($_GET['q']) ? trim($_GET['q']) : '';
+$usuarioParaLikes = $usuario_id ?? 0; // 0 nunca coincide con un usuario real
  
 if ($busqueda !== '') {
     $like = "%" . $busqueda . "%";
-    $sql = "SELECT obras.id, obras.titulo, obras.imagen, usuarios.nombre AS creador
+    $sql = "SELECT obras.id, obras.titulo, obras.imagen, usuarios.nombre AS creador,
+                   (SELECT COUNT(*) FROM likes WHERE likes.obra_id = obras.id) AS total_likes,
+                   EXISTS(SELECT 1 FROM likes WHERE likes.obra_id = obras.id AND likes.usuario_id = ?) AS ya_le_dio_like
             FROM obras
             JOIN usuarios ON obras.usuario_id = usuarios.id
             WHERE obras.titulo LIKE ? OR obras.autor LIKE ?
             ORDER BY obras.id DESC";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $like, $like);
+    $stmt->bind_param("iss", $usuarioParaLikes, $like, $like);
 } else {
-    $sql = "SELECT obras.id, obras.titulo, obras.imagen, usuarios.nombre AS creador
+    $sql = "SELECT obras.id, obras.titulo, obras.imagen, usuarios.nombre AS creador,
+                   (SELECT COUNT(*) FROM likes WHERE likes.obra_id = obras.id) AS total_likes,
+                   EXISTS(SELECT 1 FROM likes WHERE likes.obra_id = obras.id AND likes.usuario_id = ?) AS ya_le_dio_like
             FROM obras
             JOIN usuarios ON obras.usuario_id = usuarios.id
             ORDER BY obras.id DESC";
     $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $usuarioParaLikes);
 }
  
 $stmt->execute();
@@ -34,16 +72,10 @@ $resultado = $stmt->get_result();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="styles/poesia.css">
+    <link rel="stylesheet" href="styles/poesia.css?v=2">
 </head>
 <body class="bg-light">
-    <?php $colorNavbar = '#ec7b8c'; // Rosa para la seccion de Poesia ?>
-    <?php include("components/navbar.php"); ?>
- 
-    <!-- Tu nav ya se carga desde la plantilla general de tu sitio.
-         Si necesitas incluirlo aqui manualmente, escribe el include()
-         como PHP real (sin comentario de HTML alrededor), porque PHP
-         SI ejecuta codigo aunque este dentro de un comentario de HTML. -->
+    <?php include("components/navbar-poesia.php"); ?>
  
     <div class="hero-poesia">
         <div class="hero-poesia-img"></div>
@@ -84,7 +116,23 @@ $resultado = $stmt->get_result();
                         </div>
                         <div class="card-body text-center">
                             <h6 class="card-title mb-1"><?= htmlspecialchars($obra['titulo']) ?></h6>
-                            <p class="card-text text-muted small mb-3"><?= htmlspecialchars($obra['creador']) ?></p>
+                            <p class="card-text text-muted small mb-2"><?= htmlspecialchars($obra['creador']) ?></p>
+ 
+                            <?php if ($usuario_id): ?>
+                                <form method="POST" class="mb-2">
+                                    <input type="hidden" name="accion" value="like">
+                                    <input type="hidden" name="obra_id" value="<?= $obra['id'] ?>">
+                                    <input type="hidden" name="q" value="<?= htmlspecialchars($busqueda) ?>">
+                                    <button type="submit" class="btn-like-tarjeta <?= $obra['ya_le_dio_like'] ? 'activo' : '' ?>">
+                                        <i class="fa-solid fa-thumbs-up"></i> <?= $obra['total_likes'] ?>
+                                    </button>
+                                </form>
+                            <?php else: ?>
+                                <span class="btn-like-tarjeta d-inline-block mb-2">
+                                    <i class="fa-solid fa-thumbs-up"></i> <?= $obra['total_likes'] ?>
+                                </span>
+                            <?php endif; ?>
+ 
                             <a href="detalle.php?id=<?= $obra['id'] ?>" class="btn btn-outline-secondary btn-sm w-100">Más información</a>
                         </div>
                     </div>
@@ -108,4 +156,3 @@ $resultado = $stmt->get_result();
 </body>
 </html>
 <?php $stmt->close(); $conn->close(); ?>
- 
