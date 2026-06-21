@@ -71,8 +71,16 @@ $resultado = $stmt->get_result();
     <title>Poesía - Soy Arte</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/poesia.css?v=2">
+=======
+    <link rel="stylesheet" href="styles/poesia.css">
+<<<<<<< HEAD
+    <link rel="stylesheet" href="style.css">
+=======
+>>>>>>> 87245ef2fa2fc9c7b26d3d71db84a525ac0a3efb
+>>>>>>> e4ab29ba96a63379dfed4b1ca72ba089762f9ed4
 </head>
 <body class="bg-light">
     <?php include("components/navbar-poesia.php"); ?>
@@ -102,6 +110,7 @@ $resultado = $stmt->get_result();
             <?php endif; ?>
  
             <?php while ($obra = $resultado->fetch_assoc()): ?>
+<<<<<<< HEAD
                 <?php $src = imagenSrc($obra['imagen']); ?>
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="card h-100 shadow-sm tarjeta-obra">
@@ -134,6 +143,54 @@ $resultado = $stmt->get_result();
                             <?php endif; ?>
  
                             <a href="detalle.php?id=<?= $obra['id'] ?>" class="btn btn-outline-secondary btn-sm w-100">Más información</a>
+=======
+<<<<<<< HEAD
+                <div class="card-poesia">
+
+                    <?php if (!empty($obra['imagen'])): ?>
+                        <img src="data:image/jpeg;base64,<?= base64_encode($obra['imagen']) ?>"
+                            alt="<?= htmlspecialchars($obra['titulo']) ?>">
+                    <?php else: ?>
+                        <div class="placeholder-foto">Foto</div>
+                    <?php endif; ?>
+
+                    <div class="card-body-custom">
+                        <h6 class="card-title-custom"><?= htmlspecialchars($obra['titulo']) ?></h6>
+                        <p class="card-autor-custom"><?= htmlspecialchars($obra['autor']) ?></p>
+
+                        <a href="detalle.php?id=<?= $obra['id'] ?>" class="btn-info-custom">
+                            Más información
+                        </a>
+
+                        <div class="card-footer-custom">
+
+                            <!-- LIKES -->
+                            <?php if ($usuario_actual > 0): ?>
+                                <a href="like.php?id=<?= $obra['id'] ?>"
+                                    class="<?= $obra['dio_like'] > 0 ? 'text-danger-custom' : 'text-muted-custom' ?>">
+                                    <i class="fa-<?= $obra['dio_like'] > 0 ? 'solid' : 'regular' ?> fa-heart"></i>
+                                    <?= $obra['total_likes'] ?>
+                                </a>
+                            <?php else: ?>
+                                <span class="text-muted-custom">
+                                    <i class="fa-regular fa-heart"></i> <?= $obra['total_likes'] ?>
+                                </span>
+                            <?php endif; ?>
+
+                            <!-- EDITAR Y ELIMINAR: solo el dueño -->
+                            <?php if ($usuario_actual > 0 && $obra['usuario_id'] == $usuario_actual): ?>
+                                <div>
+                                    <a href="editar.php?id=<?= $obra['id'] ?>" class="text-warning-custom" title="Editar">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </a>
+                                    <a href="eliminar-poesia.php?id=<?= $obra['id'] ?>"
+                                       onclick="return confirm('¿Eliminar este poema?');"
+                                       class="text-danger-custom ms-2" title="Eliminar">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+>>>>>>> e4ab29ba96a63379dfed4b1ca72ba089762f9ed4
                         </div>
                     </div>
                 </div>

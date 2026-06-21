@@ -12,7 +12,7 @@
 
     width: 45px;
     height: 45px;
-    background-color: orange;
+    background-color: #fab31b;
 
     border-radius: 50%; /* esto crea el círculo */
     
@@ -29,7 +29,7 @@
 
 
 body{
-    background:#f4f4f4;
+    background:#fce4af;
     font-family:Arial, sans-serif;
 
     display:flex;
@@ -93,7 +93,7 @@ button{
     border:none;
     border-radius:10px;
 
-    background:#ff6a00;
+    background:#fab31b;
     color:white;
 
     font-size:18px;
@@ -105,5 +105,5 @@ button{
 }
 
 button:hover{
-    background:#e55f00;
+    background:#fab31b;
 }
