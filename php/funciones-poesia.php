@@ -1,5 +1,5 @@
 <?php
-/* función para obtener la fuente de la imagen */
+
 function imagenSrc($blobImagen) {
     if (empty($blobImagen)) {
         return null;

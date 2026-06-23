@@ -6,6 +6,7 @@
   overflow: hidden; /* Mantiene las esquinas redondeadas */
   display: flex;
   flex-direction: column;
+  text-decoration: none;
 }
 
 
@@ -16,6 +17,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
+}
+
+.card-link{
+  text-decoration: none;
+  color: inherit;
 }
 
 
@@ -98,7 +105,7 @@
 .boton-plus {
   background-color: #f5c867; 
   border: none;
-  border-radius: 15px;
+  border-radius: 500px;
   width: 120px;
   height: 60px;
   cursor: pointer;
@@ -215,15 +222,7 @@ body {
 
 
 
-/* Estilos para el botón del corazón */
-.heart-button {
-  background: none; /* Elimina el fondo predeterminado del botón */
-  border: none;     /* Elimina el borde */
-  padding: 0;        /* Elimina el espaciado */
-  cursor: pointer;  /* Muestra el cursor de "mano" al pasar el ratón */
-  color: black;      /* Color predeterminado (vacío) */
-  outline: none;     /* Elimina el contorno al hacer foco (opcional) */
-}
+
 
 /* Estilos para el corazón cuando está "lleno" (activo) */
 .heart-button.active {
@@ -234,15 +233,44 @@ body {
 .heart-button .fa-heart {
   font-size: 1.5rem; /* Ajusta el tamaño según necesites */
 }
-
 .contenedor-pinturas{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.card-link{
+    text-decoration: none;
+    color: inherit;
+}
+
+.art-card{
+    width: 280px;
+    background-color: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+    display: flex;
+    flex-direction: column;
+    transition: .3s;
+}
+
+.art-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,.15);
+}
+
+.card-image-area{
+    position: relative;
+    height: 220px;
+    overflow: hidden;
 }
 
 .imagen-pintura{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
+
