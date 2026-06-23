@@ -10,12 +10,16 @@ $nombre_pintura = $_POST['nombre_pintura'];
 $autor = $_POST['autor'];
 $descripcion = $_POST['descripcion'];
 
-$nombreImagen = $_FILES['imagen']['name'];
-$tmpImagen = $_FILES['imagen']['tmp_name'];
 
-$ruta = "uploads/" . time() . "_" . $nombreImagen;
+/* Imagen */
+$imagen = $_FILES['imagen']['name'];
+$tmp = $_FILES['imagen']['tmp_name'];
 
-move_uploaded_file($tmpImagen, $ruta);
+$ruta = "uploads/pinturas/" . $imagen;
+
+move_uploaded_file($tmp, $ruta);
+
+/* Guardar en BD */
 
 $sql = "INSERT INTO pinturas
 (nombre_pintura, descripcion, autor, imagen)
@@ -29,6 +33,7 @@ if ($conexion->query($sql)) {
     echo "Error al guardar la pintura.";
 }
 
-$conexion->close();
+header("Location: pinturas.php");
+exit();
 
 ?>
