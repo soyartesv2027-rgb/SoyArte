@@ -98,12 +98,12 @@ body{
 }
 
 .btn-editar{
-    background: #f5c867;
+    background: #67d4f5;
     color: black;
 }
 
 .btn-editar:hover{
-    background: #e6b855;
+    background: #67d4f5;
 }
 
 .btn-eliminar{

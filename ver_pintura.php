@@ -53,6 +53,19 @@ if (!$pintura) {
             Regresar
         </a>
 
+<div class="acciones">
+
+    <a href="editar_pintura.php?id=<?php echo $pintura['ID']; ?>"
+       class="btn-editar">
+        Editar
+    </a>
+
+    <a href="eliminar_pintura.php?id=<?php echo $pintura['ID']; ?>"
+       class="btn-eliminar"
+       onclick="return confirm('¿Estás seguro de eliminar esta pintura?')">
+        Eliminar
+    </a>
+
 </div>
 
     </div>
