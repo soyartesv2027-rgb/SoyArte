@@ -6,6 +6,7 @@
   overflow: hidden; /* Mantiene las esquinas redondeadas */
   display: flex;
   flex-direction: column;
+  text-decoration: none;
 }
 
 
@@ -16,6 +17,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
+}
+
+.card-link{
+  text-decoration: none;
+  color: inherit;
 }
 
 
@@ -215,15 +222,7 @@ body {
 
 
 
-/* Estilos para el botón del corazón */
-.heart-button {
-  background: none; /* Elimina el fondo predeterminado del botón */
-  border: none;     /* Elimina el borde */
-  padding: 0;        /* Elimina el espaciado */
-  cursor: pointer;  /* Muestra el cursor de "mano" al pasar el ratón */
-  color: black;      /* Color predeterminado (vacío) */
-  outline: none;     /* Elimina el contorno al hacer foco (opcional) */
-}
+
 
 /* Estilos para el corazón cuando está "lleno" (activo) */
 .heart-button.active {
@@ -275,14 +274,3 @@ body {
     object-fit:cover;
 }
 
-.heart-button{
-    position:absolute;
-    top:10px;
-    right:10px;
-    border:none;
-    background:rgba(255,255,255,.8);
-    border-radius:50%;
-    width:40px;
-    height:40px;
-    cursor:pointer;
-}

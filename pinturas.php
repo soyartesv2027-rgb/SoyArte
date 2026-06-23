@@ -83,42 +83,48 @@ $resultado = $conexion->query($sql);
     }    
   </style>
     <div class="contenedor-pinturas">
-      <?php while ($fila = $resultado->fetch_assoc()) { ?>
-        <a href="ver_pintura.php?id=<?php echo $fila['ID']; ?>" class="card-link">
-          <div class="art-card">
 
-              <div class="card-image-area">
+    <?php while ($fila = $resultado->fetch_assoc()) { ?>
 
-                  <img
-                      src="<?php echo $fila['imagen']; ?>"
-                      alt="Pintura"
-                      class="imagen-pintura">
+<a href="ver_pintura.php?id=<?php echo $fila['ID']; ?>" class="card-link">
 
-                  <button class="heart-button">
-                      <i class="fa-regular fa-heart"></i>
-                  </button>
+    <div class="art-card">
 
-              </div>
+        <div class="card-image-area">
 
-              <div class="card-info-area">
+            <img
+                src="<?php echo $fila['imagen']; ?>"
+                alt="Pintura"
+                class="imagen-pintura">
 
-                  <h2 class="paint-title">
-                      <?php echo htmlspecialchars($fila['nombre_pintura']); ?>
-                  </h2>
+            <button class="heart-button" type="button">
+                <i class="fa-regular fa-heart"></i>
+            </button>
 
-                  <p class="author-name">
-                      <?php echo htmlspecialchars($fila['autor']); ?>
-                  </p>
+        </div>
 
-                  <span class="tipoarte">
-                      <?php echo htmlspecialchars($fila['descripcion']); ?>
-                  </span>
+        <div class="card-info-area">
 
-              </div>
+            <h2 class="paint-title">
+                <?php echo htmlspecialchars($fila['nombre_pintura']); ?>
+            </h2>
 
-          </div>
-        </a>
-      <?php } ?>
+            <p class="author-name">
+                <?php echo htmlspecialchars($fila['autor']); ?>
+            </p>
+
+            <span class="tipoarte">
+                <?php echo htmlspecialchars($fila['descripcion']); ?>
+            </span>
+
+        </div>
+
+    </div>
+
+</a>
+
+<?php } ?>
+
     </div>
   <a href="form_pintura.html" class="añadir-boton">
     <button class="boton-plus">
