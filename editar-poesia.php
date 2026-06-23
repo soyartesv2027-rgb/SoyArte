@@ -1,7 +1,6 @@
 <?php
 session_start();
 include("php/conexion.php");
-include("php/funciones-poesia.php");
  
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: php/login.php");
@@ -15,9 +14,7 @@ if (!isset($_GET['id'])) {
  
 $obra_id = (int) $_GET['id'];
 $usuario_id = (int) $_SESSION['usuario_id'];
-$error = '';
  
-// Traer la obra y comprobar que pertenece al usuario logueado
 $stmt = $conn->prepare("SELECT * FROM obras WHERE id = ?");
 $stmt->bind_param("i", $obra_id);
 $stmt->execute();
@@ -28,107 +25,101 @@ if (!$obra || (int) $obra['usuario_id'] !== $usuario_id) {
     exit;
 }
  
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+// Recuperar errores y datos previos si vienen de actualizar-poesia.php
+$errores = $_SESSION['errores_editar'] ?? [];
+$datos   = $_SESSION['datos_editar']   ?? [];
+unset($_SESSION['errores_editar'], $_SESSION['datos_editar']);
  
-    $autor             = trim($_POST['autor'] ?? '');
-    $titulo            = trim($_POST['titulo'] ?? '');
-    $fecha_publicacion = trim($_POST['fecha_publicacion'] ?? '');
-    $contenido         = trim($_POST['contenido'] ?? '');
-    $nuevaImagen       = null;
-    $hayImagenNueva    = false;
- 
-    if ($autor === '' || $titulo === '' || $fecha_publicacion === '') {
-        $error = "Autor, nombre de la obra y fecha de publicación son obligatorios.";
-    } else {
- 
-        if (isset($_FILES['foto']) && $_FILES['foto']['error'] === UPLOAD_ERR_OK) {
-            $extensionesPermitidas = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
-            $extension = strtolower(pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION));
- 
-            if (in_array($extension, $extensionesPermitidas)) {
-                $nuevaImagen = file_get_contents($_FILES['foto']['tmp_name']);
-                $hayImagenNueva = true;
-            } else {
-                $error = "Formato de imagen no permitido. Usa jpg, png, gif o webp.";
-            }
-        }
- 
-        if ($error === '') {
-            if ($hayImagenNueva) {
-                $sql = "UPDATE obras SET autor = ?, titulo = ?, contenido = ?, fecha_publicacion = ?, imagen = ?
-                        WHERE id = ?";
-                $upd = $conn->prepare($sql);
-                $upd->bind_param("sssssi", $autor, $titulo, $contenido, $fecha_publicacion, $nuevaImagen, $obra_id);
-            } else {
-                // No se subio una foto nueva, se conserva la que ya estaba
-                $sql = "UPDATE obras SET autor = ?, titulo = ?, contenido = ?, fecha_publicacion = ?
-                        WHERE id = ?";
-                $upd = $conn->prepare($sql);
-                $upd->bind_param("ssssi", $autor, $titulo, $contenido, $fecha_publicacion, $obra_id);
-            }
- 
-            if ($upd->execute()) {
-                header("Location: detalle.php?id=" . $obra_id);
-                exit;
-            } else {
-                $error = "Ocurrió un error al actualizar la obra.";
-            }
-        }
-    }
-}
- 
-// Para mostrar la fecha en el input type="date" (formato YYYY-MM-DD)
-$fechaParaInput = date('Y-m-d', strtotime($obra['fecha_publicacion']));
+$autorActual     = $datos['autor']             ?? $obra['autor'];
+$tituloActual    = $datos['titulo']            ?? $obra['titulo'];
+$fechaActual     = $datos['fecha_publicacion'] ?? date('Y-m-d', strtotime($obra['fecha_publicacion']));
+$contenidoActual = $datos['contenido']         ?? $obra['contenido'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Editar Obra - SoyArte</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Poema - Soy Arte</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles/poesia.css">
 </head>
 <body>
  
-    <div class="barra-detalle">
-        <a href="detalle.php?id=<?php echo $obra_id; ?>" class="volver">⬅ Regresar</a>
-        <span>Editar Obra</span>
-        <span></span>
+    <div class="topbar-detalle">
+        <a href="detalle.php?id=<?= $obra_id ?>" class="btn-regresar">
+            <i class="fa-solid fa-chevron-left"></i> Regresar
+        </a>
+        <h2>Editar Poema</h2>
+        <div style="width:80px"></div>
     </div>
  
-    <form class="form-agregar" method="POST" enctype="multipart/form-data">
+    <div class="form-obra-container">
  
-        <?php if ($error !== ''): ?>
-            <div class="mensaje-error"><?php echo htmlspecialchars($error); ?></div>
+        <?php if (!empty($errores)): ?>
+            <div class="alert alert-danger small mb-3">
+                <ul class="mb-0">
+                    <?php foreach ($errores as $e): ?>
+                        <li><?= htmlspecialchars($e) ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
         <?php endif; ?>
  
-        <div class="campo-grupo">
-            <label>🖋 Autor:</label>
-            <input type="text" name="autor" value="<?php echo htmlspecialchars($obra['autor']); ?>" required>
+        <div class="card-form-obra">
+            <form method="POST" action="php/actualizar-poesia.php" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<?= $obra_id ?>">
+ 
+                <div class="campo-detalle">
+                    <label><i class="fa-solid fa-image"></i> Imagen de portada</label>
+                    <label class="upload-imagen-label" for="inputImagen">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Cambiar imagen (opcional)
+                    </label>
+                    <input type="file" id="inputImagen" name="imagen" accept="image/*">
+                    <img id="previewImagen" src="" alt="Vista previa" style="display:none; max-width:100%; margin-top:10px; border-radius:8px;">
+                </div>
+ 
+                <div class="campo-detalle">
+                    <label><i class="fa-solid fa-feather"></i> Autor:</label>
+                    <input type="text" name="autor" value="<?= htmlspecialchars($autorActual) ?>" required>
+                </div>
+ 
+                <div class="campo-detalle">
+                    <label><i class="fa-solid fa-book-open"></i> Nombre de la obra:</label>
+                    <input type="text" name="titulo" value="<?= htmlspecialchars($tituloActual) ?>" required>
+                </div>
+ 
+                <div class="campo-detalle">
+                    <label><i class="fa-solid fa-calendar-days"></i> Fecha de Publicación:</label>
+                    <input type="date" name="fecha_publicacion" value="<?= htmlspecialchars($fechaActual) ?>" required>
+                </div>
+ 
+                <div class="campo-detalle">
+                    <label><i class="fa-solid fa-align-left"></i> Descripción:</label>
+                    <textarea name="contenido"><?= htmlspecialchars($contenidoActual) ?></textarea>
+                </div>
+ 
+                <button type="submit" class="btn-guardar">
+                    <i class="fa-solid fa-floppy-disk me-2"></i> Guardar Cambios
+                </button>
+            </form>
         </div>
+    </div>
  
-        <div class="campo-grupo">
-            <label>📖 Nombre de la obra:</label>
-            <input type="text" name="titulo" value="<?php echo htmlspecialchars($obra['titulo']); ?>" required>
-        </div>
- 
-        <div class="campo-grupo">
-            <label>📅 Fecha de Publicación:</label>
-            <input type="date" name="fecha_publicacion" value="<?php echo htmlspecialchars($fechaParaInput); ?>" required>
-        </div>
- 
-        <div class="campo-grupo">
-            <label>🔖 Descripción:</label>
-            <textarea name="contenido"><?php echo htmlspecialchars($obra['contenido']); ?></textarea>
-        </div>
- 
-        <div class="campo-grupo">
-            <label>🖼 Cambiar foto (opcional):</label>
-            <input type="file" name="foto" accept=".jpg,.jpeg,.png,.gif,.webp">
-        </div>
- 
-        <button type="submit" class="btn-accion">Guardar Cambios</button>
-    </form>
- 
+    <script>
+        document.getElementById('inputImagen').addEventListener('change', function () {
+            const preview = document.getElementById('previewImagen');
+            const file    = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = e => { preview.src = e.target.result; preview.style.display = 'block'; };
+                reader.readAsDataURL(file);
+            } else {
+                preview.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
 <?php $conn->close(); ?>

@@ -1,7 +1,5 @@
 <?php
-/* para guardar las imaggenes en la database y no como archivo */
- 
-
+/* función para obtener la fuente de la imagen */
 function imagenSrc($blobImagen) {
     if (empty($blobImagen)) {
         return null;
