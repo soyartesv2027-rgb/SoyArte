@@ -8,7 +8,7 @@ body{
     min-height: 100vh;
     background: #f4f6fa;
     font-family: 'Segoe UI', sans-serif;
-    background-color:  #fce4af;
+    background-color:  #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +18,7 @@ body{
 .detalle-pintura{
     width: 100%;
     max-width: 650px;
-    background: white;
+    background: rgb(238, 233, 233);
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
@@ -67,7 +67,7 @@ body{
 }
 
 .descripcion-box{
-    background: #f3efef;
+    background: #e0dcdc;
     border-radius: 15px;
     padding: 20px;
 }
