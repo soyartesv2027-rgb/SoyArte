@@ -1,158 +1,21 @@
-.art-card {
-  width: 280px;
-  background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  overflow: hidden; /* Mantiene las esquinas redondeadas */
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-}
-
-
-.card-image-area {
-  position: relative;
-  height: 180px;
-  background-color: #fef5b1; /* Tono amarillo pastel de la imagen */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-}
-
-.card-link{
-  text-decoration: none;
-  color: inherit;
-}
-
-
-.placeholder-text {
-  font-family: 'Pacifico', cursive;
-  font-size: 1.4rem;
-  color: #2b2b2b;
-}
-
-
-.heart-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  outline: none;
-  z-index: 10;
-}
-
-.heart-button .fa-heart {
-  font-size: 1.5rem;
-}
-
-
-.art-card {
-  margin-top: 30px;
-  margin-left: 30px;
-  margin-right: 30px;
-}
-
-.card-info-area {
-  padding: 16px 20px 20px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px; /* Espaciado uniforme entre elementos */
-}
-
-.paint-title {
-  margin: 0;
-  font-size: 1.15rem;
-  color: #1a1a1a;
-  font-weight: 600;
-  letter-spacing: -0.3px;
-}
-
-
-.author-name {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #b0b0b0; /* Gris claro/atenuado */
-}
-
-
-.tipoarte {
-  align-self: flex-start; /* Evita que se estire a lo ancho */
-  background-color: #f7d59c; /* Tono naranja/ocre suave */
-  color: #4a3319;
-  font-size: 0.85rem;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-weight: 500;
-  margin-top: 4px;
-}
-
-.añadir-boton{
-  display: flex;
-  justify-content: end;
-  align-items: end;
-  bottom: 50px;
-  right: 20px;
-  position: fixed;
-}
-
-
-
-
-.boton-plus {
-  background-color: #f5c867; 
-  border: none;
-  border-radius: 500px;
-  width: 120px;
-  height: 60px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-}
-
-
-.boton-plus i {
-  font-size: 18px;
-  border: 2px solid black;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-   padding:0px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-}
-
-
-.boton-plus:hover {
-  background-color: #e6b855;
-  text-decoration: none;
-}
-
-
-* {
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  background: linear-gradient(135deg, #eef2f7, #dbe6f6);
+body{
   font-family: 'Segoe UI', sans-serif;
   background-color: white;
 }
 
-.navbar {
+/* ---------- NAVBAR ---------- */
+
+.navbar{
   padding: 10px;
 }
 
-.container-fluid {
+.container-fluid{
   background: rgba(156, 202, 255, 0.8);
   backdrop-filter: blur(10px);
   border-radius: 15px;
@@ -160,117 +23,173 @@ body {
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.arty-nav {
+.arty-nav{
   width: 35px;
 }
 
-.iniciar-sesion, .registrarse {
+.iniciar-sesion,
+.registrarse{
   background-color: #7B7DFF;
   border-radius: 15px;
   transition: 0.3s;
   padding-left: 4px;
 }
 
-.iniciar-sesion:hover {
+.iniciar-sesion:hover,
+.registrarse:hover{
   background-color: #5a5cff;
   transform: scale(1.05);
 }
 
-.registrarse:hover {
-  background-color: #5a5cff;
-  transform: scale(1.05);
-}
+/* ---------- CONTENEDOR DE LAS CARDS ---------- */
 
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
-  animation: fadeDown 1s ease;
-}
-
-.header h1 {
-  font-size: 3rem;
-  font-weight: bold;
-}
-
-.textos {
-  display: flex;
-  flex-direction: column;
-}
-
-.subtitulo {
-  font-size: 18px;
-  color: #555;
-}
-
-.arty {
-  width: 60px;
-}
-
-@keyframes fadeDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-
-
-
-/* Estilos para el corazón cuando está "lleno" (activo) */
-.heart-button.active {
-  color: red; /* Cambia el color a rojo */
-}
-
-/* Opcional: Asegura que el ícono llene el botón y tenga buen tamaño */
-.heart-button .fa-heart {
-  font-size: 1.5rem; /* Ajusta el tamaño según necesites */
-}
 .contenedor-pinturas{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px;
 }
 
-.card-link{
-    text-decoration: none;
-    color: inherit;
-}
+/* ---------- CARD ---------- */
 
 .art-card{
-    width: 280px;
-    background-color: #fff;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,.08);
-    display: flex;
-    flex-direction: column;
-    transition: .3s;
+  width: 280px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s;
 }
 
 .art-card:hover{
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,.15);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
+.card-link{
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ---------- IMAGEN ---------- */
+
 .card-image-area{
-    position: relative;
-    height: 220px;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 220px;
+  background-color: #fef5b1;
+  overflow: hidden;
 }
 
 .imagen-pintura{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- CORAZÓN ---------- */
+
+.heart-button{
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.heart-button i{
+  font-size: 22px;
+  color: black;
+  transition: 0.3s;
+}
+
+.heart-button:hover{
+  transform: scale(1.1);
+}
+
+/* ---------- INFORMACIÓN ---------- */
+
+.card-info-area{
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.paint-title{
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.author-name{
+  font-size: 0.95rem;
+  color: #8a8a8a;
+}
+
+.tipoarte{
+  align-self: flex-start;
+  background-color: #f7d59c;
+  color: #4a3319;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+/* ---------- CONTADOR DE LIKES ---------- */
+
+.acciones-pintura{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 15px;
+}
+
+/* ---------- BOTÓN AGREGAR ---------- */
+
+.añadir-boton{
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  text-decoration: none;
+}
+
+.boton-plus{
+  background-color: #f5c867;
+  border: none;
+  border-radius: 500px;
+  width: 120px;
+  height: 60px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.boton-plus:hover{
+  background-color: #e6b855;
+}
+
+.boton-plus i{
+  font-size: 18px;
+  border: 2px solid black;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 

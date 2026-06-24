@@ -72,7 +72,7 @@ $resultado = $conexion->query($sql);
       font-family: 'Montserrat', sans-serif;
       font-weight: 850;   
       font-style: italic;
-      font-size: 15px;
+      font-size: 17.5px;
       margin: 0 auto;
       max-width: 700px;
       color: #000000;

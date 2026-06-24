@@ -49,9 +49,6 @@ if (!$pintura) {
             </p>
         </div>
 
-         <a href="pinturas.php" class="btn-volver">
-            Regresar
-        </a>
 
 <div class="acciones">
 
@@ -67,6 +64,10 @@ if (!$pintura) {
     </a>
 
 </div>
+
+    <a href="pinturas.php" class="btn-volver">
+            Regresar
+     </a>
 
     </div>
 
