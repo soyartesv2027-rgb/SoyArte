@@ -71,7 +71,7 @@
                         <i class="fa-brands fa-facebook-f"></i>
                     </a>
 
-                    <a href="#">
+                    <a href="https://www.instagram.com/soyarte._">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
 

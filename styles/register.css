@@ -9,7 +9,7 @@ h2{
 body {
     margin: 0;
     height: 100vh;
-    background-image: url("../img/Designer.png"); 
+    background-image: url("../img/ChatGPT\ Image\ 22\ abr\ 2026\,\ 08_35_02\ p.m..png"); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -90,6 +90,17 @@ body {
     margin-top: 10px;
 }
 
+.btn-regresar a img{
+    width: 60px;
+    height: auto;
+    position: fixed;
+    bottom: 25px;
+    left: 247px;
+    margin-bottom: 400px;
+    z-index: 1000;
+}
+
+
 /* --- RESPONSIVO (MÓVIL) --- */
 @media (max-width: 768px) { 
     body {
@@ -125,6 +136,15 @@ body {
     .form-control{
         font-size: 10px;
         border-radius: 5px;
+    }
+
+    
+    .btn-regresar  a img{
+        width: 50px;
+        margin-bottom: 0;
+        bottom: 10px;
+        left: 20px;
+        top: auto
     }
 
 }
