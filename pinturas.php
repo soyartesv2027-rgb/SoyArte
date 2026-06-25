@@ -72,7 +72,7 @@ $resultado = $conexion->query($sql);
       font-family: 'Montserrat', sans-serif;
       font-weight: 850;   
       font-style: italic;
-      font-size: 15px;
+      font-size: 17.5px;
       margin: 0 auto;
       max-width: 700px;
       color: #000000;
@@ -80,7 +80,27 @@ $resultado = $conexion->query($sql);
     }
     .texto{
       margin-left: 60px;
-    }    
+    }
+    @media screen and (max-width: 768px){
+
+  .banner-container{
+    padding: 60px 20px;
+  }
+
+  .banner-title{
+    font-size: 2rem;
+  }
+
+  .pincel{
+    font-size: 35px;
+  }
+
+  .frase{
+    font-size: 13px;
+    max-width: 100%;
+  }
+
+}  
   </style>
     <div class="contenedor-pinturas">
 

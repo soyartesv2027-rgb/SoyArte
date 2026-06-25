@@ -39,7 +39,7 @@ h1{
 }
 
 .btn-admin{
-    background:#c96a3a;
+    background:#4576a8;
     color:white;
     text-decoration:none;
     padding:12px 22px;
@@ -49,7 +49,7 @@ h1{
 }
 
 .btn-admin:hover{
-    background:#a9562c;
+    background:#c7e3ff;
     transform:translateY(-2px);
 }
 
@@ -68,7 +68,7 @@ h1{
 }
 
 .tabla-vr th{
-    background:#c96a3a;
+    background:#2c4e7e;
     color:white;
     padding:15px;
 }

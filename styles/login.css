@@ -103,11 +103,12 @@ button{
 }
 
 .btn-regresar  a img{
-    width: 150px;
+    width: 60px;
     height: auto;
     position: fixed;
     bottom: 25px;
-    left: 30px;
+    left: 247px;
+    margin-bottom: 400px;
     z-index: 1000;
 }
 
@@ -148,4 +149,13 @@ button{
     .button1{
         width: 100%;
     }
+
+    .btn-regresar  a img{
+        width: 50px;
+        margin-bottom: 0;
+        bottom: 20px;
+        left: 20px;
+        top: auto
+    }
+
 }
