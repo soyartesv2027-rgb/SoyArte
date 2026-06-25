@@ -92,7 +92,7 @@ body{
 .btn-eliminar{
     text-decoration: none;
     padding: 10px 20px;
-    border-radius: 12px;
+    border-radius: 10px;
     font-weight: 600;
     transition: 0.3s;
 }
