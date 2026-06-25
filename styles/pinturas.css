@@ -90,11 +90,6 @@
     right: 20px;
     bottom: 150px; 
 }
-
-<<<<<<< HEAD
-=======
-
->>>>>>> eca5e847280f2f61a9ba336bb32121d1a4c078d5
 .boton-plus {
   background-color: #f5c867; /* amarillo */
   border: none;
@@ -113,7 +108,7 @@
   border-radius: 50%;
   width: 30px;
   height: 30px;
-   padding:0px 10px;
+  padding:0px 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -208,7 +203,6 @@ body {
   }
 }
 
-<<<<<<< HEAD
 .heart-button.active {
   color: red;
 }
@@ -352,5 +346,3 @@ body {
     padding: 8px 12px;
   }
 }
-=======
->>>>>>> eca5e847280f2f61a9ba336bb32121d1a4c078d5
