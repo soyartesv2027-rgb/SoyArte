@@ -76,11 +76,10 @@ $resultado = $stmt->get_result();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-<<<<<<< HEAD
-=======
+
     <link rel="stylesheet" href="styles/poesia.css?v=2">
 
->>>>>>> 6904704ce26846abfa315e4a28199cc61e8772ff
+
     <link rel="stylesheet" href="styles/poesia.css">
 
     <link rel="stylesheet" href="style.css">
@@ -109,9 +108,9 @@ $resultado = $stmt->get_result();
             </div>
         </form>
     </div>
-    //not found//
+    
  
-    //tun tun//
+    
     <div class="container pb-5">
         <div class="row g-4">
             <?php if ($resultado->num_rows === 0): ?>
@@ -181,9 +180,9 @@ $resultado = $stmt->get_result();
             <?php endwhile; ?>
         </div>
     </div>
-  // tun tun//
 
-  //...//
+
+  
     <?php if (isset($_SESSION['usuario_id'])): ?>
         <a href="publicar-poesia.php" class="btn btn-danger rounded-circle position-fixed bottom-0 end-0 m-4 d-flex align-items-center justify-content-center" style="width:55px; height:55px;">
             <i class="fa-solid fa-plus"></i>
@@ -199,4 +198,3 @@ $resultado = $stmt->get_result();
 </body>
 </html>
 <?php $stmt->close(); $conn->close(); ?>
-//...//
