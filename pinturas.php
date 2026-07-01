@@ -117,10 +117,7 @@ $resultado = $conexion->query($sql);
                 alt="Pintura"
                 class="imagen-pintura">
 
-            <button class="heart-button" type="button">
-                <i class="fa-regular fa-heart"></i>
-            </button>
-
+          
         </div>
 
         <div class="card-info-area">
