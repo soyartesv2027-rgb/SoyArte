@@ -14,3 +14,11 @@ canvas{
     height:100vh;
     display:block;
 }
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
+}

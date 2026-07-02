@@ -53,7 +53,7 @@ p {
 }
 
 .amount.active {
-  background: #7c3aed;
+  background: #4576a8;
   color: white;
 }
 
@@ -66,7 +66,7 @@ p {
   padding: 15px;
   border: none;
   border-radius: 12px;
-  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  background: linear-gradient(135deg, #4576a8, #2c4e7e);
   color: white;
   font-size: 16px;
   cursor: pointer;
@@ -96,4 +96,12 @@ p {
 
 #backBtn:hover {
   background: #f3f4f6;
+}
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
 }

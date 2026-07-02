@@ -57,14 +57,28 @@ if (!empty($errores)) {
  
 $sql = "INSERT INTO obras (usuario_id, autor, titulo, contenido, fecha_publicacion, imagen)
         VALUES (?, ?, ?, ?, ?, ?)";
+
+// 1. Verificación de existencia de la conexión
+if (!isset($conn)) {
+    die("Error fatal: La variable de conexión no existe. Revisa tu archivo conexion.php y asegúrate de que se llame \$conn.");
+}
+
 $stmt = $conn->prepare($sql);
+
+// 2. Verificación de la consulta SQL
+if ($stmt === false) {
+    die("Error al preparar la consulta SQL: " . $conn->error);
+}
+
+// 3. Vincular los parámetros y ejecutar
 $stmt->bind_param("isssss", $usuario_id, $autor, $titulo, $contenido, $fecha_publicacion, $imagenBinaria);
- 
+
 if ($stmt->execute()) {
     header("Location: ../poesia.php");
     exit;
 } else {
-    $_SESSION['errores_publicar'] = ["Ocurrió un error al guardar el poema. Intenta de nuevo."];
+    // Capturamos el error real de la base de datos para saber qué está fallando
+    $_SESSION['errores_publicar'] = ["Error en la base de datos: " . $stmt->error];
     $_SESSION['datos_publicar'] = [
         'autor'             => $autor,
         'titulo'            => $titulo,

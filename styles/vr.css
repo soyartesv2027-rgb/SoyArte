@@ -7,7 +7,7 @@
 body{
     font-family:'Segoe UI',sans-serif;
     background:#f4f6fb;
-    color:#222;
+    color:#2c4e7e;
 }
 
 .contenedor{
@@ -20,7 +20,7 @@ body{
 h1{
     font-size:3rem;
     margin-bottom:40px;
-    color:#222;
+    color:#2c4e7e;
     display:flex;
     align-items:center;
     gap:15px;
@@ -38,7 +38,7 @@ h1{
     border-radius:24px;
     overflow:hidden;
     text-decoration:none;
-    color:#222;
+    color:#2c4e7e;
     box-shadow:0 10px 30px rgba(0,0,0,.08);
     transition:.35s;
     position:relative;
@@ -70,7 +70,7 @@ h1{
     display:inline-flex;
     align-items:center;
     gap:8px;
-    background:#c96a3a;
+    background:#4576a8;
     color:white;
     padding:10px 18px;
     border-radius:12px;
@@ -80,7 +80,7 @@ h1{
 }
 
 .card-vr:hover .card-info span{
-    background:#a94f25;
+    background:#c7e3ff;
 }
 
 .admin-vr{
@@ -90,7 +90,7 @@ h1{
 }
 
 .btn-admin-vr{
-    background:#111827;
+    background:#4576a8;
     color:white;
     text-decoration:none;
     padding:14px 24px;
@@ -101,7 +101,7 @@ h1{
 }
 
 .btn-admin-vr:hover{
-    background:#000;
+    background:#c7e3ff;
     transform:translateY(-2px);
 }
 
@@ -129,11 +129,11 @@ h1{
 .encabezado-vr h1{
     margin:0;
     font-size:2.8rem;
-    color:#222;
+    color:#2c4e7e;
 }
 
 .btn-panel-admin{
-    background:#c96a3a;
+    background:#4576a8;
     color:white;
     text-decoration:none;
     padding:12px 22px;
@@ -144,7 +144,7 @@ h1{
 }
 
 .btn-panel-admin:hover{
-    background:#a9552d;
+    background:#c7e3ff;
     color:white;
     transform:translateY(-2px);
 }
@@ -160,4 +160,14 @@ h1{
         font-size:2rem;
     }
 
+}
+
+
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
 }

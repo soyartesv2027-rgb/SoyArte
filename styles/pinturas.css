@@ -85,7 +85,7 @@ body{
 
 .paint-title{
     font-size:22px;
-    color:#222;
+    color:#2c4e7e;
     font-weight:700;
 }
 
@@ -102,8 +102,8 @@ body{
     display:inline-block;
     align-self:flex-start;
 
-    background:#f8d28d;
-    color:#5d3d00;
+    background:#c7e3ff;
+    color:#2c4e7e;
 
     padding:7px 15px;
 
@@ -142,7 +142,7 @@ body{
     border: none;
     border-radius: 50%;
 
-    background: #f5c867;
+    background: #4576a8;
 
     display: flex;
     justify-content: center;
@@ -156,13 +156,13 @@ body{
 }
 
 .boton-plus:hover{
-    background: #e7b74b;
+    background: #c7e3ff;
     transform: scale(1.1) rotate(90deg);
 }
 
 .boton-plus i{
     font-size: 28px;
-    color: #222;
+    color: #2c4e7e;
     line-height: 1;
 }
 
@@ -380,4 +380,12 @@ body{
   .container-fluid {
     padding: 8px 12px;
   }
+}
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
 }

@@ -31,7 +31,7 @@ body{
 
 .btn-volver{
     text-decoration:none;
-    color:#111827;
+    color:#2c4e7e;
     font-weight:600;
     transition:.3s;
 }
@@ -52,7 +52,7 @@ body{
 }
 
 .acciones a:hover{
-    color:#111827;
+    color:#2c4e7e;
 }
 
 /* =========================
@@ -108,7 +108,7 @@ body{
 
 .info-producto h1{
     font-size:3rem;
-    color:#111827;
+    color:#2c4e7e;
     margin-bottom:20px;
 }
 
@@ -121,7 +121,7 @@ body{
 
 .info-producto h2{
     font-size:2.5rem;
-    color:#111827;
+    color:#2c4e7e;
     margin-bottom:30px;
 }
 
@@ -132,7 +132,7 @@ body{
     border:none;
     border-radius:15px;
 
-    background:#111827;
+    background:#2c4e7e;
     color:white;
 
     font-size:1rem;
@@ -143,7 +143,7 @@ body{
 }
 
 .btn-comprar:hover{
-    background:#1f2937;
+    background:#2c4e7e;
     transform:translateY(-2px);
 }
 
@@ -167,19 +167,19 @@ body{
 }
 
 .btn-editar{
-    background:#2563eb;
+    background:#4576a8;
 }
 
 .btn-editar:hover{
-    background:#1d4ed8;
+    background:#c7e3ff;
 }
 
 .btn-eliminar{
-    background:#dc2626;
+    background:#4576a8;
 }
 
 .btn-eliminar:hover{
-    background:#b91c1c;
+    background:#c7e3ff;
 }
 
 /* =========================
@@ -205,7 +205,8 @@ body{
 @media(max-width:576px){
 
     .barra-superior{
-        flex-direction:column;
+
+        flex-direction:row;
         gap:15px;
     }
 
@@ -233,4 +234,12 @@ body{
         flex-direction:column;
     }
 
+}
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
 }
