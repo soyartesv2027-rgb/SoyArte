@@ -16,8 +16,6 @@ body{
     padding:40px;
 }
 
-/* PERFIL */
-
 .perfil-card{
     background:white;
     border-radius:25px;
@@ -72,8 +70,6 @@ body{
     font-weight:600;
 }
 
-/* ESTADISTICAS */
-
 .estadisticas{
     margin-top:35px;
     display:grid;
@@ -96,8 +92,6 @@ body{
 .stat span{
     color:#6b7280;
 }
-
-/* BIO */
 
 .biografia{
     margin-top:35px;
@@ -130,8 +124,6 @@ body{
 .btn-volver:hover{
     background:#a9542d;
 }
-
-/* OBRAS */
 
 .mis-obras h2{
     margin-bottom:25px;
@@ -250,8 +242,6 @@ body{
 .btn-editar:hover{
     background:#d97706;
 }
-
-/* PERFIL ARTISTICO */
 
 .perfil-artistico{
     margin-top:40px;

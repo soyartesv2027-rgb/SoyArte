@@ -10,10 +10,6 @@ body{
     min-height:100vh;
 }
 
-/* =========================
-   BARRA SUPERIOR
-========================= */
-
 .barra-superior{
     width:100%;
     background:#fff;
@@ -54,10 +50,6 @@ body{
 .acciones a:hover{
     color:#111827;
 }
-
-/* =========================
-   PRODUCTO
-========================= */
 
 .detalle-producto{
     max-width:1400px;
@@ -147,10 +139,6 @@ body{
     transform:translateY(-2px);
 }
 
-/* =========================
-   BOTONES PROPIETARIO
-========================= */
-
 .acciones-propietario{
     display:flex;
     gap:15px;
@@ -182,9 +170,22 @@ body{
     background:#b91c1c;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+.btn-contactar{
+    display: inline-block;
+    margin-top: 15px;
+    background: #198754;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-contactar:hover{
+    background: #157347;
+    color: white;
+}
 
 @media(max-width:992px){
 
@@ -198,6 +199,19 @@ body{
 
     .info-producto h1{
         font-size:2.2rem;
+    }
+        .detalle-producto{
+        flex-direction: column;
+    }
+
+    .imagen-producto{
+        width:100%;
+    }
+
+    /* NUEVO */
+    .btn-contactar{
+        width:100%;
+        text-align:center;
     }
 
 }
@@ -231,6 +245,20 @@ body{
 
     .acciones-propietario{
         flex-direction:column;
+    }
+
+            .detalle-producto{
+        flex-direction: column;
+    }
+
+    .imagen-producto{
+        width:100%;
+    }
+
+    /* NUEVO */
+    .btn-contactar{
+        width:100%;
+        text-align:center;
     }
 
 }

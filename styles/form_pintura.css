@@ -4,18 +4,14 @@
     box-sizing:border-box;
 }
 
-
 .flecha {
     position: fixed;
     top: 20px;
     left: 20px;
-
     width: 45px;
     height: 45px;
     background-color: #fab31b;
-
-    border-radius: 50%; /* esto crea el círculo */
-    
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,31 +22,22 @@
     font-size: 18px;
 }
 
-
-
 body{
     background:#fce4af;
     font-family:Arial, sans-serif;
-
     display:flex;
     justify-content:center;
     align-items:center;
-
     min-height:100vh;
 }
 
 form{
     width:80%;
     max-width:700px;
-
     background:white;
-
     padding:30px;
-
     border-radius:15px;
-
     box-shadow:0 4px 10px rgba(0,0,0,0.1);
-
     display:flex;
     flex-direction:column;
     gap:15px;
@@ -59,7 +46,6 @@ form{
 h2{
     text-align:center;
     margin-bottom:10px;
-
     color:#333;
 }
 
@@ -72,12 +58,9 @@ input[type="text"],
 textarea,
 input[type="file"]{
     width:100%;
-
     padding:12px;
-
     border:1px solid #ccc;
     border-radius:10px;
-
     font-size:16px;
 }
 
@@ -87,20 +70,14 @@ textarea{
 
 button{
     margin-top:10px;
-
     padding:15px;
-
     border:none;
     border-radius:10px;
-
     background:#fab31b;
     color:white;
-
     font-size:18px;
     font-weight:bold;
-
     cursor:pointer;
-
     transition:0.3s;
 }
 
