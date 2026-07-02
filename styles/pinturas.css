@@ -166,6 +166,144 @@ body{
     line-height: 1;
 }
 
+.likes{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:15px;
+}
+
+.btn-like{
+
+    width:38px;
+    height:38px;
+
+    border:none;
+    outline:none;
+
+    background:#f7f0f0;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+
+}
+
+.btn-like i{
+
+    font-size:22px;
+
+    color:#222;
+
+    transition:.3s;
+
+}
+
+.btn-like:hover{
+
+    transform:scale(1.1);
+
+}
+
+.btn-like:hover i{
+
+    color:#ff4d6d;
+
+}
+
+.btn-like.activo i{
+
+    color:#ff2d55;
+
+}
+
+.contador{
+
+    background:#f8d28d;
+
+    padding:8px 25px;
+
+    border-radius: 20px;
+
+    font-weight:600;
+
+    color:#5d3d00;
+
+    font-size:14px;
+
+    min-width:40px;
+
+    text-align:center;
+
+}
+
+/* ===========================
+   BUSCADOR
+=========================== */
+
+.contenedor-buscador{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    margin:40px 0;
+}
+
+.buscador{
+    width:90%;
+    max-width:1000px;
+    height:60px;
+
+    background:#fff;
+
+    border-radius:15px;
+
+    display:flex;
+    align-items:center;
+
+    padding:0 22px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+}
+
+.buscador:hover{
+    box-shadow:0 12px 25px rgba(0,0,0,.12);
+}
+
+.buscador:focus-within{
+    border:2px solid #f5c867;
+}
+
+.buscador i{
+    font-size:22px;
+    color:#1f2a44;
+    margin-right:18px;
+}
+
+.buscador input{
+    flex:1;
+
+    border:none;
+    outline:none;
+
+    background:transparent;
+
+    font-size:17px;
+    color:#333;
+}
+
+.buscador input::placeholder{
+    color:#999;
+}
 @media screen and (max-width: 768px) {
   .header {
     flex-direction: column;

@@ -6,6 +6,9 @@ if ($conexion->connect_error) {
 }
 $sql = "SELECT * FROM pinturas ORDER BY ID DESC";
 $resultado = $conexion->query($sql);
+
+$idUsuario = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : 0;
+$resultado = $conexion->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -37,6 +40,8 @@ $resultado = $conexion->query($sql);
       "Es el silencio que se vuelve visible para permitir que el alma hable a través de los colores y la luz."
     </p>
   </header>
+
+    
   <style>
     .banner-container {
       width: 100%;
@@ -102,9 +107,36 @@ $resultado = $conexion->query($sql);
 
 }  
   </style>
+
+<div class="contenedor-buscador">
+
+    <div class="buscador">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+            type="text"
+            id="buscarPintura"
+            placeholder="Buscar pintura o autor...">
+
+    </div>
+
+</div>
+
     <div class="contenedor-pinturas">
 
     <?php while ($fila = $resultado->fetch_assoc()) { ?>
+    <?php
+$tieneLike = false;
+
+if($idUsuario > 0){
+    $consultaLike = $conexion->prepare("SELECT id FROM likes_pinturas WHERE id_usuario=? AND id_pintura=?");
+    $consultaLike->bind_param("ii",$idUsuario,$fila['ID']);
+    $consultaLike->execute();
+
+    $tieneLike = $consultaLike->get_result()->num_rows > 0;
+}
+?>
 
 <a href="ver_pintura.php?id=<?php echo $fila['ID']; ?>" class="card-link">
 
@@ -130,9 +162,23 @@ $resultado = $conexion->query($sql);
                 <?php echo htmlspecialchars($fila['autor']); ?>
             </p>
 
-            <span class="tipoarte">
-                <?php echo htmlspecialchars($fila['descripcion']); ?>
-            </span>
+           <span class="tipoarte">
+    <?php echo htmlspecialchars($fila['descripcion']); ?>
+</span>
+
+<div class="likes">
+<button
+    class="btn-like <?php echo $tieneLike ? 'activo' : ''; ?>"
+    data-id="<?php echo $fila['ID']; ?>">
+
+    <i class="<?php echo $tieneLike ? 'fa-solid' : 'fa-regular'; ?> fa-heart"></i>
+
+</button>
+    <span class="contador" id="likes-<?php echo $fila['ID']; ?>">
+        <?php echo $fila['likes']; ?>
+    </span>
+
+</div>
 
         </div>
 
@@ -162,5 +208,86 @@ $resultado = $conexion->query($sql);
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   <script src="JavaScript/script.js"></script>
+  <script>
+document.querySelectorAll(".btn-like").forEach(boton=>{
+
+    boton.addEventListener("click",function(e){
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        let id=this.dataset.id;
+
+        fetch("php/dar_like.php",{
+
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/x-www-form-urlencoded"
+            },
+
+            body:"id_pintura="+id
+
+        })
+
+        .then(r=>r.json())
+
+        .then(data=>{
+
+            if(data.estado=="login"){
+
+                alert("Debes iniciar sesión para dar like.");
+                return;
+
+            }
+
+            document.getElementById("likes-"+id).innerText=data.likes;
+
+            if(data.like){
+                this.classList.add("activo");
+this.querySelector("i").classList.remove("fa-regular");
+this.querySelector("i").classList.add("fa-solid");
+
+            }else{
+
+          this.classList.remove("activo");
+this.querySelector("i").classList.remove("fa-solid");
+this.querySelector("i").classList.add("fa-regular");
+            }
+
+        });
+
+    });
+
+});
+</script>
+
+<script>
+
+const buscador=document.getElementById("buscarPintura");
+
+buscador.addEventListener("keyup",()=>{
+
+    let texto=buscador.value.toLowerCase();
+
+    document.querySelectorAll(".art-card").forEach(card=>{
+
+        let contenido=card.innerText.toLowerCase();
+
+        if(contenido.includes(texto)){
+
+            card.parentElement.style.display="";
+
+        }else{
+
+            card.parentElement.style.display="none";
+
+        }
+
+    });
+
+});
+
+</script>
 </body>
 </html>
