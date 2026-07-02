@@ -12,7 +12,7 @@
 
     width: 45px;
     height: 45px;
-    background-color: #fab31b;
+    background-color: #4576a8;
 
     border-radius: 50%; /* esto crea el círculo */
     
@@ -29,7 +29,7 @@
 
 
 body{
-    background:#fce4af;
+    background:#eef6ff;
     font-family:Arial, sans-serif;
 
     display:flex;
@@ -93,7 +93,7 @@ button{
     border:none;
     border-radius:10px;
 
-    background:#fab31b;
+    background:#4576a8;
     color:white;
 
     font-size:18px;
@@ -105,5 +105,13 @@ button{
 }
 
 button:hover{
-    background:#fab31b;
+    background:#4576a8;
+}
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
 }

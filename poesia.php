@@ -112,10 +112,11 @@ $resultado = $stmt->get_result();
                 <p class="text-center text-muted">No se encontraron obras todavía.</p>
             <?php endif; ?>
  
-            <?php while ($obra = $resultado->fetch_assoc()): ?>
+           <?php while ($obra = $resultado->fetch_assoc()): ?>
                 <?php $src = imagenSrc($obra['imagen']); ?>
-                <div class="col-6 col-md-4 col-lg-3">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
                     <div class="card h-100 shadow-sm tarjeta-obra">
+                        
                         <div class="tarjeta-img-wrap">
                             <?php if ($src): ?>
                                 <img src="<?= $src ?>" class="card-img-top" alt="Foto de la obra">
@@ -125,10 +126,11 @@ $resultado = $stmt->get_result();
                                 </div>
                             <?php endif; ?>
                         </div>
+
                         <div class="card-body text-center">
                             <h6 class="card-title mb-1"><?= htmlspecialchars($obra['titulo']) ?></h6>
                             <p class="card-text text-muted small mb-2"><?= htmlspecialchars($obra['creador']) ?></p>
- 
+
                             <?php if ($usuario_id): ?>
                                 <form method="POST" class="mb-2">
                                     <input type="hidden" name="accion" value="like">
@@ -143,34 +145,11 @@ $resultado = $stmt->get_result();
                                     <i class="fa-solid fa-thumbs-up"></i> <?= $obra['total_likes'] ?>
                                 </span>
                             <?php endif; ?>
- 
+
                             <a href="detalle.php?id=<?= $obra['id'] ?>" class="btn btn-outline-secondary btn-sm w-100">Más información</a>
-                <div class="card-poesia">
-
-                    <?php if (!empty($obra['imagen'])): ?>
-                        <img src="data:image/jpeg;base64,<?= base64_encode($obra['imagen']) ?>"
-                            alt="<?= htmlspecialchars($obra['titulo']) ?>">
-                    <?php endif; ?>
-
-                    <div class="card-body-custom">
-
-                        <div class="card-footer-custom">
-
-                            <!-- LIKES -->
-                            <?php if ($usuario_id > 0): ?>
-                                <a href="like.php?id=<?= $obra['id'] ?>"
-                                    
-                                    <?= $obra['total_likes'] ?>
-                                </a>
-                            <?php else: ?>
-                                <span class="text-muted-custom">
-                                    <i class="fa-regular fa-heart"></i> <?= $obra['total_likes'] ?>
-                                </span>
-                            <?php endif; ?>
-
-                            <!-- EDITAR Y ELIMINAR: solo el dueño -->
                         </div>
-                    </div>
+                        
+                        </div>
                 </div>
             <?php endwhile; ?>
         </div>

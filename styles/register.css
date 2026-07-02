@@ -1,6 +1,6 @@
 
 h2{
-    color: rgb(0, 0, 0);
+    color: #2c4e7e;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,6 +48,15 @@ body {
 .btn-primary {
     border-radius: 12px;
     padding: 10px;
+    background:#4576a8;
+    border-color:#4576a8;
+    color:white;
+}
+
+.btn-primary:hover {
+    background:#c7e3ff;
+    border-color:#c7e3ff;
+    color:#2c4e7e;
 }
 
 
@@ -83,7 +92,7 @@ body {
 
 
 .btn-instagram {
-    background: #E4405F;
+    background: #4576a8;
     color: white;
 }
 .inicia{
@@ -147,4 +156,12 @@ body {
         top: auto
     }
 
+}
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
 }

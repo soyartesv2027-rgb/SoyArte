@@ -46,7 +46,7 @@ button{
     padding:15px;
     border:none;
     border-radius:12px;
-    background:#111827;
+    background:#2c4e7e;
     color:white;
     cursor:pointer;
 }
@@ -55,4 +55,12 @@ button{
     text-align:center;
     margin-bottom:20px;
     font-weight:bold;
+}
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
 }

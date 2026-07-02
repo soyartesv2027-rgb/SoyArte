@@ -36,7 +36,7 @@ body{
 .card-form h1{
     text-align:center;
     margin-bottom:30px;
-    color:#c96a3a;
+    color:#4576a8;
     font-size:2rem;
 }
 
@@ -81,7 +81,7 @@ body{
 
 .form-vr input[type="text"]:focus,
 .form-vr textarea:focus{
-    border-color:#c96a3a;
+    border-color:#4576a8;
     outline:none;
 }
 
@@ -123,7 +123,7 @@ body{
 /* ===== BOTON GUARDAR ===== */
 
 .btn-guardar{
-    background:#c96a3a;
+    background:#4576a8;
     color:white;
     border:none;
     padding:14px 24px;
@@ -135,7 +135,7 @@ body{
 }
 
 .btn-guardar:hover{
-    background:#b45d31;
+    background:#c7e3ff;
     transform:translateY(-2px);
 }
 
@@ -173,4 +173,13 @@ body{
         text-align:center;
     }
 
+}
+
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
 }

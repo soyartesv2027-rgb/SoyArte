@@ -116,7 +116,7 @@ body{
     text-decoration:none;
     padding:12px 18px;
     border-radius:12px;
-    background:#222;
+    background:#2c4e7e;
     color:white;
     font-weight:bold;
 }
@@ -180,4 +180,12 @@ body{
     .btn-agregar{
         padding: 10px 15px;
     }
+}
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
 }

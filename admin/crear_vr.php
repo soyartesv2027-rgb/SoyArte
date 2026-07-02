@@ -20,38 +20,58 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $video_url = $_POST['video_url'];
     $enlace = $_POST['enlace'];
 
-    $portada = time() . "_portada_" . $_FILES['portada']['name'];
+    $carpetaPortadas = "../uploads/vr/portadas/";
+    $carpetaQr = "../uploads/vr/qr/";
 
-    move_uploaded_file(
-        $_FILES['portada']['tmp_name'],
-        "../uploads/vr/portadas/" . $portada
-    );
+    if (!is_dir($carpetaPortadas)) {
+        mkdir($carpetaPortadas, 0777, true);
+    }
 
-    $qr = time() . "_qr_" . $_FILES['qr']['name'];
+    if (!is_dir($carpetaQr)) {
+        mkdir($carpetaQr, 0777, true);
+    }
 
-    move_uploaded_file(
-        $_FILES['qr']['tmp_name'],
-        "../uploads/vr/qr/" . $qr
-    );
+    if ($_FILES['portada']['error'] !== UPLOAD_ERR_OK || $_FILES['qr']['error'] !== UPLOAD_ERR_OK) {
+        $mensaje = "Error: no se pudieron subir la portada o el QR.";
+    } else {
+        $portada = time() . "_portada_" . basename($_FILES['portada']['name']);
+        $qr = time() . "_qr_" . basename($_FILES['qr']['name']);
 
-    $sql = "INSERT INTO realidad_virtual
-            (titulo,descripcion,portada,video_url,enlace,qr_imagen)
-            VALUES (?,?,?,?,?,?)";
+        $portadaGuardada = move_uploaded_file(
+            $_FILES['portada']['tmp_name'],
+            $carpetaPortadas . $portada
+        );
 
-    $stmt = $conn->prepare($sql);
+        $qrGuardado = move_uploaded_file(
+            $_FILES['qr']['tmp_name'],
+            $carpetaQr . $qr
+        );
 
-    $stmt->bind_param(
-        "ssssss",
-        $titulo,
-        $descripcion,
-        $portada,
-        $video_url,
-        $enlace,
-        $qr
-    );
+        if (!$portadaGuardada || !$qrGuardado) {
+            $mensaje = "Error: no se pudieron guardar la portada o el QR.";
+        } else {
+            $sql = "INSERT INTO realidad_virtual
+                    (titulo,descripcion,portada,video_url,enlace,qr_imagen)
+                    VALUES (?,?,?,?,?,?)";
 
-    if($stmt->execute()){
-        $mensaje = "✅ Experiencia creada correctamente";
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bind_param(
+                "ssssss",
+                $titulo,
+                $descripcion,
+                $portada,
+                $video_url,
+                $enlace,
+                $qr
+            );
+
+            if ($stmt->execute()) {
+                $mensaje = "Experiencia creada correctamente";
+            } else {
+                $mensaje = "Error: no se pudo guardar la experiencia.";
+            }
+        }
     }
 }
 ?>
@@ -68,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <div class="card-form">
 
-        <h1>🥽 Nueva Experiencia VR</h1>
+        <h1>Nueva Experiencia VR</h1>
 
         <?php if($mensaje): ?>
             <div class="mensaje">
@@ -78,14 +98,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <form method="POST" enctype="multipart/form-data" class="form-vr">
 
-            <label>Título</label>
+            <label>T&iacute;tulo</label>
             <input
                 type="text"
                 name="titulo"
                 required
             >
 
-            <label>Descripción</label>
+            <label>Descripci&oacute;n</label>
             <textarea
                 name="descripcion"
                 required
@@ -111,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 required
             >
 
-            <label>Código QR</label>
+            <label>C&oacute;digo QR</label>
             <input
                 type="file"
                 name="qr"

@@ -1,9 +1,9 @@
 :root{
     --crema:#FDF6EC;
-    --durazno:#F2A97E;
-    --terracota:#C96A3A;
-    --cafe:#7A3B1E;
-    --texto:#3D1F0D;
+    --durazno:#c7e3ff;
+    --terracota:#4576a8;
+    --cafe:#2c4e7e;
+    --texto:#2c4e7e;
     --blanco:#FFFFFF;
 }
 
@@ -117,4 +117,12 @@ body{
     .form-musica button{
         font-size:15px;
     }
+}
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
 }

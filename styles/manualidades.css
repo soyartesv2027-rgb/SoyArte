@@ -19,7 +19,7 @@ body{
  
 /* NAVBAR */
 .navbar{
-    background: #4f861d;
+    background: #4576a8;
  
     display: flex;
     justify-content: space-between;
@@ -86,15 +86,15 @@ body{
  
 /* Colores de fondo específicos para cada pestaña */
 .btn-categoria.naranja {
-    background-color: #e65c2b; /* Naranja quemado */
+    background-color: #4576a8; /* Naranja quemado */
 }
  
 .btn-categoria.rosa {
-    background-color: #ea8a9a; /* Rosa pastel/fucsia suave */
+    background-color: #c7e3ff; /* Rosa pastel/fucsia suave */
 }
  
 .btn-categoria.azul {
-    background-color: #4b8ba2; /* Azul océano/pizarra */
+    background-color: #4576a8; /* Azul océano/pizarra */
 }
 /* BANNER */
 .banner{
@@ -178,7 +178,7 @@ body{
     border: none;
     border-radius: 50%;
  
-    background: #7cae2b;
+    background: #4576a8;
     color: black;
  
     font-size: 30px;
@@ -210,7 +210,7 @@ body{
 
 /* IMAGEN */
 .imagen-card{
-    background: #a5ba47;
+    background: #c7e3ff;
     height: 180px;
  
     display: flex;
@@ -250,7 +250,7 @@ body{
     display: inline-block;
     margin-top: 10px;
  
-    background: #4f861d;
+    background: #4576a8;
     color: white;
  
     padding: 5px 15px;
@@ -282,4 +282,12 @@ body{
         width: 90%;
     }
  
+}
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
 }

@@ -37,7 +37,7 @@ body{
 
 .titulo-detalle{
     font-size: 2rem;
-    color: #222;
+    color: #2c4e7e;
     margin-bottom: 8px;
     text-align: center;
 }
@@ -51,7 +51,7 @@ body{
 .btn-volver{
     display: inline-block;
     text-decoration: none;
-    background: #f5c867;
+    background: #4576a8;
     color: black;
     padding: 10px 22px;
     border-radius: 12px;
@@ -63,7 +63,7 @@ body{
 }
 
 .btn-volver:hover{
-    background: #e6b855;
+    background: #c7e3ff;
 }
 
 .descripcion-box{
@@ -98,21 +98,21 @@ body{
 }
 
 .btn-editar{
-    background: #67d4f5;
+    background: #4576a8;
     color: black;
 }
 
 .btn-editar:hover{
-    background: #67d4f5;
+    background: #4576a8;
 }
 
 .btn-eliminar{
-    background: #e74c3c;
+    background: #4576a8;
     color: white;
 }
 
 .btn-eliminar:hover{
-    background: #c0392b;
+    background: #c7e3ff;
 }
 @media screen and (max-width: 425px){
 
@@ -181,4 +181,12 @@ body{
         padding: 12px 22px;
         font-size: 1rem;
     }
+}
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
 }
