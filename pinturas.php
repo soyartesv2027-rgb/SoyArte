@@ -167,16 +167,18 @@ if($idUsuario > 0){
 </span>
 
 <div class="likes">
-<button
-    class="btn-like <?php echo $tieneLike ? 'activo' : ''; ?>"
-    data-id="<?php echo $fila['ID']; ?>">
 
-    <i class="<?php echo $tieneLike ? 'fa-solid' : 'fa-regular'; ?> fa-heart"></i>
+    <button
+        class="contador btn-like <?php echo $tieneLike ? 'activo' : ''; ?>"
+        data-id="<?php echo $fila['ID']; ?>">
 
-</button>
-    <span class="contador" id="likes-<?php echo $fila['ID']; ?>">
-        <?php echo $fila['likes']; ?>
-    </span>
+        <i class="<?php echo $tieneLike ? 'fa-solid' : 'fa-regular'; ?> fa-heart"></i>
+
+        <span id="likes-<?php echo $fila['ID']; ?>">
+            <?php echo $fila['likes']; ?>
+        </span>
+
+    </button>
 
 </div>
 
