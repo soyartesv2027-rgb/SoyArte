@@ -217,6 +217,12 @@ window.addEventListener("scroll", () => {
 });
 </script>
 
+<button class="boton-flotante">
+        <a href="publicar_musica.php">
+            <i class="fa-solid fa-plus"></i>
+        </a>
+    </button>
+    
 <script src="JavaScript/script.js"></script>
 
 </body>

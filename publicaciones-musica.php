@@ -41,16 +41,8 @@
 
                 <img src="images/album.jpg" alt="">
 
-                <!-- SI QUIERES VIDEO USA ESTO -->
-                <!--
-                <video controls>
-                    <source src="video/video.mp4">
-                </video>
-                -->
-
             </div>
 
-            <!-- TITULO -->
             <h1>TITULO DE MUSICA</h1>
 
             <!-- DESCRIPCION -->

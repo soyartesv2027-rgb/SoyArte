@@ -52,16 +52,15 @@ if (!$pintura) {
 
 <div class="acciones">
 
-    <a href="editar_pintura.php?id=<?php echo $pintura['ID']; ?>"
-       class="btn-editar">
-        Editar
-    </a>
-
-    <a href="eliminar_pintura.php?id=<?php echo $pintura['ID']; ?>"
-       class="btn-eliminar"
-       onclick="return confirm('¿Estás seguro de eliminar esta pintura?')">
-        Eliminar
-    </a>
+    <a href="editar_pinturas.php?id=<?php echo $pintura['ID']; ?>" class="btn-editar">
+    Editar
+</a>
+    
+<a href="php/eliminar_pintura.php?id=<?php echo $pintura['ID']; ?>"
+   class="btn-eliminar"
+   onclick="return confirm('¿Estás seguro de eliminar esta pintura?')">
+    Eliminar
+</a>
 
 </div>
 

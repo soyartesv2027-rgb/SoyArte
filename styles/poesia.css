@@ -4,11 +4,11 @@
     Incluye ajustes para pantallas de teléfono al final del archivo.
     ============================================================ */
 :root {
-    --coral: #ec7b8c;
-    --rosa-claro: #fadbe3;
-    --rosa-medio: #f3aebd;
-    --crema: #f0e2c4;
-    --texto: #3a2e2e;
+    --coral: #4576a8;
+    --rosa-claro: #eef6ff;
+    --rosa-medio: #c7e3ff;
+    --crema: #f4f6fb;
+    --texto: #2c4e7e;
 }
  
 /* ---------- Tarjetas de poemas (listado) ---------- */
@@ -114,9 +114,9 @@
     color: #fff;
 }
  
-.icono-naranja { background: #e65c2b; }
-.icono-azul    { background: #4b8ba2; }
-.icono-verde   { background: #4f861d; }
+.icono-naranja { background: #4576a8; }
+.icono-azul    { background: #4576a8; }
+.icono-verde   { background: #4576a8; }
  
 /* ---------- Hero/floral arriba de la pagina de listado ---------- */
 .hero-poesia {
@@ -277,7 +277,7 @@
 }
  
 .btn-guardar:hover {
-    background: #d96677;
+    background: #c7e3ff;
     color: #fff;
 }
  
@@ -355,4 +355,13 @@
     .topbar-detalle h2 {
         font-size: 0.95rem;
     }
+}
+
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
 }

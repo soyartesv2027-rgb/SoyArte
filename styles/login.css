@@ -31,7 +31,7 @@ body {
     font-family: 'Playfair Display', serif;
     font-size: 50px;
     padding-top:60px;
-    color: #2d3a5c;
+    color: #2c4e7e;
 }
 
 .inputBlock{
@@ -60,6 +60,15 @@ button.btn.btn-primary {
     height: 40px;
     font-weight: bold;
     font-size: 17px;
+    background:#4576a8;
+    border-color:#4576a8;
+    color:white;
+}
+
+button.btn.btn-primary:hover{
+    background:#c7e3ff;
+    border-color:#c7e3ff;
+    color:#2c4e7e;
 }
 
 button{
@@ -157,4 +166,12 @@ button{
         top: auto
     }
 
+}
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
 }

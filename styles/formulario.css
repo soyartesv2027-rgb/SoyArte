@@ -27,7 +27,7 @@ body{
     text-align:center;
     font-size:28px;
     font-weight:700;
-    color:#6c63ff;
+    color:#4576a8;
     margin-bottom:10px;
 }
 
@@ -56,7 +56,7 @@ h1{
 .progress-bar{
     width:25%;
     height:100%;
-    background:linear-gradient(90deg,#6c63ff,#9ab3ff);
+    background:linear-gradient(90deg,#4576a8,#c7e3ff);
     transition:0.4s;
 }
 
@@ -92,7 +92,7 @@ h2{
 }
 
 .card:hover{
-    border-color:#6c63ff;
+    border-color:#4576a8;
     transform:translateY(-4px);
 }
 
@@ -151,7 +151,7 @@ textarea{
 textarea:focus,
 select:focus{
     outline:none;
-    border-color:#6c63ff;
+    border-color:#4576a8;
     box-shadow:0 0 0 5px rgba(108,99,255,0.12);
 }
 
@@ -180,7 +180,7 @@ button{
     padding:18px;
     border:none;
     border-radius:16px;
-    background:linear-gradient(135deg,#6c63ff,#8ea2ff);
+    background:linear-gradient(135deg,#4576a8,#c7e3ff);
     color:white;
     font-size:16px;
     font-weight:600;
@@ -235,7 +235,7 @@ button:hover{
 }
 
 .card:hover {
-    border-color: #6c63ff;
+    border-color: #4576a8;
     transform: translateY(-4px);
 }
 
@@ -244,14 +244,14 @@ button:hover{
 }
 
 .card:has(input:checked) {
-    border-color: #6c63ff;
+    border-color: #4576a8;
     background: #f3f1ff;
     box-shadow: 0 8px 20px rgba(108,99,255,0.15);
     transform: scale(1.02);
 }
 
 .card.selected {
-    border-color: #6c63ff;
+    border-color: #4576a8;
     background: #f3f1ff;
     box-shadow: 0 8px 20px rgba(108,99,255,0.15);
 }
@@ -289,7 +289,7 @@ button:hover{
 }
 
 .dato-card h4{
-    color:#C96A3A;
+    color:#4576a8;
     margin-bottom:8px;
 }
 
@@ -300,4 +300,12 @@ button:hover{
 
 .dato-card.full{
     grid-column:1 / -1;
+}
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
 }

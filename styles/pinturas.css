@@ -1,256 +1,291 @@
-.art-card {
-  width: 280px;
-  background-color: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-
-.card-image-area {
-  position: relative;
-  height: 180px;
-  background-color: #fef5b1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+body{
+    background:#fff;
+    font-family:'Segoe UI',sans-serif;
 }
 
+/* ===========================
+   CONTENEDOR
+=========================== */
 
-.placeholder-text {
-  font-family: 'Pacifico', cursive;
-  font-size: 1.4rem;
-  color: #2b2b2b;
-}
-
-
-.favorite-btn {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  outline: none;
-}
-
-.favorite-btn svg {
-  fill: none;
-  stroke: #2b2b2b;
-  stroke-width: 2;
-  transition: transform 0.2s ease, fill 0.2s ease;
-}
-
-
-.art-card {
-  margin-top: 30px;
-  margin-left: 30px;
-  margin-right: 30px;
-}
-
-.card-info-area {
-  padding: 16px 20px 20px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.paint-title {
-  margin: 0;
-  font-size: 1.15rem;
-  color: #1a1a1a;
-  font-weight: 600;
-  letter-spacing: -0.3px;
-}
-
-
-.author-name {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #b0b0b0; 
-}
-
-
-.tipoarte {
-  align-self: flex-start;
-  background-color: #f7d59c; 
-  color: #4a3319;
-  font-size: 0.85rem;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-weight: 500;
-  margin-top: 4px;
-}
-
-.añadir-boton {
-    position: fixed;
-    right: 20px;
-    bottom: 150px; 
-}
-.boton-plus {
-  background-color: #f5c867; /* amarillo */
-  border: none;
-  border-radius: 15px;
-  width: 120px;
-  height: 60px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.boton-plus i {
-  font-size: 18px;
-  border: 2px solid black;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  padding:0px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.boton-plus:hover {
-  background-color: #e6b855;
-}
-
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background: linear-gradient(135deg, #eef2f7, #dbe6f6);
-  font-family: 'Segoe UI', sans-serif;
-  background-color: white;
-}
-
-.navbar {
-  padding: 10px;
-}
-
-.container-fluid {
-  background: rgba(156, 202, 255, 0.8);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  padding: 10px 20px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.arty-nav {
-  width: 35px;
-}
-
-.iniciar-sesion, .registrarse {
-  background-color: #7B7DFF;
-  border-radius: 15px;
-  transition: 0.3s;
-  padding-left: 4px;
-}
-
-.iniciar-sesion:hover {
-  background-color: #5a5cff;
-  transform: scale(1.05);
-}
-
-.registrarse:hover {
-  background-color: #5a5cff;
-  transform: scale(1.05);
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
-  animation: fadeDown 1s ease;
-}
-
-.header h1 {
-  font-size: 3rem;
-  font-weight: bold;
-}
-
-.textos {
-  display: flex;
-  flex-direction: column;
-}
-
-.subtitulo {
-  font-size: 18px;
-  color: #555;
-}
-
-.arty {
-  width: 60px;
-}
-
-@keyframes fadeDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.heart-button.active {
-  color: red;
-}
-
-.heart-button .fa-heart {
-  font-size: 1.5rem; /
-}
 .contenedor-pinturas{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 40px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:35px;
+    padding:40px;
 }
 
 .card-link{
-    text-decoration: none;
-    color: inherit;
+    text-decoration:none;
+    color:inherit;
 }
 
+/* ===========================
+   CARD
+=========================== */
+
 .art-card{
-    width: 280px;
-    background-color: #fff;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,.08);
-    display: flex;
-    flex-direction: column;
-    transition: .3s;
+    width:280px;
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,.10);
+    transition:.35s;
 }
 
 .art-card:hover{
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,.15);
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(0,0,0,.18);
 }
 
+/* ===========================
+   IMAGEN
+=========================== */
+
 .card-image-area{
-    position: relative;
-    height: 220px;
-    overflow: hidden;
+    position:relative;
+    width:100%;
+    height:260px;
+    overflow:hidden;
+    background:#f6f6f6;
 }
 
 .imagen-pintura{
     width:100%;
     height:100%;
     object-fit:cover;
+    transition:.4s;
 }
 
+.art-card:hover .imagen-pintura{
+    transform:scale(1.06);
+}
+
+
+/* ===========================
+   INFORMACIÓN
+=========================== */
+
+.card-info-area{
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.paint-title{
+    font-size:22px;
+    color:#2c4e7e;
+    font-weight:700;
+}
+
+.author-name{
+    color:#888;
+    font-size:15px;
+}
+
+/* ===========================
+   CUADRO NARANJA
+=========================== */
+
+.tipoarte{
+    display:inline-block;
+    align-self:flex-start;
+
+    background:#c7e3ff;
+    color:#2c4e7e;
+
+    padding:7px 15px;
+
+    border-radius:10px;
+
+    font-size:13px;
+    font-weight:600;
+}
+
+/* ===========================
+   BOTÓN AGREGAR
+=========================== */
+
+.añadir-boton{
+    position:fixed;
+    right:25px;
+    bottom:30px;
+}
+
+/* ===========================
+   BOTÓN AGREGAR
+=========================== */
+
+.añadir-boton{
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    z-index: 999;
+    text-decoration: none;
+}
+
+.boton-plus{
+    width: 65px;
+    height: 65px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #4576a8;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,.20);
+
+    transition: all .3s ease;
+}
+
+.boton-plus:hover{
+    background: #c7e3ff;
+    transform: scale(1.1) rotate(90deg);
+}
+
+.boton-plus i{
+    font-size: 28px;
+    color: #2c4e7e;
+    line-height: 1;
+}
+
+.likes{
+    margin-top:18px;
+}
+
+.btn-like{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    padding:10px 18px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#f8d28d;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.12);
+
+}
+
+.btn-like:hover{
+
+    transform:translateY(-2px);
+
+    background:#f6c86c;
+
+}
+
+.btn-like i{
+
+    font-size:20px;
+
+    color:#222;
+
+    transition:.3s;
+
+}
+
+.btn-like span{
+
+    font-size:15px;
+
+    font-weight:700;
+
+    color:#5d3d00;
+
+}
+
+.btn-like.activo i{
+
+    color:#ff3b5c;
+
+}
+
+/* ===========================
+   BUSCADOR
+=========================== */
+
+.contenedor-buscador{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    margin:40px 0;
+}
+
+.buscador{
+    width:90%;
+    max-width:1000px;
+    height:60px;
+
+    background:#fff;
+
+    border-radius:15px;
+
+    display:flex;
+    align-items:center;
+
+    padding:0 22px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+}
+
+.buscador:hover{
+    box-shadow:0 12px 25px rgba(0,0,0,.12);
+}
+
+.buscador:focus-within{
+    border:2px solid #f5c867;
+}
+
+.buscador i{
+    font-size:22px;
+    color:#1f2a44;
+    margin-right:18px;
+}
+
+.buscador input{
+    flex:1;
+
+    border:none;
+    outline:none;
+
+    background:transparent;
+
+    font-size:17px;
+    color:#333;
+}
+
+.buscador input::placeholder{
+    color:#999;
+}
 @media screen and (max-width: 768px) {
   .header {
     flex-direction: column;
@@ -345,4 +380,12 @@ body {
   .container-fluid {
     padding: 8px 12px;
   }
+}
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
 }

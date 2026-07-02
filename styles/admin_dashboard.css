@@ -7,7 +7,7 @@
 body{
     font-family:'Segoe UI',sans-serif;
     background:#f4f6fb;
-    color:#222;
+    color:#2c4e7e;
 }
 
 .contenedor{
@@ -21,7 +21,7 @@ h1{
     text-align:center;
     margin-bottom:30px;
     font-size:2.5rem;
-    color:#222;
+    color:#2c4e7e;
 }
 
 .acciones-admin{
@@ -95,21 +95,21 @@ h1{
 }
 
 .btn-ver{
-    background:#4CAF50;
+    background:#4576a8;
 }
 
 .btn-editar{
-    background:#2196F3;
+    background:#4576a8;
 }
 
 .btn-eliminar{
-    background:#e53935;
+    background:#4576a8;
 }
 
 .btn-ver:hover,
 .btn-editar:hover,
 .btn-eliminar:hover{
-    opacity:.9;
+    background:#c7e3ff;
 }
 
 @media(max-width:900px){
@@ -122,4 +122,13 @@ h1{
         min-width:850px;
     }
 
+}
+
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
 }
