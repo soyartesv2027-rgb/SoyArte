@@ -7,7 +7,8 @@ if (!isset($_SESSION['usuario_id'])) {
     exit();
 }
 
-$id = $_SESSION['usuario_id'];
+$id = (int)$_SESSION['usuario_id'];
+$mensajesPendientes = 0;
 
 $sql = "SELECT *
         FROM usuarios
@@ -29,6 +30,34 @@ $stmtObras->execute();
 
 $misObras = $stmtObras->get_result();
 $totalObras = $misObras->num_rows;
+
+$sqlMensajes = "SELECT COUNT(*) AS total
+                FROM mensajes m
+                INNER JOIN conversaciones c
+                ON m.conversacion_id = c.id
+                WHERE m.emisor_id <> ?
+                AND m.leido = 0
+                AND
+                (
+                    (
+                        c.usuario1_id = ?
+                        AND c.oculto_usuario1 = 0
+                    )
+                    OR
+                    (
+                        c.usuario2_id = ?
+                        AND c.oculto_usuario2 = 0
+                    )
+                )";
+
+$stmtMensajes = $conn->prepare($sqlMensajes);
+
+if ($stmtMensajes) {
+    $stmtMensajes->bind_param("iii", $id, $id, $id);
+    $stmtMensajes->execute();
+    $resultadoMensajes = $stmtMensajes->get_result()->fetch_assoc();
+    $mensajesPendientes = (int)$resultadoMensajes['total'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -197,9 +226,21 @@ $totalObras = $misObras->num_rows;
 
             </div>
 
-            <a href="index.php" class="btn-volver">
-                Volver al inicio
-            </a>
+            <div class="acciones-perfil">
+                <a href="index.php" class="btn-volver">
+                    Volver al inicio
+                </a>
+
+                <a href="mensajes.php" class="btn-volver">
+                    <span id="textoMensajesPerfil">
+                        &#128172; Mensajes<?php echo $mensajesPendientes > 0 ? " (" . $mensajesPendientes . ")" : ""; ?>
+                    </span>
+                </a>
+
+                <a href="php/logout.php" class="btn-volver btn-salir">
+                    Cerrar sesi&oacute;n
+                </a>
+            </div>
 
         </div>
 
@@ -266,5 +307,26 @@ $totalObras = $misObras->num_rows;
 
     </div>
 
+    <script>
+    const textoMensajesPerfil = document.getElementById("textoMensajesPerfil");
+
+    function actualizarContadorPerfil() {
+        if (!textoMensajesPerfil) {
+            return;
+        }
+
+        fetch("php/contador_mensajes.php")
+            .then(res => res.json())
+            .then(data => {
+                const total = Number(data.total || 0);
+                textoMensajesPerfil.textContent = total > 0
+                    ? "\u{1F4AC} Mensajes (" + total + ")"
+                    : "\u{1F4AC} Mensajes";
+            })
+            .catch(error => console.error(error));
+    }
+
+    setInterval(actualizarContadorPerfil, 15000);
+    </script>
 </body>
 </html>

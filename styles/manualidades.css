@@ -18,10 +18,13 @@ body{
 .navbar{
 <<<<<<< HEAD
     background: #4f861d;
+<<<<<<< HEAD
 =======
     background: #4576a8;
  
 >>>>>>> a0601b39f5cc33717e0f99aa3752e955fedfc4ad
+=======
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -83,15 +86,15 @@ body{
 .btn-categoria.naranja {
     background-color: #4576a8; /* Naranja quemado */
 }
- 
+
 .btn-categoria.rosa {
     background-color: #c7e3ff; /* Rosa pastel/fucsia suave */
 }
- 
+
 .btn-categoria.azul {
     background-color: #4576a8; /* Azul océano/pizarra */
 }
-/* BANNER */
+
 .banner{
     width: 100%;
     height: 220px;

@@ -166,6 +166,16 @@ if($idUsuario > 0){
     <?php echo htmlspecialchars($fila['descripcion']); ?>
 </span>
 
+<<<<<<< HEAD
+=======
+<?php
+$consultaLikes = $conexion->prepare("SELECT COUNT(*) AS total FROM likes_pinturas WHERE id_pintura=?");
+$consultaLikes->bind_param("i", $fila['ID']);
+$consultaLikes->execute();
+$totalLikes = $consultaLikes->get_result()->fetch_assoc();
+?>
+
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
 <div class="likes">
 
     <button
@@ -175,7 +185,11 @@ if($idUsuario > 0){
         <i class="<?php echo $tieneLike ? 'fa-solid' : 'fa-regular'; ?> fa-heart"></i>
 
         <span id="likes-<?php echo $fila['ID']; ?>">
+<<<<<<< HEAD
             <?php echo $fila['likes']; ?>
+=======
+            <?php echo $totalLikes['total']; ?>
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
         </span>
 
     </button>
@@ -291,5 +305,10 @@ buscador.addEventListener("keyup",()=>{
 });
 
 </script>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
 </body>
 </html>

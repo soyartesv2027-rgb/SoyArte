@@ -13,12 +13,15 @@
 <<<<<<< HEAD
     background-color: #fab31b;
     border-radius: 50%;
+<<<<<<< HEAD
 =======
     background-color: #4576a8;
 
     border-radius: 50%; /* esto crea el círculo */
     
 >>>>>>> a0601b39f5cc33717e0f99aa3752e955fedfc4ad
+=======
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,11 +84,15 @@ button{
     border:none;
     border-radius:10px;
 <<<<<<< HEAD
+<<<<<<< HEAD
     background:#fab31b;
 =======
 
     background:#4576a8;
 >>>>>>> a0601b39f5cc33717e0f99aa3752e955fedfc4ad
+=======
+    background:#fab31b;
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
     color:white;
     font-size:18px;
     font-weight:bold;

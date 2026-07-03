@@ -4,6 +4,39 @@
 // IMPORTANTE:
 // session_start() debe ir antes del include
 // =============================================
+$mensajesPendientes = 0;
+
+if (isset($_SESSION['usuario_id'])) {
+    require_once __DIR__ . '/../php/conexion.php';
+
+    $usuarioNavbar = (int)$_SESSION['usuario_id'];
+    $sqlMensajesNavbar = "SELECT COUNT(*) AS total
+                          FROM mensajes m
+                          INNER JOIN conversaciones c
+                          ON m.conversacion_id = c.id
+                          WHERE m.emisor_id <> ?
+                          AND m.leido = 0
+                          AND
+                          (
+                              (
+                                  c.usuario1_id = ?
+                                  AND c.oculto_usuario1 = 0
+                              )
+                              OR
+                              (
+                                  c.usuario2_id = ?
+                                  AND c.oculto_usuario2 = 0
+                              )
+                          )";
+    $stmtMensajesNavbar = $conn->prepare($sqlMensajesNavbar);
+
+    if ($stmtMensajesNavbar) {
+        $stmtMensajesNavbar->bind_param("iii", $usuarioNavbar, $usuarioNavbar, $usuarioNavbar);
+        $stmtMensajesNavbar->execute();
+        $resultadoMensajesNavbar = $stmtMensajesNavbar->get_result()->fetch_assoc();
+        $mensajesPendientes = (int)$resultadoMensajesNavbar['total'];
+    }
+}
 ?>
 
 <!-- OVERLAY -->
@@ -162,6 +195,17 @@
                             </li>
 
                             <li>
+                                <a class="dropdown-item" href="mensajes.php">
+                                    <i class="fa-solid fa-message me-2"></i>
+                                    <span
+                                        id="textoMensajesMenu"
+                                        data-base="Mensajes">
+                                        Mensajes<?php echo $mensajesPendientes > 0 ? " (" . $mensajesPendientes . ")" : ""; ?>
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li>
                                 <hr class="dropdown-divider">
                             </li>
 
@@ -205,3 +249,27 @@
     </div>
 
 </nav>
+
+<?php if (isset($_SESSION['usuario_id'])): ?>
+<script>
+const textoMensajesMenu = document.getElementById("textoMensajesMenu");
+
+function actualizarContadorMensajes() {
+    if (!textoMensajesMenu) {
+        return;
+    }
+
+    fetch("php/contador_mensajes.php")
+        .then(res => res.json())
+        .then(data => {
+            const total = Number(data.total || 0);
+            textoMensajesMenu.textContent = total > 0
+                ? "Mensajes (" + total + ")"
+                : "Mensajes";
+        })
+        .catch(error => console.error(error));
+}
+
+setInterval(actualizarContadorMensajes, 15000);
+</script>
+<?php endif; ?>
