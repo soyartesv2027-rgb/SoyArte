@@ -8,8 +8,6 @@ $usuario_id = isset($_SESSION['usuario_id']) ? (int) $_SESSION['usuario_id'] : n
 /* -------------------------------------------------------------
    Like desde la tarjeta del listado (boton "Like" en cada poema)
    ------------------------------------------------------------- */
-
-   //este es el ifficial//
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accion']) && $_POST['accion'] === 'like') {
  
     if (!$usuario_id) {
@@ -35,9 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accion']) && $_POST['
     $queryString = isset($_POST['q']) && $_POST['q'] !== '' ? '?q=' . urlencode($_POST['q']) : '';
     header("Location: poesia.php" . $queryString);
     exit;
-}  //este es el ifficial//
+}
  
- //mi amor//
 $busqueda = isset($_GET['q']) ? trim($_GET['q']) : '';
 $usuarioParaLikes = $usuario_id ?? 0; // 0 nunca coincide con un usuario real
  
@@ -61,9 +58,8 @@ if ($busqueda !== '') {
             ORDER BY obras.id DESC";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $usuarioParaLikes);
-}//mi amor//
+}
  
-//not found//
 $stmt->execute();
 $resultado = $stmt->get_result();
 ?>
@@ -76,20 +72,10 @@ $resultado = $stmt->get_result();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-
-    <link rel="stylesheet" href="styles/poesia.css?v=2">
-
-
-    <link rel="stylesheet" href="styles/poesia.css">
-
-    <link rel="stylesheet" href="style.css">
-
-
-    <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="styles/poesia.css?v=3">
 </head>
 <body class="bg-light">
-    <?php include("components/navbar-poesia.php"); ?>
+    <?php $seccion = 'poesia'; include("components/navbar-unificado.php"); ?>
  
     <div class="hero-poesia">
         <div class="hero-poesia-img"></div>
@@ -108,9 +94,7 @@ $resultado = $stmt->get_result();
             </div>
         </form>
     </div>
-    
  
-    
     <div class="container pb-5">
         <div class="row g-4">
             <?php if ($resultado->num_rows === 0): ?>
@@ -150,39 +134,13 @@ $resultado = $stmt->get_result();
                             <?php endif; ?>
  
                             <a href="detalle.php?id=<?= $obra['id'] ?>" class="btn btn-outline-secondary btn-sm w-100">Más información</a>
-                <div class="card-poesia">
-
-                    <?php if (!empty($obra['imagen'])): ?>
-                        <img src="data:image/jpeg;base64,<?= base64_encode($obra['imagen']) ?>"
-                            alt="<?= htmlspecialchars($obra['titulo']) ?>">
-                    <?php endif; ?>
-
-                    <div class="card-body-custom">
-
-                        <div class="card-footer-custom">
-
-                            <!-- LIKES -->
-                            <?php if ($usuario_id > 0): ?>
-                                <a href="like.php?id=<?= $obra['id'] ?>"
-                                    
-                                    <?= $obra['total_likes'] ?>
-                                </a>
-                            <?php else: ?>
-                                <span class="text-muted-custom">
-                                    <i class="fa-regular fa-heart"></i> <?= $obra['total_likes'] ?>
-                                </span>
-                            <?php endif; ?>
-
-                            <!-- EDITAR Y ELIMINAR: solo el dueño -->
                         </div>
                     </div>
                 </div>
             <?php endwhile; ?>
         </div>
     </div>
-
-
-  
+ 
     <?php if (isset($_SESSION['usuario_id'])): ?>
         <a href="publicar-poesia.php" class="btn btn-danger rounded-circle position-fixed bottom-0 end-0 m-4 d-flex align-items-center justify-content-center" style="width:55px; height:55px;">
             <i class="fa-solid fa-plus"></i>
