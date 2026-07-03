@@ -466,7 +466,7 @@ function animate(){
 
         setTimeout(()=>{
 
-            window.location.href = "/soyarte/soyarte/pinturas.php";
+            window.location.href = "/soyarte/pinturas.php";
 
         },2600);
 
