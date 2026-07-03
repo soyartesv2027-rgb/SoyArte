@@ -21,9 +21,6 @@ body {
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.arty-nav {
-  width: 35px;
-}
 
 .iniciar-sesion, .registrarse {
   background-color: #7B7DFF;
@@ -43,12 +40,17 @@ body {
 }
 
 .header {
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: center;
   gap: 15px;
   margin-top: 20px;
   animation: fadeDown 1s ease;
+}
+
+.header img {
+  width: 400px;
+  align-items: center;
 }
 
 .header h1 {
