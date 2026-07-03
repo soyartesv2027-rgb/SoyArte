@@ -6,7 +6,7 @@
 }
  
 body {
-    background: linear-gradient(135deg, #fce4af, #fff3d6);
+    background: linear-gradient(135deg, #eef6ff, #f4f6fb);
     min-height: 100vh;
  
     display: flex;
@@ -22,7 +22,7 @@ body {
  
     width: 45px;
     height: 45px;
-    background: #fab31b;
+    background: #4576a8;
  
     border-radius: 50%;
  
@@ -112,7 +112,7 @@ input[type="file"] {
  
 input:focus,
 textarea:focus {
-    border-color: #fab31b;
+    border-color: #4576a8;
     box-shadow: 0 0 5px rgba(250,179,27,0.5);
 }
  
@@ -136,7 +136,7 @@ button {
     border: none;
     border-radius: 12px;
  
-    background: linear-gradient(135deg, #28a745, #20c997);
+    background: linear-gradient(135deg, #4576a8, #c7e3ff);
     color: white;
  
     font-size: 16px;
@@ -166,7 +166,7 @@ button:hover {
  
     border-radius: 12px;
  
-    background: linear-gradient(135deg, #dc3545, #ff6b6b);
+    background: linear-gradient(135deg, #4576a8, #c7e3ff);
     color: white;
  
     text-align: center;
@@ -202,3 +202,11 @@ button:hover {
     }
 }
  
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
+}

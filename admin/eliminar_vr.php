@@ -23,20 +23,36 @@ if($resultado->num_rows > 0){
 
     $vr = $resultado->fetch_assoc();
 
-    if(file_exists("../uploads/vr/portadas/" . $vr['portada'])){
-        unlink("../uploads/vr/portadas/" . $vr['portada']);
+    $conn->begin_transaction();
+
+    try {
+        $deleteComentarios = $conn->prepare(
+            "DELETE FROM comentarios_vr WHERE vr_id=?"
+        );
+
+        $deleteComentarios->bind_param("i", $id);
+        $deleteComentarios->execute();
+
+        $delete = $conn->prepare(
+            "DELETE FROM realidad_virtual WHERE id=?"
+        );
+
+        $delete->bind_param("i", $id);
+        $delete->execute();
+
+        $conn->commit();
+
+        if(!empty($vr['portada']) && file_exists("../uploads/vr/portadas/" . $vr['portada'])){
+            unlink("../uploads/vr/portadas/" . $vr['portada']);
+        }
+
+        if(!empty($vr['qr_imagen']) && file_exists("../uploads/vr/qr/" . $vr['qr_imagen'])){
+            unlink("../uploads/vr/qr/" . $vr['qr_imagen']);
+        }
+    } catch (Exception $e) {
+        $conn->rollback();
+        die("Error al eliminar la experiencia: " . $e->getMessage());
     }
-
-    if(file_exists("../uploads/vr/qr/" . $vr['qr_imagen'])){
-        unlink("../uploads/vr/qr/" . $vr['qr_imagen']);
-    }
-
-    $delete = $conn->prepare(
-        "DELETE FROM realidad_virtual WHERE id=?"
-    );
-
-    $delete->bind_param("i", $id);
-    $delete->execute();
 }
 
 header("Location: dashboard.php");

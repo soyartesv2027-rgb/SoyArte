@@ -1,7 +1,7 @@
 <?php
 include("php/conexion.php")
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (($_SERVER["REQUEST_METHOD"] == "POST")) {
 
     $nombre = trim($_POST['nombre_pintura']);
     $autor = trim($_POST['autor']);
@@ -47,6 +47,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error al guardar la pintura.";
 
     }
-
+    
 }
 ?>

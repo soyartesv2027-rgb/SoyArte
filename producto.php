@@ -80,6 +80,13 @@ $usuarioActual = $_SESSION['usuario_id'] ?? 0;
             <button class="btn-comprar">
                 Comprar
             </button>
+            <br><br>
+            <?php if ($usuarioActual != $producto['usuario_id']): ?>
+            <a href="php/crear_chat.php?producto=<?php echo $producto['id']; ?>"
+            class="btn-contactar">
+                💬 Contactar al artista
+            </a>
+            <?php endif; ?>
             <!-- Botones solo para el propietario -->
             <?php if ($usuarioActual == $producto['usuario_id']): ?>
                 <div class="acciones-propietario">

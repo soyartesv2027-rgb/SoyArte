@@ -6,17 +6,17 @@
 
 body{
     font-family:'Segoe UI',sans-serif;
-    background:#f3f4f6;
-    color:#222;
+    background:#f4f6f9;
+    color:#2c4e7e;
 }
 
 .detalle-vr{
-    max-width:900px;
+    max-width:950px;
     margin:40px auto;
-    background:white;
+    background:#fff;
     padding:30px;
     border-radius:20px;
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
 .btn-volver{
@@ -25,10 +25,11 @@ body{
     font-weight:600;
     display:inline-block;
     margin-bottom:20px;
+    transition:.3s;
 }
 
 .btn-volver:hover{
-    color:#c96a3a;
+    color:#4576a8;
 }
 
 .detalle-vr h1{
@@ -37,44 +38,48 @@ body{
     font-size:2rem;
     color:#333;
 }
+
 .video{
     margin-bottom:25px;
 }
 
 .video iframe{
     width:100%;
-    height:420px;
+    height:450px;
     border:none;
-    border-radius:12px;
+    border-radius:15px;
     background:#ddd;
+}
+
+.descripcion{
+    margin:20px 0;
+    line-height:1.8;
+    color:#555;
 }
 
 .enlace{
     margin-bottom:25px;
-    font-size:15px;
 }
 
 .enlace a{
-    color:#444;
     text-decoration:none;
-}
-
-.enlace a:hover{
-    color:#c96a3a;
+    color:#4576a8;
+    font-weight:bold;
 }
 
 .extra{
     display:grid;
     grid-template-columns:220px 1fr;
-    gap:20px;
+    gap:25px;
     align-items:start;
 }
 
 .qr{
-    background:#f7f7f7;
-    border-radius:12px;
+    background:#fafafa;
+    border-radius:15px;
     padding:15px;
     text-align:center;
+    box-shadow:0 3px 10px rgba(0,0,0,.05);
 }
 
 .qr img{
@@ -83,32 +88,127 @@ body{
 }
 
 .comentarios{
-    background:#f7f7f7;
-    border-radius:12px;
-    padding:15px;
+    background:#fff;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
 
 .comentarios h3{
-    margin-bottom:10px;
-    font-size:16px;
-    font-weight:600;
+    font-size:22px;
+    margin-bottom:20px;
+    color:#333;
 }
 
 .comentarios textarea{
     width:100%;
-    height:180px;
-    border:none;
-    border-radius:10px;
-    background:#ddd;
-    resize:none;
+    height:120px;
     padding:15px;
-    font-size:14px;
+    border:1px solid #ddd;
+    border-radius:15px;
+    resize:none;
+    font-size:15px;
+    transition:.3s;
 }
 
-.descripcion{
-    margin-bottom:20px;
-    line-height:1.8;
+.comentarios textarea:focus{
+    border-color:#4576a8;
+    outline:none;
+    box-shadow:0 0 8px rgba(69,118,168,.2);
+}
+
+.btn-comentar{
+    margin-top:15px;
+    background:#4576a8;
+    color:white;
+    border:none;
+    padding:12px 28px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+    transition:.3s;
+    box-shadow:0 8px 18px rgba(69,118,168,.35);
+}
+
+.btn-comentar:hover{
+    transform:translateY(-3px);
+    background:#c7e3ff;
+    box-shadow:0 12px 22px rgba(69,118,168,.45);
+}
+
+hr{
+    margin:25px 0;
+    border:none;
+    border-top:1px solid #e5e5e5;
+}
+
+.lista-comentarios{
+    max-height:420px;
+    overflow-y:auto;
+    padding-right:8px;
+}
+
+.lista-comentarios::-webkit-scrollbar{
+    width:8px;
+}
+
+.lista-comentarios::-webkit-scrollbar-thumb{
+    background:#4576a8;
+    border-radius:20px;
+}
+
+.lista-comentarios::-webkit-scrollbar-track{
+    background:#eee;
+}
+
+.comentario{
+    background:#fafafa;
+    padding:18px;
+    border-radius:15px;
+    margin-bottom:18px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.comentario:hover{
+    transform:translateY(-2px);
+}
+
+.comentario-header{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.avatar{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#4576a8,#2c4e7e);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.comentario-header strong{
+    color:#333;
+    font-size:16px;
+}
+
+.comentario-header small{
+    color:#888;
+    font-size:12px;
+}
+
+.texto-comentario{
+    margin-left:60px;
+    margin-top:10px;
     color:#555;
+    line-height:1.7;
 }
 
 @media(max-width:768px){
@@ -121,4 +221,21 @@ body{
         height:250px;
     }
 
+    .texto-comentario{
+        margin-left:0;
+    }
+
+    .comentario-header{
+        flex-direction:row;
+    }
+
+}
+
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
 }
