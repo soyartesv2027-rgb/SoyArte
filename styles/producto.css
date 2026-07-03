@@ -39,12 +39,15 @@ body{
 .acciones{
     display:flex;
     gap:20px;
+    align-items:center;
+    flex-wrap:wrap;
 }
 
 .acciones a{
     text-decoration:none;
     color:#374151;
     font-weight:500;
+    white-space:nowrap;
 }
 
 .acciones a:hover{
@@ -248,23 +251,19 @@ body{
         flex-direction:column;
     }
 
-<<<<<<< HEAD
-            .detalle-producto{
-        flex-direction: column;
+    .detalle-producto{
+        flex-direction:column;
     }
 
     .imagen-producto{
         width:100%;
     }
 
-    /* NUEVO */
     .btn-contactar{
         width:100%;
         text-align:center;
     }
 
-}
-=======
 }
 
 /* SoyArte palette button hover */
@@ -274,4 +273,3 @@ button:hover,
 [class*=' btn-']:hover{
     color:#2c4e7e;
 }
->>>>>>> a0601b39f5cc33717e0f99aa3752e955fedfc4ad

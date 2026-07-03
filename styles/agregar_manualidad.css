@@ -100,14 +100,8 @@ form {
 }
 
 .btn-guardar:hover {
-<<<<<<< HEAD
     background: #a5ba47;
 }
-=======
-    background: #c7e3ff;
-}
-
-
 /* SoyArte palette button hover */
 button:hover,
 .btn:hover,
@@ -115,4 +109,3 @@ button:hover,
 [class*=' btn-']:hover{
     color:#2c4e7e;
 }
->>>>>>> a0601b39f5cc33717e0f99aa3752e955fedfc4ad
