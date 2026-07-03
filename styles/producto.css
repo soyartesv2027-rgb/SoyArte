@@ -182,9 +182,7 @@ body{
     background:#c7e3ff;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+
 
 @media(max-width:992px){
 
@@ -206,7 +204,7 @@ body{
 
     .barra-superior{
 
-        flex-direction:row;
+        flex-direction:column;
         gap:15px;
     }
 
