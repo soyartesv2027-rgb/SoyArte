@@ -1161,6 +1161,68 @@ body {
     line-height: 1.8;
 }
 
-
-
-
+.navbar-soyarte {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    min-height: 55px;
+    padding: 0;
+}
+ 
+.navbar-soyarte-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 20px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+ 
+.navbar-soyarte-logo span {
+    font-weight: 800;
+}
+ 
+.navbar-soyarte-logo:hover {
+    color: #fff;
+    opacity: 0.9;
+}
+ 
+.navbar-soyarte-iconos {
+    display: flex;
+}
+ 
+.icono-nav-global {
+    width: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: filter 0.2s ease;
+}
+ 
+.icono-nav-global:hover {
+    filter: brightness(1.15);
+    color: #fff;
+}
+ 
+/* --- Responsive --- */
+@media (max-width: 576px) {
+    .navbar-soyarte {
+        min-height: 46px;
+    }
+ 
+    .navbar-soyarte-logo {
+        font-size: 1rem;
+        padding: 0 14px;
+        gap: 6px;
+    }
+ 
+    .icono-nav-global {
+        width: 42px;
+        font-size: 1rem;
+    }
+}
