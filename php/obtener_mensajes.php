@@ -1,25 +1,8 @@
 <?php
 session_start();
 require_once "conexion.php";
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
->>>>>>> 262e75dd81f278b75378212982e9159e776664bf
-if (!isset($_SESSION['usuario_id'])) {
-    http_response_code(401);
-    exit();
-}
 
-$usuarioActual = (int)$_SESSION['usuario_id'];
-
-$conversacion = isset($_GET['conversacion'])
-    ? (int)$_GET['conversacion']
-    : 0;
-<<<<<<< HEAD
-
-=======
-=======
 
 if (!isset($_SESSION['usuario_id'])) {
     http_response_code(401);
@@ -32,17 +15,26 @@ $conversacion = isset($_GET['conversacion'])
     ? (int)$_GET['conversacion']
     : 0;
 
->>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
->>>>>>> 262e75dd81f278b75378212982e9159e776664bf
+
+if (!isset($_SESSION['usuario_id'])) {
+    http_response_code(401);
+    exit();
+}
+
+$usuarioActual = (int)$_SESSION['usuario_id'];
+
+$conversacion = isset($_GET['conversacion'])
+    ? (int)$_GET['conversacion']
+    : 0;
+
+
 if ($conversacion <= 0) {
     exit();
 }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
 // VERIFICAR QUE LA CONVERSACIÓN EXISTE //
->>>>>>> 262e75dd81f278b75378212982e9159e776664bf
+
 $sql = "SELECT *
         FROM conversaciones
         WHERE id = ?";
@@ -116,11 +108,9 @@ while ($mensaje = $resultado->fetch_assoc()) {
             <?php } ?>
         </div>
 
-<<<<<<< HEAD
-=======
 <?php
 }
-=======
+
 $sql = "SELECT *
         FROM conversaciones
         WHERE id = ?";
@@ -194,7 +184,6 @@ while ($mensaje = $resultado->fetch_assoc()) {
             <?php } ?>
         </div>
 
->>>>>>> 262e75dd81f278b75378212982e9159e776664bf
         <small class="info-mensaje">
             <span class="hora">
                 <?php echo date("h:i A", strtotime($mensaje['fecha'])); ?>
@@ -228,9 +217,5 @@ while ($mensaje = $resultado->fetch_assoc()) {
     </div>
 
     <?php
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
->>>>>>> 262e75dd81f278b75378212982e9159e776664bf
+
