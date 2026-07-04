@@ -39,12 +39,15 @@ body{
 .acciones{
     display:flex;
     gap:20px;
+    align-items:center;
+    flex-wrap:wrap;
 }
 
 .acciones a{
     text-decoration:none;
     color:#374151;
     font-weight:500;
+    white-space:nowrap;
 }
 
 .acciones a:hover{
@@ -171,8 +174,11 @@ body{
 }
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 
 =======
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
 .btn-contactar{
     display: inline-block;
     margin-top: 15px;
@@ -189,7 +195,10 @@ body{
     background: #157347;
     color: white;
 }
+<<<<<<< HEAD
+=======
 >>>>>>> f4eefc2c18912489f8d932d9bea2fc934f8d2442
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
 
 @media(max-width:992px){
 
@@ -224,7 +233,11 @@ body{
 
     .barra-superior{
 
+<<<<<<< HEAD
+        flex-direction:row;
+=======
         flex-direction:column;
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
         gap:15px;
     }
 
@@ -253,23 +266,34 @@ body{
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             .detalle-producto{
         flex-direction: column;
+=======
+    .detalle-producto{
+        flex-direction:column;
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
     }
 
     .imagen-producto{
         width:100%;
     }
 
+<<<<<<< HEAD
     /* NUEVO */
+=======
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
     .btn-contactar{
         width:100%;
         text-align:center;
     }
 
 }
+<<<<<<< HEAD
 =======
 }
+=======
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
 
 /* SoyArte palette button hover */
 button:hover,
@@ -278,4 +302,7 @@ button:hover,
 [class*=' btn-']:hover{
     color:#2c4e7e;
 }
+<<<<<<< HEAD
 >>>>>>> a0601b39f5cc33717e0f99aa3752e955fedfc4ad
+=======
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b

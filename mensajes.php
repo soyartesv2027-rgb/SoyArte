@@ -1,4 +1,4 @@
-<?php
+/<?php
 session_start();
 require_once "php/conexion.php";
 if (!isset($_SESSION['usuario_id'])) {

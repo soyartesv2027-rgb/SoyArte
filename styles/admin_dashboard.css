@@ -124,8 +124,11 @@ h1{
 
 }
 
+<<<<<<< HEAD
 
 /* SoyArte palette button hover */
+=======
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
 button:hover,
 .btn:hover,
 [class^='btn-']:hover,
