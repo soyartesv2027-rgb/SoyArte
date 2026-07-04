@@ -1,27 +1,74 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 session_start();
-include "conexion.php";
+require_once "conexion.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $nombre      = $_POST['nombre'];
-    $descripcion = $_POST['descripcion'];
-    $autor       = $_SESSION['nombre'];
-    $usuario_id  = $_SESSION['id'];
-    $fecha       = date("Y-m-d H:i:s");
+    // 🔐 USUARIO LOGUEADO
+    if (!isset($_SESSION['id'])) {
+        die("Debes iniciar sesión para publicar una manualidad.");
+    }
 
-    $imagen = $_FILES['imagen']['name'];
-    $ruta   = "uploads/" . $imagen;
-    move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta);
+    $usuario_id = $_SESSION['id'];
 
-    $sql = "INSERT INTO Manualidades 
-            (imagen, nombre, autor, descripcion, usuario_id, fecha_creacion)
-            VALUES ('$ruta', '$nombre', '$autor', '$descripcion', '$usuario_id', '$fecha')";
+    // 📌 DATOS
+    $nombre = trim($_POST['nombre']);
+    $autor = trim($_POST['autor']);
+    $descripcion = trim($_POST['descripcion']);
 
-    if (mysqli_query($conn, $sql)) {
-        header("Location: manualidad.php");
+    if (empty($nombre) || empty($autor) || empty($descripcion)) {
+        die("Todos los campos son obligatorios.");
+    }
+
+    // 📸 IMAGEN
+    if (!isset($_FILES["imagen"]) || $_FILES["imagen"]["error"] != 0) {
+        die("Debe seleccionar una imagen.");
+    }
+
+    $carpeta = "../uploads/manualidades/";
+
+    if (!is_dir($carpeta)) {
+        mkdir($carpeta, 0777, true);
+    }
+
+    $extension = pathinfo($_FILES["imagen"]["name"], PATHINFO_EXTENSION);
+    $nombreImagen = time() . "." . $extension;
+
+    $rutaImagenBD = "uploads/manualidades/" . $nombreImagen;
+    $rutaFisica = "../" . $rutaImagenBD;
+
+    if (!move_uploaded_file($_FILES["imagen"]["tmp_name"], $rutaFisica)) {
+        die("Error al subir la imagen.");
+    }
+
+    // 💾 INSERTAR
+    $sql = "INSERT INTO manualidades
+            (nombre, autor, descripcion, imagen, usuario_id)
+            VALUES (?, ?, ?, ?, ?)";
+
+    $stmt = $conn->prepare($sql);
+
+    if (!$stmt) {
+        die("Error SQL: " . $conn->error);
+    }
+
+    $stmt->bind_param(
+        "ssssi",
+        $nombre,
+        $autor,
+        $descripcion,
+        $rutaImagenBD,
+        $usuario_id
+    );
+
+    if ($stmt->execute()) {
+        header("Location: ../manualidad.php");
+        exit();
     } else {
-        echo "Error: " . mysqli_error($conn);
+        die("Error al guardar: " . $stmt->error);
     }
 }
 ?>

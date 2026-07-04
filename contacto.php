@@ -28,7 +28,7 @@ session_start();
 
                     <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] == 'admin'): ?>
 
-                        <a href="index.php" class="btn-admin">
+                        <a href="admin/mensaje.php" class="btn-admin">
                             📩 Ver mensajes
                         </a>
 
