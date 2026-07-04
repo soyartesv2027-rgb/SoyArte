@@ -1,5 +1,3 @@
-/* ===== GENERAL ===== */
-
 *{
     margin:0;
     padding:0;
@@ -9,7 +7,7 @@
 body{
     font-family:'Segoe UI',sans-serif;
     background:#f4f6fb;
-    color:#222;
+    color:#2c4e7e;
 }
 
 .contenedor{
@@ -19,16 +17,12 @@ body{
     padding:40px 0;
 }
 
-/* ===== TITULO ===== */
-
 h1{
     text-align:center;
     margin-bottom:30px;
     font-size:2.5rem;
-    color:#222;
+    color:#2c4e7e;
 }
-
-/* ===== BOTONES SUPERIORES ===== */
 
 .acciones-admin{
     display:flex;
@@ -52,8 +46,6 @@ h1{
     background:#c7e3ff;
     transform:translateY(-2px);
 }
-
-/* ===== TABLA ===== */
 
 .tabla-contenedor{
     background:white;
@@ -83,16 +75,12 @@ h1{
     background:#fafafa;
 }
 
-/* ===== MINIATURA ===== */
-
 .miniatura-vr{
     width:120px;
     height:80px;
     object-fit:cover;
     border-radius:10px;
 }
-
-/* ===== BOTONES TABLA ===== */
 
 .btn-ver,
 .btn-editar,
@@ -107,24 +95,22 @@ h1{
 }
 
 .btn-ver{
-    background:#4CAF50;
+    background:#4576a8;
 }
 
 .btn-editar{
-    background:#2196F3;
+    background:#4576a8;
 }
 
 .btn-eliminar{
-    background:#e53935;
+    background:#4576a8;
 }
 
 .btn-ver:hover,
 .btn-editar:hover,
 .btn-eliminar:hover{
-    opacity:.9;
+    background:#c7e3ff;
 }
-
-/* ===== RESPONSIVE ===== */
 
 @media(max-width:900px){
 
@@ -136,4 +122,16 @@ h1{
         min-width:850px;
     }
 
+}
+
+<<<<<<< HEAD
+
+/* SoyArte palette button hover */
+=======
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
 }

@@ -50,9 +50,7 @@
 
                 <!-- BOTÓN -->
                 <button type="submit" class="btn-guardar">
-                    <a href="manualidad.php">
                     <i class="fa-solid fa-plus"></i> Guardar
-                    </a>
                 </button>
 
             </form>

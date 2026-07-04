@@ -4,18 +4,24 @@
     box-sizing:border-box;
 }
 
-
 .flecha {
     position: fixed;
     top: 20px;
     left: 20px;
-
     width: 45px;
     height: 45px;
+<<<<<<< HEAD
     background-color: #fab31b;
+    border-radius: 50%;
+<<<<<<< HEAD
+=======
+    background-color: #4576a8;
 
     border-radius: 50%; /* esto crea el círculo */
     
+>>>>>>> a0601b39f5cc33717e0f99aa3752e955fedfc4ad
+=======
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,31 +32,22 @@
     font-size: 18px;
 }
 
-
-
 body{
-    background:#fce4af;
+    background:#eef6ff;
     font-family:Arial, sans-serif;
-
     display:flex;
     justify-content:center;
     align-items:center;
-
     min-height:100vh;
 }
 
 form{
     width:80%;
     max-width:700px;
-
     background:white;
-
     padding:30px;
-
     border-radius:15px;
-
     box-shadow:0 4px 10px rgba(0,0,0,0.1);
-
     display:flex;
     flex-direction:column;
     gap:15px;
@@ -59,7 +56,6 @@ form{
 h2{
     text-align:center;
     margin-bottom:10px;
-
     color:#333;
 }
 
@@ -72,12 +68,9 @@ input[type="text"],
 textarea,
 input[type="file"]{
     width:100%;
-
     padding:12px;
-
     border:1px solid #ccc;
     border-radius:10px;
-
     font-size:16px;
 }
 
@@ -87,23 +80,34 @@ textarea{
 
 button{
     margin-top:10px;
-
     padding:15px;
-
     border:none;
     border-radius:10px;
-
+<<<<<<< HEAD
+<<<<<<< HEAD
     background:#fab31b;
-    color:white;
+=======
 
+    background:#4576a8;
+>>>>>>> a0601b39f5cc33717e0f99aa3752e955fedfc4ad
+=======
+    background:#fab31b;
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
+    color:white;
     font-size:18px;
     font-weight:bold;
-
     cursor:pointer;
-
     transition:0.3s;
 }
 
 button:hover{
-    background:#fab31b;
+    background:#4576a8;
+}
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
 }

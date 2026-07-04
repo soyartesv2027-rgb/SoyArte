@@ -4,6 +4,39 @@
 // IMPORTANTE:
 // session_start() debe ir antes del include
 // =============================================
+$mensajesPendientes = 0;
+
+if (isset($_SESSION['usuario_id'])) {
+    require_once __DIR__ . '/../php/conexion.php';
+
+    $usuarioNavbar = (int)$_SESSION['usuario_id'];
+    $sqlMensajesNavbar = "SELECT COUNT(*) AS total
+                          FROM mensajes m
+                          INNER JOIN conversaciones c
+                          ON m.conversacion_id = c.id
+                          WHERE m.emisor_id <> ?
+                          AND m.leido = 0
+                          AND
+                          (
+                              (
+                                  c.usuario1_id = ?
+                                  AND c.oculto_usuario1 = 0
+                              )
+                              OR
+                              (
+                                  c.usuario2_id = ?
+                                  AND c.oculto_usuario2 = 0
+                              )
+                          )";
+    $stmtMensajesNavbar = $conn->prepare($sqlMensajesNavbar);
+
+    if ($stmtMensajesNavbar) {
+        $stmtMensajesNavbar->bind_param("iii", $usuarioNavbar, $usuarioNavbar, $usuarioNavbar);
+        $stmtMensajesNavbar->execute();
+        $resultadoMensajesNavbar = $stmtMensajesNavbar->get_result()->fetch_assoc();
+        $mensajesPendientes = (int)$resultadoMensajesNavbar['total'];
+    }
+}
 ?>
 
 <!-- OVERLAY -->
@@ -40,94 +73,47 @@
 
         <li class="mb-2">
             <a href="Pantalla-de-carga/PC-musica.html" class="nav-link link-dark">
-                <i class="fa-solid fa-music" style="color: rgb(0, 0, 0);"></i>
+                <i class="fa-solid fa-music"></i>
                 Musica
             </a>
         </li>
 
         <li class="mb-2">
             <a href="Pantalla-de-carga/PC-poesia.html" class="nav-link link-dark">
-                <i class="fa-solid fa-feather-pointed" style="color: rgb(0, 0, 0);"></i>
+                <i class="fa-solid fa-feather-pointed"></i>
                 Poesia
             </a>
         </li>
 
         <li class="mb-2">
             <a href="manualidad.php" class="nav-link link-dark">
-                <i class="fa-solid fa-cube" style="color: rgb(0, 0, 0);"></i>
+                <i class="fa-solid fa-cube"></i>
                 Manualidades
             </a>
         </li>
         <li class="mb-2">
             <a href="Pantalla-de-carga/PC-realidad.html" class="nav-link link-dark">
-                <i class="fa-solid fa-vr-cardboard" style="color: rgb(0, 0, 0);"></i>
+                <i class="fa-solid fa-vr-cardboard"></i>
                 Realidad Virtual
             </a>
         </li>
             <li class="mb-2">
             <a href="Pantalla-de-carga/PC-shop.html" class="nav-link link-dark">
-            <i class="fa-solid fa-cart-shopping" style="color: rgb(0, 0, 0);"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
                 Tienda
             </a>
         </li>
 
     </ul>
 
-    <hr>
+    
 
-    <!-- USUARIO -->
-    <div class="dropdown">
 
-        <a href="#"
-            class="d-flex align-items-center text-decoration-none dropdown-toggle"
-            data-bs-toggle="dropdown"
-            aria-expanded="false">
-
-            <img 
-                src=""
-                alt="usuario"
-                width="32"
-                height="32"
-                class="rounded-circle me-2">
-
-            <strong class="text-dark">
-                Usuario
-            </strong>
-
-        </a>
-
-        <ul class="dropdown-menu text-small shadow">
-
-            <li>
-                <a class="dropdown-item" href="perfil.php">
-                    Perfil
-                </a>
-            </li>
-
-            <li>
-                <a class="dropdown-item" href="configuracion.php">
-                    Configuración
-                </a>
-            </li>
-
-            <li>
-                <hr class="dropdown-divider">
-            </li>
-
-            <li>
-                <a class="dropdown-item text-danger" href="logout,php">
-                    Cerrar sesión
-                </a>
-            </li>
-
-        </ul>
-
-    </div>
 
 </div>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg shadow-sm" style="background-color: #b8cfe8;">
+<nav class="navbar navbar-expand-lg shadow-sm" style="background-color: #2c4e7e;">
 
     <div class="container-fluid">
 
@@ -142,22 +128,21 @@
                 style="cursor:pointer; flex-shrink:0;">
 
             <path
-                fill="black"
+                fill="white"
                 d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z"/>
         </svg>
 
         <!-- LOGO -->
-        <a class="navbar-brand d-flex align-items-center gap-2 fw-bold"
+        <a class="navbar-brand d-flex align-items-center gap-2 fw-bold text-white"
             href="index.php">
 
-            Soy Arte
+           
 
             <img
-                src="images/Arty.png"
+                src="images/logo-Blanco.png"
                 alt="Arty"
-                width="40"
-                height="40"
-                style="object-fit: contain;">
+                width="100px"
+                ;">
 
         </a>
 
@@ -188,7 +173,7 @@
                     <!-- USUARIO LOGUEADO -->
                     <div class="dropdown">
 
-                        <a class="btn btn-secondary dropdown-toggle d-flex align-items-center gap-2"
+                        <a class="btn btn-primary dropdown-toggle d-flex align-items-center gap-2"
                             href="#"
                             role="button"
                             data-bs-toggle="dropdown"
@@ -206,6 +191,17 @@
                                 <a class="dropdown-item" href="perfil.php">
                                     <i class="fa-solid fa-id-card me-2"></i>
                                     Perfil
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item" href="mensajes.php">
+                                    <i class="fa-solid fa-message me-2"></i>
+                                    <span
+                                        id="textoMensajesMenu"
+                                        data-base="Mensajes">
+                                        Mensajes<?php echo $mensajesPendientes > 0 ? " (" . $mensajesPendientes . ")" : ""; ?>
+                                    </span>
                                 </a>
                             </li>
 
@@ -230,7 +226,7 @@
                 <?php else: ?>
 
                     <!-- SIN SESION -->
-                    <a class="btn btn-outline-primary me-2"
+                    <a class="btn btn-outline-light me-2"
                         href="login.html">
 
                         Login
@@ -253,3 +249,27 @@
     </div>
 
 </nav>
+
+<?php if (isset($_SESSION['usuario_id'])): ?>
+<script>
+const textoMensajesMenu = document.getElementById("textoMensajesMenu");
+
+function actualizarContadorMensajes() {
+    if (!textoMensajesMenu) {
+        return;
+    }
+
+    fetch("php/contador_mensajes.php")
+        .then(res => res.json())
+        .then(data => {
+            const total = Number(data.total || 0);
+            textoMensajesMenu.textContent = total > 0
+                ? "Mensajes (" + total + ")"
+                : "Mensajes";
+        })
+        .catch(error => console.error(error));
+}
+
+setInterval(actualizarContadorMensajes, 15000);
+</script>
+<?php endif; ?>

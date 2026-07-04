@@ -27,22 +27,63 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $descripcion = $_POST['descripcion'];
     $video_url = $_POST['video_url'];
     $enlace = $_POST['enlace'];
+    $portada = $vr['portada'];
+    $qr = $vr['qr_imagen'];
+
+    $carpetaPortadas = "../uploads/vr/portadas/";
+    $carpetaQr = "../uploads/vr/qr/";
+
+    if (!is_dir($carpetaPortadas)) {
+        mkdir($carpetaPortadas, 0777, true);
+    }
+
+    if (!is_dir($carpetaQr)) {
+        mkdir($carpetaQr, 0777, true);
+    }
+
+    if (isset($_FILES['portada']) && $_FILES['portada']['error'] == UPLOAD_ERR_OK) {
+        $nuevaPortada = time() . "_portada_" . basename($_FILES['portada']['name']);
+
+        if (move_uploaded_file($_FILES['portada']['tmp_name'], $carpetaPortadas . $nuevaPortada)) {
+            if (!empty($portada) && file_exists($carpetaPortadas . $portada)) {
+                unlink($carpetaPortadas . $portada);
+            }
+
+            $portada = $nuevaPortada;
+        }
+    }
+
+    if (isset($_FILES['qr']) && $_FILES['qr']['error'] == UPLOAD_ERR_OK) {
+        $nuevoQr = time() . "_qr_" . basename($_FILES['qr']['name']);
+
+        if (move_uploaded_file($_FILES['qr']['tmp_name'], $carpetaQr . $nuevoQr)) {
+            if (!empty($qr) && file_exists($carpetaQr . $qr)) {
+                unlink($carpetaQr . $qr);
+            }
+
+            $qr = $nuevoQr;
+        }
+    }
 
     $sql = "UPDATE realidad_virtual
             SET titulo=?,
                 descripcion=?,
                 video_url=?,
-                enlace=?
+                enlace=?,
+                portada=?,
+                qr_imagen=?
             WHERE id=?";
 
     $stmt = $conn->prepare($sql);
 
     $stmt->bind_param(
-        "ssssi",
+        "ssssssi",
         $titulo,
         $descripcion,
         $video_url,
         $enlace,
+        $portada,
+        $qr,
         $id
     );
 
@@ -68,7 +109,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         <h1>✏️ Editar Experiencia VR</h1>
 
-        <form method="POST" class="form-vr">
+        <form method="POST" enctype="multipart/form-data" class="form-vr">
 
             <label>Título</label>
             <input
@@ -96,6 +137,32 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 type="text"
                 name="enlace"
                 value="<?php echo htmlspecialchars($vr['enlace']); ?>"
+            >
+
+            <label>Portada actual</label>
+            <img
+                src="../uploads/vr/portadas/<?php echo htmlspecialchars($vr['portada']); ?>"
+                alt="Portada actual"
+                style="max-width:180px;border-radius:12px;"
+            >
+
+            <label>Cambiar portada</label>
+            <input
+                type="file"
+                name="portada"
+            >
+
+            <label>QR actual</label>
+            <img
+                src="../uploads/vr/qr/<?php echo htmlspecialchars($vr['qr_imagen']); ?>"
+                alt="QR actual"
+                style="max-width:180px;border-radius:12px;"
+            >
+
+            <label>Cambiar QR</label>
+            <input
+                type="file"
+                name="qr"
             >
 
             <div class="botones">

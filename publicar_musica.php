@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // SUBIR AUDIO
     if(isset($_FILES['audio']) && $_FILES['audio']['error'] == 0){
 
-        $permitidos = ['mp3','wav','ogg'];
+        $permitidos = ['mp3','wav','ogg', ".mpeg"];
 
         $extension = strtolower(
             pathinfo($_FILES['audio']['name'], PATHINFO_EXTENSION)

@@ -35,7 +35,7 @@ textarea{
 }
 
 button{
-    background:#C96A3A;
+    background:#4576a8;
     color:white;
     border:none;
     padding:12px;
@@ -45,7 +45,7 @@ button{
 }
 
 button:hover{
-    background:#a9522b;
+    background:#c7e3ff;
 }
 
 .barra-superior{
@@ -66,4 +66,12 @@ button:hover{
 
 .btn-volver:hover{
     background:#4b5563;
+}
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
 }

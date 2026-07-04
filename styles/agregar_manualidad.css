@@ -13,7 +13,6 @@ body {
     min-height: 100vh;
 }
 
-/* CONTENEDOR */
 .contenedor-form {
     width: 100%;
     padding: 30px;
@@ -21,7 +20,6 @@ body {
     justify-content: center;
 }
 
-/* TARJETA DEL FORM */
 .form-card {
     background: white;
     border-radius: 15px;
@@ -31,9 +29,8 @@ body {
     max-width: 500px;
 }
 
-/* HEADER VERDE */
 .form-header {
-    background: #a5ba47;
+    background: #c7e3ff;
     padding: 25px;
     text-align: center;
     color: white;
@@ -51,7 +48,6 @@ body {
     font-size: 26px;
 }
 
-/* CAMPOS */
 form {
     padding: 25px;
     display: flex;
@@ -67,7 +63,7 @@ form {
 
 .campo label {
     font-weight: bold;
-    color: #4f861d;
+    color: #4576a8;
     font-size: 14px;
 }
 
@@ -83,7 +79,7 @@ form {
 
 .campo input:focus,
 .campo textarea:focus {
-    border-color: #a5ba47;
+    border-color: #c7e3ff;
 }
 
 .campo input[type="file"] {
@@ -91,9 +87,8 @@ form {
     cursor: pointer;
 }
 
-/* BOTÓN */
 .btn-guardar {
-    background: #4f861d;
+    background: #4576a8;
     color: white;
     border: none;
     border-radius: 25px;
@@ -105,5 +100,26 @@ form {
 }
 
 .btn-guardar:hover {
+<<<<<<< HEAD
     background: #a5ba47;
 }
+<<<<<<< HEAD
+=======
+    background: #c7e3ff;
+}
+
+
+=======
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
+<<<<<<< HEAD
+}
+>>>>>>> a0601b39f5cc33717e0f99aa3752e955fedfc4ad
+=======
+}
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b

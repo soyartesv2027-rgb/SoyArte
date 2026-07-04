@@ -71,11 +71,24 @@ $resultado = $stmt->get_result();
     <title>Poesía - Soy Arte</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/poesia.css?v=3">
 </head>
 <body class="bg-light">
     <?php $seccion = 'poesia'; include("components/navbar-unificado.php"); ?>
+=======
+    <link rel="stylesheet" href="styles/poesia.css?v=2">
+    <link rel="stylesheet" href="styles/poesia.css">
+    <link rel="stylesheet" href="style.css">
+
+
+   
+
+</head>
+<body class="bg-light">
+    <?php include("components/navbar.php"); ?>
+>>>>>>> 262e75dd81f278b75378212982e9159e776664bf
  
     <div class="hero-poesia">
         <div class="hero-poesia-img"></div>
@@ -101,10 +114,11 @@ $resultado = $stmt->get_result();
                 <p class="text-center text-muted">No se encontraron obras todavía.</p>
             <?php endif; ?>
  
-            <?php while ($obra = $resultado->fetch_assoc()): ?>
+           <?php while ($obra = $resultado->fetch_assoc()): ?>
                 <?php $src = imagenSrc($obra['imagen']); ?>
-                <div class="col-6 col-md-4 col-lg-3">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
                     <div class="card h-100 shadow-sm tarjeta-obra">
+                        
                         <div class="tarjeta-img-wrap">
                             <?php if ($src): ?>
                                 <img src="<?= $src ?>" class="card-img-top" alt="Foto de la obra">
@@ -114,10 +128,11 @@ $resultado = $stmt->get_result();
                                 </div>
                             <?php endif; ?>
                         </div>
+
                         <div class="card-body text-center">
                             <h6 class="card-title mb-1"><?= htmlspecialchars($obra['titulo']) ?></h6>
                             <p class="card-text text-muted small mb-2"><?= htmlspecialchars($obra['creador']) ?></p>
- 
+
                             <?php if ($usuario_id): ?>
                                 <form method="POST" class="mb-2">
                                     <input type="hidden" name="accion" value="like">
@@ -132,10 +147,11 @@ $resultado = $stmt->get_result();
                                     <i class="fa-solid fa-thumbs-up"></i> <?= $obra['total_likes'] ?>
                                 </span>
                             <?php endif; ?>
- 
+
                             <a href="detalle.php?id=<?= $obra['id'] ?>" class="btn btn-outline-secondary btn-sm w-100">Más información</a>
                         </div>
-                    </div>
+                        
+                        </div>
                 </div>
             <?php endwhile; ?>
         </div>
@@ -152,7 +168,19 @@ $resultado = $stmt->get_result();
     <?php endif; ?>
  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="JavaScript/script.js"></script>
+    <script>
+    window.addEventListener("scroll", () => {
+      const section = document.querySelector(".info-soyarte");
+      if (section) {
+        const position = section.getBoundingClientRect().top;
+        const screen = window.innerHeight;
+        if (position < screen - 100) {
+          section.classList.add("visible");
+        }
+      }
+    });
+  </script>
+  <script src="JavaScript/script.js"></script>
 </body>
 </html>
 <?php $stmt->close(); $conn->close(); ?>

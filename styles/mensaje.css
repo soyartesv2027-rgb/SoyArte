@@ -1,0 +1,221 @@
+body{
+    margin:0;
+    padding:30px;
+    background:#f5f5f5;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.contenedor{
+    max-width:1200px;
+    margin:auto;
+}
+
+h1{
+    color:#4576a8;
+    margin-bottom:25px;
+}
+
+.acciones-admin{
+    margin-bottom:20px;
+}
+
+.btn-admin,
+.btn-ver,
+.btn-eliminar{
+
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:8px;
+    color:white;
+    transition:.3s;
+    font-weight:bold;
+    display:inline-block;
+
+}
+
+.btn-admin,
+.btn-ver{
+
+    background:#4576a8;
+
+}
+
+.btn-admin:hover,
+.btn-ver:hover{
+
+    background:#c7e3ff;
+    color:#4576a8;
+
+}
+
+.btn-eliminar{
+
+    background:#dc3545;
+
+}
+
+.btn-eliminar:hover{
+
+    background:#f5b5bd;
+
+}
+
+.tabla-contenedor{
+
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+
+}
+
+.tabla-mensajes{
+
+    width:100%;
+    border-collapse:collapse;
+
+}
+
+.tabla-mensajes thead{
+
+    background:#4576a8;
+    color:white;
+
+}
+
+.tabla-mensajes th,
+.tabla-mensajes td{
+
+    padding:14px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+
+}
+
+.tabla-mensajes tr:hover{
+
+    background:#f7fbff;
+
+}
+
+.estado{
+
+    padding:6px 12px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:bold;
+
+}
+
+.estado-no{
+
+    background:#ffd6d6;
+    color:#a80000;
+
+}
+
+.estado-si{
+
+    background:#d8f6dc;
+    color:#167c2c;
+
+}
+
+/* ==========================
+   Responsive
+========================== */
+
+@media (max-width: 992px){
+
+    body{
+        padding:20px;
+    }
+
+    h1{
+        font-size:28px;
+        text-align:center;
+    }
+
+    .acciones-admin{
+        display:flex;
+        justify-content:center;
+    }
+
+}
+
+@media (max-width:768px){
+
+    body{
+        padding:15px;
+    }
+
+    .contenedor{
+        width:100%;
+    }
+
+    .acciones-admin{
+        display:flex;
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .btn-admin,
+    .btn-ver,
+    .btn-eliminar{
+
+        width:100%;
+        text-align:center;
+        box-sizing:border-box;
+
+    }
+
+    .tabla-contenedor{
+
+        overflow-x:auto;
+        border-radius:10px;
+
+    }
+
+    .tabla-mensajes{
+
+        min-width:700px;
+
+    }
+
+    .tabla-mensajes th,
+    .tabla-mensajes td{
+
+        padding:12px;
+        font-size:14px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    body{
+        padding:10px;
+    }
+
+    h1{
+        font-size:22px;
+    }
+
+    .btn-admin,
+    .btn-ver,
+    .btn-eliminar{
+
+        padding:12px;
+        font-size:14px;
+
+    }
+
+    .estado{
+
+        font-size:12px;
+        padding:5px 10px;
+
+    }
+
+}

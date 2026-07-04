@@ -7,7 +7,6 @@ body {
     background-repeat: no-repeat;
 }
 
-
 .form{
     background-color: rgb(255, 255, 255);
     margin: 40px;
@@ -32,7 +31,7 @@ body {
     font-family: 'Playfair Display', serif;
     font-size: 50px;
     padding-top:60px;
-    color: #2d3a5c;
+    color: #2c4e7e;
 }
 
 .inputBlock{
@@ -61,6 +60,15 @@ button.btn.btn-primary {
     height: 40px;
     font-weight: bold;
     font-size: 17px;
+    background:#4576a8;
+    border-color:#4576a8;
+    color:white;
+}
+
+button.btn.btn-primary:hover{
+    background:#c7e3ff;
+    border-color:#c7e3ff;
+    color:#2c4e7e;
 }
 
 button{
@@ -102,6 +110,7 @@ button{
     padding: 10px;
 }
 
+
 .btn-regresar  a img{
     width: 60px;
     height: auto;
@@ -115,7 +124,7 @@ button{
 @media(max-width: 768px){
 
     body{
-        background-image: url("../img/ChatGPT\ Image\ 5\ jun\ 2026\,\ 04_09_50\ p.m..png");
+        background-image: url("../img/ChatGPT\ Image\ 1\ jul\ 2026\,\ 16_30_08.png");
     }
 
     .contenedorLogin{
@@ -150,12 +159,26 @@ button{
         width: 100%;
     }
 
+    .register{
+        display: block;
+        padding: 5px;
+        margin-bottom: 3px;
+    }
+
     .btn-regresar  a img{
         width: 50px;
         margin-bottom: 0;
-        bottom: 20px;
+        bottom: 15px;
         left: 20px;
         top: auto
     }
 
+}
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
 }

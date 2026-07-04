@@ -10,10 +10,6 @@ body{
     min-height:100vh;
 }
 
-/* =========================
-   BARRA SUPERIOR
-========================= */
-
 .barra-superior{
     width:100%;
     background:#fff;
@@ -31,7 +27,7 @@ body{
 
 .btn-volver{
     text-decoration:none;
-    color:#111827;
+    color:#2c4e7e;
     font-weight:600;
     transition:.3s;
 }
@@ -43,21 +39,20 @@ body{
 .acciones{
     display:flex;
     gap:20px;
+    align-items:center;
+    flex-wrap:wrap;
 }
 
 .acciones a{
     text-decoration:none;
     color:#374151;
     font-weight:500;
+    white-space:nowrap;
 }
 
 .acciones a:hover{
-    color:#111827;
+    color:#2c4e7e;
 }
-
-/* =========================
-   PRODUCTO
-========================= */
 
 .detalle-producto{
     max-width:1400px;
@@ -108,7 +103,7 @@ body{
 
 .info-producto h1{
     font-size:3rem;
-    color:#111827;
+    color:#2c4e7e;
     margin-bottom:20px;
 }
 
@@ -121,7 +116,7 @@ body{
 
 .info-producto h2{
     font-size:2.5rem;
-    color:#111827;
+    color:#2c4e7e;
     margin-bottom:30px;
 }
 
@@ -132,7 +127,7 @@ body{
     border:none;
     border-radius:15px;
 
-    background:#111827;
+    background:#2c4e7e;
     color:white;
 
     font-size:1rem;
@@ -143,13 +138,9 @@ body{
 }
 
 .btn-comprar:hover{
-    background:#1f2937;
+    background:#2c4e7e;
     transform:translateY(-2px);
 }
-
-/* =========================
-   BOTONES PROPIETARIO
-========================= */
 
 .acciones-propietario{
     display:flex;
@@ -167,24 +158,47 @@ body{
 }
 
 .btn-editar{
-    background:#2563eb;
+    background:#4576a8;
 }
 
 .btn-editar:hover{
-    background:#1d4ed8;
+    background:#c7e3ff;
 }
 
 .btn-eliminar{
-    background:#dc2626;
+    background:#4576a8;
 }
 
 .btn-eliminar:hover{
-    background:#b91c1c;
+    background:#c7e3ff;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
+.btn-contactar{
+    display: inline-block;
+    margin-top: 15px;
+    background: #198754;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-contactar:hover{
+    background: #157347;
+    color: white;
+}
+<<<<<<< HEAD
+=======
+>>>>>>> f4eefc2c18912489f8d932d9bea2fc934f8d2442
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
 
 @media(max-width:992px){
 
@@ -199,13 +213,31 @@ body{
     .info-producto h1{
         font-size:2.2rem;
     }
+        .detalle-producto{
+        flex-direction: column;
+    }
+
+    .imagen-producto{
+        width:100%;
+    }
+
+    /* NUEVO */
+    .btn-contactar{
+        width:100%;
+        text-align:center;
+    }
 
 }
 
 @media(max-width:576px){
 
     .barra-superior{
+
+<<<<<<< HEAD
+        flex-direction:row;
+=======
         flex-direction:column;
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
         gap:15px;
     }
 
@@ -233,4 +265,44 @@ body{
         flex-direction:column;
     }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+            .detalle-producto{
+        flex-direction: column;
+=======
+    .detalle-producto{
+        flex-direction:column;
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
+    }
+
+    .imagen-producto{
+        width:100%;
+    }
+
+<<<<<<< HEAD
+    /* NUEVO */
+=======
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
+    .btn-contactar{
+        width:100%;
+        text-align:center;
+    }
+
 }
+<<<<<<< HEAD
+=======
+}
+=======
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
+}
+<<<<<<< HEAD
+>>>>>>> a0601b39f5cc33717e0f99aa3752e955fedfc4ad
+=======
+>>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
