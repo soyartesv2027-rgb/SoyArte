@@ -69,7 +69,7 @@ $producto = $stmtProducto->get_result()->fetch_assoc();
 <head>
     <meta charset="UTF-8">
     <title>Chat | SoyArte</title>
-    <link rel="stylesheet" href="styles/chat.css">
+    <link rel="stylesheet" href="styles/chat.css?v=<?php echo time(); ?>">
 </head>
 <body>
 

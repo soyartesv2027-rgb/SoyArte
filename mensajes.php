@@ -48,7 +48,7 @@ $conversaciones = $stmt->get_result();
 <head>
     <meta charset="UTF-8">
     <title>Mensajes | SoyArte</title>
-    <link rel="stylesheet" href="styles/mensajes.css">
+    <link rel="stylesheet" href="styles/mensajes.css?v=<?php echo time(); ?>">
 </head>
 <body>
     <h1>Mis conversaciones</h1>

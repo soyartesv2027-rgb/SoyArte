@@ -20,7 +20,7 @@ if (!$pintura) {
 <head>
     <meta charset="UTF-8">
     <title><?php echo $pintura['nombre_pintura']; ?></title>
-    <link rel="stylesheet" href="styles/ver_pintura.css">
+    <link rel="stylesheet" href="styles/ver_pintura.css?v=<?php echo time(); ?>">
 </head>
 <body>
 

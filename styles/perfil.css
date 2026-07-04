@@ -125,25 +125,6 @@ body{
     background:#c7e3ff;
 }
 
-<<<<<<< HEAD
-=======
-.acciones-perfil{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    flex-wrap:wrap;
-    margin-top:20px;
-}
-
-.acciones-perfil .btn-volver{
-    margin-top:0;
-}
-
-.btn-salir{
-    background:#2c4e7e;
-}
-
->>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
 .mis-obras h2{
     margin-bottom:25px;
 }
