@@ -102,7 +102,7 @@ form {
 .btn-guardar:hover {
     background: #a5ba47;
 }
-<<<<<<< HEAD
+
 
 .btn-volver{
     transition:.3s;
@@ -126,25 +126,13 @@ textarea:focus{
 .btn-guardar:hover{
     transform:translateY(-2px);
 }
-=======
-<<<<<<< HEAD
-=======
-    background: #c7e3ff;
-}
 
-
-=======
->>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
 /* SoyArte palette button hover */
 button:hover,
 .btn:hover,
 [class^='btn-']:hover,
 [class*=' btn-']:hover{
     color:#2c4e7e;
-<<<<<<< HEAD
+
 }
->>>>>>> a0601b39f5cc33717e0f99aa3752e955fedfc4ad
-=======
-}
->>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
->>>>>>> 262e75dd81f278b75378212982e9159e776664bf
+
