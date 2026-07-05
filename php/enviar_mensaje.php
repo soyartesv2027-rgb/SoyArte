@@ -17,23 +17,29 @@ $mensaje = isset($_POST['mensaje'])
     ? trim($_POST['mensaje'])
     : "";
 
-// RECIBIR IMAGEN
-$imagen = null;
+// RECIBIR ARCHIVO
+$archivo = null;
 
 if (
     isset($_FILES['imagen']) &&
     $_FILES['imagen']['error'] === UPLOAD_ERR_OK
 ) {
-    $imagen = $_FILES['imagen'];
+    $archivo = $_FILES['imagen'];
+} elseif (
+    isset($_FILES['archivo']) &&
+    $_FILES['archivo']['error'] === UPLOAD_ERR_OK
+) {
+    $archivo = $_FILES['archivo'];
 }
+
 //VALIDACIONES //
 
 if ($conversacion <= 0) {
     exit("Conversación inválida.");
 }
 
-if ($mensaje == "" && $imagen === null) {
-    exit("Debes escribir un mensaje o seleccionar una imagen.");
+if ($mensaje == "" && $archivo === null) {
+    exit("Debes escribir un mensaje o seleccionar un archivo.");
 }
 
 //BUSCAR LA CONVERSACIÓN //
@@ -61,33 +67,44 @@ if(
 $nombreArchivo = null;
 $tipoMensaje = "texto";
 
-if ($imagen !== null) {
+if ($archivo !== null) {
 
-    $extension = strtolower(pathinfo($imagen["name"], PATHINFO_EXTENSION));
+    $extension = strtolower(pathinfo($archivo["name"], PATHINFO_EXTENSION));
 
-    $permitidas = ["jpg","jpeg","png","gif","webp"];
-    // Tamaño máximo: 5 MB
-    if($imagen["size"] > 5 * 1024 * 1024){
+    $permitidas = ["jpg","jpeg","png","gif","webp","mp4","webm","ogg","mp3","wav"];
 
-        exit("La imagen supera los 5 MB.");
-
-    }
     if (!in_array($extension,$permitidas)) {
+        exit("Formato de archivo no permitido.");
+    }
 
-        exit("Formato de imagen no permitido.");
+    $mime = mime_content_type($archivo["tmp_name"]);
+    $mimePermitidos = [
+        "image/jpeg","image/png","image/gif","image/webp",
+        "video/mp4","video/webm","video/ogg",
+        "audio/mpeg","audio/wav","audio/ogg"
+    ];
 
+    if (!in_array($mime, $mimePermitidos)) {
+        exit("Tipo de archivo no permitido.");
+    }
+
+    // Tamaño máximo: 5 MB para imágenes, 20 MB para video/audio
+    $maxSize = str_starts_with($mime, "image/") ? 5 * 1024 * 1024 : 20 * 1024 * 1024;
+
+    if($archivo["size"] > $maxSize){
+        exit("El archivo supera el tamaño máximo permitido.");
     }
 
     $nombreArchivo = uniqid("chat_").".".$extension;
 
     move_uploaded_file(
-        $imagen["tmp_name"],
+        $archivo["tmp_name"],
         "../uploads/chat/".$nombreArchivo
     );
 
-    $tipoMensaje = "imagen";
-
+    $tipoMensaje = str_starts_with($mime, "image/") ? "imagen" : "archivo";
 }
+
 //GUARDAR MENSAJE //
 $sqlInsert = "INSERT INTO mensajes
 (

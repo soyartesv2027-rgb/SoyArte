@@ -118,16 +118,6 @@ body{
 =========================== */
 
 .añadir-boton{
-    position:fixed;
-    right:25px;
-    bottom:30px;
-}
-
-/* ===========================
-   BOTÓN AGREGAR
-=========================== */
-
-.añadir-boton{
     position: fixed;
     right: 30px;
     bottom: 30px;

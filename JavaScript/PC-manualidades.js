@@ -421,6 +421,6 @@ setTimeout(()=>{
 setTimeout(()=>{
 
     window.location.href =
-    "../manualidades.php";
+    "soyarte/soyArte/manualidad.php";
 
 },5000);

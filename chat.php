@@ -69,9 +69,14 @@ $producto = $stmtProducto->get_result()->fetch_assoc();
 <head>
     <meta charset="UTF-8">
     <title>Chat | SoyArte</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/chat.css?v=<?php echo time(); ?>">
 </head>
 <body>
+
+    <?php include("components/navbar.php"); ?>
 
     <div class="contenedor-chat">
 
@@ -85,7 +90,7 @@ $producto = $stmtProducto->get_result()->fetch_assoc();
             <div class="usuario-chat">
 
                 <img
-                    src="uploads/<?php echo htmlspecialchars($usuario['foto_perfil']); ?>"
+                    src="<?php echo !empty($usuario['foto_perfil']) ? "uploads/perfiles/" . htmlspecialchars($usuario['foto_perfil']) : "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='30' fill='%23ddd'/%3E%3Ccircle cx='30' cy='22' r='9' fill='%23999'/%3E%3Cellipse cx='30' cy='45' rx='18' ry='12' fill='%23999'/%3E%3C/svg%3E"; ?>"
                     alt="Perfil"
                     class="foto-perfil">
 
@@ -158,6 +163,42 @@ $producto = $stmtProducto->get_result()->fetch_assoc();
 
         </div>
 
+        <!-- SELECTOR DE EMOJIS -->
+        <div id="emojiPicker" class="emoji-picker" hidden>
+            <div class="emoji-grilla">
+                <span class="emoji-item">😊</span>
+                <span class="emoji-item">😂</span>
+                <span class="emoji-item">😍</span>
+                <span class="emoji-item">🥰</span>
+                <span class="emoji-item">😘</span>
+                <span class="emoji-item">😎</span>
+                <span class="emoji-item">🤔</span>
+                <span class="emoji-item">😢</span>
+                <span class="emoji-item">😡</span>
+                <span class="emoji-item">🤩</span>
+                <span class="emoji-item">👍</span>
+                <span class="emoji-item">👎</span>
+                <span class="emoji-item">❤️</span>
+                <span class="emoji-item">💔</span>
+                <span class="emoji-item">🔥</span>
+                <span class="emoji-item">⭐</span>
+                <span class="emoji-item">💯</span>
+                <span class="emoji-item">🎉</span>
+                <span class="emoji-item">🎶</span>
+                <span class="emoji-item">🙌</span>
+                <span class="emoji-item">👏</span>
+                <span class="emoji-item">✅</span>
+                <span class="emoji-item">💀</span>
+                <span class="emoji-item">✨</span>
+                <span class="emoji-item">💪</span>
+                <span class="emoji-item">🤝</span>
+                <span class="emoji-item">🎨</span>
+                <span class="emoji-item">🖌️</span>
+                <span class="emoji-item">📸</span>
+                <span class="emoji-item">🎵</span>
+            </div>
+        </div>
+
         <!-- ESCRIBIR MENSAJE -->
 
         <div class="escribir-mensaje">
@@ -179,6 +220,8 @@ $producto = $stmtProducto->get_result()->fetch_assoc();
 
             😊
 
+            </button>
+
             <button
             type="button"
             id="btnImagen"
@@ -199,11 +242,17 @@ $producto = $stmtProducto->get_result()->fetch_assoc();
             type="button"
             id="btnArchivo"
             class="btn-chat"
-            title="Enviar archivo">
+            title="Adjuntar archivo">
 
             📎
 
             </button>
+
+            <input
+            type="file"
+            id="archivoChat"
+            accept="image/*,video/*,audio/*"
+            style="display:none;">
 
             </div>
 
@@ -234,7 +283,7 @@ $producto = $stmtProducto->get_result()->fetch_assoc();
                     id="cancelarImagen"
                     class="btn-cancelar">
 
-                    ❌ Cancelar
+                    ❌
 
                 </button>
 
@@ -263,6 +312,8 @@ $producto = $stmtProducto->get_result()->fetch_assoc();
 
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JavaScript/script.js"></script>
     <script src="JavaScript/chat.js"></script>
 </body>
 </html>
