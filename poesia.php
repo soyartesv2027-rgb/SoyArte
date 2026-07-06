@@ -71,26 +71,15 @@ $resultado = $stmt->get_result();
     <title>Poesía</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<<<<<<< HEAD
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/poesia.css?v=3">
-</head>
-<body class="bg-light">
-    <?php $seccion = 'poesia'; include("components/navbar-unificado.php"); ?>
-
-=======
     <link rel="stylesheet" href="styles/poesia.css?v=2">
     <link rel="stylesheet" href="styles/poesia.css">
     <link rel="stylesheet" href="style.css">
-
-
-   
-
 </head>
 <body class="bg-light">
-    <?php include("components/navbar.php"); ?>
->>>>>>> 9e2a7902b5621d9597bcab8cf71d6d9be9133c83
+    <?php $seccion = 'poesia'; include("components/navbar-unificado.php"); ?>
  
     <div class="hero-poesia">
         <div class="hero-poesia-img"></div>
