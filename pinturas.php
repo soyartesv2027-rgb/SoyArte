@@ -28,7 +28,8 @@ $resultado = $conexion->query($sql);
 </head>
 
 <body>
-  <?php include("components/navbar.php"); ?>
+   <?php $seccion = 'pinturas'; include("components/navbar-unificado.php"); ?>
+
   <header class="banner-container">
     <div class="banner-header">
       <div class="pincel">

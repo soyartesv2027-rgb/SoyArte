@@ -26,7 +26,8 @@ $resultado = $conn->query($sql);
 
 <body>
 
-<?php include("components/navbar.php"); ?>
+ <?php $seccion = 'musica'; include("components/navbar-unificado.php"); ?>
+
 
 <section class="banner">
 

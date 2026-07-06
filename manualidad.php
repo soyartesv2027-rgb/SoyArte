@@ -13,7 +13,8 @@
 </head>
 <body>
 
-     <?php include("components/navbar.php"); ?>
+    <?php $seccion = 'manualidades'; include("components/navbar-unificado.php"); ?>
+
     
     <!-- CONTENEDOR -->
     <div class="contenedor">

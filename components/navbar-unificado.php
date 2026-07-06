@@ -1,27 +1,24 @@
 <?php
-// =============================================
 
-// =============================================
- 
 $seccion = $seccion ?? 'general';
  
-// --- Color del navbar segun seccion ---//
+// --- Color segun seccion ---//
 $colores = [
     'poesia'       => '#f06292',
-    'pinturas'     => '#e8721a',
-    'musica'       => '#5b8ecf',
-    'manualidades' => '#66b366',
+    'pinturas'     => '#c7e3ff',
+    'musica'       => '#2c4e7e',
+    'manualidades' => '#4576a8',
     'general'      => '#b8cfe8',
 ];
 $colorNav = $colores[$seccion] ?? $colores['general'];
  
 // --- Logo/mascota segun seccion ---
-//  Cambia cada ruta por la imagen que quieras para cada seccion
+
 $logos = [
-    'poesia'       => 'images/Arty.png',
-    'pinturas'     => 'images/Arty.png',
-    'musica'       => 'images/Arty.png',
-    'manualidades' => 'images/Arty.png',
+    'poesia'       => 'images/logo-blanco.png',
+    'pinturas'     => 'images/logo-blanco.png',
+    'musica'       => 'images/logo-blanco.png',
+    'manualidades' => 'images/logo-blanco.png',
     'general'      => 'images/Arty.png',
 ];
 $logoNav = $logos[$seccion] ?? $logos['general'];
@@ -32,14 +29,14 @@ $todosLosModulos = [
     'pinturas'     => [
         'href'  => 'Pantalla-de-carga/PC-pintura.html',
         'icon'  => 'fa-paintbrush',
-        'color' => '#e8721a',
+        'color' => '#c7e3ff',
         'title' => 'Pinturas',
         'clase' => 'icono-naranja',
     ],
     'musica'       => [
         'href'  => 'Pantalla-de-carga/PC-musica.html',
         'icon'  => 'fa-music',
-        'color' => '#5b8ecf',
+        'color' => '#2c4e7e',
         'title' => 'Música',
         'clase' => 'icono-azul',
     ],
@@ -53,7 +50,7 @@ $todosLosModulos = [
     'manualidades' => [
         'href'  => 'Pantalla-de-carga/PC-manualidades.html',
         'icon'  => 'fa-cube',
-        'color' => '#66b366',
+        'color' => '#4576a8',
         'title' => 'Manualidades',
         'clase' => 'icono-verde',
     ],
@@ -66,7 +63,7 @@ $iconosNav = array_slice($iconosNav, 0, 3);
 <nav class="navbar-soyarte" style="background-color: <?= $colorNav ?>;">
  
     <a href="index.php" class="navbar-soyarte-logo">
-        <img src="<?= $logoNav ?>" alt="Logo" width="38" height="38" style="object-fit:contain;">
+        <img src="<?= $logoNav ?>" alt="Logo" width="80" height="80" style="object-fit:contain;">
         Soy<span>Arte</span>
     </a>
  
