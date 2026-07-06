@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
 <meta charset="UTF-8">
 <title>Editar Obra</title>
-<link rel="stylesheet" href="styles/editar_productos.css">
+<link rel="stylesheet" href="styles/editar_productos.css?v=<?php echo time(); ?>">
 </head>
 <body>
 

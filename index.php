@@ -9,10 +9,11 @@ session_start();
   <title>Soy Arte 🖌️🎨</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=<?php echo time();?>">
 </head>
 <body>
   <?php include("components/navbar.php"); ?>
+
   
   <div class="header text-center my-4">
     <img src="images/ChatGPT Image 1 jul 2026, 18_32_29.png"">
@@ -391,6 +392,54 @@ session_start();
 
 </section>
 
+<!-- ========================================= -->
+<!-- PROMO EDITOR DE ARTE -->
+<!-- ========================================= -->
+
+<section class="promo-editor">
+
+    <div class="promo-editor-overlay"></div>
+
+    <div class="container">
+
+        <div class="promo-editor-wrapper">
+
+            <div class="promo-editor-content">
+
+                <span class="promo-editor-tag">
+                    🎨 CREATIVIDAD DIGITAL
+                </span>
+
+                <h1>
+                    crea tu propia
+                    <span>obra de arte digital</span>
+                </h1>
+
+                <p>
+                    Dibuja, pinta y da vida a tus ideas con nuestro
+                    editor de arte profesional. Pinceles, formas,
+                    colores y efectos para que explores todo tu potencial
+                    creativo sin límites.
+                </p>
+
+                <a href="juego.html" class="promo-editor-btn">
+
+                    <i class="fa-solid fa-paintbrush me-2"></i>
+
+                    Probar Editor
+
+                    <i class="fa-solid fa-arrow-right ms-2"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
 <section class="py-5" id="misionVision">
 
     <div class="container">
@@ -461,6 +510,57 @@ session_start();
         </div>
     </div>
 
+</section>
+
+<!-- ========================================= -->
+<!-- TESTIMONIOS -->
+<!-- ========================================= -->
+
+<section class="testimonios">
+    <div class="container">
+        <div class="testimonios-header">
+            <span class="testimonios-badge">💬 TESTIMONIOS</span>
+            <h2>Lo que dicen los <span>artistas</span></h2>
+        </div>
+        
+        <div class="testimonios-grid">
+            <div class="testimonio-card">
+                <div class="testimonio-estrellas">★★★★★</div>
+                <p>"Soy Arte me ha dado la oportunidad de mostrar mi trabajo a toda una comunidad. ¡Es increíble!"</p>
+                <div class="testimonio-autor">
+                    <img src="images/avatar1.jpg" alt="Avatar">
+                    <div>
+                        <strong>María González</strong>
+                        <span>Artista visual</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonio-card">
+                <div class="testimonio-estrellas">★★★★★</div>
+                <p>"La plataforma es fácil de usar y me ha conectado con otros artistas talentosos. ¡Recomendado!"</p>
+                <div class="testimonio-autor">
+                    <img src="images/avatar2.jpg" alt="Avatar">
+                    <div>
+                        <strong>Carlos Rivera</strong>
+                        <span>Músico</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonio-card">
+                <div class="testimonio-estrellas">★★★★★</div>
+                <p>"El editor de arte digital es mi herramienta favorita. Puedo crear desde cualquier lugar."</p>
+                <div class="testimonio-autor">
+                    <img src="images/avatar3.jpg" alt="Avatar">
+                    <div>
+                        <strong>Ana Martínez</strong>
+                        <span>Diseñadora gráfica</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
      

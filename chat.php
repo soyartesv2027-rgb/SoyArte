@@ -1,18 +1,11 @@
 <?php
-<<<<<<< HEAD
 
 session_start();
 require_once "php/conexion.php";
-=======
-session_start();
-require_once "php/conexion.php";
-
->>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: login.html");
     exit();
 }
-<<<<<<< HEAD
 $usuarioActual = $_SESSION['usuario_id'];
 
 
@@ -24,22 +17,10 @@ $conversacionID = intval($_GET['id']);
 
 
 // BUSCAR LA CONVERSACIÓN //
-=======
-
-$usuarioActual = (int)$_SESSION['usuario_id'];
-
-if (!isset($_GET['id'])) {
-    die("Conversacion no encontrada.");
-}
-
-$conversacionID = (int)$_GET['id'];
-
->>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
 $sql = "SELECT *
         FROM conversaciones
         WHERE id = ?";
 $stmt = $conn->prepare($sql);
-<<<<<<< HEAD
 $stmt->bind_param("i",$conversacionID);
 $stmt->execute();
 $resultado = $stmt->get_result();
@@ -82,72 +63,20 @@ $stmtProducto = $conn->prepare($sqlProducto);
 $stmtProducto->bind_param("i",$conversacion['producto_id']);
 $stmtProducto->execute();
 $producto = $stmtProducto->get_result()->fetch_assoc();
-=======
-$stmt->bind_param("i", $conversacionID);
-$stmt->execute();
-$resultado = $stmt->get_result();
-
-if ($resultado->num_rows === 0) {
-    die("La conversacion no existe.");
-}
-
-$conversacion = $resultado->fetch_assoc();
-
-if (
-    $usuarioActual !== (int)$conversacion['usuario1_id'] &&
-    $usuarioActual !== (int)$conversacion['usuario2_id']
-) {
-    die("No tienes permiso para entrar a este chat.");
-}
-
-$otroUsuario = ($usuarioActual === (int)$conversacion['usuario1_id'])
-    ? (int)$conversacion['usuario2_id']
-    : (int)$conversacion['usuario1_id'];
-
-$sqlUsuario = "SELECT id, nombre, foto_perfil
-               FROM usuarios
-               WHERE id = ?";
-$stmtUsuario = $conn->prepare($sqlUsuario);
-$stmtUsuario->bind_param("i", $otroUsuario);
-$stmtUsuario->execute();
-$usuario = $stmtUsuario->get_result()->fetch_assoc();
-
-if (!$usuario) {
-    die("Usuario no encontrado.");
-}
-
-$sqlProducto = "SELECT id, nombre, precio, imagen
-                FROM productos
-                WHERE id = ?";
-$stmtProducto = $conn->prepare($sqlProducto);
-$stmtProducto->bind_param("i", $conversacion['producto_id']);
-$stmtProducto->execute();
-$producto = $stmtProducto->get_result()->fetch_assoc();
-
-if (!$producto) {
-    die("Producto no encontrado.");
-}
-
-$fotoPerfil = !empty($usuario['foto_perfil'])
-    ? "uploads/perfiles/" . $usuario['foto_perfil']
-    : "images/Logo-Nuevo.png";
-
-$imagenProducto = "uploads/" . $producto['imagen'];
->>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-<<<<<<< HEAD
-=======
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
->>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
     <title>Chat | SoyArte</title>
-    <link rel="stylesheet" href="styles/chat.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/chat.css?v=<?php echo time(); ?>">
 </head>
 <body>
-<<<<<<< HEAD
+
+    <?php include("components/navbar.php"); ?>
 
     <div class="contenedor-chat">
 
@@ -161,21 +90,11 @@ $imagenProducto = "uploads/" . $producto['imagen'];
             <div class="usuario-chat">
 
                 <img
-                    src="uploads/<?php echo htmlspecialchars($usuario['foto_perfil']); ?>"
-=======
-    <div class="contenedor-chat">
-        <div class="cabecera-chat">
-            <a href="mensajes.php" class="volver">&#8592; Volver</a>
-
-            <div class="usuario-chat">
-                <img
-                    src="<?php echo htmlspecialchars($fotoPerfil); ?>"
->>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
+                    src="<?php echo !empty($usuario['foto_perfil']) ? "uploads/perfiles/" . htmlspecialchars($usuario['foto_perfil']) : "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='30' fill='%23ddd'/%3E%3Ccircle cx='30' cy='22' r='9' fill='%23999'/%3E%3Cellipse cx='30' cy='45' rx='18' ry='12' fill='%23999'/%3E%3C/svg%3E"; ?>"
                     alt="Perfil"
                     class="foto-perfil">
 
                 <div>
-<<<<<<< HEAD
 
                     <h2>
                         <?php echo htmlspecialchars($usuario['nombre']); ?>
@@ -244,6 +163,42 @@ $imagenProducto = "uploads/" . $producto['imagen'];
 
         </div>
 
+        <!-- SELECTOR DE EMOJIS -->
+        <div id="emojiPicker" class="emoji-picker" hidden>
+            <div class="emoji-grilla">
+                <span class="emoji-item">😊</span>
+                <span class="emoji-item">😂</span>
+                <span class="emoji-item">😍</span>
+                <span class="emoji-item">🥰</span>
+                <span class="emoji-item">😘</span>
+                <span class="emoji-item">😎</span>
+                <span class="emoji-item">🤔</span>
+                <span class="emoji-item">😢</span>
+                <span class="emoji-item">😡</span>
+                <span class="emoji-item">🤩</span>
+                <span class="emoji-item">👍</span>
+                <span class="emoji-item">👎</span>
+                <span class="emoji-item">❤️</span>
+                <span class="emoji-item">💔</span>
+                <span class="emoji-item">🔥</span>
+                <span class="emoji-item">⭐</span>
+                <span class="emoji-item">💯</span>
+                <span class="emoji-item">🎉</span>
+                <span class="emoji-item">🎶</span>
+                <span class="emoji-item">🙌</span>
+                <span class="emoji-item">👏</span>
+                <span class="emoji-item">✅</span>
+                <span class="emoji-item">💀</span>
+                <span class="emoji-item">✨</span>
+                <span class="emoji-item">💪</span>
+                <span class="emoji-item">🤝</span>
+                <span class="emoji-item">🎨</span>
+                <span class="emoji-item">🖌️</span>
+                <span class="emoji-item">📸</span>
+                <span class="emoji-item">🎵</span>
+            </div>
+        </div>
+
         <!-- ESCRIBIR MENSAJE -->
 
         <div class="escribir-mensaje">
@@ -265,6 +220,8 @@ $imagenProducto = "uploads/" . $producto['imagen'];
 
             😊
 
+            </button>
+
             <button
             type="button"
             id="btnImagen"
@@ -285,11 +242,17 @@ $imagenProducto = "uploads/" . $producto['imagen'];
             type="button"
             id="btnArchivo"
             class="btn-chat"
-            title="Enviar archivo">
+            title="Adjuntar archivo">
 
             📎
 
             </button>
+
+            <input
+            type="file"
+            id="archivoChat"
+            accept="image/*,video/*,audio/*"
+            style="display:none;">
 
             </div>
 
@@ -320,7 +283,7 @@ $imagenProducto = "uploads/" . $producto['imagen'];
                     id="cancelarImagen"
                     class="btn-cancelar">
 
-                    ❌ Cancelar
+                    ❌
 
                 </button>
 
@@ -347,114 +310,10 @@ $imagenProducto = "uploads/" . $producto['imagen'];
 
         <img id="imagenGrande" src="" alt="Imagen">
 
-=======
-                    <h2><?php echo htmlspecialchars($usuario['nombre']); ?></h2>
-                    <span class="estado">Artista</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="producto-chat">
-            <img
-                src="<?php echo htmlspecialchars($imagenProducto); ?>"
-                alt="Producto">
-
-            <div class="info-producto">
-                <h3><?php echo htmlspecialchars($producto['nombre']); ?></h3>
-                <p class="precio">$<?php echo number_format((float)$producto['precio'], 2); ?></p>
-
-                <a
-                    href="producto.php?id=<?php echo (int)$producto['id']; ?>"
-                    class="btn-publicacion">
-                    Ver publicacion
-                </a>
-            </div>
-        </div>
-
-        <div class="mensajes" id="mensajes">
-            <div class="mensaje-sistema">
-                Conversacion con
-                <strong><?php echo htmlspecialchars($usuario['nombre']); ?></strong>
-            </div>
-        </div>
-
-        <div class="escribir-mensaje">
-            <form id="formMensaje">
-                <input
-                    type="hidden"
-                    id="conversacion"
-                    value="<?php echo (int)$conversacion['id']; ?>">
-
-                <div class="acciones-chat">
-                    <button
-                        type="button"
-                        id="btnEmoji"
-                        class="btn-chat"
-                        title="Emojis">
-                        &#128522;
-                    </button>
-
-                    <button
-                        type="button"
-                        id="btnImagen"
-                        class="btn-chat"
-                        title="Enviar imagen">
-                        &#128247;
-                    </button>
-
-                    <input
-                        type="file"
-                        id="imagenChat"
-                        accept="image/*"
-                        hidden>
-                </div>
-
-                <input
-                    type="text"
-                    id="mensaje"
-                    placeholder="Escribe un mensaje..."
-                    autocomplete="off">
-
-                <button
-                    type="submit"
-                    class="btn-enviar"
-                    title="Enviar">
-                    &#10148;
-                </button>
-            </form>
-
-            <div id="previewImagen" class="preview-imagen" hidden>
-                <img id="imgPreview" src="" alt="Vista previa">
-
-                <div class="acciones-preview">
-                    <button
-                        type="button"
-                        id="cancelarImagen"
-                        class="btn-cancelar">
-                        Cancelar
-                    </button>
-
-                    <button
-                        type="button"
-                        id="enviarImagen"
-                        class="btn-enviar-preview">
-                        Enviar imagen
-                    </button>
-                </div>
-            </div>
-        </div>
     </div>
 
-    <div id="visorImagen" class="visor-imagen">
-        <span id="cerrarVisor">&times;</span>
-        <img id="imagenGrande" src="" alt="Imagen">
->>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
-    </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JavaScript/script.js"></script>
     <script src="JavaScript/chat.js"></script>
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b

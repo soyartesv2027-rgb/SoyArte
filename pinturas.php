@@ -8,7 +8,6 @@ $sql = "SELECT * FROM pinturas ORDER BY ID DESC";
 $resultado = $conexion->query($sql);
 
 $idUsuario = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : 0;
-$resultado = $conexion->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -16,14 +15,11 @@ $resultado = $conexion->query($sql);
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>pinturas</title>
+  <title>Pinturas</title>
   <link rel="stylesheet" href="styles/pinturas.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -167,8 +163,6 @@ if($idUsuario > 0){
     <?php echo htmlspecialchars($fila['descripcion']); ?>
 </span>
 
-<<<<<<< HEAD
-=======
 <?php
 $consultaLikes = $conexion->prepare("SELECT COUNT(*) AS total FROM likes_pinturas WHERE id_pintura=?");
 $consultaLikes->bind_param("i", $fila['ID']);
@@ -176,7 +170,6 @@ $consultaLikes->execute();
 $totalLikes = $consultaLikes->get_result()->fetch_assoc();
 ?>
 
->>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
 <div class="likes">
 
     <button
@@ -186,11 +179,7 @@ $totalLikes = $consultaLikes->get_result()->fetch_assoc();
         <i class="<?php echo $tieneLike ? 'fa-solid' : 'fa-regular'; ?> fa-heart"></i>
 
         <span id="likes-<?php echo $fila['ID']; ?>">
-<<<<<<< HEAD
-            <?php echo $fila['likes']; ?>
-=======
             <?php echo $totalLikes['total']; ?>
->>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
         </span>
 
     </button>
@@ -306,10 +295,7 @@ buscador.addEventListener("keyup",()=>{
 });
 
 </script>
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
 </body>
 </html>

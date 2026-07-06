@@ -37,7 +37,7 @@ if(isset($_SESSION['usuario_id'])){
 <?php echo htmlspecialchars($musica['nombre_cancion']); ?>
 </title>
 
-<link rel="stylesheet" href="styles/ver_musica.css">
+<link rel="stylesheet" href="styles/ver_musica.css?v=<?php echo time(); ?>">
 </head>
 <body>
 

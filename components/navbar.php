@@ -143,27 +143,7 @@ if (isset($_SESSION['usuario_id'])) {
                 alt="Arty"
                 width="100px"
                 ;">
-
         </a>
-
-        <!-- BOTON RESPONSIVE -->
-        <button class="navbar-toggler border-0"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navSoyArte"
-                aria-controls="navSoyArte"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-
-            <span class="navbar-toggler-icon"></span>
-
-        </button>
-
-        <!-- CONTENIDO NAVBAR -->
-        <div class="collapse navbar-collapse" id="navSoyArte">
-
- 
-   
 
             <!-- SESION -->
             <div class="ms-auto d-flex align-items-center">
@@ -181,7 +161,7 @@ if (isset($_SESSION['usuario_id'])) {
 
                             <i class="fa-solid fa-circle-user"></i>
 
-                            <?php echo htmlspecialchars($_SESSION['nombre']); ?>
+                            <span class="d-none d-md-inline"><?php echo htmlspecialchars($_SESSION['nombre']); ?></span>
 
                         </a>
 
@@ -270,6 +250,9 @@ function actualizarContadorMensajes() {
         .catch(error => console.error(error));
 }
 
-setInterval(actualizarContadorMensajes, 15000);
+const intervaloNavbar = setInterval(actualizarContadorMensajes, 15000);
+window.addEventListener("beforeunload", function () {
+    clearInterval(intervaloNavbar);
+});
 </script>
 <?php endif; ?>

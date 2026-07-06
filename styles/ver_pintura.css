@@ -1,192 +1,209 @@
+/* ===========================
+   RESET
+=========================== */
+
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
+
+/* ===========================
+   BODY
+=========================== */
 
 body{
-    min-height: 100vh;
-    background: #f4f6fa;
-    font-family: 'Segoe UI', sans-serif;
-    background-color:  #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+
+    font-family:'Segoe UI',sans-serif;
+    background:#fff;
 }
+
+/* ===========================
+   CONTENEDOR
+=========================== */
 
 .detalle-pintura{
-    width: 100%;
-    max-width: 650px;
-    background: rgb(238, 233, 233);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    width:100%;
+    max-width:650px;
+    background:#eee9e9;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,.1);
 }
+
+/* ===========================
+   IMAGEN
+=========================== */
 
 .imagen-detalle{
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-    display: block;
+    width:100%;
+    height:280px;
+    object-fit:cover;
+    display:block;
 }
 
+/* ===========================
+   CONTENIDO
+=========================== */
+
 .contenido{
-    padding: 25px;
+    padding:25px;
 }
 
 .titulo-detalle{
-    font-size: 2rem;
-    color: #2c4e7e;
-    margin-bottom: 8px;
-    text-align: center;
+    text-align:center;
+    color:#2c4e7e;
+    font-size:2rem;
+    margin-bottom:10px;
 }
 
 .autor{
-    color: #777;
-    margin-bottom: 20px;
-    text-align: center;
+    text-align:center;
+    color:#777;
+    margin-bottom:20px;
 }
 
-.btn-volver{
-    display: inline-block;
-    text-decoration: none;
-    background: #4576a8;
-    color: black;
-    padding: 10px 22px;
-    border-radius: 12px;
-    font-weight: 600;
-    margin-bottom: 25px;
-    transition: 0.3s;
-    margin-top: 30px;
-     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.btn-volver:hover{
-    background: #c7e3ff;
-}
+/* ===========================
+   DESCRIPCIÓN
+=========================== */
 
 .descripcion-box{
-    background: #e0dcdc;
-    border-radius: 15px;
-    padding: 20px;
+    padding:20px;
+    background:#e0dcdc;
+    border-radius:15px;
 }
 
 .descripcion-box h3{
-    color: #333;
-    margin-bottom: 12px;
+    margin-bottom:12px;
+    color:#333;
 }
 
 .descripcion-box p{
-    color: #555;
-    line-height: 1.7;
+    color:#555;
+    line-height:1.7;
 }
 
-.acciones{
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-}
+/* ===========================
+   BOTONES
+=========================== */
 
+.btn-volver,
 .btn-editar,
 .btn-eliminar{
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-weight: 600;
-    transition: 0.3s;
+    display:inline-block;
+    text-decoration:none;
+    padding:10px 20px;
+    border-radius:10px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-volver{
+    margin:25px 0;
+    background:#4576a8;
+    color:#000;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
 }
 
 .btn-editar{
-    background: #4576a8;
-    color: black;
-}
-
-.btn-editar:hover{
-    background: #4576a8;
+    background:#4576a8;
+    color:#000;
 }
 
 .btn-eliminar{
-    background: #4576a8;
-    color: white;
+    background:#4576a8;
+    color:#fff;
 }
 
+.btn-volver:hover,
+.btn-editar:hover,
 .btn-eliminar:hover{
-    background: #c7e3ff;
+    background:#c7e3ff;
+    color:#2c4e7e;
 }
-@media screen and (max-width: 425px){
+
+/* ===========================
+   ACCIONES
+=========================== */
+
+.acciones{
+    display:flex;
+    gap:15px;
+    margin-top:20px;
+    flex-wrap:wrap;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width:768px){
 
     body{
-        padding: 5px;
-        align-items: flex-start;
-    }
-
-    .detalle-pintura{
-        width: 100%;
-        max-width: none;
-        margin: 10px auto;
-        border-radius: 20px;
-    }
-
-    .imagen-detalle{
-        width: 100%;
-        height: 400px;
-        object-fit: cover;
+        padding:20px 15px;
+        align-items:flex-start;
     }
 
     .contenido{
-        padding: 30px;
+        padding:20px;
+    }
+
+    .imagen-detalle{
+        height:240px;
     }
 
     .titulo-detalle{
-        font-size: 2.2rem;
-        margin-bottom: 10px;
-    }
-
-    .autor{
-        font-size: 1.1rem;
-        margin-bottom: 25px;
-    }
-
-    .descripcion-box{
-        padding: 25px;
-    }
-
-    .descripcion-box h3{
-        font-size: 1.2rem;
-        margin-bottom: 15px;
-    }
-
-    .descripcion-box p{
-        font-size: 1rem;
-        line-height: 1.8;
-    }
-
-    .btn-volver{
-        display: inline-block;
-        margin-top: 25px;
-        margin-bottom: 25px;
-        padding: 12px 24px;
-        font-size: 1rem;
-    }
-
-    .acciones{
-        display: flex;
-        gap: 15px;
-        margin-top: 25px;
-    }
-
-    .btn-editar,
-    .btn-eliminar{
-        padding: 12px 22px;
-        font-size: 1rem;
+        font-size:1.7rem;
     }
 }
 
-/* SoyArte palette button hover */
-button:hover,
-.btn:hover,
-[class^='btn-']:hover,
-[class*=' btn-']:hover{
-    color:#2c4e7e;
+@media (max-width:480px){
+
+    body{
+        padding:10px;
+    }
+
+    .detalle-pintura{
+        border-radius:15px;
+    }
+
+    .imagen-detalle{
+        height:200px;
+    }
+
+    .contenido{
+        padding:18px;
+    }
+
+    .titulo-detalle{
+        font-size:1.5rem;
+    }
+
+    .autor{
+        font-size:.95rem;
+    }
+
+    .descripcion-box{
+        padding:18px;
+    }
+
+    .descripcion-box p{
+        font-size:.95rem;
+    }
+
+    .acciones{
+        flex-direction:column;
+    }
+
+    .btn-volver,
+    .btn-editar,
+    .btn-eliminar{
+        width:100%;
+        text-align:center;
+    }
 }

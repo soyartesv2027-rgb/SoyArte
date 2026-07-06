@@ -75,3 +75,111 @@ button:hover,
 [class*=' btn-']:hover{
     color:#2c4e7e;
 }
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width:768px){
+
+    body{
+        padding:20px 15px;
+    }
+
+    .barra-superior{
+        max-width:100%;
+        margin:20px auto 10px;
+    }
+
+    .contenedor{
+        max-width:100%;
+        margin:15px auto;
+        padding:25px 20px;
+        border-radius:15px;
+    }
+
+    h1{
+        font-size:2rem;
+        text-align:center;
+    }
+
+    input,
+    textarea{
+        font-size:16px;
+        padding:14px;
+    }
+
+    button{
+        width:100%;
+        padding:14px;
+        font-size:1rem;
+    }
+
+    .btn-volver{
+        display:block;
+        width:100%;
+        text-align:center;
+        padding:12px;
+    }
+
+}
+
+@media (max-width:480px){
+
+    body{
+        padding:10px;
+    }
+
+    .contenedor{
+        padding:20px 15px;
+        border-radius:12px;
+    }
+
+    h1{
+        font-size:1.6rem;
+        margin-bottom:15px;
+    }
+
+    form{
+        gap:12px;
+    }
+
+    input,
+    textarea{
+        padding:12px;
+        font-size:15px;
+    }
+
+    textarea{
+        min-height:120px;
+    }
+
+    button{
+        padding:12px;
+        font-size:.95rem;
+    }
+
+    .btn-volver{
+        font-size:.95rem;
+        padding:12px;
+    }
+
+}
+
+@media (max-width:360px){
+
+    .contenedor{
+        padding:15px 12px;
+    }
+
+    h1{
+        font-size:1.4rem;
+    }
+
+    input,
+    textarea,
+    button{
+        font-size:.9rem;
+    }
+
+}

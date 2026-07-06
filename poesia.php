@@ -68,9 +68,10 @@ $resultado = $stmt->get_result();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poesía - Soy Arte</title>
+    <title>Poesía</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<<<<<<< HEAD
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/poesia.css?v=3">
@@ -78,6 +79,18 @@ $resultado = $stmt->get_result();
 <body class="bg-light">
     <?php $seccion = 'poesia'; include("components/navbar-unificado.php"); ?>
 
+=======
+    <link rel="stylesheet" href="styles/poesia.css?v=2">
+    <link rel="stylesheet" href="styles/poesia.css">
+    <link rel="stylesheet" href="style.css">
+
+
+   
+
+</head>
+<body class="bg-light">
+    <?php include("components/navbar.php"); ?>
+>>>>>>> 9e2a7902b5621d9597bcab8cf71d6d9be9133c83
  
     <div class="hero-poesia">
         <div class="hero-poesia-img"></div>
@@ -147,14 +160,14 @@ $resultado = $stmt->get_result();
     </div>
  
     <?php if (isset($_SESSION['usuario_id'])): ?>
-        <a href="publicar-poesia.php" class="btn btn-danger rounded-circle position-fixed bottom-0 end-0 m-4 d-flex align-items-center justify-content-center" style="width:55px; height:55px;">
-            <i class="fa-solid fa-plus"></i>
-        </a>
-    <?php else: ?>
-        <a href="php/login.php" class="btn btn-danger rounded-circle position-fixed bottom-0 end-0 m-4 d-flex align-items-center justify-content-center" style="width:55px; height:55px;">
-            <i class="fa-solid fa-plus"></i>
-        </a>
-    <?php endif; ?>
+    <a href="publicar-poesia.php" class="floating-btn">
+        <i class="fa-solid fa-plus"></i>
+    </a>
+<?php else: ?>
+    <a href="php/login.php" class="floating-btn">
+        <i class="fa-solid fa-plus"></i>
+    </a>
+<?php endif; ?>
  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script>

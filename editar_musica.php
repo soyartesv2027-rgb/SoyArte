@@ -120,7 +120,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 <title>Editar Música</title>
 
-<link rel="stylesheet" href="styles/publicar_musica.css">
+<link rel="stylesheet" href="styles/publicar_musica.css?v=<?php echo time(); ?>">
 
 <style>
 .preview-portada{

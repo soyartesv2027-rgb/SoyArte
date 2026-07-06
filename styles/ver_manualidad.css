@@ -1,0 +1,358 @@
+/* ===============================
+   VER MANUALIDAD
+================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#eef5ff;
+    color:#333;
+}
+
+.contenedor{
+
+    width:90%;
+    max-width:900px;
+
+    margin:40px auto;
+
+}
+
+.volver{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    background:#4576a8;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    padding:12px 20px;
+
+    border-radius:12px;
+
+    margin-bottom:25px;
+
+    transition:.3s;
+
+}
+
+.volver:hover{
+
+    background:#2f5b86;
+    color:white;
+
+}
+
+.card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.10);
+
+}
+
+.imagen{
+
+    width:100%;
+
+    height:420px;
+
+    object-fit:cover;
+
+}
+
+.card h1{
+
+    font-size:36px;
+
+    padding:25px 30px 5px;
+
+    color:#222;
+
+}
+
+.autor,
+.fecha{
+
+    padding:0 30px;
+
+    color:#666;
+
+    margin-bottom:8px;
+
+}
+
+.autor i,
+.fecha i{
+
+    color:#4576a8;
+
+    margin-right:8px;
+
+}
+
+.descripcion{
+
+    padding:25px 30px;
+
+    line-height:1.8;
+
+    font-size:17px;
+
+    color:#444;
+
+}
+
+/*=====================
+FORM COMENTARIO
+======================*/
+
+.form-comentario{
+
+    padding:0 30px 30px;
+
+}
+
+.form-comentario textarea{
+
+    width:100%;
+
+    height:130px;
+
+    border:2px solid #d8e6f5;
+
+    border-radius:12px;
+
+    resize:none;
+
+    padding:15px;
+
+    outline:none;
+
+    font-size:15px;
+
+}
+
+.form-comentario textarea:focus{
+
+    border-color:#4576a8;
+
+}
+
+.form-comentario button{
+
+    margin-top:15px;
+
+    background:#4576a8;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 24px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.form-comentario button:hover{
+
+    background:#2f5b86;
+
+}
+
+/*=====================
+COMENTARIOS
+======================*/
+
+.comentarios{
+
+    padding:0 30px 30px;
+
+}
+
+.comentarios h2{
+
+    margin-bottom:20px;
+
+    color:#4576a8;
+
+}
+
+.comentario{
+
+    background:#f8fbff;
+
+    border-left:5px solid #4576a8;
+
+    padding:18px;
+
+    margin-bottom:18px;
+
+    border-radius:12px;
+
+}
+
+.comentario-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:10px;
+
+}
+
+.comentario-header strong{
+
+    color:#222;
+
+}
+
+.comentario-header small{
+
+    color:#777;
+
+}
+
+.comentario p{
+
+    color:#555;
+
+    line-height:1.6;
+
+}
+
+.sin-comentarios{
+
+    color:#888;
+
+    text-align:center;
+
+    padding:20px;
+
+}
+
+.mensaje-login{
+
+    padding:25px 30px;
+
+    color:#777;
+
+}
+
+/*=====================
+ACCIONES
+======================*/
+
+.acciones{
+
+    display:flex;
+
+    gap:15px;
+
+    padding:0 30px 35px;
+
+}
+
+.editar,
+.eliminar{
+
+    text-decoration:none;
+
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:10px;
+
+    transition:.3s;
+
+}
+
+.editar{
+
+    background:#4576a8;
+
+}
+
+.editar:hover{
+
+    background:#2f5b86;
+
+    color:white;
+
+}
+
+.eliminar{
+
+    background:#d9534f;
+
+}
+
+.eliminar:hover{
+
+    background:#bb2d3b;
+
+    color:white;
+
+}
+
+/*=====================
+RESPONSIVE
+======================*/
+
+@media(max-width:768px){
+
+.imagen{
+
+    height:260px;
+
+}
+
+.card h1{
+
+    font-size:28px;
+
+}
+
+.descripcion{
+
+    font-size:15px;
+
+}
+
+.acciones{
+
+    flex-direction:column;
+
+}
+
+.editar,
+.eliminar{
+
+    width:100%;
+    text-align:center;
+
+}
+
+}

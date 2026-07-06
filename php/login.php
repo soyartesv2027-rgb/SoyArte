@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Guardar datos de sesión
             $_SESSION['usuario_id'] = $usuario['id'];
+            $_SESSION['id'] = $usuario['id']; // Compatibilidad con otros módulos
             $_SESSION['nombre'] = $usuario['nombre'];
             $_SESSION['rol'] = $usuario['rol'];
 

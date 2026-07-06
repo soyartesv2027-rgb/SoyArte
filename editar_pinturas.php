@@ -30,7 +30,7 @@ $pintura = $resultado->fetch_assoc();
 
 <title>Editar pintura</title>
 
-<link rel="stylesheet" href="styles/editar_pinturas.css">
+<link rel="stylesheet" href="styles/editar_pinturas.css?v=<?php echo time(); ?>">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">

@@ -922,8 +922,401 @@ body {
     }
 }
 
+
+
 /* ========================================= */
-/* PROMO CINEMATICA TIENDA */
+/* PROMO EDITOR DE ARTE */
+/* ========================================= */
+
+.promo-editor{
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    background: url('images/hover-juego.png');
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+
+    transition: all 0.6s ease;
+}
+
+/* EFECTO HOVER - ZOOM SUAVE */
+
+.promo-editor:hover{
+    background-size: 108%;
+}
+
+/* OVERLAY OSCURO PARA LEGIBILIDAD */
+
+.promo-editor-overlay{
+    position: absolute;
+
+    inset: 0;
+
+    background:
+    linear-gradient(
+        to right,
+        rgba(0,0,0,0.75) 0%,
+        rgba(0,0,0,0.4) 50%,
+        rgba(0,0,0,0.2) 100%
+    );
+
+    transition: all 0.6s ease;
+}
+
+.promo-editor:hover .promo-editor-overlay{
+    background:
+    linear-gradient(
+        to right,
+        rgba(0,0,0,0.8) 0%,
+        rgba(0,0,0,0.3) 50%,
+        rgba(0,0,0,0.1) 100%
+    );
+}
+
+/* CONTENEDOR */
+
+.promo-editor-wrapper{
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    min-height: 100vh;
+
+    padding: 60px 0;
+}
+
+/* CONTENIDO */
+
+.promo-editor-content{
+    max-width: 650px;
+
+    color: white;
+}
+
+/* TAG */
+
+.promo-editor-tag{
+    display: inline-block;
+
+    padding: 12px 24px;
+
+    border-radius: 50px;
+
+    background: rgba(123,125,255,.25);
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    backdrop-filter: blur(10px);
+
+    -webkit-backdrop-filter: blur(10px);
+
+    color: white;
+
+    font-size: .85rem;
+
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 30px;
+}
+
+/* TITULO */
+
+.promo-editor-content h1{
+    font-size: 4.5rem;
+
+    font-weight: 800;
+
+    line-height: 1.1;
+
+    margin-bottom: 25px;
+}
+
+.promo-editor-content h1 span{
+    background:
+    linear-gradient(
+        135deg,
+        #7B7DFF,
+        #c084fc
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+/* TEXTO */
+
+.promo-editor-content p{
+    font-size: 1.15rem;
+
+    line-height: 2;
+
+    color: #d1d5db;
+
+    margin-bottom: 40px;
+
+    max-width: 550px;
+}
+
+/* BOTON */
+
+.promo-editor-btn{
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 18px 40px;
+
+    border-radius: 60px;
+
+    text-decoration: none;
+
+    background:
+    linear-gradient(
+        135deg,
+        #7B7DFF,
+        #c084fc
+    );
+
+    color: white;
+
+    font-weight: 700;
+
+    font-size: 1.05rem;
+
+    transition: all 0.4s ease;
+
+    box-shadow:
+    0 15px 40px rgba(123,125,255,.35);
+
+    border: none;
+
+    cursor: pointer;
+}
+
+.promo-editor-btn:hover{
+    transform:
+    translateY(-6px)
+    scale(1.04);
+
+    color: white;
+
+    box-shadow:
+    0 25px 60px rgba(123,125,255,.5);
+
+    text-decoration: none;
+}
+
+.promo-editor-btn i{
+    transition: transform 0.3s ease;
+}
+
+.promo-editor-btn:hover i{
+    transform: translateX(4px);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+    .promo-editor-content h1{
+        font-size: 3.5rem;
+    }
+
+    .promo-editor-content p{
+        font-size: 1.05rem;
+    }
+}
+
+@media(max-width:768px){
+
+    .promo-editor{
+        min-height: auto;
+
+        padding: 80px 0;
+
+        background-attachment: scroll;
+    }
+
+    .promo-editor-wrapper{
+        min-height: auto;
+    }
+
+    .promo-editor-content{
+        max-width: 100%;
+    }
+
+    .promo-editor-content h1{
+        font-size: 2.5rem;
+    }
+
+    .promo-editor-content p{
+        font-size: 0.95rem;
+    }
+
+    .promo-editor-btn{
+        padding: 14px 28px;
+
+        font-size: 0.9rem;
+    }
+
+    .promo-editor-tag{
+        font-size: 0.7rem;
+
+        padding: 8px 18px;
+    }
+}
+
+@media(max-width:480px){
+
+    .promo-editor-content h1{
+        font-size: 2rem;
+    }
+
+    .promo-editor-content p{
+        font-size: 0.85rem;
+    }
+
+    .promo-editor-btn{
+        padding: 12px 24px;
+
+        font-size: 0.8rem;
+    }
+}
+
+/* ========================================= */
+/* TESTIMONIOS */
+/* ========================================= */
+
+.testimonios{
+    padding: 100px 0;
+    background: #0f172a;
+}
+
+.testimonios-header{
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.testimonios-badge{
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 50px;
+    background: rgba(123,125,255,0.15);
+    color: #7B7DFF;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.testimonios-header h2{
+    font-size: 3rem;
+    font-weight: 800;
+    color: white;
+}
+
+.testimonios-header h2 span{
+    background: linear-gradient(135deg, #7B7DFF, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.testimonios-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonio-card{
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 25px;
+    padding: 35px;
+    transition: all 0.3s ease;
+}
+
+.testimonio-card:hover{
+    background: rgba(255,255,255,0.08);
+    transform: translateY(-5px);
+    border-color: rgba(123,125,255,0.3);
+}
+
+.testimonio-estrellas{
+    color: #fbbf24;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.testimonio-card p{
+    color: #d1d5db;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+.testimonio-autor{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.testimonio-autor img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #7B7DFF;
+}
+
+.testimonio-autor strong{
+    color: white;
+    display: block;
+}
+
+.testimonio-autor span{
+    color: #9ca3af;
+    font-size: 0.85rem;
+}
+
+@media(max-width:768px){
+    .testimonios-header h2{
+        font-size: 2rem;
+    }
+    .testimonios-grid{
+        grid-template-columns: 1fr;
+    }
+}
+/* ========================================= */
+/* PROMO TIENDA CINEMATICA CON HOVER */
 /* ========================================= */
 
 .promo-cinematic{
@@ -937,22 +1330,26 @@ body {
 
     overflow: hidden;
 
-    background:
-    linear-gradient(
-        rgba(0,0,0,.55),
-        rgba(0,0,0,.75)
-    ),
-
-    url('images/fondodeTienda.png');
+    background: url('images/fondodeTienda.png');
 
     background-size: cover;
 
     background-position: center;
 
     background-repeat: no-repeat;
+
+    background-attachment: fixed;
+
+    transition: all 0.6s ease;
 }
 
-/* OVERLAY */
+/* EFECTO HOVER - ZOOM SUAVE */
+
+.promo-cinematic:hover{
+    background-size: 108%;
+}
+
+/* OVERLAY MEJORADO */
 
 .overlay-dark{
     position: absolute;
@@ -965,9 +1362,20 @@ body {
         rgba(123,125,255,.35),
         transparent 40%
     );
+
+    transition: all 0.6s ease;
 }
 
-/* CONTENIDO */
+.promo-cinematic:hover .overlay-dark{
+    background:
+    radial-gradient(
+        circle at top left,
+        rgba(123,125,255,.5),
+        transparent 45%
+    );
+}
+
+/* CONTENEDOR */
 
 .promo-wrapper{
     position: relative;
@@ -1006,11 +1414,17 @@ body {
 
     backdrop-filter: blur(10px);
 
+    -webkit-backdrop-filter: blur(10px);
+
     color: white;
 
-    font-size: .9rem;
+    font-size: .85rem;
 
-    letter-spacing: 1px;
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
 
     margin-bottom: 30px;
 }
@@ -1018,7 +1432,7 @@ body {
 /* TITULO */
 
 .promo-left h1{
-    font-size: 5rem;
+    font-size: 4.5rem;
 
     font-weight: 800;
 
@@ -1035,8 +1449,8 @@ body {
         #c084fc
     );
 
-    background-clip: text;
     -webkit-background-clip: text;
+    background-clip: text;
 
     color: transparent;
     -webkit-text-fill-color: transparent;
@@ -1045,13 +1459,15 @@ body {
 /* TEXTO */
 
 .promo-left p{
-    font-size: 1.2rem;
+    font-size: 1.15rem;
 
     line-height: 2;
 
     color: #d1d5db;
 
     margin-bottom: 45px;
+
+    max-width: 550px;
 }
 
 /* BOTON */
@@ -1063,7 +1479,7 @@ body {
 
     gap: 14px;
 
-    padding: 18px 38px;
+    padding: 18px 40px;
 
     border-radius: 60px;
 
@@ -1072,49 +1488,76 @@ body {
     background:
     linear-gradient(
         135deg,
-        #4f46e5,
-        #c026d3
+        #7B7DFF,
+        #c084fc
     );
 
     color: white;
 
-    font-weight: 600;
+    font-weight: 700;
 
     font-size: 1.05rem;
 
-    transition: .4s ease;
+    transition: all 0.4s ease;
 
     box-shadow:
     0 15px 40px rgba(123,125,255,.35);
+
+    border: none;
+
+    cursor: pointer;
 }
 
 .promo-button:hover{
     transform:
     translateY(-6px)
-    scale(1.03);
+    scale(1.04);
 
     color: white;
+
+    box-shadow:
+    0 25px 60px rgba(123,125,255,.5);
+
+    text-decoration: none;
 }
 
-/* RESPONSIVE */
+.promo-button i{
+    transition: transform 0.3s ease;
+}
+
+.promo-button:hover i{
+    transform: translateX(6px);
+}
+
+/* RESPONSIVE TIENDA */
 
 @media(max-width:992px){
 
     .promo-left h1{
         font-size: 3.5rem;
     }
+
+    .promo-left p{
+        font-size: 1.05rem;
+    }
 }
 
 @media(max-width:768px){
 
     .promo-cinematic{
-        min-height: 80vh;
+        min-height: auto;
 
         padding: 80px 0;
+
+        background-attachment: scroll;
     }
 
     .promo-wrapper{
         min-height: auto;
+    }
+
+    .promo-left{
+        max-width: 100%;
     }
 
     .promo-left h1{
@@ -1122,107 +1565,35 @@ body {
     }
 
     .promo-left p{
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
     .promo-button{
-        padding: 16px 30px;
+        padding: 14px 28px;
+
+        font-size: 0.9rem;
+    }
+
+    .promo-tag{
+        font-size: 0.7rem;
+
+        padding: 8px 18px;
     }
 }
 
+@media(max-width:480px){
 
-#misionVision{
-    background: linear-gradient(to right, #f8f9fa, #eef2ff);
-}
-
-.icon-box{
-    width: 80px;
-    height: 80px;
-    background: #6c63ff;
-    color: white;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 35px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-.card-hover{
-    transition: all 0.3s ease;
-}
-
-.card-hover:hover{
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
-}
-
-.card p{
-    line-height: 1.8;
-}
-
-.navbar-soyarte {
-    display: flex;
-    align-items: stretch;
-    justify-content: space-between;
-    min-height: 55px;
-    padding: 0;
-}
- 
-.navbar-soyarte-logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 0 20px;
-    color: #fff;
-    font-weight: 600;
-    font-size: 1.2rem;
-    text-decoration: none;
-}
- 
-.navbar-soyarte-logo span {
-    font-weight: 800;
-}
- 
-.navbar-soyarte-logo:hover {
-    color: #fff;
-    opacity: 0.9;
-}
- 
-.navbar-soyarte-iconos {
-    display: flex;
-}
- 
-.icono-nav-global {
-    width: 55px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: filter 0.2s ease;
-}
- 
-.icono-nav-global:hover {
-    filter: brightness(1.15);
-    color: #fff;
-}
- 
-/* --- Responsive --- */
-@media (max-width: 576px) {
-    .navbar-soyarte {
-        min-height: 46px;
+    .promo-left h1{
+        font-size: 2rem;
     }
- 
-    .navbar-soyarte-logo {
-        font-size: 1rem;
-        padding: 0 14px;
-        gap: 6px;
+
+    .promo-left p{
+        font-size: 0.85rem;
     }
- 
-    .icono-nav-global {
-        width: 42px;
-        font-size: 1rem;
+
+    .promo-button{
+        padding: 12px 24px;
+
+        font-size: 0.8rem;
     }
 }

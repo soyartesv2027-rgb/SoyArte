@@ -100,26 +100,39 @@ form {
 }
 
 .btn-guardar:hover {
-<<<<<<< HEAD
     background: #a5ba47;
 }
-<<<<<<< HEAD
-=======
-    background: #c7e3ff;
+
+
+.btn-volver{
+    transition:.3s;
 }
 
+.btn-volver:hover{
+    background:#666 !important;
+    color:white;
+}
 
-=======
->>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
+input:focus,
+textarea:focus{
+    border-color:#4576a8;
+    box-shadow:0 0 8px rgba(69,118,168,.25);
+}
+
+.btn-guardar{
+    transition:.3s;
+}
+
+.btn-guardar:hover{
+    transform:translateY(-2px);
+}
+
 /* SoyArte palette button hover */
 button:hover,
 .btn:hover,
 [class^='btn-']:hover,
 [class*=' btn-']:hover{
     color:#2c4e7e;
-<<<<<<< HEAD
+
 }
->>>>>>> a0601b39f5cc33717e0f99aa3752e955fedfc4ad
-=======
-}
->>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
+

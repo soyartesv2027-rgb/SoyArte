@@ -9,7 +9,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contáctanos</title>
 
-    <link rel="stylesheet" href="styles/contacto.css">
+    <link rel="stylesheet" href="styles/contacto.css?v=<?php echo time(); ?>">
     <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -28,7 +28,7 @@ session_start();
 
                     <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] == 'admin'): ?>
 
-                        <a href="index.php" class="btn-admin">
+                        <a href="admin/mensaje.php" class="btn-admin">
                             📩 Ver mensajes
                         </a>
 

@@ -24,37 +24,6 @@ if ($resultado->num_rows === 0) {
 $producto = $resultado->fetch_assoc();
 
 $usuarioActual = (int)($_SESSION['usuario_id'] ?? 0);
-$mensajesPendientes = 0;
-
-if ($usuarioActual > 0) {
-    $sqlMensajes = "SELECT COUNT(*) AS total
-                    FROM mensajes m
-                    INNER JOIN conversaciones c
-                    ON m.conversacion_id = c.id
-                    WHERE m.emisor_id <> ?
-                    AND m.leido = 0
-                    AND
-                    (
-                        (
-                            c.usuario1_id = ?
-                            AND c.oculto_usuario1 = 0
-                        )
-                        OR
-                        (
-                            c.usuario2_id = ?
-                            AND c.oculto_usuario2 = 0
-                        )
-                    )";
-
-    $stmtMensajes = $conn->prepare($sqlMensajes);
-
-    if ($stmtMensajes) {
-        $stmtMensajes->bind_param("iii", $usuarioActual, $usuarioActual, $usuarioActual);
-        $stmtMensajes->execute();
-        $resultadoMensajes = $stmtMensajes->get_result()->fetch_assoc();
-        $mensajesPendientes = (int)$resultadoMensajes['total'];
-    }
-}
 
 ?>
 
@@ -67,28 +36,13 @@ if ($usuarioActual > 0) {
     <title>
         <?php echo htmlspecialchars($producto['nombre']); ?>
     </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/producto.css">
 </head>
 <body>
-    <!-- Barra superior -->
-    <div class="barra-superior">
-        <a href="tienda.php" class="btn-volver">
-            ← Volver a la tienda
-        </a>
-        <div class="acciones">
-            <a href="perfil.php">
-                👤 Mi Perfil
-            </a>
-            <a href="mensajes.php">
-                <span id="textoMensajesProducto">
-                    &#128172; Mensajes<?php echo $mensajesPendientes > 0 ? " (" . $mensajesPendientes . ")" : ""; ?>
-                </span>
-            </a>
-            <a href="php/logout.php">
-                🚪 Salir
-            </a>
-        </div>
-    </div>
+    <?php include("components/navbar.php"); ?>
     <!-- Producto -->
     <div class="detalle-producto">
         <div class="imagen-producto">
@@ -142,29 +96,9 @@ if ($usuarioActual > 0) {
             <?php endif; ?>
         </div>
     </div>
-    <?php if ($usuarioActual > 0): ?>
-    <script>
-    const textoMensajesProducto = document.getElementById("textoMensajesProducto");
 
-    function actualizarContadorProducto() {
-        if (!textoMensajesProducto) {
-            return;
-        }
-
-        fetch("php/contador_mensajes.php")
-            .then(res => res.json())
-            .then(data => {
-                const total = Number(data.total || 0);
-                textoMensajesProducto.textContent = total > 0
-                    ? "\u{1F4AC} Mensajes (" + total + ")"
-                    : "\u{1F4AC} Mensajes";
-            })
-            .catch(error => console.error(error));
-    }
-
-    setInterval(actualizarContadorProducto, 15000);
-    </script>
-    <?php endif; ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JavaScript/script.js"></script>
 </body>
 
 </html>

@@ -42,8 +42,8 @@ if (!$resultado) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="styles/tienda.css">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="styles/tienda.css?v=<?php echo time(); ?>">
+<link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <title>Tienda SoyArte</title>
 </head>
@@ -55,28 +55,20 @@ if (!$resultado) {
 
     <h1>🎨 Tienda SoyArte</h1>
 
-    <div class="acciones-tienda">
+    <form method="GET" class="buscador">
 
-        <form method="GET" class="buscador">
+        <input
+            type="text"
+            name="buscar"
+            placeholder="Buscar obras, crochet, pinturas..."
+            value="<?php echo htmlspecialchars($buscar); ?>"
+        >
 
-            <input
-                type="text"
-                name="buscar"
-                placeholder="Buscar obras, crochet, pinturas..."
-                value="<?php echo htmlspecialchars($buscar); ?>"
-            >
+        <button type="submit">
+            Buscar
+        </button>
 
-            <button type="submit">
-                Buscar
-            </button>
-
-        </form>
-
-        <a href="publicar_producto.php" class="btn-agregar">
-            ➕ Agregar Obra
-        </a>
-
-    </div>
+    </form>
 
 </section>
 
@@ -132,6 +124,16 @@ if (!$resultado) {
 <?php endif; ?>
 
 </section>
+
+<?php if(isset($_SESSION['usuario_id'])): ?>
+
+<a href="publicar_producto.php" class="btn-agregar">
+
+    <i class="fa-solid fa-plus"></i>
+
+</a>
+
+<?php endif; ?>
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
