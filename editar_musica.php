@@ -121,6 +121,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 <title>Editar Música</title>
 
 <link rel="stylesheet" href="styles/publicar_musica.css?v=<?php echo time(); ?>">
+<link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
 
 <style>
 .preview-portada{

@@ -23,6 +23,7 @@ $resultado = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel VR - SoyArte</title>
     <link rel="stylesheet" href="../styles/admin_dashboard.css">
+    <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
 </head>
 
 <body>

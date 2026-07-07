@@ -44,6 +44,7 @@ $mensaje = $resultado->fetch_assoc();
 
 <!DOCTYPE html>
 <html lang="es">
+    <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
 
 <head>
 

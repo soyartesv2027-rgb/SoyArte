@@ -104,6 +104,7 @@ $esPropietario = $usuario_id && $usuario_id === (int) $obra['usuario_id'];
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/poesia.css?v=2">
+    <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
 </head>
 <body>
  

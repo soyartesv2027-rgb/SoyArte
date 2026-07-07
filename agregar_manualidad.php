@@ -17,7 +17,7 @@ if(!isset($_SESSION['usuario_id'])){
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Nueva Manualidad</title>
-
+<link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
 <link rel="stylesheet"
 href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 

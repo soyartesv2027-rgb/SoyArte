@@ -82,6 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <meta charset="UTF-8">
 <title>Crear VR</title>
 <link rel="stylesheet" href="../styles/form_vr.css">
+<link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
 </head>
 <body>
 <div class="contenedor">

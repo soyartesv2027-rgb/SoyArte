@@ -21,6 +21,7 @@ if (!$pintura) {
     <meta charset="UTF-8">
     <title><?php echo $pintura['nombre_pintura']; ?></title>
     <link rel="stylesheet" href="styles/ver_pintura.css?v=<?php echo time(); ?>">
+    <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
 </head>
 <body>
 

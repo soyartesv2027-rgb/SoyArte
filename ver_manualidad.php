@@ -61,7 +61,7 @@ content="width=device-width, initial-scale=1.0">
 <?php echo htmlspecialchars($manualidad['nombre']); ?>
 
 </title>
-
+<link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
 <link rel="stylesheet"
 href="styles/ver_manualidad.css?v=<?php echo time();?>">
 
