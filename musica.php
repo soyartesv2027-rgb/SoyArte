@@ -19,14 +19,15 @@ $resultado = $conn->query($sql);
 
     <link rel="stylesheet" href="styles/musica.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="style.css">
-
+    <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-<?php include("components/navbar.php"); ?>
+ <?php $seccion = 'musica'; include("components/navbar-unificado.php"); ?>
+
 
 <section class="banner">
 

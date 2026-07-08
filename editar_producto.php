@@ -68,6 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <meta charset="UTF-8">
 <title>Editar Obra</title>
 <link rel="stylesheet" href="styles/editar_productos.css?v=<?php echo time(); ?>">
+<link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
 </head>
 <body>
 

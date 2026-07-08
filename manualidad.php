@@ -15,7 +15,7 @@ $resultado = $conn->query($sql);
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Manualidades</title>
-
+<link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -28,6 +28,17 @@ $resultado = $conn->query($sql);
 
 <body>
 
+<<<<<<< HEAD
+    <?php $seccion = 'manualidades'; include("components/navbar-unificado.php"); ?>
+
+    
+    <!-- CONTENEDOR -->
+    <div class="contenedor">
+    
+    
+        <!-- BANNER -->
+    <section class="banner">    
+=======
 <?php include("components/navbar.php"); ?>
 
 <div class="contenedor">
@@ -38,6 +49,7 @@ $resultado = $conn->query($sql);
 
     <section class="banner">
 
+>>>>>>> 9e2a7902b5621d9597bcab8cf71d6d9be9133c83
         <div class="contenido-banner">
 
             <h2> Manualidades</h2>

@@ -349,7 +349,7 @@ function animate() {
     }, 1200);
 
     setTimeout(() => {
-      window.location.href = "soyarte/pinturas.php";
+      window.location.href = "../spinturas.php";
     }, 2600);
   }
 

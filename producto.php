@@ -40,6 +40,7 @@ $usuarioActual = (int)($_SESSION['usuario_id'] ?? 0);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styles/producto.css">
+    <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <?php include("components/navbar.php"); ?>

@@ -26,6 +26,7 @@ $resultado = $conn->query($sql);
     <title>Mensajes de Contacto</title>
 
     <link rel="stylesheet" href="../styles/mensaje.css">
+    <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
 
 </head>
 

@@ -18,6 +18,7 @@ $resultado = $conn->query($sql);
 
 <link rel="stylesheet" href="styles/vr.css">
 <link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
 
 </head>
 <body>
