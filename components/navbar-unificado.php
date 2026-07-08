@@ -16,7 +16,7 @@ $colorNav = $colores[$seccion] ?? $colores['general'];
 
 $logos = [
     'poesia'       => 'images/logo-blanco.png',
-    'pinturas'     => 'images/logo-blanco.png',
+    'pinturas'     => 'images/logo',
     'musica'       => 'images/logo-blanco.png',
     'manualidades' => 'images/logo-blanco.png',
     'general'      => 'images/Arty.png',
@@ -59,7 +59,10 @@ $todosLosModulos = [
 // Quitar la seccion actual y tomar los primeros 3
 $iconosNav = array_filter($todosLosModulos, fn($k) => $k !== $seccion, ARRAY_FILTER_USE_KEY);
 $iconosNav = array_slice($iconosNav, 0, 3);
+
 ?>
+<link rel="stylesheet" href="styles/navbar-unificado.css">
+
 <nav class="navbar-soyarte" style="background-color: <?= $colorNav ?>;">
  
     <a href="index.php" class="navbar-soyarte-logo">
