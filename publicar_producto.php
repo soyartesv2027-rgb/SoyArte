@@ -82,6 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Publicar Obra</title>
 
     <link rel="stylesheet" href="styles/publicar.css">
+    <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
 
 </head>
 

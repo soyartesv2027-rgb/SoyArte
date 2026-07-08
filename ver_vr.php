@@ -49,6 +49,7 @@ $resultado = $stmtComentarios->get_result();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($vr['titulo']); ?></title>
     <link rel="stylesheet" href="styles/ver_vr.css?v=<?php echo filemtime(__DIR__ . '/styles/ver_vr.css'); ?>">
+    <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="detalle-vr">

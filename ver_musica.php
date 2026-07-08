@@ -36,7 +36,7 @@ if(isset($_SESSION['usuario_id'])){
 <title>
 <?php echo htmlspecialchars($musica['nombre_cancion']); ?>
 </title>
-
+<link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="styles/ver_musica.css?v=<?php echo time(); ?>">
 </head>
 <body>
