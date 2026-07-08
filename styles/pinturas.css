@@ -132,7 +132,7 @@ body{
     border: none;
     border-radius: 50%;
 
-    background: #4576a8;
+    background: #74b3f1;
 
     display: flex;
     justify-content: center;
@@ -146,13 +146,13 @@ body{
 }
 
 .boton-plus:hover{
-    background: #c7e3ff;
+    background: #64a0db;
     transform: scale(1.1) rotate(90deg);
 }
 
 .boton-plus i{
     font-size: 28px;
-    color: #2c4e7e;
+    color: #ffffff;
     line-height: 1;
 }
 
@@ -173,7 +173,7 @@ body{
 
     border-radius:30px;
 
-    background:#f8d28d;
+    background:#5980a7;
 
     cursor:pointer;
 
@@ -187,7 +187,7 @@ body{
 
     transform:translateY(-2px);
 
-    background:#f6c86c;
+    background:#32587e;
 
 }
 
@@ -252,7 +252,8 @@ body{
 }
 
 .buscador:focus-within{
-    border:2px solid #f5c867;
+    border:2px solid #4d97e0;    
+
 }
 
 .buscador i{

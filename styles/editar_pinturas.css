@@ -20,10 +20,6 @@ body {
     width: 45px;
     height: 45px;
     background: #4576a8;
-<<<<<<< HEAD
- 
-=======
->>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -110,11 +106,7 @@ button {
     padding: 14px;
     border: none;
     border-radius: 12px;
-<<<<<<< HEAD
- 
-=======
->>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
-    background: linear-gradient(135deg, #4576a8, #c7e3ff);
+    background: linear-gradient(135deg, #4d97e0, #8cc0f3);
     color: white;
     font-size: 16px;
     font-weight: bold;
@@ -123,24 +115,20 @@ button {
     justify-content: center;
     align-items: center;
     gap: 8px;
-    box-shadow: 0 6px 15px rgba(40, 167, 69, 0.3);
+    box-shadow: 0 6px 15px #32587e(40, 167, 69, 0.3);
     transition: all 0.3s ease;
 }
 
 button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(40, 167, 69, 0.4);
+    box-shadow: 0 10px 20px #32587e(40, 167, 69, 0.4);
 }
 
 .cancelar {
     flex: 1;
     padding: 14px;
     border-radius: 12px;
-<<<<<<< HEAD
- 
-=======
->>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
-    background: linear-gradient(135deg, #4576a8, #c7e3ff);
+    background: linear-gradient(135deg,#4d97e0, #8cc0f3);
     color: white;
     text-align: center;
     text-decoration: none;
@@ -150,13 +138,13 @@ button:hover {
     justify-content: center;
     align-items: center;
     gap: 8px;
-    box-shadow: 0 6px 15px rgba(220, 53, 69, 0.3);
+    box-shadow: 0 6px 15px #32587e(220, 53, 69, 0.3);
     transition: all 0.3s ease;
 }
 
 .cancelar:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(220, 53, 69, 0.4);
+    box-shadow: 0 10px 20px #32587e(220, 53, 69, 0.4);
 }
 
 @media (max-width: 600px) {
@@ -167,13 +155,12 @@ button:hover {
         flex-direction: column;
     }
 }
-<<<<<<< HEAD
+
  
 
 /* SoyArte palette button hover */
-=======
 
->>>>>>> 682a91e15b08aca335d43e066466df33210a2e4b
+
 button:hover,
 .btn:hover,
 [class^='btn-']:hover,
