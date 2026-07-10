@@ -349,7 +349,7 @@ function animate() {
     }, 1200);
 
     setTimeout(() => {
-      window.location.href = "../spinturas.php";
+      window.location.href = "../pinturas.php";
     }, 2600);
   }
 
