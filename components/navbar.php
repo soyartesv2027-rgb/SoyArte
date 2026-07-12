@@ -86,7 +86,7 @@ if (isset($_SESSION['usuario_id'])) {
         </li>
 
         <li class="mb-2">
-            <a href="manualidad.php" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-manualidades.html" class="nav-link link-dark">
                 <i class="fa-solid fa-cube"></i>
                 Manualidades
             </a>

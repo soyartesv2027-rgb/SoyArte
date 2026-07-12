@@ -80,7 +80,7 @@ $resultado = $stmt->get_result();
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-light">
-    <?php $seccion = 'poesia'; include("components/navbar-unificado.php"); ?>
+    <?php $seccion = 'poesia'; include("components/navbar.php"); ?>
  
     <div class="hero-poesia">
         <div class="hero-poesia-img"></div>

@@ -1,19 +1,14 @@
-const canvas =
-document.getElementById("canvas");
+const canvas = document.getElementById("canvas");
 
-const ctx =
-canvas.getContext("2d");
+const ctx = canvas.getContext("2d");
 
 /* FULLSCREEN */
-canvas.width =
-window.innerWidth;
+canvas.width = window.innerWidth;
 
-canvas.height =
-window.innerHeight;
+canvas.height = window.innerHeight;
 
 /* FONDO */
-document.body.style.background =
-"#fffaf0";
+document.body.style.background = "#fffaf0";
 
 document.body.style.margin = "0";
 
@@ -22,8 +17,7 @@ document.body.style.overflow = "hidden";
 /* TIJERAS */
 let scissorsX = -250;
 
-let scissorsY =
-canvas.height / 2;
+let scissorsY = canvas.height / 2;
 
 /* CORTE */
 let cutProgress = 0;
@@ -36,391 +30,272 @@ let textOpacity = 0;
 
 /* ===== CREAR PAPEL ===== */
 
-function createPaper(x,y){
+function createPaper(x, y) {
+  paperPieces.push({
+    x,
+    y,
 
-    paperPieces.push({
+    size: Math.random() * 10 + 4,
 
-        x,
-        y,
+    vx: (Math.random() - 0.5) * 6,
 
-        size:
-        Math.random()*10+4,
+    vy: Math.random() * -4,
 
-        vx:
-        (Math.random()-0.5)*6,
+    rotation: Math.random() * 360,
 
-        vy:
-        Math.random()*-4,
-
-        rotation:
-        Math.random()*360,
-
-        alpha:1
-
-    });
-
+    alpha: 1,
+  });
 }
 
 /* ===== TIJERAS ===== */
 
-function drawScissors(){
+function drawScissors() {
+  ctx.save();
 
-    ctx.save();
+  ctx.translate(scissorsX, scissorsY);
 
-    ctx.translate(
-        scissorsX,
-        scissorsY
-    );
+  ctx.rotate((15 * Math.PI) / 180);
 
-    ctx.rotate(
-        15 * Math.PI/180
-    );
+  /* MANGO */
+  ctx.strokeStyle = "#ef4444";
 
-    /* MANGO */
-    ctx.strokeStyle =
-    "#ef4444";
+  ctx.lineWidth = 10;
 
-    ctx.lineWidth = 10;
+  ctx.beginPath();
 
-    ctx.beginPath();
+  ctx.arc(-40, -20, 20, 0, Math.PI * 2);
 
-    ctx.arc(
-        -40,
-        -20,
-        20,
-        0,
-        Math.PI*2
-    );
+  ctx.stroke();
 
-    ctx.stroke();
+  ctx.beginPath();
 
-    ctx.beginPath();
+  ctx.arc(-40, 20, 20, 0, Math.PI * 2);
 
-    ctx.arc(
-        -40,
-        20,
-        20,
-        0,
-        Math.PI*2
-    );
+  ctx.stroke();
 
-    ctx.stroke();
+  /* HOJAS */
+  ctx.strokeStyle = "#9ca3af";
 
-    /* HOJAS */
-    ctx.strokeStyle =
-    "#9ca3af";
+  ctx.lineWidth = 8;
 
-    ctx.lineWidth = 8;
+  ctx.beginPath();
 
-    ctx.beginPath();
+  ctx.moveTo(-10, 0);
 
-    ctx.moveTo(-10,0);
+  ctx.lineTo(140, -30);
 
-    ctx.lineTo(140,-30);
+  ctx.stroke();
 
-    ctx.stroke();
+  ctx.beginPath();
 
-    ctx.beginPath();
+  ctx.moveTo(-10, 0);
 
-    ctx.moveTo(-10,0);
+  ctx.lineTo(140, 30);
 
-    ctx.lineTo(140,30);
+  ctx.stroke();
 
-    ctx.stroke();
+  /* CENTRO */
+  ctx.fillStyle = "#444";
 
-    /* CENTRO */
-    ctx.fillStyle =
-    "#444";
+  ctx.beginPath();
 
-    ctx.beginPath();
+  ctx.arc(-10, 0, 8, 0, Math.PI * 2);
 
-    ctx.arc(
-        -10,
-        0,
-        8,
-        0,
-        Math.PI*2
-    );
+  ctx.fill();
 
-    ctx.fill();
-
-    ctx.restore();
-
+  ctx.restore();
 }
 
 /* ===== LINEA DE CORTE ===== */
 
-function drawCut(){
+function drawCut() {
+  ctx.strokeStyle = "#d97706";
 
-    ctx.strokeStyle =
-    "#d97706";
+  ctx.lineWidth = 5;
 
-    ctx.lineWidth = 5;
+  ctx.setLineDash([12, 12]);
 
-    ctx.setLineDash([12,12]);
+  ctx.beginPath();
 
-    ctx.beginPath();
+  ctx.moveTo(0, canvas.height / 2);
 
-    ctx.moveTo(
-        0,
-        canvas.height/2
+  for (let x = 0; x <= cutProgress; x += 15) {
+    ctx.lineTo(
+      x,
+
+      canvas.height / 2 + Math.sin(x * 0.02) * 20,
     );
+  }
 
-    for(let x = 0; x <= cutProgress; x += 15){
+  ctx.stroke();
 
-        ctx.lineTo(
-
-            x,
-
-            canvas.height/2 +
-
-            Math.sin(x*0.02)*20
-
-        );
-
-    }
-
-    ctx.stroke();
-
-    ctx.setLineDash([]);
-
+  ctx.setLineDash([]);
 }
 
 /* ===== PAPEL RECORTADO ===== */
 
-function drawPaper(){
+function drawPaper() {
+  ctx.fillStyle = "#fef3c7";
 
-    ctx.fillStyle =
-    "#fef3c7";
+  ctx.beginPath();
 
-    ctx.beginPath();
+  ctx.moveTo(0, canvas.height / 2 - 120);
 
-    ctx.moveTo(
-        0,
-        canvas.height/2 - 120
-    );
-
-    for(let x = 0; x <= cutProgress; x += 20){
-
-        ctx.lineTo(
-
-            x,
-
-            canvas.height/2 - 120 +
-
-            Math.sin(x*0.02)*20
-
-        );
-
-    }
-
+  for (let x = 0; x <= cutProgress; x += 20) {
     ctx.lineTo(
-        cutProgress,
-        canvas.height/2 + 120
+      x,
+
+      canvas.height / 2 - 120 + Math.sin(x * 0.02) * 20,
     );
+  }
 
-    ctx.lineTo(
-        0,
-        canvas.height/2 + 120
-    );
+  ctx.lineTo(cutProgress, canvas.height / 2 + 120);
 
-    ctx.closePath();
+  ctx.lineTo(0, canvas.height / 2 + 120);
 
-    ctx.fill();
+  ctx.closePath();
 
+  ctx.fill();
 }
 
 /* ===== PEDAZOS ===== */
 
-function drawPieces(){
+function drawPieces() {
+  paperPieces.forEach((p, index) => {
+    p.x += p.vx;
 
-    paperPieces.forEach((p,index)=>{
+    p.y += p.vy;
 
-        p.x += p.vx;
+    p.vy += 0.1;
 
-        p.y += p.vy;
+    p.rotation += 4;
 
-        p.vy += 0.1;
-
-        p.rotation += 4;
-
-        p.alpha -= 0.015;
-
-        ctx.save();
-
-        ctx.translate(
-            p.x,
-            p.y
-        );
-
-        ctx.rotate(
-            p.rotation *
-            Math.PI/180
-        );
-
-        ctx.fillStyle =
-
-        `rgba(245,158,11,${p.alpha})`;
-
-        ctx.fillRect(
-
-            -p.size/2,
-
-            -p.size/2,
-
-            p.size,
-
-            p.size
-
-        );
-
-        ctx.restore();
-
-        if(p.alpha <= 0){
-
-            paperPieces.splice(index,1);
-
-        }
-
-    });
-
-}
-
-/* ===== TEXTO ===== */
-
-function drawText(){
-
-    textOpacity += 0.01;
+    p.alpha -= 0.015;
 
     ctx.save();
 
-    ctx.globalAlpha =
-    textOpacity;
+    ctx.translate(p.x, p.y);
 
-    ctx.fillStyle =
-    "#111";
+    ctx.rotate((p.rotation * Math.PI) / 180);
 
-    ctx.textAlign =
-    "center";
+    ctx.fillStyle = `rgba(245,158,11,${p.alpha})`;
 
-    ctx.textBaseline =
-    "middle";
+    ctx.fillRect(
+      -p.size / 2,
 
-    /* SOMBRA */
-    ctx.shadowColor =
-    "rgba(0,0,0,0.2)";
+      -p.size / 2,
 
-    ctx.shadowBlur = 10;
+      p.size,
 
-    /* TITULO */
-    ctx.font =
-    "bold 120px Arial";
-
-    ctx.fillText(
-
-        "SoyArte",
-
-        canvas.width/2,
-
-        canvas.height/2 - 20
-
-    );
-
-    /* SUB */
-    ctx.font =
-    "bold 70px Arial";
-
-    ctx.fillText(
-
-        "Manualidades",
-
-        canvas.width/2,
-
-        canvas.height/2 + 90
-
+      p.size,
     );
 
     ctx.restore();
 
+    if (p.alpha <= 0) {
+      paperPieces.splice(index, 1);
+    }
+  });
+}
+
+/* ===== TEXTO ===== */
+
+function drawText() {
+  textOpacity += 0.01;
+
+  ctx.save();
+
+  ctx.globalAlpha = textOpacity;
+
+  ctx.fillStyle = "#111";
+
+  ctx.textAlign = "center";
+
+  ctx.textBaseline = "middle";
+
+  /* SOMBRA */
+  ctx.shadowColor = "rgba(0,0,0,0.2)";
+
+  ctx.shadowBlur = 10;
+
+  /* TITULO */
+  ctx.font = "bold 120px Arial";
+
+  ctx.fillText(
+    "SoyArte",
+
+    canvas.width / 2,
+
+    canvas.height / 2 - 20,
+  );
+
+  /* SUB */
+  ctx.font = "bold 70px Arial";
+
+  ctx.fillText(
+    "Manualidades",
+
+    canvas.width / 2,
+
+    canvas.height / 2 + 90,
+  );
+
+  ctx.restore();
 }
 
 /* ===== ANIMACION ===== */
 
-function animate(){
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
+  /* AVANZAR */
+  if (cutProgress < canvas.width + 200) {
+    cutProgress += 12;
 
-    /* AVANZAR */
-    if(cutProgress < canvas.width + 200){
+    scissorsX += 12;
 
-        cutProgress += 12;
+    /* PAPELITOS */
+    if (Math.random() < 0.7) {
+      createPaper(
+        scissorsX + 120,
 
-        scissorsX += 12;
-
-        /* PAPELITOS */
-        if(Math.random() < 0.7){
-
-            createPaper(
-
-                scissorsX + 120,
-
-                scissorsY
-
-            );
-
-        }
-
+        scissorsY,
+      );
     }
+  }
 
-    /* PAPEL */
-    drawPaper();
+  /* PAPEL */
+  drawPaper();
 
-    /* LINEA */
-    drawCut();
+  /* LINEA */
+  drawCut();
 
-    /* TEXTO */
-    if(cutProgress > canvas.width*0.45){
+  /* TEXTO */
+  if (cutProgress > canvas.width * 0.45) {
+    drawText();
+  }
 
-        drawText();
+  /* PEDAZOS */
+  drawPieces();
 
-    }
+  /* TIJERAS */
+  drawScissors();
 
-    /* PEDAZOS */
-    drawPieces();
-
-    /* TIJERAS */
-    drawScissors();
-
-    requestAnimationFrame(
-        animate
-    );
-
+  requestAnimationFrame(animate);
 }
 
 animate();
 
 /* ===== FADE ===== */
 
-setTimeout(()=>{
+setTimeout(() => {
+  document.body.style.transition = "opacity 1s";
 
-    document.body.style.transition =
-    "opacity 1s";
-
-    document.body.style.opacity =
-    "0";
-
-},4000);
+  document.body.style.opacity = "0";
+}, 4000);
 
 /* ===== REDIRECCION ===== */
 
-setTimeout(()=>{
-
-    window.location.href =
-    "soyarte/soyArte/manualidad.php";
-
-},5000);
+setTimeout(() => {
+  window.location.href = "../manualidad.php";
+}, 5000);

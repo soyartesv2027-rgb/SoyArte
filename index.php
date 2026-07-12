@@ -141,7 +141,7 @@ session_start();
         <div class="video-box">
 
             <video
-                src="videos/realidad-virtual.mp4"
+                src="videos/videoPaginaInicial.mp4"
                 controls
                 autoplay
                 muted>
@@ -529,9 +529,9 @@ session_start();
                 <div class="testimonio-estrellas">★★★★★</div>
                 <p>"Soy Arte me ha dado la oportunidad de mostrar mi trabajo a toda una comunidad. ¡Es increíble!"</p>
                 <div class="testimonio-autor">
-                    <img src="images/avatar1.jpg" alt="Avatar">
+                    <img src="images/avatar1.png" alt="Avatar">
                     <div>
-                        <strong>María González</strong>
+                        <strong>Pedro González</strong>
                         <span>Artista visual</span>
                     </div>
                 </div>
@@ -541,9 +541,9 @@ session_start();
                 <div class="testimonio-estrellas">★★★★★</div>
                 <p>"La plataforma es fácil de usar y me ha conectado con otros artistas talentosos. ¡Recomendado!"</p>
                 <div class="testimonio-autor">
-                    <img src="images/avatar2.jpg" alt="Avatar">
+                    <img src="images/avatar2.png" alt="Avatar">
                     <div>
-                        <strong>Carlos Rivera</strong>
+                        <strong>Ana Rivera</strong>
                         <span>Músico</span>
                     </div>
                 </div>
@@ -553,10 +553,10 @@ session_start();
                 <div class="testimonio-estrellas">★★★★★</div>
                 <p>"El editor de arte digital es mi herramienta favorita. Puedo crear desde cualquier lugar."</p>
                 <div class="testimonio-autor">
-                    <img src="images/avatar3.jpg" alt="Avatar">
+                    <img src="images/avatar3.png" alt="Avatar">
                     <div>
-                        <strong>Ana Martínez</strong>
-                        <span>Diseñadora gráfica</span>
+                        <strong>Arturo Renderos</strong>
+                        <span>Artista </span>
                     </div>
                 </div>
             </div>
