@@ -1,65 +1,49 @@
 <?php
 session_start();
+header('Content-Type: application/json');
+
 include("conexion.php");
 
-if(!isset($_SESSION['usuario_id'])){
+if (!isset($_SESSION['usuario_id'])) {
     echo json_encode([
-        "estado"=>"login"
+        "estado" => "login"
     ]);
     exit();
 }
 
-$idUsuario=$_SESSION['usuario_id'];
-$idPintura=intval($_POST['id_pintura']);
+$idUsuario = $_SESSION['usuario_id'];
+$idPintura = intval($_POST['id_pintura']);
 
-$sql="SELECT * FROM likes_pinturas
-WHERE id_usuario=? AND id_pintura=?";
+$buscar = $conn->prepare("SELECT id FROM likes_pinturas WHERE id_usuario=? AND id_pintura=?");
+$buscar->bind_param("ii", $idUsuario, $idPintura);
+$buscar->execute();
+$resultado = $buscar->get_result();
 
-$stmt=$conn->prepare($sql);
-$stmt->bind_param("ii",$idUsuario,$idPintura);
-$stmt->execute();
+if ($resultado->num_rows > 0) {
 
-$resultado=$stmt->get_result();
+    $eliminar = $conn->prepare("DELETE FROM likes_pinturas WHERE id_usuario=? AND id_pintura=?");
+    $eliminar->bind_param("ii", $idUsuario, $idPintura);
+    $eliminar->execute();
 
-if($resultado->num_rows>0){
+    $like = false;
 
-    $sql="DELETE FROM likes_pinturas
-    WHERE id_usuario=? AND id_pintura=?";
+} else {
 
-    $stmt=$conn->prepare($sql);
-    $stmt->bind_param("ii",$idUsuario,$idPintura);
-    $stmt->execute();
+    $insertar = $conn->prepare("INSERT INTO likes_pinturas(id_usuario,id_pintura) VALUES(?,?)");
+    $insertar->bind_param("ii", $idUsuario, $idPintura);
+    $insertar->execute();
 
-    $conn->query("UPDATE pinturas
-    SET likes=likes-1
-    WHERE ID=$idPintura");
-
-    $nuevoEstado=false;
-
-}else{
-
-    $sql="INSERT INTO likes_pinturas(id_usuario,id_pintura)
-    VALUES(?,?)";
-
-    $stmt=$conn->prepare($sql);
-    $stmt->bind_param("ii",$idUsuario,$idPintura);
-    $stmt->execute();
-
-    $conn->query("UPDATE pinturas
-    SET likes=likes+1
-    WHERE ID=$idPintura");
-
-    $nuevoEstado=true;
-
+    $like = true;
 }
 
-$sql="SELECT likes FROM pinturas
-WHERE ID=$idPintura";
+$total = $conn->prepare("SELECT COUNT(*) AS total FROM likes_pinturas WHERE id_pintura=?");
+$total->bind_param("i", $idPintura);
+$total->execute();
 
-$total=$conn->query($sql)->fetch_assoc();
+$likes = $total->get_result()->fetch_assoc();
 
 echo json_encode([
-    "estado"=>"ok",
-    "likes"=>$total['likes'],
-    "like"=>$nuevoEstado
+    "estado" => "ok",
+    "likes" => $likes['total'],
+    "like" => $like
 ]);

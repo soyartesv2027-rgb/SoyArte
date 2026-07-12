@@ -216,9 +216,25 @@ $totalLikes = $consultaLikes->get_result()->fetch_assoc();
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   <script src="JavaScript/script.js"></script>
   <script>
+console.log(document.querySelectorAll(".btn-like"));
+
 document.querySelectorAll(".btn-like").forEach(boton=>{
 
+    console.log("Botón encontrado");
+
     boton.addEventListener("click",function(e){
+
+        alert("CLICK");
+
+        e.preventDefault();
+        e.stopPropagation();
+
+    });
+
+});
+
+    boton.addEventListener("click",function(e){
+    alert("Like presionado");
 
         e.preventDefault();
         e.stopPropagation();
@@ -238,6 +254,11 @@ document.querySelectorAll(".btn-like").forEach(boton=>{
         })
 
         .then(r=>r.json())
+
+        .catch(error=>{
+    console.log(error);
+    alert("Error al procesar el like.");
+});
 
         .then(data=>{
 
@@ -296,7 +317,6 @@ buscador.addEventListener("keyup",()=>{
 });
 
 </script>
-
 
 </body>
 </html>

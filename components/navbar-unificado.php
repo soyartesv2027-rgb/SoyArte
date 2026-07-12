@@ -16,7 +16,7 @@ $colorNav = $colores[$seccion] ?? $colores['general'];
 
 $logos = [
     'poesia'       => 'images/logo-blanco.png',
-    'pinturas'     => 'images/logo',
+    'pinturas'     => 'images/logo-blanco.png',
     'musica'       => 'images/logo-blanco.png',
     'manualidades' => 'images/logo-blanco.png',
     'general'      => 'images/Arty.png',
