@@ -316,5 +316,21 @@ document.querySelectorAll(".btn-like").forEach(boton=>{
 
 </script>
 
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    window.addEventListener("scroll", () => {
+      const section = document.querySelector(".info-soyarte");
+      if (section) {
+        const position = section.getBoundingClientRect().top;
+        const screen = window.innerHeight;
+        if (position < screen - 100) {
+          section.classList.add("visible");
+        }
+      }
+    });
+  </script>
+  <script src="JavaScript/script.js"></script>
+
 </body>
 </html>

@@ -1,0 +1,1309 @@
+/* ================================================================
+   EDITOR.CSS - Estilos completos para el editor de arte
+   Diseño: Glassmorphism + Dark Theme
+   ================================================================ */
+
+/* ================================================================
+   1. VARIABLES Y TEMAS
+   ================================================================ */
+
+:root {
+  /* Colores principales */
+  --color-primary: #6c63ff;
+  --color-primary-hover: #5a52d5;
+  --color-primary-light: #8b83ff;
+  --color-secondary: #c084fc;
+  --color-success: #5cfc9b;
+  --color-danger: #fc5c7c;
+  --color-warning: #fcb45c;
+
+  /* Fondo */
+  --bg-primary: #0f0e13;
+  --bg-secondary: #1a1921;
+  --bg-surface: #23222b;
+  --bg-surface-2: #2d2b38;
+  --bg-hover: rgba(255, 255, 255, 0.05);
+
+  /* Texto */
+  --text-primary: #f0edf6;
+  --text-secondary: #a8a4b8;
+  --text-muted: #6b6a7a;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(26, 25, 33, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+
+  /* Bordes y radios */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+
+  /* Layout */
+  --header-height: 52px;
+  --footer-height: 40px;
+  --toolbar-width: 56px;
+  --panels-width: 280px;
+
+  /* Transiciones */
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ================================================================
+   2. RESET Y BASE
+   ================================================================ */
+
+.editor-container * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.editor-container {
+  font-family:
+    "Inter",
+    -apple-system,
+    system-ui,
+    sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* ================================================================
+   3. SCROLLBAR PERSONALIZADA
+   ================================================================ */
+
+.editor-container::-webkit-scrollbar,
+.editor-panels::-webkit-scrollbar,
+.layers-list::-webkit-scrollbar,
+.history-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.editor-container::-webkit-scrollbar-track,
+.editor-panels::-webkit-scrollbar-track,
+.layers-list::-webkit-scrollbar-track,
+.history-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.editor-container::-webkit-scrollbar-thumb,
+.editor-panels::-webkit-scrollbar-thumb,
+.layers-list::-webkit-scrollbar-thumb,
+.history-list::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 10px;
+}
+
+/* ================================================================
+   4. HEADER (Barra superior)
+   ================================================================ */
+
+.editor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  padding: 0 20px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+/* Logo */
+.header-left .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.logo-icon {
+  font-size: 1.3rem;
+}
+
+.logo-text {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Centro - Botones de acción */
+.header-center {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.header-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.header-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.header-btn.primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.header-btn.primary:hover {
+  background: var(--color-primary-hover);
+  box-shadow: 0 0 24px rgba(108, 99, 255, 0.3);
+}
+
+.header-btn.success {
+  background: var(--color-success);
+  color: var(--bg-primary);
+}
+
+.header-btn.success:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 0 24px rgba(92, 252, 155, 0.3);
+}
+
+.header-btn i {
+  font-size: 0.85rem;
+}
+
+/* Derecha - Usuario */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px 4px 6px;
+  border-radius: 50px;
+  background: var(--bg-surface);
+  border: 1px solid var(--glass-border);
+}
+
+.header-user img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.header-user span {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.header-exit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.header-exit:hover {
+  background: rgba(252, 92, 124, 0.15);
+  color: var(--color-danger);
+}
+
+/* ================================================================
+   5. CUERPO PRINCIPAL
+   ================================================================ */
+
+.editor-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ================================================================
+   6. TOOLBAR (Izquierda)
+   ================================================================ */
+
+.editor-toolbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: var(--toolbar-width);
+  padding: 8px 4px;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--glass-border);
+  overflow-y: auto;
+  flex-shrink: 0;
+  gap: 1px;
+}
+
+.tool-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  gap: 1px;
+}
+
+.tool-btn .tool-label {
+  font-size: 0.45rem;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  opacity: 0.4;
+  line-height: 1;
+}
+
+.tool-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.tool-btn.active {
+  background: rgba(108, 99, 255, 0.2);
+  color: var(--color-primary);
+  box-shadow: inset 0 0 0 1px rgba(108, 99, 255, 0.2);
+}
+
+.tool-btn.active .tool-label {
+  opacity: 0.8;
+  color: var(--color-primary);
+}
+
+.tool-btn:active {
+  transform: scale(0.92);
+}
+
+.tool-divider {
+  width: 28px;
+  height: 1px;
+  background: var(--glass-border);
+  margin: 4px 0;
+}
+
+/* ================================================================
+   7. ÁREA DEL CANVAS
+   ================================================================ */
+
+.editor-canvas-area {
+  flex: 1;
+  position: relative;
+  background: var(--bg-primary);
+  overflow: hidden;
+}
+
+/* Reglas */
+.editor-rulers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.ruler-horizontal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: rgba(26, 25, 33, 0.6);
+  backdrop-filter: blur(4px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.ruler-vertical {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 20px;
+  background: rgba(26, 25, 33, 0.6);
+  backdrop-filter: blur(4px);
+  border-right: 1px solid var(--glass-border);
+}
+
+/* Viewport */
+.editor-viewport {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: radial-gradient(ellipse at center, #1a1921 0%, #0f0e13 100%);
+}
+
+#mainCanvas {
+  display: block;
+  background: #ffffff;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+  touch-action: none;
+  cursor: crosshair;
+  transition: transform 0.2s ease;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Cursor personalizado */
+.cursor-preview {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 5;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Cuadrícula overlay */
+.editor-grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* ================================================================
+   8. PANELES (Derecha)
+   ================================================================ */
+
+.editor-panels {
+  display: flex;
+  flex-direction: column;
+  width: var(--panels-width);
+  background: var(--bg-secondary);
+  border-left: 1px solid var(--glass-border);
+  padding: 10px;
+  gap: 10px;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+/* Panel individual */
+.panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.panel-header h3 {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.panel-header h3 i {
+  font-size: 0.8rem;
+}
+
+.panel-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.panel-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.75rem;
+}
+
+.panel-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+/* ================================================================
+   9. PANEL - CAPAS
+   ================================================================ */
+
+.layers-panel {
+  flex: 1;
+  min-height: 160px;
+}
+
+.layers-list {
+  padding: 6px 8px;
+  max-height: 220px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.layer-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+
+.layer-item:hover {
+  background: var(--bg-hover);
+}
+
+.layer-item.active {
+  background: rgba(108, 99, 255, 0.12);
+  border-color: rgba(108, 99, 255, 0.2);
+}
+
+.layer-item .layer-visibility {
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.75rem;
+  width: 20px;
+  text-align: center;
+}
+
+.layer-item .layer-visibility:hover {
+  color: var(--text-primary);
+}
+
+.layer-item .layer-thumbnail {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: #fff;
+  border: 1px solid var(--glass-border);
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.layer-item .layer-thumbnail canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.layer-item .layer-name {
+  flex: 1;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.layer-item .layer-opacity {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  min-width: 32px;
+  text-align: right;
+}
+
+.layer-item .layer-lock {
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.7rem;
+}
+
+.layer-item .layer-lock:hover {
+  color: var(--text-primary);
+}
+
+.layer-item.active .layer-name {
+  color: var(--text-primary);
+}
+
+.layer-item.locked {
+  opacity: 0.6;
+}
+
+/* ================================================================
+   10. PANEL - HISTORIAL
+   ================================================================ */
+
+.history-panel {
+  flex: 1;
+  min-height: 120px;
+}
+
+.history-count {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+}
+
+.history-list {
+  padding: 6px 8px;
+  max-height: 180px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  border-left: 2px solid transparent;
+}
+
+.history-item:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.history-item.active {
+  border-left-color: var(--color-primary);
+  background: rgba(108, 99, 255, 0.08);
+  color: var(--text-primary);
+}
+
+.history-item .history-thumbnail {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  background: #fff;
+  border: 1px solid var(--glass-border);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.history-item .history-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.history-item .history-action {
+  flex: 1;
+  font-weight: 500;
+}
+
+.history-item .history-time {
+  font-size: 0.55rem;
+  color: var(--text-muted);
+}
+
+/* ================================================================
+   11. PANEL - PROPIEDADES
+   ================================================================ */
+
+.properties-panel {
+  flex-shrink: 0;
+}
+
+.properties-content {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.prop-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.prop-label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+.color-row {
+  display: flex;
+  gap: 8px;
+}
+
+.color-input {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  padding: 2px;
+  cursor: pointer;
+  background: transparent;
+}
+
+.color-input::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.color-input::-webkit-color-swatch {
+  border: none;
+  border-radius: 4px;
+}
+
+.slider-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.prop-slider {
+  flex: 1;
+  -webkit-appearance: none;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--glass-border);
+  outline: none;
+  transition: var(--transition);
+}
+
+.prop-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  cursor: pointer;
+  box-shadow: 0 0 16px rgba(108, 99, 255, 0.3);
+}
+
+.prop-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  cursor: pointer;
+  border: none;
+}
+
+.slider-value {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  min-width: 32px;
+  text-align: right;
+}
+
+.mode-row {
+  display: flex;
+  gap: 4px;
+}
+
+.mode-btn {
+  flex: 1;
+  padding: 4px 8px;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.mode-btn:hover {
+  background: var(--bg-hover);
+}
+
+.mode-btn.active {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+/* ================================================================
+   12. FOOTER (Barra inferior)
+   ================================================================ */
+
+.editor-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--footer-height);
+  padding: 0 16px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--glass-border);
+  flex-shrink: 0;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-item {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.footer-item i {
+  font-size: 0.7rem;
+}
+
+.footer-divider {
+  color: var(--glass-border);
+}
+
+.zoom-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.75rem;
+}
+
+.zoom-btn:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.zoom-value {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  min-width: 40px;
+  text-align: center;
+}
+
+/* ================================================================
+   13. MODALES
+   ================================================================ */
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--glass-shadow);
+}
+
+.modal-large {
+  max-width: 700px;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.modal-header h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-header h2 i {
+  color: var(--color-primary);
+}
+
+.modal-close {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: var(--transition);
+}
+
+.modal-close:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 20px;
+  border-top: 1px solid var(--glass-border);
+}
+
+/* Formularios modales */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.modal-input,
+.modal-select,
+.modal-textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.85rem;
+  transition: var(--transition);
+}
+
+.modal-input:focus,
+.modal-select:focus,
+.modal-textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+}
+
+.modal-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.modal-select option {
+  background: var(--bg-secondary);
+}
+
+.btn-cancel,
+.btn-confirm {
+  padding: 8px 20px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-cancel {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--glass-border);
+}
+
+.btn-cancel:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.btn-confirm {
+  background: var(--color-primary);
+  color: white;
+}
+
+.btn-confirm:hover {
+  background: var(--color-primary-hover);
+  box-shadow: 0 0 24px rgba(108, 99, 255, 0.3);
+}
+
+/* Galería de proyectos en modal */
+.proyectos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.proyecto-card {
+  background: var(--bg-surface);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--glass-border);
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.proyecto-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.proyecto-card img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  display: block;
+  background: #fff;
+}
+
+.proyecto-card .proyecto-info {
+  padding: 8px 10px;
+}
+
+.proyecto-card .proyecto-info h4 {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.proyecto-card .proyecto-info .proyecto-fecha {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+}
+
+.loading-proyectos {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--text-muted);
+  padding: 40px 0;
+}
+
+/* ================================================================
+   14. TOAST (Notificaciones)
+   ================================================================ */
+
+.toast {
+  position: fixed;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  padding: 10px 24px;
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 200;
+  max-width: 90vw;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast.success {
+  border-color: rgba(92, 252, 155, 0.3);
+}
+
+.toast.success i {
+  color: var(--color-success);
+}
+
+.toast.error {
+  border-color: rgba(252, 92, 124, 0.3);
+}
+
+.toast.error i {
+  color: var(--color-danger);
+}
+
+.toast.info {
+  border-color: rgba(108, 99, 255, 0.3);
+}
+
+.toast.info i {
+  color: var(--color-primary);
+}
+
+/* ================================================================
+   15. RESPONSIVE
+   ================================================================ */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 1024px) {
+  :root {
+    --panels-width: 240px;
+  }
+
+  .header-btn span:not(:first-child) {
+    display: none;
+  }
+
+  .header-btn {
+    padding: 6px 10px;
+  }
+
+  .editor-panels {
+    width: var(--panels-width);
+    padding: 8px;
+  }
+}
+
+/* Móviles y tablets pequeñas */
+@media (max-width: 768px) {
+  :root {
+    --toolbar-width: 48px;
+    --panels-width: 0px;
+    --header-height: 48px;
+    --footer-height: 36px;
+  }
+
+  .editor-header {
+    padding: 0 12px;
+  }
+
+  .header-center .header-btn span:not(:first-child) {
+    display: none;
+  }
+
+  .header-center .header-btn {
+    padding: 4px 8px;
+    font-size: 0.7rem;
+  }
+
+  .header-user span {
+    display: none;
+  }
+
+  .editor-toolbar {
+    width: var(--toolbar-width);
+    padding: 4px 2px;
+  }
+
+  .tool-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 0.9rem;
+  }
+
+  .tool-btn .tool-label {
+    display: none;
+  }
+
+  .editor-panels {
+    display: none;
+  }
+
+  .editor-panels.mobile-open {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 280px;
+    background: var(--bg-secondary);
+    border-left: 1px solid var(--glass-border);
+    z-index: 20;
+    padding: 10px;
+  }
+
+  .editor-viewport {
+    padding: 10px;
+    top: 0;
+    left: 0;
+  }
+
+  .editor-footer {
+    padding: 0 10px;
+    font-size: 0.6rem;
+  }
+
+  .footer-item span {
+    display: none;
+  }
+
+  .footer-divider {
+    display: none;
+  }
+
+  .zoom-btn {
+    width: 20px;
+    height: 20px;
+    font-size: 0.6rem;
+  }
+
+  .zoom-value {
+    min-width: 30px;
+    font-size: 0.6rem;
+  }
+
+  .modal-content {
+    max-width: 100%;
+    margin: 10px;
+    border-radius: var(--radius-md);
+  }
+
+  .proyectos-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  :root {
+    --toolbar-width: 40px;
+    --header-height: 44px;
+    --footer-height: 32px;
+  }
+
+  .header-center .header-btn {
+    padding: 4px 6px;
+    font-size: 0.6rem;
+  }
+
+  .header-center .header-btn i {
+    font-size: 0.7rem;
+  }
+
+  .tool-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.75rem;
+  }
+
+  .editor-viewport {
+    padding: 6px;
+  }
+
+  .footer-item {
+    font-size: 0.55rem;
+  }
+
+  .modal-body {
+    padding: 14px;
+  }
+
+  .modal-footer {
+    padding: 12px 14px;
+  }
+}
