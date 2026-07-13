@@ -22,10 +22,10 @@ if ($es_local) {
     // Estos datos los encuentras en el panel de InfinityFree
     // Ve a: https://client.infinityfree.com/ → "Manage" → "MySQL Database"
     
-    $host = "sql123.infinityfree.com";  // ← Cambia por el host que te da InfinityFree
-    $user = "if0_12345678";              // ← Cambia por tu usuario de BD
-    $password = "TuContraseña123";       // ← Cambia por tu contraseña de BD
-    $dbname = "if0_12345678_soyarte";    // ← Cambia por el nombre de tu BD
+    $host = "sql06.infinityfree.com";  // ← Cambia por el host que te da InfinityFree
+    $user = "if0_42367848";              // ← Cambia por tu usuario de BD
+    $password = "Nb8QvCLtKKVNyy5";       // ← Cambia por tu contraseña de BD
+    $dbname = "if0_42367848_soyarte";    // ← Cambia por el nombre de tu BD
 }
 
 $conn = new mysqli($host, $user, $password, $dbname);
