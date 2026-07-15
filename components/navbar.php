@@ -4,7 +4,7 @@
 // IMPORTANTE:
 // session_start() debe ir antes del include
 // =============================================
-$base_url = '/soyarte/soyarte';
+
 $mensajesPendientes = 0;
 
 if (isset($_SESSION['usuario_id'])) {
@@ -58,53 +58,53 @@ if (isset($_SESSION['usuario_id'])) {
     <ul class="nav nav-pills flex-column mb-auto">
 
         <li class="nav-item mb-2">
-            <a href="<?= $base_url ?>/index.php" class="nav-link active">
+            <a href="index.php" class="nav-link active">
                 <i class="fa-solid fa-house me-2"></i>
                 Inicio
             </a>
         </li>
 
         <li class="mb-2">
-            <a href="<?= $base_url ?>/Pantalla-de-carga/PC-pintura.html" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-pintura.html" class="nav-link link-dark">
                 <i class="fa-solid fa-image me-2"></i>
                 Pinturas
             </a>
         </li>
 
         <li class="mb-2">
-            <a href="<?= $base_url ?>/Pantalla-de-carga/PC-musica.html" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-musica.html" class="nav-link link-dark">
                 <i class="fa-solid fa-music"></i>
                 Musica
             </a>
         </li>
 
         <li class="mb-2">
-            <a href="<?= $base_url ?>/Pantalla-de-carga/PC-poesia.html" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-poesia.html" class="nav-link link-dark">
                 <i class="fa-solid fa-feather-pointed"></i>
                 Poesia
             </a>
         </li>
 
         <li class="mb-2">
-            <a href="<?= $base_url ?>/Pantalla-de-carga/PC-manualidades.html" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-manualidades.html" class="nav-link link-dark">
                 <i class="fa-solid fa-cube"></i>
                 Manualidades
             </a>
         </li>
         <li class="mb-2">
-            <a href="<?= $base_url ?>/Pantalla-de-carga/PC-realidad.html" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-realidad.html" class="nav-link link-dark">
                 <i class="fa-solid fa-vr-cardboard"></i>
                 Realidad Virtual
             </a>
         </li>
             <li class="mb-2">
-            <a href="<?= $base_url ?>/Pantalla-de-carga/PC-shop.html" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-shop.html" class="nav-link link-dark">
             <i class="fa-solid fa-cart-shopping"></i>
                 Tienda
             </a>
         </li>
         <li class="mb-2">
-            <a href="<?= $base_url ?>/comunidad/foro.php" class="nav-link link-dark">
+            <a href="comunidad/foro.php" class="nav-link link-dark">
             <i class="fa-solid fa-comments me-2"></i>
                 Comunidad
             </a>
@@ -139,15 +139,15 @@ if (isset($_SESSION['usuario_id'])) {
 
         <!-- LOGO -->
         <a class="navbar-brand d-flex align-items-center gap-2 fw-bold text-white"
-            href="<?= $base_url ?>/index.php">
+            href="index.php">
 
            
 
             <img
-                src="<?= $base_url ?>/images/logo-Blanco.png"
+                src="images/Logo-Blanco.png"
                 alt="Arty"
                 width="100px"
-                ;">
+                ;>
         </a>
 
             <!-- SESION -->
@@ -173,14 +173,14 @@ if (isset($_SESSION['usuario_id'])) {
                         <ul class="dropdown-menu dropdown-menu-end shadow-sm">
 
                             <li>
-                                <a class="dropdown-item" href="<?= $base_url ?>/perfil.php">
+                                <a class="dropdown-item" href="perfil.php">
                                     <i class="fa-solid fa-id-card me-2"></i>
                                     Perfil
                                 </a>
                             </li>
 
                             <li>
-                                <a class="dropdown-item" href="<?= $base_url ?>/mensajes.php">
+                                <a class="dropdown-item" href="mensajes.php">
                                     <i class="fa-solid fa-message me-2"></i>
                                     <span
                                         id="textoMensajesMenu"
@@ -196,7 +196,7 @@ if (isset($_SESSION['usuario_id'])) {
 
                             <li>
                                 <a class="dropdown-item text-danger"
-                                    href="<?= $base_url ?>/php/logout.php">
+                                    href="php/logout.php">
 
                                     <i class="fa-solid fa-right-from-bracket me-2"></i>
                                     Cerrar sesión
@@ -212,14 +212,14 @@ if (isset($_SESSION['usuario_id'])) {
 
                     <!-- SIN SESION -->
                     <a class="btn btn-outline-light me-2"
-                        href="<?= $base_url ?>/login.html">
+                        href="login.html">
 
                         Login
 
                     </a>
 
                     <a class="btn btn-primary"
-                        href="<?= $base_url ?>/register.html">
+                        href="register.html">
 
                         Registrarse
 
@@ -244,7 +244,7 @@ function actualizarContadorMensajes() {
         return;
     }
 
-    fetch("<?= $base_url ?>/php/contador_mensajes.php")
+    fetch("php/contador_mensajes.php")
         .then(res => res.json())
         .then(data => {
             const total = Number(data.total || 0);

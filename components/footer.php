@@ -1,4 +1,4 @@
-<?php $base_url = '/soyarte/soyarte'; ?>
+
 <!-- ===== FOOTER ===== -->
 <footer class="footer-soyarte">
     <div class="container py-5">
@@ -24,19 +24,19 @@
                 <ul class="footer-links">
 
                     <li>
-                        <a href="<?= $base_url ?>/sobre-nosotros.php">
+                        <a href="sobre-nosotros.php">
                             Sobre nosotros
                         </a>
                     </li>
 
                     <li>
-                        <a href="<?= $base_url ?>/contacto.php">
+                        <a href="contacto.php">
                             Contáctanos
                         </a>
                     </li>
 
                     <li>
-                        <a href="<?= $base_url ?>/apoyanos.html">
+                        <a href="apoyanos.html">
                             Apóyanos
                         </a>
                     </li>
