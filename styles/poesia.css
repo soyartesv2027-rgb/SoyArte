@@ -9,10 +9,6 @@ body {
     background-color: #fadbe3;
 }
  
-<<<<<<< HEAD
-
-=======
->>>>>>> 9e2a7902b5621d9597bcab8cf71d6d9be9133c83
 .tarjeta-obra {
     position: relative;
     overflow: hidden;
@@ -273,7 +269,7 @@ body {
 }
  
 .btn-guardar:hover {
-    background: #c7e3ff;
+    background: #ffc3e4;
     color: #fff;
 }
  

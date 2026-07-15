@@ -4,7 +4,15 @@ $conexion = new mysqli("localhost", "root", "", "soyarte");
 if ($conexion->connect_error) {
     die("Error de conexión");
 }
-$sql = "SELECT * FROM pinturas ORDER BY ID DESC";
+$sql = "SELECT
+            p.*,
+            COUNT(lp.id) AS total_likes
+        FROM pinturas p
+        LEFT JOIN likes_pinturas lp
+            ON p.ID = lp.id_pintura
+        GROUP BY p.ID
+        ORDER BY p.ID DESC";
+
 $resultado = $conexion->query($sql);
 
 $idUsuario = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : 0;
@@ -160,32 +168,50 @@ if($idUsuario > 0){
                 <?php echo htmlspecialchars($fila['autor']); ?>
             </p>
 
+            <?php
+
+$tieneLike = false;
+
+if($idUsuario > 0){
+
+    $consulta = $conexion->prepare("
+        SELECT id
+        FROM likes_pinturas
+        WHERE id_usuario=?
+        AND id_pintura=?");
+
+    $consulta->bind_param("ii",$idUsuario,$fila['ID']);
+    $consulta->execute();
+
+    $tieneLike = $consulta->get_result()->num_rows>0;
+}
+
+?>
+
+
+
            <span class="tipoarte">
     <?php echo htmlspecialchars($fila['descripcion']); ?>
 </span>
 
-<?php
-$consultaLikes = $conexion->prepare("SELECT COUNT(*) AS total FROM likes_pinturas WHERE id_pintura=?");
-$consultaLikes->bind_param("i", $fila['ID']);
-$consultaLikes->execute();
-$totalLikes = $consultaLikes->get_result()->fetch_assoc();
-?>
+<div class="contenedor-like">
 
-<div class="likes">
+<button
+class="btn-like <?php echo $tieneLike ? 'activo' : ''; ?>"
+data-id="<?php echo $fila['ID']; ?>">
 
-    <button
-        class="contador btn-like <?php echo $tieneLike ? 'activo' : ''; ?>"
-        data-id="<?php echo $fila['ID']; ?>">
+<i class="<?php echo $tieneLike ? 'fa-solid' : 'fa-regular'; ?> fa-heart"></i>
 
-        <i class="<?php echo $tieneLike ? 'fa-solid' : 'fa-regular'; ?> fa-heart"></i>
+<span class="contador-like">
 
-        <span id="likes-<?php echo $fila['ID']; ?>">
-            <?php echo $totalLikes['total']; ?>
-        </span>
+<?php echo $fila['total_likes']; ?>
 
-    </button>
+</span>
+
+</button>
 
 </div>
+
 
         </div>
 
@@ -201,21 +227,33 @@ $totalLikes = $consultaLikes->get_result()->fetch_assoc();
       <i class="fa-solid fa-plus"></i>
     </button>
   </a>
-  <script>
-    window.addEventListener("scroll", () => {
-      const section = document.querySelector(".info-soyarte");
-      if (section) {
-        const position = section.getBoundingClientRect().top;
-        const screen = window.innerHeight;
-        if (position < screen - 100) {
-          section.classList.add("visible");
+
+ <script>
+
+const buscador=document.getElementById("buscarPintura");
+
+buscador.addEventListener("keyup",()=>{
+
+    let texto=buscador.value.toLowerCase();
+
+    document.querySelectorAll(".art-card").forEach(card=>{
+
+        let contenido=card.innerText.toLowerCase();
+
+        if(contenido.includes(texto)){
+            card.parentElement.style.display="";
+        }else{
+            card.parentElement.style.display="none";
         }
-      }
+
     });
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="JavaScript/script.js"></script>
-  <script>
+
+});
+
+</script>
+
+<script>
+
 document.querySelectorAll(".btn-like").forEach(boton=>{
 
     boton.addEventListener("click",function(e){
@@ -237,29 +275,37 @@ document.querySelectorAll(".btn-like").forEach(boton=>{
 
         })
 
-        .then(r=>r.json())
+        .then(res=>res.json())
 
         .then(data=>{
 
             if(data.estado=="login"){
-
-                alert("Debes iniciar sesión para dar like.");
+                alert("Debes iniciar sesión.");
                 return;
-
             }
 
-            document.getElementById("likes-"+id).innerText=data.likes;
+            if(data.estado!="ok"){
+                return;
+            }
+
+            this.querySelector(".contador-like").innerText=data.likes;
+
+            let icono=this.querySelector("i");
 
             if(data.like){
+
                 this.classList.add("activo");
-this.querySelector("i").classList.remove("fa-regular");
-this.querySelector("i").classList.add("fa-solid");
+
+                icono.classList.remove("fa-regular");
+                icono.classList.add("fa-solid");
 
             }else{
 
-          this.classList.remove("activo");
-this.querySelector("i").classList.remove("fa-solid");
-this.querySelector("i").classList.add("fa-regular");
+                this.classList.remove("activo");
+
+                icono.classList.remove("fa-solid");
+                icono.classList.add("fa-regular");
+
             }
 
         });
@@ -267,36 +313,24 @@ this.querySelector("i").classList.add("fa-regular");
     });
 
 });
+
 </script>
 
-<script>
 
-const buscador=document.getElementById("buscarPintura");
-
-buscador.addEventListener("keyup",()=>{
-
-    let texto=buscador.value.toLowerCase();
-
-    document.querySelectorAll(".art-card").forEach(card=>{
-
-        let contenido=card.innerText.toLowerCase();
-
-        if(contenido.includes(texto)){
-
-            card.parentElement.style.display="";
-
-        }else{
-
-            card.parentElement.style.display="none";
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    window.addEventListener("scroll", () => {
+      const section = document.querySelector(".info-soyarte");
+      if (section) {
+        const position = section.getBoundingClientRect().top;
+        const screen = window.innerHeight;
+        if (position < screen - 100) {
+          section.classList.add("visible");
         }
-
+      }
     });
-
-});
-
-</script>
-
+  </script>
+  <script src="JavaScript/script.js"></script>
 
 </body>
 </html>

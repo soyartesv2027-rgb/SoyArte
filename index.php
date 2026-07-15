@@ -423,7 +423,7 @@ session_start();
                     creativo sin límites.
                 </p>
 
-                <a href="juego.html" class="promo-editor-btn">
+                <a href="juego.php" class="promo-editor-btn">
 
                     <i class="fa-solid fa-paintbrush me-2"></i>
 

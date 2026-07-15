@@ -4,6 +4,7 @@
 // IMPORTANTE:
 // session_start() debe ir antes del include
 // =============================================
+
 $mensajesPendientes = 0;
 
 if (isset($_SESSION['usuario_id'])) {
@@ -38,7 +39,6 @@ if (isset($_SESSION['usuario_id'])) {
     }
 }
 ?>
-
 <!-- OVERLAY -->
 <div id="overlay"></div>
 
@@ -103,7 +103,12 @@ if (isset($_SESSION['usuario_id'])) {
                 Tienda
             </a>
         </li>
-
+        <li class="mb-2">
+            <a href="comunidad/foro.php" class="nav-link link-dark">
+            <i class="fa-solid fa-comments me-2"></i>
+                Comunidad
+            </a>
+        </li>
     </ul>
 
     
@@ -139,10 +144,10 @@ if (isset($_SESSION['usuario_id'])) {
            
 
             <img
-                src="images/logo-Blanco.png"
+                src="images/Logo-Blanco.png"
                 alt="Arty"
                 width="100px"
-                ;">
+                ;>
         </a>
 
             <!-- SESION -->

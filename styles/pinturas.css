@@ -156,66 +156,6 @@ body{
     line-height: 1;
 }
 
-.likes{
-    margin-top:18px;
-}
-
-.btn-like{
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-
-    padding:10px 18px;
-
-    border:none;
-
-    border-radius:30px;
-
-    background:#5980a7;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-    box-shadow:0 4px 10px rgba(0,0,0,.12);
-
-}
-
-.btn-like:hover{
-
-    transform:translateY(-2px);
-
-    background:#32587e;
-
-}
-
-.btn-like i{
-
-    font-size:20px;
-
-    color:#222;
-
-    transition:.3s;
-
-}
-
-.btn-like span{
-
-    font-size:15px;
-
-    font-weight:700;
-
-    color:#5d3d00;
-
-}
-
-.btn-like.activo i{
-
-    color:#ff3b5c;
-
-}
 
 /* ===========================
    BUSCADOR
@@ -277,6 +217,68 @@ body{
 .buscador input::placeholder{
     color:#999;
 }
+
+/* ======== LIKES ======== */
+
+.contenedor-like{
+    margin-top:12px;
+}
+
+.btn-like{
+
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    border:none;
+    background:#c1daf7;
+
+    padding:10px 16px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    color:#2c4e7e;
+
+    font-weight:700;
+
+}
+
+.btn-like:hover{
+
+    background:#b7d9fd;
+
+    transform:scale(1.05);
+
+}
+
+.btn-like i{
+
+    font-size:20px;
+
+    transition:.3s;
+
+}
+
+.btn-like.activo i{
+
+    color:#ff3b5c;
+
+}
+
+.contador-like{
+
+    font-size:15px;
+
+    min-width:18px;
+
+    text-align:center;
+
+}
+
 @media screen and (max-width: 768px) {
   .header {
     flex-direction: column;

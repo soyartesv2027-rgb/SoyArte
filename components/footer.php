@@ -1,3 +1,4 @@
+
 <!-- ===== FOOTER ===== -->
 <footer class="footer-soyarte">
     <div class="container py-5">
@@ -23,7 +24,7 @@
                 <ul class="footer-links">
 
                     <li>
-                        <a href="#">
+                        <a href="sobre-nosotros.php">
                             Sobre nosotros
                         </a>
                     </li>
