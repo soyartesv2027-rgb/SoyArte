@@ -33,7 +33,7 @@ $idUsuario = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : 0;
 </head>
 
 <body>
-   <?php $seccion = 'pinturas'; include("components/navbar.php"); ?>
+    <?php $seccion = 'pinturas'; include("components/navbar-unificado.php"); ?>
 
   <header class="banner-container">
     <div class="banner-header">
