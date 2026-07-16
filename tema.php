@@ -1,10 +1,10 @@
 <?php
 session_start();
-require_once __DIR__ . '/../php/conexion.php';
-require_once __DIR__ . '/funciones_foro.php';
+require_once __DIR__ . '/php/conexion.php';
+require_once __DIR__ . '/comunidad/funciones_foro.php';
 
 if (!isset($_SESSION['usuario_id'])) {
-    header("Location: ../login.html");
+    header("Location: login.html");
     exit();
 }
 
@@ -88,12 +88,12 @@ if (isset($_GET['msg'])) {
     <title><?php echo htmlspecialchars($tema['titulo']); ?> - Comunidad SoyArte</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="shortcut icon" href="../favicon_io/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../style.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../styles/comunidad.css?v=<?php echo time(); ?>">
+    <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="styles/comunidad.css?v=<?php echo time(); ?>">
 </head>
 <body>
-    <?php include("../components/navbar.php"); ?>
+    <?php include("components/navbar.php"); ?>
 
     <div class="foro-header" style="padding:40px 0 30px;">
         <a href="categoria.php?slug=<?php echo urlencode($tema['cat_slug']); ?>" class="foro-btn foro-btn-back" style="margin-bottom:10px;">
@@ -128,19 +128,19 @@ if (isset($_GET['msg'])) {
             <div class="post-header">
                 <img src="<?php echo fotoPerfil($tema['autor_foto']); ?>" alt="">
                 <div class="post-autor">
-                    <strong><a href="../perfil.php?id=<?php echo $tema['autor_id']; ?>"><?php echo htmlspecialchars($tema['autor_nombre']); ?></a></strong>
+                    <strong><a href="perfil.php?id=<?php echo $tema['autor_id']; ?>"><?php echo htmlspecialchars($tema['autor_nombre']); ?></a></strong>
                     <span><?php echo tiempoRelativo($tema['created_at']); ?></span>
                 </div>
                 <?php if (esAdmin()): ?>
                     <div class="admin-actions-post">
-                        <form method="POST" action="procesos/fijar_tema.php" style="display:inline;">
+                        <form method="POST" action="comunidad/procesos/fijar_tema.php" style="display:inline;">
                             <input type="hidden" name="tema_id" value="<?php echo $tema['id']; ?>">
                             <input type="hidden" name="slug" value="<?php echo htmlspecialchars($tema['slug']); ?>">
                             <button type="submit" name="accion" value="<?php echo $tema['es_fijado'] ? 'desfijar' : 'fijar'; ?>" class="foro-btn foro-btn-sm foro-btn-outline" title="Fijar/Desfijar">
                                 <i class="fa-solid fa-thumbtack"></i>
                             </button>
                         </form>
-                        <form method="POST" action="procesos/cerrar_tema.php" style="display:inline;">
+                        <form method="POST" action="comunidad/procesos/cerrar_tema.php" style="display:inline;">
                             <input type="hidden" name="tema_id" value="<?php echo $tema['id']; ?>">
                             <input type="hidden" name="slug" value="<?php echo htmlspecialchars($tema['slug']); ?>">
                             <button type="submit" name="accion" value="<?php echo $tema['es_cerrado'] ? 'abrir' : 'cerrar'; ?>" class="foro-btn foro-btn-sm foro-btn-outline" title="Cerrar/Abrir">
@@ -177,7 +177,7 @@ if (isset($_GET['msg'])) {
                         <img src="<?php echo fotoPerfil($resp['autor_foto']); ?>" alt="" class="resp-avatar">
                         <div class="resp-body">
                             <div class="resp-header">
-                                <strong><a href="../perfil.php?id=<?php echo $resp['autor_id']; ?>"><?php echo htmlspecialchars($resp['autor_nombre']); ?></a></strong>
+                                <strong><a href="perfil.php?id=<?php echo $resp['autor_id']; ?>"><?php echo htmlspecialchars($resp['autor_nombre']); ?></a></strong>
                                 <span><?php echo tiempoRelativo($resp['created_at']); ?></span>
                                 <?php if ($resp['updated_at']): ?>
                                     <span style="font-size:0.75rem;color:#9ca3af;">(editado)</span>
@@ -189,12 +189,12 @@ if (isset($_GET['msg'])) {
                                 <?php endif; ?>
                                 <?php if ($resp['tipo'] === 'imagen' && $resp['archivo']): ?>
                                     <div class="resp-archivo-img">
-                                        <img src="../uploads/foro/<?php echo htmlspecialchars($resp['archivo']); ?>" alt="Imagen adjunta" loading="lazy" onclick="abrirVisor(this.src)">
+                                        <img src="uploads/foro/<?php echo htmlspecialchars($resp['archivo']); ?>" alt="Imagen adjunta" loading="lazy" onclick="abrirVisor(this.src)">
                                     </div>
                                 <?php elseif ($resp['tipo'] === 'audio' && $resp['archivo']): ?>
                                     <div class="resp-archivo-audio">
                                         <audio controls preload="metadata">
-                                            <source src="../uploads/foro/<?php echo htmlspecialchars($resp['archivo']); ?>">
+                                            <source src="uploads/foro/<?php echo htmlspecialchars($resp['archivo']); ?>">
                                         </audio>
                                     </div>
                                 <?php endif; ?>
@@ -205,7 +205,7 @@ if (isset($_GET['msg'])) {
                                     <span class="like-count"><?php echo $resp_likes; ?></span>
                                 </button>
                                 <?php if ($usuario_actual === (int)$resp['usuario_id'] || esAdmin()): ?>
-                                    <form method="POST" action="procesos/eliminar_respuesta.php" style="display:inline;" onsubmit="return confirm('¿Eliminar esta respuesta?')">
+                                    <form method="POST" action="comunidad/procesos/eliminar_respuesta.php" style="display:inline;" onsubmit="return confirm('¿Eliminar esta respuesta?')">
                                         <input type="hidden" name="respuesta_id" value="<?php echo $resp['id']; ?>">
                                         <input type="hidden" name="slug" value="<?php echo htmlspecialchars($tema['slug']); ?>">
                                         <button type="submit" class="btn-eliminar"><i class="fa-solid fa-trash-can"></i></button>
@@ -228,7 +228,7 @@ if (isset($_GET['msg'])) {
                 <i class="fa-solid fa-lock"></i> Este tema está cerrado. No se pueden agregar nuevas respuestas.
             </div>
         <?php else: ?>
-            <form class="foro-form" method="POST" action="procesos/responder.php" enctype="multipart/form-data">
+            <form class="foro-form" method="POST" action="comunidad/procesos/responder.php" enctype="multipart/form-data">
                 <h4><i class="fa-solid fa-reply"></i> Responder</h4>
                 <input type="hidden" name="tema_id" value="<?php echo $tema['id']; ?>">
                 <input type="hidden" name="slug" value="<?php echo htmlspecialchars($tema['slug']); ?>">
@@ -256,10 +256,10 @@ if (isset($_GET['msg'])) {
         <img id="imagenGrande" src="" alt="Imagen">
     </div>
 
-    <?php include("../components/footer.php"); ?>
+    <?php include("components/footer.php"); ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../JavaScript/script.js"></script>
-    <script src="../JavaScript/comunidad.js?v=<?php echo time(); ?>"></script>
+    <script src="JavaScript/script.js"></script>
+    <script src="JavaScript/comunidad.js?v=<?php echo time(); ?>"></script>
     <script>
     function abrirVisor(src) {
         document.getElementById('imagenGrande').src = src;

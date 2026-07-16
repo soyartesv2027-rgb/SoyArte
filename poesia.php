@@ -145,16 +145,13 @@ $resultado = $stmt->get_result();
             <?php endwhile; ?>
         </div>
     </div>
- 
-    <?php if (isset($_SESSION['usuario_id'])): ?>
-    <a href="publicar-poesia.php" class="floating-btn">
-        <i class="fa-solid fa-plus"></i>
-    </a>
-<?php else: ?>
-    <a href="php/login.php" class="floating-btn">
-        <i class="fa-solid fa-plus"></i>
-    </a>
-<?php endif; ?>
+
+        </div>
+  <a href="publicar-poesia.php" class="añadir-boton">
+    <button class="boton-plus">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+  </a>
  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script>

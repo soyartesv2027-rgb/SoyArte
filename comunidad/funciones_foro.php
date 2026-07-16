@@ -28,9 +28,9 @@ function tiempoRelativo($fecha) {
 function fotoPerfil($foto) {
     $ruta = __DIR__ . '/../uploads/perfiles/' . $foto;
     if ($foto && file_exists($ruta)) {
-        return '../uploads/perfiles/' . $foto;
+        return 'uploads/perfiles/' . $foto;
     }
-    return '../images/default-avatar.png';
+    return 'images/default-avatar.png';
 }
 
 function usuarioReacciono($conn, $usuario_id, $tipo, $target_id) {

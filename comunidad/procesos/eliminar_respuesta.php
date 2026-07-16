@@ -13,7 +13,7 @@ $respuesta_id = (int)($_POST['respuesta_id'] ?? 0);
 $slug         = $_POST['slug'] ?? '';
 
 if ($respuesta_id <= 0) {
-    header("Location: ../foro.php");
+    header("Location: ../../foro.php");
     exit();
 }
 
@@ -24,12 +24,12 @@ $respuesta = $stmt->get_result()->fetch_assoc();
 $stmt->close();
 
 if (!$respuesta) {
-    header("Location: ../foro.php");
+    header("Location: ../../foro.php");
     exit();
 }
 
 if ($usuario_id !== (int)$respuesta['usuario_id'] && !esAdmin()) {
-    header("Location: ../tema.php?slug=" . urlencode($slug));
+    header("Location: ../../tema.php?slug=" . urlencode($slug));
     exit();
 }
 
@@ -85,4 +85,4 @@ try {
 }
 $conn->close();
 
-header("Location: ../tema.php?slug=" . urlencode($slug) . "&msg=resp_eliminada");
+header("Location: ../../tema.php?slug=" . urlencode($slug) . "&msg=resp_eliminada");

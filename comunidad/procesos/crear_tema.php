@@ -15,7 +15,7 @@ $titulo        = trim($_POST['titulo'] ?? '');
 $contenido     = trim($_POST['contenido'] ?? '');
 
 if ($categoria_id <= 0 || $titulo === '' || $contenido === '') {
-    header("Location: ../crear_tema.php?categoria=" . urlencode($categoria_slug) . "&error=vacio");
+    header("Location: ../../crear_tema.php?categoria=" . urlencode($categoria_slug) . "&error=vacio");
     exit();
 }
 
@@ -52,8 +52,8 @@ if ($stmt->execute()) {
     $stmt->execute();
     $stmt->close();
 
-    header("Location: ../tema.php?slug=$slug");
+    header("Location: ../../tema.php?slug=$slug");
 } else {
-    header("Location: ../crear_tema.php?categoria=" . urlencode($categoria_slug) . "&error=error");
+    header("Location: ../../crear_tema.php?categoria=" . urlencode($categoria_slug) . "&error=error");
 }
 $conn->close();

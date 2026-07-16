@@ -15,7 +15,7 @@ $icono      = trim($_POST['icono'] ?? 'fa-comments');
 $color      = trim($_POST['color'] ?? '#6c63ff');
 
 if ($nombre === '') {
-    header("Location: ../nueva_categoria.php?error=vacio");
+    header("Location: ../../nueva_categoria.php?error=vacio");
     exit();
 }
 
@@ -38,9 +38,9 @@ $stmt = $conn->prepare("INSERT INTO foro_categorias (nombre, descripcion, icono,
 $stmt->bind_param("ssssis", $nombre, $descripcion, $icono, $color, $usuario_id, $slug);
 
 if ($stmt->execute()) {
-    header("Location: ../foro.php?msg=categoria_enviada");
+    header("Location: ../../foro.php?msg=categoria_enviada");
 } else {
-    header("Location: ../nueva_categoria.php?error=error");
+    header("Location: ../../nueva_categoria.php?error=error");
 }
 $stmt->close();
 $conn->close();

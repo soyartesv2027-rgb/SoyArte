@@ -128,11 +128,13 @@ if (!$resultado) {
 
 <?php if(isset($_SESSION['usuario_id'])): ?>
 
-<a href="publicar_producto.php" class="btn-agregar">
+ <a href="publicar_producto.php" class="añadir-boton">
+    <button class="boton-plus">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+  </a>
 
-    <i class="fa-solid fa-plus"></i>
 
-</a>
 
 <?php endif; ?>
 
