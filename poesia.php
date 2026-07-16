@@ -5,9 +5,7 @@ include("php/funciones-poesia.php");
  
 $usuario_id = isset($_SESSION['usuario_id']) ? (int) $_SESSION['usuario_id'] : null;
  
-/* -------------------------------------------------------------
-   Like desde la tarjeta del listado (boton "Like" en cada poema)
-   ------------------------------------------------------------- */
+/*  (boton "Like" en cada poema) */
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accion']) && $_POST['accion'] === 'like') {
  
     if (!$usuario_id) {
@@ -80,8 +78,7 @@ $resultado = $stmt->get_result();
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-light">
-    <?php $seccion = 'poesia'; include("components/navbar.php"); ?>
- 
+    <?php $seccion = 'poesia'; include("components/navbar-unificado.php"); ?>
     <div class="hero-poesia">
         <div class="hero-poesia-img"></div>
         <div class="text-center hero-poesia-texto">

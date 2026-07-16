@@ -25,10 +25,7 @@ $resultado = $conn->query($sql);
 
 <body>
 
-    <?php
-    $seccion = 'manualidades';
-    include("components/navbar.php");
-    ?>
+     <?php $seccion = 'manualidad'; include("components/navbar-unificado.php"); ?>
 
     <div class="contenedor">
 
