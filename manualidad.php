@@ -145,16 +145,11 @@ $resultado = $conn->query($sql);
 
     </div>
 
-    <!-- Botón flotante -->
-
-    <?php if (isset($_SESSION['id']) || isset($_SESSION['usuario_id'])): ?>
-
-        <a href="agregar_manualidad.php" class="boton-flotante">
-            <i class="fa-solid fa-plus"></i>
-        </a>
-
-    <?php endif; ?>
-
+  <a href="agregar_manualidad.php" class="añadir-boton">
+    <button class="boton-plus">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+  </a>
 
     <!-- Buscador -->
 
