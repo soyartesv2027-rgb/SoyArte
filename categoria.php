@@ -1,10 +1,10 @@
 <?php
 session_start();
-require_once __DIR__ . '/../php/conexion.php';
-require_once __DIR__ . '/funciones_foro.php';
+require_once __DIR__ . '/php/conexion.php';
+require_once __DIR__ . '/comunidad/funciones_foro.php';
 
 if (!isset($_SESSION['usuario_id'])) {
-    header("Location: ../login.html");
+    header("Location: login.html");
     exit();
 }
 
@@ -47,12 +47,12 @@ $temas->close();
     <title><?php echo htmlspecialchars($categoria['nombre']); ?> - Comunidad SoyArte</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="shortcut icon" href="../favicon_io/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../style.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../styles/comunidad.css?v=<?php echo time(); ?>">
+    <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="styles/comunidad.css?v=<?php echo time(); ?>">
 </head>
 <body>
-    <?php include("../components/navbar.php"); ?>
+    <?php include("components/navbar.php"); ?>
 
     <div class="foro-header">
         <h1><i class="fa-solid <?php echo $categoria['icono']; ?>" style="color:<?php echo $categoria['color']; ?>"></i> <?php echo htmlspecialchars($categoria['nombre']); ?></h1>
@@ -89,10 +89,10 @@ $temas->close();
                             <?php endif; ?>
                         </a>
                         <div class="tema-meta">
-                            Por <a href="../perfil.php?id=<?php echo $tema['usuario_id']; ?>"><?php echo htmlspecialchars($tema['autor_nombre']); ?></a>
+                            Por <a href="perfil.php?id=<?php echo $tema['usuario_id']; ?>"><?php echo htmlspecialchars($tema['autor_nombre']); ?></a>
                             &middot; <?php echo tiempoRelativo($tema['created_at']); ?>
                             <?php if ($tema['ultimo_usuario_id']): ?>
-                                &middot; Última respuesta por <a href="../perfil.php?id=<?php echo $tema['ultimo_usuario_id']; ?>"><?php echo htmlspecialchars($tema['ultimo_nombre']); ?></a>
+                                &middot; Última respuesta por <a href="perfil.php?id=<?php echo $tema['ultimo_usuario_id']; ?>"><?php echo htmlspecialchars($tema['ultimo_nombre']); ?></a>
                                 &middot; <?php echo tiempoRelativo($tema['ultima_actividad']); ?>
                             <?php endif; ?>
                         </div>
@@ -115,10 +115,10 @@ $temas->close();
         <?php endif; ?>
     </div>
 
-    <?php include("../components/footer.php"); ?>
+    <?php include("components/footer.php"); ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../JavaScript/script.js"></script>
-    <script src="../JavaScript/comunidad.js?v=<?php echo time(); ?>"></script>
+    <script src="JavaScript/script.js"></script>
+    <script src="JavaScript/comunidad.js?v=<?php echo time(); ?>"></script>
 </body>
 </html>
 <?php $conn->close(); ?>

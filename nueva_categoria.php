@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once __DIR__ . '/funciones_foro.php';
+require_once __DIR__ . '/comunidad/funciones_foro.php';
 
 if (!isset($_SESSION['usuario_id'])) {
-    header("Location: ../login.html");
+    header("Location: login.html");
     exit();
 }
 
@@ -31,12 +31,12 @@ $iconos_disponibles = [
     <title>Nueva Categoría - Comunidad SoyArte</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="shortcut icon" href="../favicon_io/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../style.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../styles/comunidad.css?v=<?php echo time(); ?>">
+    <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="styles/comunidad.css?v=<?php echo time(); ?>">
 </head>
 <body>
-    <?php include("../components/navbar.php"); ?>
+    <?php include("components/navbar.php"); ?>
 
     <div class="foro-header">
         <h1><i class="fa-solid fa-plus"></i> Nueva Categoría</h1>
@@ -55,7 +55,7 @@ $iconos_disponibles = [
                 Las categorías pasan por revisión antes de publicarse.
             </div>
 
-            <form class="foro-form" method="POST" action="procesos/nueva_categoria.php">
+            <form class="foro-form" method="POST" action="comunidad/procesos/nueva_categoria.php">
                 <div class="form-group">
                     <label for="nombre">Nombre de la categoría *</label>
                     <input type="text" id="nombre" name="nombre" required maxlength="100" placeholder="Ej: Técnicas de acuarela">
@@ -93,8 +93,8 @@ $iconos_disponibles = [
         </div>
     </div>
 
-    <?php include("../components/footer.php"); ?>
+    <?php include("components/footer.php"); ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../JavaScript/script.js"></script>
+    <script src="JavaScript/script.js"></script>
 </body>
 </html>

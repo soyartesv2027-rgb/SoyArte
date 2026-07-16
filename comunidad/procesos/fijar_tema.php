@@ -13,7 +13,7 @@ $slug    = $_POST['slug'] ?? '';
 $accion  = $_POST['accion'] ?? '';
 
 if ($tema_id <= 0) {
-    header("Location: ../foro.php");
+    header("Location: ../../foro.php");
     exit();
 }
 
@@ -27,4 +27,4 @@ $stmt->execute();
 $stmt->close();
 $conn->close();
 
-header("Location: ../tema.php?slug=" . urlencode($slug));
+header("Location: ../../tema.php?slug=" . urlencode($slug));
