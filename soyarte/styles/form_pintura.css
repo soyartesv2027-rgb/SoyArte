@@ -1,0 +1,108 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.flecha {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 45px;
+    height: 45px;
+  
+    border-radius: 50%;
+
+        background:#4d97e0;
+
+
+
+    border-radius: 50%; /* esto crea el círculo */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flecha i {
+    color: white;
+    font-size: 18px;
+}
+
+body{
+    background:#eef6ff;
+    font-family:Arial, sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+form{
+    width:80%;
+    max-width:700px;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:10px;
+    color:#333;
+}
+
+label{
+    font-weight:bold;
+    color:#444;
+}
+
+input[type="text"],
+textarea,
+input[type="file"]{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    font-size:16px;
+}
+
+textarea{
+    resize:vertical;
+}
+
+button{
+    margin-top:10px;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+
+
+
+    background:#4d97e0;
+
+
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+     background:#b8d5f1;
+
+}
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#4d97e0;
+
+}

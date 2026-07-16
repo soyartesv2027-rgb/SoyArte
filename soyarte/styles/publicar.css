@@ -1,0 +1,66 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#eef3fa;
+    font-family:Arial, sans-serif;
+}
+
+.contenedor{
+    max-width:700px;
+    margin:40px auto;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+h1{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+input,
+textarea,
+select{
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:12px;
+}
+
+textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+button{
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#2c4e7e;
+    color:white;
+    cursor:pointer;
+}
+
+.mensaje{
+    text-align:center;
+    margin-bottom:20px;
+    font-weight:bold;
+}
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
+}

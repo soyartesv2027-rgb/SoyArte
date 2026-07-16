@@ -1,0 +1,445 @@
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--crema);
+    font-family:'Segoe UI',sans-serif;
+    color:var(--texto);
+}
+
+.banner{
+    position:relative;
+    width:100%;
+    height:320px;
+    overflow:hidden;
+}
+
+.banner img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+
+    background:rgba(0,0,0,.35);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+    padding:20px;
+}
+
+.overlay h2{
+    color:white;
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.overlay p{
+    color:white;
+    max-width:700px;
+    font-size:1rem;
+    font-style:italic;
+}
+
+.search-container{
+    display:flex;
+    justify-content:center;
+    margin:35px 0;
+}
+
+.search-container input{
+    width:70%;
+    max-width:700px;
+
+    padding:15px 20px;
+
+    border:2px solid var(--durazno);
+    border-radius:30px;
+
+    outline:none;
+    background:white;
+
+    font-size:1rem;
+}
+
+.search-container input:focus{
+    border-color:var(--terracota);
+}
+
+.cards{
+
+    width:95%;
+    max-width:1300px;
+
+    margin:auto;
+
+    padding-bottom:100px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fill,minmax(260px,1fr));
+
+    gap:25px;
+
+}
+
+.card-link{
+
+    text-decoration:none;
+    color:inherit;
+
+}
+
+.card{
+
+    background:#c6dff5;
+
+    border-radius:15px;
+
+    padding:15px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+
+    transition:.3s;
+
+    height:100%;
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.card-image{
+
+    height:140px;
+
+    background:#dce7f1;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.card-image img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.play-btn{
+
+    position:absolute;
+
+    width:60px;
+    height:60px;
+
+    border-radius:50%;
+
+    border:2px solid white;
+
+    background:rgba(255,255,255,.85);
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    transition:.3s;
+
+}
+
+.play-btn:hover{
+
+    transform:scale(1.1);
+
+}
+
+.card-content{
+
+    margin-top:15px;
+
+}
+
+.title-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+}
+
+.title-row h3{
+
+    font-size:18px;
+
+    color:#2c4e7e;
+
+    margin-bottom:5px;
+
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+
+}
+
+.title-row p{
+
+    color:#777;
+
+    font-size:14px;
+
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+
+}
+
+.title-row i{
+
+    font-size:24px;
+
+    color:#333;
+
+}
+
+.player{
+
+    margin-top:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.player i{
+
+    font-size:20px;
+
+    color:#333;
+
+}
+
+.player input{
+
+    flex:1;
+
+}
+
+.player span{
+
+    font-size:14px;
+
+    color:#444;
+
+}
+
+.floating-btn{
+    position:fixed;
+
+    right:30px;
+    bottom:30px;
+
+    width:65px;
+    height:65px;
+
+    border-radius:50%;
+
+    background:var(--terracota);
+    color:white;
+
+    text-decoration:none;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:1.5rem;
+
+    box-shadow:0 6px 20px rgba(0,0,0,.18);
+
+    transition:.3s;
+
+    z-index:9999;
+}
+
+.floating-btn:hover{
+    background:var(--cafe);
+    transform:scale(1.08);
+}
+
+.sin-publicaciones{
+    width:100%;
+    text-align:center;
+
+    padding:50px;
+
+    background:white;
+
+    border-radius:20px;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.sin-publicaciones h3{
+    color:var(--cafe);
+    margin-bottom:10px;
+}
+
+.boton-flotante {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    width: 70px;
+    height: 70px;
+    border: none;
+    border-radius: 50%;
+    background: #2c4e7e;
+    color: black;
+    font-size: 30px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 768px){
+
+    .banner{
+        height:220px;
+    }
+
+    .overlay{
+        padding:15px;
+    }
+
+    .overlay h2{
+        font-size:1.8rem;
+    }
+
+    .overlay p{
+        font-size:0.9rem;
+        max-width:90%;
+    }
+
+    .search-container{
+        margin:20px 10px;
+    }
+
+    .search-container input{
+        width:100%;
+        font-size:0.9rem;
+        padding:12px 15px;
+    }
+
+    .cards{
+        width:95%;
+        grid-template-columns:1fr;
+        gap:20px;
+        padding-bottom:80px;
+    }
+
+    .card{
+        padding:12px;
+    }
+
+    .card-image{
+        height:180px;
+        border-radius:15px;
+    }
+
+    .play-btn{
+        width:50px;
+        height:50px;
+        font-size:18px;
+    }
+
+    .card-content{
+        margin-top:12px;
+    }
+
+    .title-row{
+        flex-direction:column;
+        gap:8px;
+        align-items:flex-start;
+    }
+
+    .title-row h3{
+        font-size:16px;
+        width:100%;
+    }
+
+    .title-row p{
+        font-size:13px;
+        width:100%;
+    }
+
+    .title-row i{
+        font-size:20px;
+        align-self:flex-end;
+    }
+
+    .player{
+        gap:8px;
+        flex-wrap:wrap;
+    }
+
+    .player i{
+        font-size:18px;
+    }
+
+    .player span{
+        font-size:12px;
+    }
+
+    .floating-btn{
+        width:55px;
+        height:55px;
+        right:15px;
+        bottom:15px;
+        font-size:1.2rem;
+    }
+
+    .sin-publicaciones{
+        padding:30px 15px;
+    }
+
+    .sin-publicaciones h3{
+        font-size:1.2rem;
+    }
+
+}
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
+}

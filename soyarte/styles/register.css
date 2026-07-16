@@ -1,0 +1,167 @@
+
+h2{
+    color: #2c4e7e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background-image: url("../img/ChatGPT\ Image\ 22\ abr\ 2026\,\ 08_35_02\ p.m..png"); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.padre {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.form-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 420px;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.form-card h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+
+.form-control {
+    border-radius: 10px;
+}
+
+
+.btn-primary {
+    border-radius: 12px;
+    padding: 10px;
+    background:#4576a8;
+    border-color:#4576a8;
+    color:white;
+}
+
+.btn-primary:hover {
+    background:#c7e3ff;
+    border-color:#c7e3ff;
+    color:#2c4e7e;
+}
+
+
+.social-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+
+.social-buttons button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 500;
+}
+
+
+.social-buttons img {
+    width: 18px;
+    height: 18px;
+}
+
+
+.btn-google {
+    background: #ffffff;
+    border: 1px solid #ddd;
+}
+
+
+.btn-instagram {
+    background: #4576a8;
+    color: white;
+}
+.inicia{
+    margin-top: 10px;
+}
+
+.btn-regresar a img{
+    width: 60px;
+    height: auto;
+    position: fixed;
+    bottom: 25px;
+    left: 247px;
+    margin-bottom: 400px;
+    z-index: 1000;
+}
+
+
+/* --- RESPONSIVO (MÓVIL) --- */
+@media (max-width: 768px) { 
+    body {
+        background-image: url("../img/ChatGPT\ Image\ 1\ jul\ 2026\,\ 16_30_08.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    .padre {
+        height: auto;
+        min-height: 100vh;
+        padding: 20px; 
+    }
+
+    .form-card {
+        width: 100%;
+        max-width: 360px;
+        padding: 25px;
+    }
+
+    .form-card h2 {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    input{
+        height: 27px;
+    }
+
+    .form-control{
+        font-size: 10px;
+        border-radius: 5px;
+    }
+
+    
+    .btn-regresar  a img{
+        width: 50px;
+        margin-bottom: 0;
+        bottom: 5px;
+        left: 20px;
+        top: auto
+    }
+
+}
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
+}

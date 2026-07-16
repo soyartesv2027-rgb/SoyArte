@@ -1,0 +1,586 @@
+/* ============================================= */
+/* SOBRE NOSOTROS - SOY ARTE                    */
+/* Estilos específicos para la página           */
+/* ============================================= */
+
+/* ============================================= */
+/* VARIABLES LOCALES                             */
+/* ============================================= */
+
+:root {
+  --sn-primary: #6c63ff;
+  --sn-primary-dark: #5a52d5;
+  --sn-primary-light: #8b83ff;
+  --sn-secondary: #c084fc;
+  --sn-accent: #f472b6;
+  --sn-dark-bg: #111827;
+  --sn-dark-card: #1f2937;
+  --sn-card-border: rgba(255, 255, 255, 0.06);
+  --sn-white: #ffffff;
+  --sn-light: #f8f9fa;
+  --sn-text-dark: #111827;
+  --sn-text-medium: #4b5563;
+  --sn-text-light: #6b7280;
+  --sn-shadow: rgba(108, 99, 255, 0.15);
+  --sn-shadow-hover: rgba(108, 99, 255, 0.25);
+  --sn-radius-lg: 35px;
+  --sn-radius-md: 25px;
+  --sn-radius-sm: 15px;
+  --sn-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================= */
+/* RESET BASE - SOLO PARA SOBRE-NOSOTROS         */
+/* ============================================= */
+
+.sn-section {
+  padding: 80px 0;
+}
+
+/* ============================================= */
+/* HERO CARRUSEL - ESTILO CINEMÁTICO            */
+/* ============================================= */
+
+.hero-carrusel {
+  position: relative;
+}
+
+.hero-carrusel .carousel-inner {
+  min-height: 100vh;
+}
+
+.hero-slide-cine {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Fondos degradados por slide */
+
+.slide-creatividad {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+.slide-comunidad {
+  background: linear-gradient(135deg, #1a1a2e 0%, #2d1b69 50%, #6c63ff 100%);
+}
+
+.slide-futuro {
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+}
+
+.hero-slide-cine-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  color: white;
+  padding: 60px 0;
+}
+
+.hero-slide-cine-content h1 {
+  font-size: 4.2rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 28px;
+  color: white;
+}
+
+.hero-slide-cine-content h1 span {
+  background: linear-gradient(135deg, var(--sn-primary), var(--sn-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-slide-cine-content p {
+  font-size: 1.15rem;
+  line-height: 2;
+  color: #d1d5db;
+  margin-bottom: 40px;
+  max-width: 580px;
+}
+
+/* Override para que el overlay-dark del carrusel cubra cada slide */
+
+.hero-slide-cine .overlay-dark {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(
+    circle at top left,
+    rgba(108, 99, 255, 0.25),
+    transparent 50%
+  );
+  transition: var(--sn-transition);
+}
+
+/* Indicadores personalizados */
+
+.hero-indicadores {
+  bottom: 30px;
+  z-index: 10;
+}
+
+.hero-indicadores button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: transparent;
+  margin: 0 5px;
+  transition: var(--sn-transition);
+  opacity: 1;
+}
+
+.hero-indicadores button.active {
+  background: var(--sn-primary);
+  border-color: var(--sn-primary);
+  transform: scale(1.25);
+  box-shadow: 0 0 12px rgba(108, 99, 255, 0.5);
+}
+
+/* Flechas personalizadas */
+
+.hero-control {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 1;
+  transition: var(--sn-transition);
+  z-index: 10;
+}
+
+.hero-control:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-50%) scale(1.08);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.hero-control i {
+  font-size: 1.2rem;
+  color: white;
+}
+
+.hero-control.carousel-control-prev {
+  left: 30px;
+}
+
+.hero-control.carousel-control-next {
+  right: 30px;
+}
+
+/* ============================================= */
+/* SECCIÓN: NUESTROS VALORES                     */
+/* ============================================= */
+
+.valores-section {
+  background: var(--sn-dark-bg);
+  padding: 90px 0;
+  margin-top: 70px;
+}
+
+.valores-header {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.valores-header h2 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--sn-white);
+  margin-bottom: 16px;
+}
+
+.valores-header .valores-sub {
+  font-size: 1.1rem;
+  color: #9ca3af;
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Tarjetas de valores */
+
+.valor-card {
+  background: var(--sn-dark-card);
+  border: 1px solid var(--sn-card-border);
+  border-radius: 22px;
+  padding: 40px 28px;
+  text-align: center;
+  transition: var(--sn-transition);
+  height: 100%;
+}
+
+.valor-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(108, 99, 255, 0.3);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.valor-icono {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--sn-primary), var(--sn-secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 22px;
+  font-size: 2rem;
+  color: var(--sn-white);
+  transition: var(--sn-transition);
+}
+
+.valor-card:hover .valor-icono {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(108, 99, 255, 0.35);
+}
+
+.valor-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--sn-white);
+  margin-bottom: 12px;
+}
+
+.valor-card p {
+  color: #9ca3af;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+
+/* ============================================= */
+/* SECCIÓN: ¿CÓMO AYUDA SOYARTE?                 */
+/* ============================================= */
+
+.ayuda-section {
+  background: var(--sn-white);
+  padding: 90px 0;
+}
+
+.ayuda-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ayuda-header h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--sn-text-dark);
+}
+
+.ayuda-divider {
+  width: 70px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--sn-primary), var(--sn-secondary));
+  border: none;
+  border-radius: 4px;
+  margin: 18px auto 50px;
+  opacity: 1;
+}
+
+/* Contenedor del camino artístico */
+
+.ayuda-camino {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+/* Tarjetas */
+
+.ayuda-card {
+  background: var(--sn-light);
+  border-radius: var(--sn-radius-md);
+  padding: 45px 35px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: var(--sn-transition);
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.ayuda-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px var(--sn-shadow);
+  border-color: rgba(108, 99, 255, 0.12);
+}
+
+.ayuda-card-icono {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--sn-primary-light), var(--sn-primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  color: var(--sn-white);
+  margin-bottom: 22px;
+  transition: var(--sn-transition);
+}
+
+.ayuda-card:hover .ayuda-card-icono {
+  transform: scale(1.08) rotate(-5deg);
+}
+
+.ayuda-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--sn-text-dark);
+  margin-bottom: 14px;
+}
+
+.ayuda-card p {
+  color: var(--sn-text-medium);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 22px;
+}
+
+/* Botones de ayuda */
+
+.ayuda-btn {
+  display: inline-block;
+  padding: 13px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: var(--sn-transition);
+  border: none;
+  cursor: pointer;
+}
+
+.ayuda-btn-primary {
+  background: linear-gradient(135deg, var(--sn-primary), var(--sn-secondary));
+  color: var(--sn-white);
+  box-shadow: 0 6px 20px var(--sn-shadow);
+}
+
+.ayuda-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px var(--sn-shadow-hover);
+  color: var(--sn-white);
+}
+
+.ayuda-btn-outline {
+  background: transparent;
+  color: var(--sn-primary);
+  border: 2px solid var(--sn-primary);
+}
+
+.ayuda-btn-outline:hover {
+  background: var(--sn-primary);
+  color: var(--sn-white);
+  transform: translateY(-3px);
+}
+
+/* ============================================= */
+/* CONECTOR DECORATIVO (camino artístico)        */
+/* ============================================= */
+
+.conector-arte {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.conector-linea {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--sn-primary), var(--sn-secondary));
+  border-radius: 3px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.conector-circulo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--sn-primary), var(--sn-secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sn-white);
+  font-size: 1.3rem;
+  z-index: 3;
+  box-shadow: 0 6px 20px rgba(108, 99, 255, 0.3);
+  position: relative;
+}
+
+/* ============================================= */
+/* RESPONSIVE                                    */
+/* ============================================= */
+
+@media (max-width: 992px) {
+
+  .hero-carrusel .carousel-inner,
+  .hero-slide-cine {
+    min-height: 80vh;
+  }
+
+  .hero-slide-cine-content h1 {
+    font-size: 3rem;
+  }
+
+  .hero-slide-cine-content p {
+    font-size: 1.05rem;
+  }
+
+  .hero-control {
+    width: 42px;
+    height: 42px;
+  }
+
+  .hero-control.carousel-control-prev {
+    left: 16px;
+  }
+
+  .hero-control.carousel-control-next {
+    right: 16px;
+  }
+
+  .conector-arte {
+    display: none;
+  }
+
+  .valores-header h2 {
+    font-size: 2.2rem;
+  }
+
+  .ayuda-header h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .sn-section {
+    padding: 50px 0;
+  }
+
+  .hero-carrusel .carousel-inner,
+  .hero-slide-cine {
+    min-height: 70vh;
+  }
+
+  .hero-slide-cine-content {
+    text-align: center;
+    padding: 40px 0;
+  }
+
+  .hero-slide-cine-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-slide-cine-content p {
+    font-size: 0.95rem;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-control {
+    width: 36px;
+    height: 36px;
+  }
+
+  .hero-control i {
+    font-size: 0.9rem;
+  }
+
+  .hero-control.carousel-control-prev {
+    left: 10px;
+  }
+
+  .hero-control.carousel-control-next {
+    right: 10px;
+  }
+
+  .valores-section {
+    padding: 60px 0;
+    margin-top: 40px;
+  }
+
+  .valores-header h2 {
+    font-size: 1.9rem;
+  }
+
+  .valores-header .valores-sub {
+    font-size: 1rem;
+  }
+
+  .valor-card {
+    padding: 30px 20px;
+  }
+
+  .ayuda-section {
+    padding: 60px 0;
+  }
+
+  .ayuda-header h2 {
+    font-size: 1.7rem;
+  }
+
+  .ayuda-card {
+    padding: 30px 24px;
+  }
+
+  .ayuda-card h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .hero-carrusel .carousel-inner,
+  .hero-slide-cine {
+    min-height: 60vh;
+  }
+
+  .hero-slide-cine-content h1 {
+    font-size: 1.7rem;
+  }
+
+  .hero-slide-cine-content p {
+    font-size: 0.88rem;
+  }
+
+  .hero-indicadores {
+    bottom: 16px;
+  }
+
+  .hero-indicadores button {
+    width: 10px;
+    height: 10px;
+  }
+
+  .valores-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .ayuda-header h2 {
+    font-size: 1.4rem;
+  }
+}

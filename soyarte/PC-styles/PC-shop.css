@@ -1,0 +1,33 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        180deg,
+        #ffffff,
+        #f3f4f6
+    );
+}
+
+canvas{
+
+    width:100vw;
+    height:100vh;
+
+    display:block;
+}
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
+}

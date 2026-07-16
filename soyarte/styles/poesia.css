@@ -1,0 +1,390 @@
+:root {
+      --coral: #ec7b8c;
+    --rosa-claro: #fadbe3;
+    --rosa-medio: #f3aebd;
+    --crema: #f0e2c4;
+    --texto: #3a2e2e;
+}
+body {
+    background-color: #fadbe3;
+}
+ 
+.tarjeta-obra {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    border: none;
+}
+ 
+.tarjeta-img-wrap {
+    overflow: hidden;
+}
+ 
+.tarjeta-img-wrap img {
+    height: 160px;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+}
+ 
+.tarjeta-obra:hover .tarjeta-img-wrap img {
+    transform: scale(1.1);
+}
+ 
+.btn-like-tarjeta {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    border: none;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--texto);
+    font-size: 0.8rem;
+    padding: 5px 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+ 
+.btn-like-tarjeta.activo {
+    background: var(--coral);
+    border-color: var(--coral);
+    color: #fff;
+}
+ 
+.btn-like-tarjeta:hover {
+    background: var(--coral);
+    border-color: var(--coral);
+    color: #fff;
+}
+ 
+.card-body {
+    border-radius: 0 0 20px 20px;
+}
+ 
+/* ---------- Nav simple solo para Poesia (logo + 3 iconos) ---------- */
+.navbar-poesia {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    background: var(--coral);
+    padding: 0;
+    min-height: 60px;
+}
+ 
+.navbar-poesia-logo {
+    display: flex;
+    align-items: center;
+    padding: 0 22px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.3rem;
+    text-decoration: none;
+}
+ 
+.navbar-poesia-logo span {
+    font-weight: 800;
+}
+ 
+.navbar-poesia-logo:hover {
+    color: #fff;
+}
+ 
+.navbar-poesia-iconos {
+    display: flex;
+}
+ 
+.icono-nav {
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.3rem;
+    border-radius: 0;
+    transition: filter 0.2s ease;
+}
+ 
+.icono-nav:hover {
+    filter: brightness(1.1);
+    color: #fff;
+}
+ 
+.icono-naranja { background: #ec7b8c; }
+.icono-azul    { background: #ec7b8c; }
+.icono-verde   { background:#ec7b8c; }
+ 
+/* ---------- Hero/floral arriba de la pagina de listado ---------- */
+.hero-poesia {
+    position: relative;
+    overflow: hidden;
+    padding: 45px 20px 25px;
+    min-height: 200px;
+}
+ 
+.hero-poesia-img {
+    position: absolute;
+    inset: 0;
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 0;
+    background-image: url('../img/nueva.jpg');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    mask-image: radial-gradient(ellipse 75% 100% at 50% 0%, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 55%, rgba(0,0,0,0) 85%);
+    -webkit-mask-image: radial-gradient(ellipse 75% 100% at 50% 0%, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 55%, rgba(0,0,0,0) 85%);
+}
+ 
+.hero-poesia-texto {
+    position: relative;
+    z-index: 1;
+}
+ 
+
+.topbar-detalle {
+    background: var(--coral);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 25px;
+}
+ 
+.topbar-detalle h2 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #fff;
+}
+ 
+.btn-regresar {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+ 
+.btn-regresar:hover {
+    opacity: 0.85;
+    color: #fff;
+}
+ 
+/* ---------- Contenedor del formulario / detalle ---------- */
+.form-obra-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+ 
+.card-form-obra {
+    background: #fff;
+    border: 1px solid var(--rosa-medio);
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+ 
+/* ---------- Cada campo (label + input o valor) ---------- */
+.campo-detalle {
+    margin-bottom: 20px;
+}
+ 
+.campo-detalle label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    color: var(--texto);
+    margin-bottom: 6px;
+}
+ 
+.campo-detalle input[type="text"],
+.campo-detalle input[type="date"],
+.campo-detalle textarea {
+    width: 100%;
+    border: 2px solid var(--rosa-medio);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    color: var(--texto);
+    background: #fff;
+}
+ 
+.campo-detalle textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+ 
+/* Valor de solo lectura (se usa en detalle.php) */
+.valor-campo {
+    border: 2px solid var(--rosa-claro);
+    border-radius: 8px;
+    padding: 10px 12px;
+    background: #fff8f9;
+    color: var(--texto);
+}
+ 
+/* ---------- Subir imagen ---------- */
+.upload-imagen-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--rosa-claro);
+    border: 2px dashed var(--rosa-medio);
+    border-radius: 10px;
+    padding: 12px 18px;
+    cursor: pointer;
+    color: var(--texto);
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+ 
+.upload-imagen-label:hover {
+    background: var(--rosa-medio);
+    color: #fff;
+}
+ 
+.campo-detalle input[type="file"] {
+    display: none;
+}
+ 
+#previewImagen {
+    display: block;
+    border-radius: 10px;
+}
+ 
+/* ---------- Botón principal de guardar ---------- */
+.btn-guardar {
+    background: var(--coral);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 28px;
+    font-weight: bold;
+    font-size: 1rem;
+    width: 100%;
+}
+ 
+.btn-guardar:hover {
+    background: #ffc3e4;
+    color: #fff;
+}
+ 
+/* ============================================================
+   RESPONSIVE - Teléfonos y pantallas pequeñas
+   ============================================================ */
+@media (max-width: 576px) {
+ 
+    .topbar-detalle {
+        padding: 12px 15px;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+ 
+    .topbar-detalle h2 {
+        font-size: 1.05rem;
+        order: -1;
+        width: 100%;
+        text-align: center;
+    }
+ 
+    .btn-regresar {
+        font-size: 0.9rem;
+    }
+ 
+    .form-obra-container {
+        margin: 15px auto;
+        padding: 0 12px;
+    }
+ 
+    .card-form-obra {
+        padding: 18px;
+        border-radius: 10px;
+    }
+ 
+    .campo-detalle textarea {
+        min-height: 100px;
+    }
+ 
+    .upload-imagen-label {
+        width: 100%;
+        justify-content: center;
+    }
+ 
+    .btn-guardar {
+        font-size: 0.95rem;
+        padding: 12px 0;
+    }
+ 
+    .hero-poesia-img {
+        opacity: 0.4;
+    }
+ 
+    .hero-poesia {
+        padding: 28px 15px 15px;
+        min-height: 150px;
+    }
+ 
+    .navbar-poesia {
+        min-height: 48px;
+    }
+ 
+    .navbar-poesia-logo {
+        font-size: 1.05rem;
+        padding: 0 14px;
+    }
+ 
+    .icono-nav {
+        width: 44px;
+        font-size: 1rem;
+    }
+}
+ 
+@media (max-width: 400px) {
+    .topbar-detalle h2 {
+        font-size: 0.95rem;
+    }
+}
+
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
+}
+
+.floating-btn{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+
+    width:60px;
+    height:60px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:50%;
+    text-decoration:none;
+
+    background:#4576a8;
+    color:#fff;
+
+    font-size:28px;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.25);
+    transition:.3s;
+    z-index:9999;
+}
+
+.floating-btn:hover{
+    background:#2c4e7e;
+    color:#fff;
+    transform:scale(1.08);
+}
