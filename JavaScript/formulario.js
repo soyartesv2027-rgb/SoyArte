@@ -1,56 +1,124 @@
-// =======================
-// FORMULARIO MULTI-STEP
-// =======================
-
 const steps = document.querySelectorAll(".step");
 const nextBtns = document.querySelectorAll(".next");
 const backBtns = document.querySelectorAll(".back");
-const progress = document.getElementById("progress-bar");
+const dots = document.querySelectorAll(".step-dot");
+const lines = document.querySelectorAll(".step-line");
+const stepLabel = document.getElementById("stepLabel");
+const errorMsg = document.getElementById("errorMsg");
 
 let current = 0;
+const totalSteps = steps.length;
 
-// Mostrar paso actual
-function showStep(index) {
-
-    steps.forEach(step => {
-        step.classList.remove("active");
+function showStep(index, goingBack) {
+    steps.forEach((step, i) => {
+        step.classList.remove("active", "step-back");
     });
 
-    steps[index].classList.add("active");
+    const el = steps[index];
+    el.classList.add("active");
+    if (goingBack) el.classList.add("step-back");
 
-    // actualizar barra de progreso
-    let percent = ((index + 1) / steps.length) * 100;
-    progress.style.width = percent + "%";
+    dots.forEach((dot, i) => {
+        dot.classList.remove("active", "completed");
+        if (i === index) dot.classList.add("active");
+        else if (i < index) dot.classList.add("completed");
+    });
+
+    lines.forEach((line, i) => {
+        line.classList.remove("completed");
+        if (i < index) line.classList.add("completed");
+    });
+
+    const labels = ["Tipo de usuario", "Intereses", "Experiencia", "Comunidad"];
+    stepLabel.textContent = "Paso " + (index + 1) + " de " + totalSteps + " — " + labels[index];
+
+    hideError();
+
+    setTimeout(() => {
+        const firstInput = el.querySelector("input, select, textarea");
+        if (firstInput) firstInput.focus();
+    }, 100);
 }
 
-// BOTÓN SIGUIENTE
+function validateStep(index) {
+    const step = steps[index];
+
+    if (index === 0) {
+        const checked = step.querySelector('input[name="tipo_usuario"]:checked');
+        if (!checked) {
+            showError("Selecciona qué tipo de usuario eres");
+            return false;
+        }
+    }
+
+    if (index === 1) {
+        const checked = step.querySelectorAll('input[name="intereses[]"]:checked');
+        if (checked.length === 0) {
+            showError("Selecciona al menos un área de interés");
+            return false;
+        }
+    }
+
+    if (index === 2) {
+        const tutorial = step.querySelector('select[name="tipo_tutorial"]');
+        if (!tutorial.value) {
+            showError("Selecciona un formato de contenido");
+            tutorial.focus();
+            return false;
+        }
+        const frecuencia = step.querySelector('select[name="frecuencia"]');
+        if (!frecuencia.value) {
+            showError("Selecciona tu frecuencia de uso");
+            frecuencia.focus();
+            return false;
+        }
+        const aprendizaje = step.querySelector('textarea[name="manualidades"]');
+        if (!aprendizaje.value.trim()) {
+            showError("Escribe qué te gustaría aprender");
+            aprendizaje.focus();
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function showError(msg) {
+    errorMsg.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> ' + msg;
+    errorMsg.classList.add("show");
+    errorMsg.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+function hideError() {
+    errorMsg.classList.remove("show");
+}
+
 nextBtns.forEach(btn => {
     btn.addEventListener("click", () => {
-
-        if (current < steps.length - 1) {
+        if (!validateStep(current)) return;
+        if (current < totalSteps - 1) {
             current++;
-            showStep(current);
+            showStep(current, false);
         }
-
     });
 });
 
-// BOTÓN ATRÁS
 backBtns.forEach(btn => {
     btn.addEventListener("click", () => {
-
         if (current > 0) {
             current--;
-            showStep(current);
+            showStep(current, true);
         }
-
     });
 });
 
-// iniciar
-showStep(current);
-
-
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        const activeStep = steps[current];
+        const btn = activeStep.querySelector(".next") || activeStep.querySelector('button[type="submit"]');
+        if (btn) btn.click();
+    }
+});
 
 // =======================
 // SELECCIÓN DE CARDS
@@ -59,22 +127,12 @@ showStep(current);
 const cards = document.querySelectorAll(".card");
 
 cards.forEach(card => {
-
     card.addEventListener("click", () => {
-
-        // quitar selección visual
         cards.forEach(c => c.classList.remove("selected"));
-
-        // marcar la card seleccionada
         card.classList.add("selected");
-
-        // activar el radio REAL dentro de la card
         const input = card.querySelector("input");
-
-        if (input) {
-            input.checked = true;
-        }
-
+        if (input) input.checked = true;
     });
-
 });
+
+showStep(0, false);
