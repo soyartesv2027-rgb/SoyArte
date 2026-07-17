@@ -1,14 +1,17 @@
+
 :root {
-      --coral: #ec7b8c;
+    --coral: #ec7b8c;
     --rosa-claro: #fadbe3;
     --rosa-medio: #f3aebd;
     --crema: #f0e2c4;
     --texto: #3a2e2e;
 }
+ 
 body {
     background-color: #fadbe3;
 }
  
+/* ---------- Tarjetas ---------- */
 .tarjeta-obra {
     position: relative;
     overflow: hidden;
@@ -48,13 +51,11 @@ body {
  
 .btn-like-tarjeta.activo {
     background: var(--coral);
-    border-color: var(--coral);
     color: #fff;
 }
  
 .btn-like-tarjeta:hover {
     background: var(--coral);
-    border-color: var(--coral);
     color: #fff;
 }
  
@@ -62,60 +63,7 @@ body {
     border-radius: 0 0 20px 20px;
 }
  
-/* ---------- Nav simple solo para Poesia (logo + 3 iconos) ---------- */
-.navbar-poesia {
-    display: flex;
-    align-items: stretch;
-    justify-content: space-between;
-    background: var(--coral);
-    padding: 0;
-    min-height: 60px;
-}
- 
-.navbar-poesia-logo {
-    display: flex;
-    align-items: center;
-    padding: 0 22px;
-    color: #fff;
-    font-weight: 600;
-    font-size: 1.3rem;
-    text-decoration: none;
-}
- 
-.navbar-poesia-logo span {
-    font-weight: 800;
-}
- 
-.navbar-poesia-logo:hover {
-    color: #fff;
-}
- 
-.navbar-poesia-iconos {
-    display: flex;
-}
- 
-.icono-nav {
-    width: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.3rem;
-    border-radius: 0;
-    transition: filter 0.2s ease;
-}
- 
-.icono-nav:hover {
-    filter: brightness(1.1);
-    color: #fff;
-}
- 
-.icono-naranja { background: #ec7b8c; }
-.icono-azul    { background: #ec7b8c; }
-.icono-verde   { background:#ec7b8c; }
- 
-/* ---------- Hero/floral arriba de la pagina de listado ---------- */
+/* ---------- Hero ---------- */
 .hero-poesia {
     position: relative;
     overflow: hidden;
@@ -129,6 +77,7 @@ body {
     opacity: 0.6;
     pointer-events: none;
     z-index: 0;
+    /* 👇 Cambia esta ruta por tu imagen */
     background-image: url('../img/nueva.jpg');
     background-size: cover;
     background-position: top center;
@@ -142,7 +91,7 @@ body {
     z-index: 1;
 }
  
-
+/* ---------- Barra superior (detalle, editar, publicar) ---------- */
 .topbar-detalle {
     background: var(--coral);
     color: #fff;
@@ -172,7 +121,7 @@ body {
     color: #fff;
 }
  
-/* ---------- Contenedor del formulario / detalle ---------- */
+/* ---------- Formulario / detalle ---------- */
 .form-obra-container {
     max-width: 800px;
     margin: 30px auto;
@@ -187,7 +136,6 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
  
-/* ---------- Cada campo (label + input o valor) ---------- */
 .campo-detalle {
     margin-bottom: 20px;
 }
@@ -218,7 +166,6 @@ body {
     resize: vertical;
 }
  
-/* Valor de solo lectura (se usa en detalle.php) */
 .valor-campo {
     border: 2px solid var(--rosa-claro);
     border-radius: 8px;
@@ -227,7 +174,6 @@ body {
     color: var(--texto);
 }
  
-/* ---------- Subir imagen ---------- */
 .upload-imagen-label {
     display: inline-flex;
     align-items: center;
@@ -256,7 +202,6 @@ body {
     border-radius: 10px;
 }
  
-/* ---------- Botón principal de guardar ---------- */
 .btn-guardar {
     background: var(--coral);
     color: #fff;
@@ -269,12 +214,38 @@ body {
 }
  
 .btn-guardar:hover {
-    background: #ffc3e4;
+    background: #d96677;
     color: #fff;
 }
  
+/* ---------- Boton flotante + ---------- */
+.floating-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-decoration: none;
+    background: var(--coral);
+    color: #fff;
+    font-size: 28px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    transition: 0.3s;
+    z-index: 9999;
+}
+ 
+.floating-btn:hover {
+    background: #d96677;
+    color: #fff;
+    transform: scale(1.08);
+}
+ 
 /* ============================================================
-   RESPONSIVE - Teléfonos y pantallas pequeñas
+   RESPONSIVE
    ============================================================ */
 @media (max-width: 576px) {
  
@@ -327,20 +298,6 @@ body {
         padding: 28px 15px 15px;
         min-height: 150px;
     }
- 
-    .navbar-poesia {
-        min-height: 48px;
-    }
- 
-    .navbar-poesia-logo {
-        font-size: 1.05rem;
-        padding: 0 14px;
-    }
- 
-    .icono-nav {
-        width: 44px;
-        font-size: 1rem;
-    }
 }
  
 @media (max-width: 400px) {
@@ -348,6 +305,8 @@ body {
         font-size: 0.95rem;
     }
 }
+<<<<<<< HEAD
+=======
 
 
 
@@ -389,3 +348,4 @@ body {
     color: #ffffff;
     line-height: 1;
 }
+>>>>>>> 10017c12632e6833b80c10e73f9143c3a289fb60

@@ -127,6 +127,179 @@ body{
     color:#2c4e7e;
 }
 
+.comentario{
+    background:#ffffff;
+    padding:15px;
+    margin-top:15px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.comentario h4{
+    color:#2c4e7e;
+    margin-bottom:8px;
+}
+
+.comentario p{
+    margin-bottom:8px;
+}
+
+textarea{
+    width:100%;
+    height:110px;
+    border:1px solid #c7e3ff;
+    border-radius:12px;
+    padding:12px;
+    resize:none;
+    margin-top:15px;
+}
+
+textarea:focus{
+    outline:none;
+    border-color:#5ca9ff;
+}
+
+button{
+    margin-top:12px;
+    padding:10px 20px;
+    border:none;
+    border-radius:10px;
+    background:#5ca9ff;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#468fe3;
+}
+
+/* =========================
+   FORMULARIO DE COMENTARIOS
+========================= */
+
+form{
+    margin-top:25px;
+}
+
+textarea{
+    width:100%;
+    min-height:120px;
+    padding:18px;
+
+    border:2px solid #c7ddf5;
+    border-radius:18px;
+
+    background:#fdfefe;
+
+    font-size:16px;
+    font-family:'Segoe UI',sans-serif;
+
+    resize:none;
+
+    transition:.3s;
+}
+
+textarea:focus{
+    outline:none;
+    border-color:#5c97d6;
+    box-shadow:0 0 0 4px rgba(92,151,214,.15);
+}
+
+textarea::placeholder{
+    color:#6f7f93;
+}
+
+/* BOTÓN */
+
+form button{
+    margin-top:14px;
+
+    padding:12px 24px;
+
+    border:none;
+    border-radius:14px;
+
+    background:linear-gradient(135deg,#4f7fb3,#35679b);
+    color:white;
+
+    font-size:15px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    transition:.25s;
+}
+
+form button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 18px rgba(53,103,155,.25);
+}
+
+/* =========================
+   TÍTULO
+========================= */
+
+h2{
+    margin-top:35px;
+    margin-bottom:20px;
+
+    font-size:22px;
+    color:#2f5f93;
+}
+
+/* =========================
+   TARJETA DE COMENTARIO
+========================= */
+
+.comentario{
+    background:#f5f8fc;
+
+    border-left:6px solid #4f7fb3;
+    border-radius:16px;
+
+    padding:18px 20px;
+    margin-bottom:16px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.05);
+
+    transition:.25s;
+}
+
+.comentario:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+}
+
+.comentario h4{
+    margin:0 0 10px 0;
+
+    font-size:18px;
+    font-weight:700;
+
+    color:#16385f;
+}
+
+.comentario p{
+    margin:0 0 12px 0;
+
+    color:#324a63;
+    line-height:1.55;
+    font-size:15px;
+}
+
+.comentario small{
+    display:block;
+    text-align:right;
+
+    color:#71829a;
+    font-size:13px;
+    font-weight:500;
+}
+
 /* ===========================
    ACCIONES
 =========================== */

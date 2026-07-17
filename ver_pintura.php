@@ -1,5 +1,11 @@
 <?php
+session_start();
+
 $conexion = new mysqli("localhost", "root", "", "soyarte");
+
+if ($conexion->connect_error) {
+    die("Error de conexión");
+}
 
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
@@ -13,16 +19,34 @@ $pintura = $resultado->fetch_assoc();
 if (!$pintura) {
     die("Pintura no encontrada");
 }
+
+// Obtener comentarios
+$sqlComentarios = "
+SELECT c.*, u.nombre
+FROM comentarios_pinturas c
+INNER JOIN usuarios u
+ON c.id_usuario = u.id
+WHERE c.id_pintura = ?
+ORDER BY c.fecha DESC";
+
+$stmtComentarios = $conexion->prepare($sqlComentarios);
+$stmtComentarios->bind_param("i", $id);
+$stmtComentarios->execute();
+
+$comentarios = $stmtComentarios->get_result();
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <title><?php echo $pintura['nombre_pintura']; ?></title>
+    <title><?php echo htmlspecialchars($pintura['nombre_pintura']); ?></title>
+
     <link rel="stylesheet" href="styles/ver_pintura.css?v=<?php echo time(); ?>">
     <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
 
 <div class="detalle-pintura">
@@ -50,24 +74,82 @@ if (!$pintura) {
             </p>
         </div>
 
+        <div class="acciones">
 
-<div class="acciones">
+            <a href="editar_pinturas.php?id=<?php echo $pintura['ID']; ?>" class="btn-editar">
+                Editar
+            </a>
 
-    <a href="editar_pinturas.php?id=<?php echo $pintura['ID']; ?>" class="btn-editar">
-    Editar
-</a>
-    
-<a href="php/eliminar_pintura.php?id=<?php echo $pintura['ID']; ?>"
-   class="btn-eliminar"
-   onclick="return confirm('¿Estás seguro de eliminar esta pintura?')">
-    Eliminar
-</a>
+            <a href="php/eliminar_pintura.php?id=<?php echo $pintura['ID']; ?>"
+               class="btn-eliminar"
+               onclick="return confirm('¿Estás seguro de eliminar esta pintura?')">
+                Eliminar
+            </a>
 
-</div>
+        </div>
 
-    <a href="pinturas.php" class="btn-volver">
+        <a href="pinturas.php" class="btn-volver">
             Regresar
-     </a>
+        </a>
+
+        <hr>
+
+        <h2>Comentarios</h2>
+
+        <?php if(isset($_SESSION['usuario_id'])){ ?>
+
+            <form action="php/comentar.php" method="POST">
+
+                <input
+                    type="hidden"
+                    name="id_pintura"
+                    value="<?php echo $id; ?>">
+
+                <textarea
+                    name="comentario"
+                    placeholder="Escribe un comentario..."
+                    required></textarea>
+
+               <button type="submit">
+                    Comentar
+                </button>
+            </form>
+
+        <?php }else{ ?>
+
+            <p>Debes iniciar sesión para comentar.</p>
+
+        <?php } ?>
+
+        <br>
+
+        <?php if($comentarios->num_rows > 0){ ?>
+
+            <?php while($comentario = $comentarios->fetch_assoc()){ ?>
+
+                <div class="comentario">
+
+                    <h4>
+                        <?php echo htmlspecialchars($comentario['nombre']); ?>
+                    </h4>
+
+                    <p>
+                        <?php echo nl2br(htmlspecialchars($comentario['comentario'])); ?>
+                    </p>
+
+                    <small>
+                        <?php echo $comentario['fecha']; ?>
+                    </small>
+
+                </div>
+
+            <?php } ?>
+
+        <?php }else{ ?>
+
+            <p>Aún no hay comentarios.</p>
+
+        <?php } ?>
 
     </div>
 
