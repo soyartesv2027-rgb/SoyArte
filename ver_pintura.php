@@ -45,9 +45,17 @@ $comentarios = $stmtComentarios->get_result();
 
     <link rel="stylesheet" href="styles/ver_pintura.css?v=<?php echo time(); ?>">
     <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
+
+  <a href="pinturas.php">
+    <div class="flecha">
+        <i class="fa-solid fa-arrow-left"></i>
+    </div>
+    </a>
 
 <div class="detalle-pintura">
 
@@ -87,10 +95,6 @@ $comentarios = $stmtComentarios->get_result();
             </a>
 
         </div>
-
-        <a href="pinturas.php" class="btn-volver">
-            Regresar
-        </a>
 
         <hr>
 
