@@ -305,10 +305,12 @@ body {
         font-size: 0.95rem;
     }
 }
-<<<<<<< HEAD
-=======
 
 
+
+/* ===========================
+   BOTÓN AGREGAR
+=========================== */
 
 .añadir-boton{
     position: fixed;
@@ -348,4 +350,4 @@ body {
     color: #ffffff;
     line-height: 1;
 }
->>>>>>> 10017c12632e6833b80c10e73f9143c3a289fb60
+
