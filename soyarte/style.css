@@ -365,7 +365,7 @@ body {
   transition: var(--transition);
 }
 
-.video-box iframe:hover {
+.video-box iframe :hover {
   transform: scale(1.03);
 }
 
