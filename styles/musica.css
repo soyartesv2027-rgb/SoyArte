@@ -278,7 +278,7 @@ body{
     border: none;
     border-radius: 50%;
 
-    background: #74b3f1;
+    background: #2c4e7e;
 
     display: flex;
     justify-content: center;
@@ -292,7 +292,7 @@ body{
 }
 
 .boton-plus:hover{
-    background: #64a0db;
+    background: #264674;
     transform: scale(1.1) rotate(90deg);
 }
 

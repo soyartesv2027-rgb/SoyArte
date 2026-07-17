@@ -3,10 +3,10 @@ $seccion = $seccion ?? 'general';
  
 $colores = [
     'poesia'       => '#ec7b8b',
-    'pinturas'     => '#c7e3ff',
+    'pinturas'     => '#64a0db',
     'musica'       => '#2c4e7e',
     'manualidades' => '#f8bbb8',
-    'general'      => '#b8cfe8',
+
 ];
 $colorNav = $colores[$seccion] ?? $colores['general'];
  
@@ -62,7 +62,7 @@ $colorTexto = in_array($seccion, ['musica']) ? '#ffffff' : '#333333';
         <!-- Logo -->
         <a href="index.php" class="navbar-soyarte-logo">
             <img src="<?= $logoNav ?>" alt="Logo" width="75" height="75" style="object-fit:contain;">
-            Soy<span>Arte</span>
+            
         </a>
  
     </div>
