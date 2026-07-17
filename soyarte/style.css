@@ -358,14 +358,14 @@ body {
   z-index: 2;
 }
 
-.video-box video {
+.video-box iframe {
   width: 100%;
   border-radius: var(--radius-md);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   transition: var(--transition);
 }
 
-.video-box video:hover {
+.video-box iframe:hover {
   transform: scale(1.03);
 }
 

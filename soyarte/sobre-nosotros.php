@@ -41,15 +41,19 @@ session_start();
                     <div class="overlay-dark"></div>
                     <div class="container">
                         <div class="hero-slide-cine-content">
-                            <span class="promo-tag">Bienvenido a SoyArte</span>
-                            <h1>Descubre el <span>talento salvadoreño</span></h1>
-                            <p>
-                                SoyArte nace para dar visibilidad a miles de jóvenes artistas
-                                que desean compartir su creatividad con el mundo. Aquí cada obra
-                                cuenta una historia y cada artista tiene una oportunidad para crecer.
-                            </p>
-
-                            <img src="images/sobrenosotros (2).jpg" alt="Sobre nosotros">
+                            <div class="hero-texto">
+                                <span class="promo-tag">Bienvenido a SoyArte</span>
+                                <h1>Descubre el <span>talento salvadoreño</span></h1>
+                                <p>
+                                    SoyArte nace para dar visibilidad a miles de jóvenes artistas
+                                    que desean compartir su creatividad con el mundo. Aquí cada obra
+                                    cuenta una historia y cada artista tiene una oportunidad para crecer.
+                                </p>
+                            </div>
+                            <div class="img-carousel">
+                                <img src="images/sobrenosotros (2).jpg" alt="Sobre nosotros">
+                            </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -59,15 +63,19 @@ session_start();
                     <div class="overlay-dark"></div>
                     <div class="container">
                         <div class="hero-slide-cine-content">
-                            <span class="promo-tag">Nuestra filosofía</span>
-                            <h1>Más que una plataforma,<br>una <span>comunidad</span></h1>
-                            <p>
-                                Creemos que el arte une personas, inspira ideas y transforma sociedades.
-                                Por eso creamos un espacio donde artistas y amantes del arte pueden
-                                comunicarse de forma sencilla.
-                            </p>
+                            <div class="hero-texto">
+                                <span class="promo-tag">Nuestra filosofía</span>
+                                <h1>Más que una plataforma,<br>una <span>comunidad</span></h1>
+                                <p>
+                                    Creemos que el arte une personas, inspira ideas y transforma sociedades.
+                                    Por eso creamos un espacio donde artistas y amantes del arte pueden
+                                    comunicarse de forma sencilla.
+                                </p>
+                            </div>    
 
-                            <img src="images/sobrenosotros1 (3).jpg" alt="Nuestra filosofía">
+                            <div class="img-carousel">
+                                <img src="images/sobrenosotros1 (3).jpg" alt="Nuestra filosofía">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -77,18 +85,22 @@ session_start();
                     <div class="overlay-dark"></div>
                     <div class="container">
                         <div class="hero-slide-cine-content">
-                            <span class="promo-tag">Únete al movimiento</span>
-                            <h1>El futuro del arte<br>comienza <span>aquí</span></h1>
-                            <p>
-                                Nuestro compromiso es impulsar el talento salvadoreño mediante
-                                herramientas digitales que permitan exhibir, promocionar y
-                                comercializar obras de manera profesional.
-                            </p>
-                            <a href="register.html" class="promo-button">
-                                Únete a SoyArte <i class="fa-solid fa-arrow-right ms-2"></i>
-                            </a>
+                            <div class="hero-texto">
+                                <span class="promo-tag">Únete al movimiento</span>
+                                <h1>El futuro del arte<br>comienza <span>aquí</span></h1>
+                                <p>
+                                    Nuestro compromiso es impulsar el talento salvadoreño mediante
+                                    herramientas digitales que permitan exhibir, promocionar y
+                                    comercializar obras de manera profesional.
+                                </p>
+                                <a href="register.html" class="promo-button">
+                                    Únete a SoyArte <i class="fa-solid fa-arrow-right ms-2"></i>
+                                </a>
+                            </div>    
 
-                            <img src="images/sobrenosotros(1).jpg" alt="Únete al movimiento">
+                            <div class="img-carousel">
+                                <img src="images/sobrenosotros(1).jpg" alt="Únete al movimiento">
+                            </div>
                         </div>
                     </div>
                 </div>

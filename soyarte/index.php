@@ -140,12 +140,12 @@ session_start();
 
         <div class="video-box">
 
-            <video
+            <iframe
                 src="videos/videoPaginaInicial.mp4"
                 controls
                 autoplay
                 muted>
-            </video>
+</iframe>
 
         </div>
 

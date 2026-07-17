@@ -74,10 +74,14 @@
   background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
 }
 
-.hero-slide-cine-content {
+.hero-slide-cine-content{
   position: relative;
   z-index: 2;
-  max-width: 720px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 70px;
+  width: 100%;
   color: white;
   padding: 60px 0;
 }
@@ -104,6 +108,31 @@
   color: #d1d5db;
   margin-bottom: 40px;
   max-width: 580px;
+}
+
+
+.img-carousel img{
+  height: 235px;
+  border-radius: 15px;
+  box-shadow: 4px 2px 1px solid;
+  margin-bottom: 10px;
+}
+
+.hero-texto{
+  flex: 1;
+}
+
+.img-carousel{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.img-carousel img{
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  border-radius: 20px;
 }
 
 /* Override para que el overlay-dark del carrusel cubra cada slide */
@@ -550,6 +579,19 @@
   .ayuda-card h3 {
     font-size: 1.3rem;
   }
+
+  .hero-slide-cine-content{
+    flex-direction: column;
+    text-align: center;
+}
+
+.img-carousel{
+  margin-top: 30px;
+}
+
+.img-carousel img{
+  max-width: 320px;
+}
 }
 
 @media (max-width: 480px) {
