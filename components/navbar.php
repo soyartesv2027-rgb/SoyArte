@@ -104,7 +104,7 @@ if (isset($_SESSION['usuario_id'])) {
             </a>
         </li>
         <li class="mb-2">
-            <a href="foro.php" class="nav-link link-dark">
+            <a href="Pantalla-de-carga/PC-comunidad.html" class="nav-link link-dark">
             <i class="fa-solid fa-comments me-2"></i>
                 Comunidad
             </a>

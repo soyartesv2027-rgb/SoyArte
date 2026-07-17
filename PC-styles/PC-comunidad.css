@@ -1,0 +1,21 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    background:
+    linear-gradient(
+        135deg,
+        #1a1a2e,
+        #2d1b69
+    );
+}
+
+canvas{
+    width:100vw;
+    height:100vh;
+    display:block;
+}

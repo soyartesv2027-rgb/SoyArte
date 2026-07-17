@@ -96,7 +96,7 @@ session_start();
                 </div>
 
                 <h2>
-                    Inspira. Crea. Comparte.
+                    Crea. Inspira. Comparte.
                 </h2>
 
                 <p>
@@ -367,7 +367,7 @@ session_start();
                 </span>
 
                 <h1>
-                     explora
+                    Explora
                     nuestra <span>tienda de arte</span>
                 </h1>
 
@@ -412,7 +412,7 @@ session_start();
                 </span>
 
                 <h1>
-                    crea tu propia
+                    Crea tu propia
                     <span>obra de arte digital</span>
                 </h1>
 
