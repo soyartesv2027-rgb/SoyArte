@@ -8,19 +8,10 @@
     box-sizing:border-box;
 }
 
-/* ===========================
-   BODY
-=========================== */
-
 body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:40px 20px;
-
-    font-family:'Segoe UI',sans-serif;
     background:#eef6ff;
+    font-family:'Segoe UI',sans-serif;
+    padding:40px 20px;
 }
 
 /* ===========================
@@ -28,44 +19,39 @@ body{
 =========================== */
 
 .detalle-pintura{
-    width:100%;
-    max-width:650px;
-    background:#ffffff;
+    max-width:760px;
+    margin:auto;
+    background:#fff;
     border-radius:20px;
     overflow:hidden;
-    box-shadow:0 8px 25px rgba(0,0,0,.1);
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
 }
-
-/* ===========================
-   IMAGEN
-=========================== */
 
 .imagen-detalle{
     width:100%;
-    height:280px;
+    height:350px;
     object-fit:cover;
-    display:block;
+}
+
+.contenido{
+    padding:30px;
 }
 
 /* ===========================
-   CONTENIDO
+   TITULOS
 =========================== */
-
-.contenido{
-    padding:25px;
-}
 
 .titulo-detalle{
     text-align:center;
     color:#2c4e7e;
-    font-size:2rem;
-    margin-bottom:10px;
+    font-size:2.2rem;
 }
 
 .autor{
     text-align:center;
-    color:#777;
-    margin-bottom:20px;
+    color:#666;
+    margin:12px 0 25px;
+    font-size:18px;
 }
 
 /* ===========================
@@ -73,324 +59,186 @@ body{
 =========================== */
 
 .descripcion-box{
-    padding:20px;
-    background:#e0dcdc;
+    background:#f4f4f4;
     border-radius:15px;
+    padding:22px;
+    margin-bottom:25px;
 }
 
 .descripcion-box h3{
-    margin-bottom:12px;
     color:#333;
+    margin-bottom:12px;
 }
 
 .descripcion-box p{
-    color:#555;
     line-height:1.7;
+    color:#555;
 }
 
 /* ===========================
    BOTONES
 =========================== */
 
+.acciones{
+    display:flex;
+    gap:15px;
+    margin-bottom:30px;
+}
+
 .btn-editar,
 .btn-eliminar{
-    display:inline-block;
     text-decoration:none;
-    padding:10px 20px;
-    border-radius:10px;
-    font-weight:600;
+    padding:12px 22px;
+    border-radius:12px;
+    color:#fff;
+    font-weight:bold;
     transition:.3s;
 }
 
 .btn-editar{
-    background:#4576a8;
-    color:#000;
+    background:#4679b3;
 }
 
 .btn-eliminar{
-    background:#4576a8;
-    color:#fff;
+    background:#d9534f;
 }
 
-.btn-editar:hover,
+.btn-editar:hover{
+    background:#35679b;
+}
+
 .btn-eliminar:hover{
-    background:#c7e3ff;
-    color:#2c4e7e;
+    background:#c9302c;
 }
 
-.comentario{
-    background:#fffefe;
-    padding:15px;
-    margin-top:15px;
-    border-radius:12px;
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
-}
+/* ===========================
+   COMENTARIOS
+=========================== */
 
-.comentario h4{
-    color:#2c4e7e;
-    margin-bottom:8px;
+h2{
+    color:#2c5d95;
+    margin-bottom:20px;
 }
-
-.comentario p{
-    margin-bottom:8px;
-}
-
-textarea{
-    width:100%;
-    height:110px;
-    border:1px solid #c7e3ff;
-    border-radius:12px;
-    padding:12px;
-    resize:none;
-    margin-top:15px;
-}
-
-textarea:focus{
-    outline:none;
-    border-color:#5ca9ff;
-}
-
-button{
-    margin-top:12px;
-    padding:10px 20px;
-    border:none;
-    border-radius:10px;
-    background:#5ca9ff;
-    color:white;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#468fe3;
-}
-
-/* =========================
-   FORMULARIO DE COMENTARIOS
-========================= */
 
 form{
-    margin-top:25px;
+    margin-bottom:30px;
 }
 
 textarea{
     width:100%;
-    min-height:120px;
+    min-height:130px;
+    border:2px solid #c8def5;
+    border-radius:16px;
     padding:18px;
-
-    border:2px solid #c7ddf5;
-    border-radius:18px;
-
-    background:#fdfefe;
-
-    font-size:16px;
-    font-family:'Segoe UI',sans-serif;
-
     resize:none;
-
+    font-size:15px;
     transition:.3s;
 }
 
 textarea:focus{
     outline:none;
-    border-color:#5c97d6;
-    box-shadow:0 0 0 4px rgba(92,151,214,.15);
+    border-color:#4d97e0;
 }
-
-textarea::placeholder{
-    color:#6f7f93;
-}
-
-/* BOTÓN */
 
 form button{
-    margin-top:14px;
-
-    padding:12px 24px;
-
-    border:none;
-    border-radius:14px;
-
-    background:linear-gradient(135deg,#4f7fb3,#35679b);
+    margin-top:15px;
+    background:#4d97e0;
     color:white;
-
-    font-size:15px;
-    font-weight:600;
-
+    border:none;
+    padding:12px 22px;
+    border-radius:12px;
     cursor:pointer;
-
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-
-    transition:.25s;
+    font-weight:bold;
+    transition:.3s;
 }
 
 form button:hover{
-    transform:translateY(-2px);
-    box-shadow:0 8px 18px rgba(53,103,155,.25);
+    background:#357dc6;
 }
-
-/* =========================
-   TÍTULO
-========================= */
-
-h2{
-    margin-top:35px;
-    margin-bottom:20px;
-
-    font-size:22px;
-    color:#2f5f93;
-}
-
-/* =========================
-   TARJETA DE COMENTARIO
-========================= */
 
 .comentario{
-    background:#f5f8fc;
-
-    border-left:6px solid #4f7fb3;
-    border-radius:16px;
-
-    padding:18px 20px;
-    margin-bottom:16px;
-
-    box-shadow:0 4px 12px rgba(0,0,0,.05);
-
-    transition:.25s;
-}
-
-.comentario:hover{
-    transform:translateY(-2px);
-    box-shadow:0 8px 18px rgba(0,0,0,.08);
+    background:#f8fbff;
+    border-left:5px solid #4d97e0;
+    border-radius:15px;
+    padding:18px;
+    margin-bottom:15px;
 }
 
 .comentario h4{
-    margin:0 0 10px 0;
-
-    font-size:18px;
-    font-weight:700;
-
-    color:#16385f;
+    color:#2c4e7e;
+    margin-bottom:8px;
 }
 
 .comentario p{
-    margin:0 0 12px 0;
-
-    color:#324a63;
-    line-height:1.55;
-    font-size:15px;
+    line-height:1.6;
+    color:#444;
 }
 
 .comentario small{
     display:block;
     text-align:right;
-
-    color:#71829a;
-    font-size:13px;
-    font-weight:500;
-}
-
-
-.flecha {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 45px;
-    height: 45px;
-  
-    border-radius: 50%;
-
-        background:#4d97e0;
-
-
-
-    border-radius: 50%; /* esto crea el círculo */
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.flecha i {
-    color: white;
-    font-size: 18px;
+    color:#888;
+    margin-top:10px;
 }
 
 /* ===========================
-   ACCIONES
+   FLECHA
 =========================== */
 
-.acciones{
+.flecha{
+    position:fixed;
+    top:20px;
+    left:20px;
+
+    width:52px;
+    height:52px;
+
+    border-radius:50%;
+    background:#4d97e0;
+
     display:flex;
-    gap:15px;
-    margin-top:20px;
-    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.flecha:hover{
+    transform:scale(1.08);
+}
+
+.flecha i{
+    color:white;
+    font-size:20px;
 }
 
 /* ===========================
    RESPONSIVE
 =========================== */
 
-@media (max-width:768px){
+@media(max-width:768px){
 
     body{
-        padding:20px 15px;
-        align-items:flex-start;
-    }
-
-    .contenido{
-        padding:20px;
+        padding:15px;
     }
 
     .imagen-detalle{
         height:240px;
     }
 
-    .titulo-detalle{
-        font-size:1.7rem;
-    }
-}
-
-@media (max-width:480px){
-
-    body{
-        padding:10px;
-    }
-
-    .detalle-pintura{
-        border-radius:15px;
-    }
-
-    .imagen-detalle{
-        height:200px;
-    }
-
     .contenido{
-        padding:18px;
+        padding:20px;
     }
 
     .titulo-detalle{
-        font-size:1.5rem;
-    }
-
-    .autor{
-        font-size:.95rem;
-    }
-
-    .descripcion-box{
-        padding:18px;
-    }
-
-    .descripcion-box p{
-        font-size:.95rem;
+        font-size:1.8rem;
     }
 
     .acciones{
         flex-direction:column;
     }
 
-    .btn-volver,
     .btn-editar,
     .btn-eliminar{
         width:100%;

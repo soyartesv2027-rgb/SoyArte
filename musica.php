@@ -146,15 +146,7 @@ $resultado = $conn->query($sql);
 
 <?php if(isset($_SESSION['usuario_id'])): ?>
 
-    <a
-        href="publicar_musica.php"
-        class="floating-btn"
-    >
-
-        <i class="fa-solid fa-plus"></i>
-
-    </a>
-
+   
 <?php endif; ?>
 
 <script>
