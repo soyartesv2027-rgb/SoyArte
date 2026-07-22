@@ -253,6 +253,7 @@ body {
         padding: 12px 15px;
         flex-wrap: wrap;
         gap: 8px;
+        border-radius: 30px;
     }
  
     .topbar-detalle h2 {
@@ -305,8 +306,6 @@ body {
         font-size: 0.95rem;
     }
 }
-<<<<<<< HEAD
-=======
 
 
 
@@ -348,4 +347,3 @@ body {
     color: #ffffff;
     line-height: 1;
 }
->>>>>>> 10017c12632e6833b80c10e73f9143c3a289fb60

@@ -11,10 +11,10 @@ if (!isset($_GET['id'])) {
 $obra_id = (int) $_GET['id'];
 $usuario_id = isset($_SESSION['usuario_id']) ? (int) $_SESSION['usuario_id'] : null;
 
-/* -------------------------------------------------------------
+/* 
    Procesar accion de FAVORITO (viene por POST). El Like ahora
    lo maneja php/like.php directamente.
-   ------------------------------------------------------------- */
+    */
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accion'])) {
 
     if (!$usuario_id) {
