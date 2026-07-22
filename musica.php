@@ -84,9 +84,14 @@ $resultado = $conn->query($sql);
 </main>
 
 <?php if(isset($_SESSION['usuario_id'])): ?>
+<<<<<<< HEAD
     <a href="publicar_musica.php" class="floating-btn">
         <i class="fa-solid fa-plus"></i>
     </a>
+=======
+
+   
+>>>>>>> 2f25a941abc1d61216de7aefb74ed11a6998d36d
 <?php endif; ?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>

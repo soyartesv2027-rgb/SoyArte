@@ -111,7 +111,7 @@ else {
     $idConversacion = $conn->insert_id;
 }
 
-header("Location: ../chat.php?id=" . $idConversacion);
+header("Location: ../contacto_artista.php?id=" . $idConversacion);
 exit();
 
 ?>

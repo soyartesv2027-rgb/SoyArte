@@ -16,8 +16,23 @@ $stmt->execute();
 $resultado = $stmt->get_result();
 $pintura = $resultado->fetch_assoc();
 
+
 if (!$pintura) {
     die("Pintura no encontrada");
+}
+
+/* ===========================
+   VERIFICAR SI ES EL DUEÑO
+=========================== */
+
+$esPropietario = false;
+
+if (
+    isset($_SESSION['usuario_id']) &&
+    isset($pintura['id_usuario']) &&
+    $_SESSION['usuario_id'] == $pintura['id_usuario']
+) {
+    $esPropietario = true;
 }
 
 // Obtener comentarios
@@ -40,122 +55,151 @@ $comentarios = $stmtComentarios->get_result();
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <title><?php echo htmlspecialchars($pintura['nombre_pintura']); ?></title>
 
-    <link rel="stylesheet" href="styles/ver_pintura.css?v=<?php echo time(); ?>">
-    <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+
+<title><?php echo htmlspecialchars($pintura['nombre_pintura']); ?></title>
+
+<link rel="stylesheet" href="styles/ver_pintura.css?v=<?php echo time(); ?>">
+<link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 
 <body>
 
-  <a href="pinturas.php">
-    <div class="flecha">
-        <i class="fa-solid fa-arrow-left"></i>
-    </div>
-    </a>
+<a href="pinturas.php">
+
+<div class="flecha">
+<i class="fa-solid fa-arrow-left"></i>
+</div>
+
+</a>
 
 <div class="detalle-pintura">
 
-    <img
-        src="<?php echo $pintura['imagen']; ?>"
-        class="imagen-detalle"
-        alt="Pintura">
+<img
+src="<?php echo $pintura['imagen']; ?>"
+class="imagen-detalle"
+alt="Pintura">
 
-    <div class="contenido">
+<div class="contenido">
 
-        <h1 class="titulo-detalle">
-            <?php echo htmlspecialchars($pintura['nombre_pintura']); ?>
-        </h1>
+<h1 class="titulo-detalle">
+<?php echo htmlspecialchars($pintura['nombre_pintura']); ?>
+</h1>
 
-        <p class="autor">
-            Por <?php echo htmlspecialchars($pintura['autor']); ?>
-        </p>
+<p class="autor">
+Por <?php echo htmlspecialchars($pintura['autor']); ?>
+</p>
 
-        <div class="descripcion-box">
-            <h3>Descripción</h3>
+<div class="descripcion-box">
 
-            <p>
-                <?php echo htmlspecialchars($pintura['descripcion']); ?>
-            </p>
-        </div>
+<h3>Descripción</h3>
 
-        <div class="acciones">
+<p>
+<?php echo htmlspecialchars($pintura['descripcion']); ?>
+</p>
 
-            <a href="editar_pinturas.php?id=<?php echo $pintura['ID']; ?>" class="btn-editar">
-                Editar
-            </a>
+</div>
 
-            <a href="php/eliminar_pintura.php?id=<?php echo $pintura['ID']; ?>"
-               class="btn-eliminar"
-               onclick="return confirm('¿Estás seguro de eliminar esta pintura?')">
-                Eliminar
-            </a>
+<!-- BOTONES SOLO PARA EL DUEÑO -->
 
-        </div>
+<?php if($esPropietario){ ?>
 
-        <hr>
+<div class="acciones">
 
-        <h2>Comentarios</h2>
+<a href="editar_pinturas.php?id=<?php echo $pintura['ID']; ?>" class="btn-editar">
 
-        <?php if(isset($_SESSION['usuario_id'])){ ?>
+<i class="fa-solid fa-pen"></i>
+Editar
 
-            <form action="php/comentar.php" method="POST">
+</a>
 
-                <input
-                    type="hidden"
-                    name="id_pintura"
-                    value="<?php echo $id; ?>">
+<a
+href="php/eliminar_pintura.php?id=<?php echo $pintura['ID']; ?>"
+class="btn-eliminar"
+onclick="return confirm('¿Estás seguro de eliminar esta pintura?')">
 
-                <textarea
-                    name="comentario"
-                    placeholder="Escribe un comentario..."
-                    required></textarea>
+<i class="fa-solid fa-trash"></i>
+Eliminar
 
-               <button type="submit">
-                    Comentar
-                </button>
-            </form>
+</a>
 
-        <?php }else{ ?>
+</div>
 
-            <p>Debes iniciar sesión para comentar.</p>
+<?php } ?>
 
-        <?php } ?>
+<hr>
 
-        <br>
+<h2>Comentarios</h2>
 
-        <?php if($comentarios->num_rows > 0){ ?>
+<?php if(isset($_SESSION['usuario_id'])){ ?>
 
-            <?php while($comentario = $comentarios->fetch_assoc()){ ?>
+<form action="php/comentar.php" method="POST">
 
-                <div class="comentario">
+<input
+type="hidden"
+name="id_pintura"
+value="<?php echo $id; ?>">
 
-                    <h4>
-                        <?php echo htmlspecialchars($comentario['nombre']); ?>
-                    </h4>
+<textarea
+name="comentario"
+placeholder="Escribe un comentario..."
+required></textarea>
 
-                    <p>
-                        <?php echo nl2br(htmlspecialchars($comentario['comentario'])); ?>
-                    </p>
+<button type="submit">
+Comentar
+</button>
 
-                    <small>
-                        <?php echo $comentario['fecha']; ?>
-                    </small>
+</form>
 
-                </div>
+<?php } else { ?>
 
-            <?php } ?>
+<p>Debes iniciar sesión para comentar.</p>
 
-        <?php }else{ ?>
+<?php } ?>
 
-            <p>Aún no hay comentarios.</p>
+<br>
 
-        <?php } ?>
+<?php if($comentarios->num_rows > 0){ ?>
 
-    </div>
+<?php while($comentario = $comentarios->fetch_assoc()){ ?>
+
+<div class="comentario">
+
+<h4>
+
+<?php echo htmlspecialchars($comentario['nombre']); ?>
+
+</h4>
+
+<p>
+
+<?php echo nl2br(htmlspecialchars($comentario['comentario'])); ?>
+
+</p>
+
+<small>
+
+<?php echo $comentario['fecha']; ?>
+
+</small>
+
+</div>
+
+<?php } ?>
+
+<?php } else { ?>
+
+<p>Aún no hay comentarios.</p>
+
+<?php } ?>
+
+</div>
 
 </div>
 

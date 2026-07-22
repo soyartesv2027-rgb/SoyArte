@@ -77,7 +77,7 @@ if (!empty($conversacion['producto_id'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles/chat.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="styles/contacto_artista.css?v=<?php echo time(); ?>">
 </head>
 <body>
 
@@ -323,6 +323,6 @@ if (!empty($conversacion['producto_id'])) {
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="JavaScript/script.js"></script>
-    <script src="JavaScript/chat.js"></script>
+    <script src="JavaScript/contacto_artista.js"></script>
 </body>
 </html>
