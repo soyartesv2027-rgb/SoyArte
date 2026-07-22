@@ -30,7 +30,7 @@ body {
 }
 
 .form-header {
-    background: #c7e3ff;
+    background: #f8bbb8;
     padding: 25px;
     text-align: center;
     color: white;
@@ -63,7 +63,7 @@ form {
 
 .campo label {
     font-weight: bold;
-    color: #4576a8;
+    color: #f8bbb8;
     font-size: 14px;
 }
 
@@ -79,7 +79,7 @@ form {
 
 .campo input:focus,
 .campo textarea:focus {
-    border-color: #c7e3ff;
+    border-color: #f8bbb8;
 }
 
 .campo input[type="file"] {
@@ -88,10 +88,10 @@ form {
 }
 
 .btn-guardar {
-    background: #4576a8;
+    background:#f8bbb8;
     color: white;
     border: none;
-    border-radius: 25px;
+    border-radius: 10px;
     padding: 12px;
     font-size: 16px;
     cursor: pointer;
@@ -100,7 +100,7 @@ form {
 }
 
 .btn-guardar:hover {
-    background: #a5ba47;
+    background: #eec5c3;
 }
 
 

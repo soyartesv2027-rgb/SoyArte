@@ -77,7 +77,7 @@ while ($mensaje = $resultado->fetch_assoc()) {
             <?php if ($mensaje['tipo'] === "imagen") { ?>
                 <?php if (!empty($mensaje['archivo'])) { ?>
                     <img
-                        src="uploads/chat/<?php echo htmlspecialchars($mensaje['archivo']); ?>"
+                        src="uploads/contacto_artista/<?php echo htmlspecialchars($mensaje['archivo']); ?>"
                         class="imagen-chat"
                         alt="Imagen enviada"
                         onclick="abrirImagen(this.src)">
@@ -90,7 +90,7 @@ while ($mensaje = $resultado->fetch_assoc()) {
                 <?php } ?>
             <?php } elseif ($mensaje['tipo'] === "archivo" && !empty($mensaje['archivo'])) {
                 $extArchivo = strtolower(pathinfo($mensaje['archivo'], PATHINFO_EXTENSION));
-                $rutaArchivo = "uploads/chat/" . htmlspecialchars($mensaje['archivo']);
+                $rutaArchivo = "uploads/contacto_artista/" . htmlspecialchars($mensaje['archivo']);
                 $videoExt = ["mp4","webm","ogg"];
                 $audioExt = ["mp3","wav","ogg"];
                 if (in_array($extArchivo, $videoExt)) { ?>

@@ -4,10 +4,10 @@ $seccion = $seccion ?? 'general';
 
 $colores = [
     'poesia'       => '#ec7b8b',
-    'pinturas'     => '#c7e3ff',
+    'pinturas'     => '#64a0db',
     'musica'       => '#2c4e7e',
     'manualidades' => '#f8bbb8',
-    'general'      => '#b8cfe8',
+
 ];
 
 $colorNav = $colores[$seccion] ?? $colores['general'];
@@ -104,6 +104,7 @@ $iconosNav = array_slice($iconosNav, 0, 4);
             <i class="fa-solid fa-house"></i>
 
         </a>
+<<<<<<< HEAD
 
 
         <!-- LOGO -->
@@ -117,6 +118,13 @@ $iconosNav = array_slice($iconosNav, 0, 4);
                 src="images/logonegro.png"
                 alt="SoyArte">
 
+=======
+ 
+        <!-- Logo -->
+        <a href="index.php" class="navbar-soyarte-logo">
+            <img src="<?= $logoNav ?>" alt="Logo" width="75" height="75" style="object-fit:contain;">
+            
+>>>>>>> 14143fab34e8ae9c79d76f272edcb4a958d63955
         </a>
 
 

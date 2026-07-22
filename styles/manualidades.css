@@ -13,7 +13,7 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: #eef5ff;
+  background: #fdfdfd;
   color: #333;
 }
 
@@ -192,26 +192,6 @@ body {
   transform: scale(1.08);
 }
 
-.manualidad-tag {
-  position: absolute;
-
-  top: 15px;
-
-  left: 15px;
-
-  background: #4576a8;
-
-  color: white;
-
-  padding: 8px 18px;
-
-  border-radius: 30px;
-
-  font-size: 13px;
-
-  font-weight: 600;
-}
-
 /* ========= INFORMACIÓN ========= */
 
 .manualidad-info {
@@ -233,7 +213,7 @@ body {
 }
 
 .manualidad-autor i {
-  color: #4576a8;
+  color: #d19c99;
 
   margin-right: 6px;
 }
@@ -261,7 +241,7 @@ body {
     border: none;
     border-radius: 50%;
 
-    background: #74b3f1;
+    background: #f8bbb8;
 
     display: flex;
     justify-content: center;
@@ -275,7 +255,7 @@ body {
 }
 
 .boton-plus:hover{
-    background: #64a0db;
+    background: #d39895;
     transform: scale(1.1) rotate(90deg);
 }
 

@@ -72,7 +72,7 @@ $usuarioActual = (int)($_SESSION['usuario_id'] ?? 0);
             </button>
             <br><br>
             <?php if ($usuarioActual != $producto['usuario_id']): ?>
-            <a href="php/crear_chat.php?producto=<?php echo $producto['id']; ?>"
+            <a href="php/crear_contacto_artista.php?producto=<?php echo $producto['id']; ?>"
             class="btn-contactar">
                 💬 Contactar al artista
             </a>

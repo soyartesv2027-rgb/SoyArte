@@ -309,6 +309,10 @@ body {
 
 
 
+/* ===========================
+   BOTÓN AGREGAR
+=========================== */
+
 .añadir-boton{
     position: fixed;
     right: 30px;
@@ -324,7 +328,7 @@ body {
     border: none;
     border-radius: 50%;
 
-    background: #74b3f1;
+    background: #ec7b8b;
 
     display: flex;
     justify-content: center;
@@ -338,7 +342,7 @@ body {
 }
 
 .boton-plus:hover{
-    background: #64a0db;
+    background: #e07583;
     transform: scale(1.1) rotate(90deg);
 }
 
@@ -347,3 +351,7 @@ body {
     color: #ffffff;
     line-height: 1;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 14143fab34e8ae9c79d76f272edcb4a958d63955

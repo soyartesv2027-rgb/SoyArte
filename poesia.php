@@ -146,12 +146,13 @@ $resultado = $stmt->get_result();
         </div>
     </div>
 
-        </div>
-  <a href="publicar-poesia.php" class="añadir-boton">
+
+    <a href="publicar-poesia.php" class="añadir-boton">
     <button class="boton-plus">
       <i class="fa-solid fa-plus"></i>
     </button>
   </a>
+
  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script>
