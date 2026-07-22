@@ -192,26 +192,6 @@ body {
   transform: scale(1.08);
 }
 
-.manualidad-tag {
-  position: absolute;
-
-  top: 15px;
-
-  left: 15px;
-
-  background: #da9e9b;
-
-  color: white;
-
-  padding: 8px 18px;
-
-  border-radius: 30px;
-
-  font-size: 13px;
-
-  font-weight: 600;
-}
-
 /* ========= INFORMACIÓN ========= */
 
 .manualidad-info {
