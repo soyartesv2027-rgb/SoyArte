@@ -119,7 +119,7 @@ $conversaciones = $stmt->get_result();
                 $fotoSrc = !empty($otroFoto) ? "uploads/perfiles/" . htmlspecialchars($otroFoto) : "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72'%3E%3Ccircle cx='36' cy='36' r='36' fill='%23ddd'/%3E%3Ccircle cx='36' cy='27' r='10' fill='%23999'/%3E%3Cellipse cx='36' cy='54' rx='20' ry='14' fill='%23999'/%3E%3C/svg%3E";
                 $prodImg = !empty($chat['producto_imagen']) ? "uploads/" . htmlspecialchars($chat['producto_imagen']) : "";
             ?>
-                <a href="chat.php?id=<?php echo $chat['id']; ?>" class="conversacion<?php echo $clasePendiente; ?>">
+                <a href="contacto_artista.php?id=<?php echo $chat['id']; ?>" class="conversacion<?php echo $clasePendiente; ?>">
                     <img
                         src="<?php echo $fotoSrc; ?>"
                         alt="Foto de <?php echo htmlspecialchars($otroNombre); ?>"
