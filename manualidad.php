@@ -50,7 +50,7 @@ $resultado = $conn->query($sql);
         </section>
 
         <!-- Tarjetas -->
-        <div class="manualidades-grid">
+        <main class="manualidades-grid">
 
             <?php if ($resultado->num_rows > 0): ?>
 
@@ -72,9 +72,7 @@ $resultado = $conn->query($sql);
                                 alt="<?php echo htmlspecialchars($fila['nombre']); ?>"
                                 onerror="this.src='images/sin-imagen.png'">
 
-                            <span class="manualidad-tag">
-                                Manualidad
-                            </span>
+
                         </div>
 
                         <div class="manualidad-info">
@@ -108,10 +106,10 @@ $resultado = $conn->query($sql);
                                     ?>
                                 </span>
 
-                                <a
-                                    href="ver_manualidad.php?id=<?php echo $fila['id']; ?>"
-                                    class="manualidad-boton">
+                                <a href="ver_manualidad.php?id=<?php echo $fila['id']; ?>"
+                                    <button class="manualidad-boton">
                                     Ver más
+                                    </button>
                                 </a>
 
                             </div>
@@ -138,7 +136,7 @@ $resultado = $conn->query($sql);
 
             <?php endif; ?>
 
-        </div>
+            </main>
 
     </div>
 
