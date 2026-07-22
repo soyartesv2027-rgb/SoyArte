@@ -20,7 +20,7 @@ if ($es_local) {
     // ===== CONFIGURACIÓN INFINITYFREE =====
     $host = "sql210.infinityfree.com";
     $user = "if0_42421416";
-    $password = "TU_CONTRASEÑA"; // Coloca aquí tu contraseña real
+    $password = "8pFN3U18SB4t";
     $dbname = "if0_42421416_soyarte";
 }
 

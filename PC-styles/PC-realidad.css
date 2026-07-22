@@ -1,0 +1,75 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    overflow:hidden;
+
+    background:black;
+}
+
+/* CANVAS */
+canvas{
+
+    width:100vw;
+    height:100vh;
+
+    display:block;
+}
+
+/* LINEAS RETRO */
+.scanlines{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+    repeating-linear-gradient(
+
+        to bottom,
+
+        rgba(255,255,255,0.03),
+
+        rgba(255,255,255,0.03) 1px,
+
+        transparent 2px,
+
+        transparent 4px
+
+    );
+
+    animation:
+    scan 6s linear infinite;
+}
+
+@keyframes scan{
+
+    from{
+
+        transform:
+        translateY(0);
+
+    }
+
+    to{
+
+        transform:
+        translateY(12px);
+
+    }
+
+}
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
+}

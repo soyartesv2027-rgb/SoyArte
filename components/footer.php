@@ -1,22 +1,17 @@
+
 <!-- ===== FOOTER ===== -->
 <footer class="footer-soyarte">
-
     <div class="container py-5">
-
         <div class="row gy-4">
-
             <!-- LOGO Y DESCRIPCION -->
             <div class="col-lg-4 col-md-6">
-
                 <h2 class="footer-logo">
                     Soy Arte 🎨
                 </h2>
-
                 <p class="footer-description">
                     Un espacio creado para inspirar, conectar y compartir
                     el talento artístico en todas sus formas.
                 </p>
-
             </div>
 
             <!-- ENLACES -->
@@ -29,13 +24,13 @@
                 <ul class="footer-links">
 
                     <li>
-                        <a href="#">
+                        <a href="sobre-nosotros.php">
                             Sobre nosotros
                         </a>
                     </li>
 
                     <li>
-                        <a href="#">
+                        <a href="contacto.php">
                             Contáctanos
                         </a>
                     </li>
@@ -77,7 +72,7 @@
                         <i class="fa-brands fa-facebook-f"></i>
                     </a>
 
-                    <a href="#">
+                    <a href="https://www.instagram.com/soyarte._">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
 

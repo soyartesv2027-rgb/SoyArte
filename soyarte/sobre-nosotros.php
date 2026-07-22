@@ -51,7 +51,7 @@ session_start();
                                 </p>
                             </div>
                             <div class="img-carousel">
-                                <img src="images/sobrenosotros (2).jpg" alt="Sobre nosotros">
+                                <img src="images/sobrenosotros1.png" alt="Sobre nosotros">
                             </div>
                            
                         </div>
@@ -74,7 +74,7 @@ session_start();
                             </div>    
 
                             <div class="img-carousel">
-                                <img src="images/sobrenosotros1 (3).jpg" alt="Nuestra filosofía">
+                                <img src="images/sobrenosotros2.png" alt="Nuestra filosofía">
                             </div>
                         </div>
                     </div>
@@ -99,7 +99,7 @@ session_start();
                             </div>    
 
                             <div class="img-carousel">
-                                <img src="images/sobrenosotros(1).jpg" alt="Únete al movimiento">
+                                <img src="images/sobrenosotros3.png" alt="Únete al movimiento">
                             </div>
                         </div>
                     </div>

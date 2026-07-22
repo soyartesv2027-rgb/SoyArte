@@ -1,0 +1,247 @@
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#eef6ff;
+    font-family:'Segoe UI',sans-serif;
+    padding:40px 20px;
+}
+
+/* ===========================
+   CONTENEDOR
+=========================== */
+
+.detalle-pintura{
+    max-width:760px;
+    margin:auto;
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+
+.imagen-detalle{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+}
+
+.contenido{
+    padding:30px;
+}
+
+/* ===========================
+   TITULOS
+=========================== */
+
+.titulo-detalle{
+    text-align:center;
+    color:#2c4e7e;
+    font-size:2.2rem;
+}
+
+.autor{
+    text-align:center;
+    color:#666;
+    margin:12px 0 25px;
+    font-size:18px;
+}
+
+/* ===========================
+   DESCRIPCIÓN
+=========================== */
+
+.descripcion-box{
+    background:#f4f4f4;
+    border-radius:15px;
+    padding:22px;
+    margin-bottom:25px;
+}
+
+.descripcion-box h3{
+    color:#333;
+    margin-bottom:12px;
+}
+
+.descripcion-box p{
+    line-height:1.7;
+    color:#555;
+}
+
+/* ===========================
+   BOTONES
+=========================== */
+
+.acciones{
+    display:flex;
+    gap:15px;
+    margin-bottom:30px;
+}
+
+.btn-editar,
+.btn-eliminar{
+    text-decoration:none;
+    padding:12px 22px;
+    border-radius:12px;
+    color:#fff;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn-editar{
+    background:#4679b3;
+}
+
+.btn-eliminar{
+    background:#d9534f;
+}
+
+.btn-editar:hover{
+    background:#35679b;
+}
+
+.btn-eliminar:hover{
+    background:#c9302c;
+}
+
+/* ===========================
+   COMENTARIOS
+=========================== */
+
+h2{
+    color:#2c5d95;
+    margin-bottom:20px;
+}
+
+form{
+    margin-bottom:30px;
+}
+
+textarea{
+    width:100%;
+    min-height:130px;
+    border:2px solid #c8def5;
+    border-radius:16px;
+    padding:18px;
+    resize:none;
+    font-size:15px;
+    transition:.3s;
+}
+
+textarea:focus{
+    outline:none;
+    border-color:#4d97e0;
+}
+
+form button{
+    margin-top:15px;
+    background:#4d97e0;
+    color:white;
+    border:none;
+    padding:12px 22px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:.3s;
+}
+
+form button:hover{
+    background:#357dc6;
+}
+
+.comentario{
+    background:#f8fbff;
+    border-left:5px solid #4d97e0;
+    border-radius:15px;
+    padding:18px;
+    margin-bottom:15px;
+}
+
+.comentario h4{
+    color:#2c4e7e;
+    margin-bottom:8px;
+}
+
+.comentario p{
+    line-height:1.6;
+    color:#444;
+}
+
+.comentario small{
+    display:block;
+    text-align:right;
+    color:#888;
+    margin-top:10px;
+}
+
+/* ===========================
+   FLECHA
+=========================== */
+
+.flecha{
+    position:fixed;
+    top:20px;
+    left:20px;
+
+    width:52px;
+    height:52px;
+
+    border-radius:50%;
+    background:#4d97e0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.flecha:hover{
+    transform:scale(1.08);
+}
+
+.flecha i{
+    color:white;
+    font-size:20px;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+    body{
+        padding:15px;
+    }
+
+    .imagen-detalle{
+        height:240px;
+    }
+
+    .contenido{
+        padding:20px;
+    }
+
+    .titulo-detalle{
+        font-size:1.8rem;
+    }
+
+    .acciones{
+        flex-direction:column;
+    }
+
+    .btn-editar,
+    .btn-eliminar{
+        width:100%;
+        text-align:center;
+    }
+}

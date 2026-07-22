@@ -141,9 +141,8 @@ session_start();
         <div class="video-box">
 
             <iframe
-                src="https://www.youtube.com/embed/uZ5a2l5t1uE"
+                src="https://www.youtube.com/embed/uZ5a2l5t1uE?autoplay=1"
                 controls
-                autoplay
                 muted>
             </iframe>
 

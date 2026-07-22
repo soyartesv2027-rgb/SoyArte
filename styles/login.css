@@ -1,91 +1,184 @@
-
-h2{
-    color: rgb(0, 0, 0);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 body {
     margin: 0;
     height: 100vh;
-    background-image: url("../img/Designer.png"); 
+    background-image: url("../img/ChatGPT\ Image\ 22\ abr\ 2026\,\ 08_35_02\ p.m..png"); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
+.form{
+    background-color: rgb(255, 255, 255);
+    margin: 40px;
+    width: 450px;
+    height: 450px;
+    border-radius: 15px;
+    border: solid black 1.5px;
 
-.padre {
+}
+
+.contenedorLogin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:transparent;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
+.titulo{
+    display: flex;
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+    padding-top:60px;
+    color: #2c4e7e;
+}
 
-.form-card {
-    background: #ffffff;
+.inputBlock{
+    margin: 30px;
+    font-family: sans-serif;
+    border-radius: 5px;
+}
+
+.inputs{
+    border-radius: 5px;
+    width: 400px;
+    margin-top: 10px;
+    border-color: darkgrey;
+    padding: 5px;
+}
+
+.forget-password {
+    display: block;
+    text-align: right;
+    padding-right: 5px;
+    margin-bottom: 5px;
+}
+
+button.btn.btn-primary {
     width: 100%;
-    max-width: 420px;
-    padding: 35px;
-    border-radius: 18px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    height: 40px;
+    font-weight: bold;
+    font-size: 17px;
+    background:#4576a8;
+    border-color:#4576a8;
+    color:white;
 }
 
-.form-card h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    font-weight: 600;
+button.btn.btn-primary:hover{
+    background:#c7e3ff;
+    border-color:#c7e3ff;
+    color:#2c4e7e;
 }
 
-
-.form-control {
-    border-radius: 10px;
+button{
+    width: 100%;
+    height: 30px;
+    font-weight: bold;
+    font-size: 17px;
+    margin-bottom: 5px;
 }
 
-
-.btn-primary {
-    border-radius: 12px;
-    padding: 10px;
-}
-
-
-.social-buttons {
-    display: flex;
-    gap: 12px;
-}
-
-
-.social-buttons button {
-    flex: 1;
+.button1{
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
+    width: 390px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 15px;
+    background-color: white;
+    border: 1.5px solid darkgray;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.button1 img{
+    width: 20px;
+    height: 20px;
+}
+
+.opciones{
+    text-align: center;
+}
+
+.register{
+    display: flex;
+    text-align: center;
     gap: 8px;
     padding: 10px;
-    border-radius: 12px;
-    border: none;
-    font-weight: 500;
 }
 
 
-.social-buttons img {
-    width: 18px;
-    height: 18px;
+.btn-regresar  a img{
+    width: 60px;
+    height: auto;
+    position: fixed;
+    bottom: 25px;
+    left: 247px;
+    margin-bottom: 400px;
+    z-index: 1000;
 }
 
+@media(max-width: 768px){
 
-.btn-google {
-    background: #ffffff;
-    border: 1px solid #ddd;
+    body{
+        background-image: url("../img/ChatGPT\ Image\ 1\ jul\ 2026\,\ 16_30_08.png");
+    }
+
+    .contenedorLogin{
+        height: auto;
+        min-height: 100vh;
+        padding: 20px 0;
+    }
+    .titulo{
+        font-size: 30px;
+        padding-top: 20px;
+        text-align: center;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .form{
+        width: 90vw;
+        max-width: 90vw;
+        height: auto;
+        margin: 15px auto;
+    }
+
+    .inputs{
+        width: 100%;
+    }
+
+    .inputBlock{
+        margin: 12px 15px;
+    }
+
+    .button1{
+        width: 100%;
+    }
+
+    .register{
+        display: block;
+        padding: 5px;
+        margin-bottom: 3px;
+    }
+
+    .btn-regresar  a img{
+        width: 50px;
+        margin-bottom: 0;
+        bottom: 15px;
+        left: 20px;
+        top: auto
+    }
+
 }
 
-
-.btn-instagram {
-    background: #E4405F;
-    color: white;
-}
-.inicia{
-    margin-top: 10px;
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
 }

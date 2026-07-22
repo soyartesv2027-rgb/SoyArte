@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #f5f5f5;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.contenedor-form {
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.form-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-header {
+    background: #c7e3ff;
+    padding: 25px;
+    text-align: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.form-header i {
+    font-size: 28px;
+}
+
+.form-header h2 {
+    font-size: 26px;
+}
+
+form {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.campo label {
+    font-weight: bold;
+    color: #4576a8;
+    font-size: 14px;
+}
+
+.campo input,
+.campo textarea {
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+    border-color: #c7e3ff;
+}
+
+.campo input[type="file"] {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.btn-guardar {
+    background: #4576a8;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 5px;
+}
+
+.btn-guardar:hover {
+    background: #a5ba47;
+}
+
+
+.btn-volver{
+    transition:.3s;
+}
+
+.btn-volver:hover{
+    background:#666 !important;
+    color:white;
+}
+
+input:focus,
+textarea:focus{
+    border-color:#4576a8;
+    box-shadow:0 0 8px rgba(69,118,168,.25);
+}
+
+.btn-guardar{
+    transition:.3s;
+}
+
+.btn-guardar:hover{
+    transform:translateY(-2px);
+}
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
+
+}
+

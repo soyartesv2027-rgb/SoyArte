@@ -1,0 +1,317 @@
+/* =====================================
+   MANUALIDADES - SOYARTE
+   PARTE 1
+===================================== */
+
+/* ========= RESET ========= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #fdfdfd;
+  color: #333;
+}
+
+/* ========= CONTENEDOR ========= */
+
+.contenedor {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ========= BANNER ========= */
+
+.banner {
+  width: 100%;
+  height: 240px;
+
+  background: url("../images/banner_manualidades.png") center center;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 0 0 25px 25px;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.banner::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.contenido-banner {
+  position: relative;
+
+  z-index: 2;
+
+  text-align: center;
+
+  padding: 20px;
+}
+
+.contenido-banner h2 {
+  font-size: 52px;
+
+  font-weight: bold;
+
+  color: #222;
+
+  margin-bottom: 10px;
+}
+
+.contenido-banner p {
+  color: #333;
+
+  font-size: 17px;
+}
+
+/* ========= BUSCADOR ========= */
+
+.contenedor-buscador {
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
+  margin: 40px 0;
+}
+
+.buscador {
+  width: 650px;
+
+  max-width: 92%;
+
+  background: white;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 15px 22px;
+
+  border-radius: 40px;
+
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.buscador i {
+  color: #4576a8;
+
+  font-size: 20px;
+}
+
+.buscador input {
+  flex: 1;
+
+  margin-left: 15px;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  font-size: 16px;
+}
+
+/* ========= GRID ========= */
+
+.manualidades-grid {
+  width: 92%;
+
+  max-width: 1350px;
+
+  margin: 40px auto 70px;
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+  gap: 35px;
+}
+
+/* ========= TARJETA ========= */
+
+.manualidad-card {
+  background: white;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+  transition: 0.35s;
+}
+
+.manualidad-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow: 0 15px 35px rgba(69, 118, 168, 0.18);
+}
+
+/* ========= IMAGEN ========= */
+
+.manualidad-imagen {
+  position: relative;
+
+  height: 250px;
+
+  overflow: hidden;
+}
+
+.manualidad-imagen img {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: 0.4s;
+}
+
+.manualidad-card:hover img {
+  transform: scale(1.08);
+}
+
+.manualidad-tag {
+  position: absolute;
+
+  top: 15px;
+
+  left: 15px;
+
+  background: #da9e9b;
+
+  color: white;
+
+  padding: 8px 18px;
+
+  border-radius: 30px;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+/* ========= INFORMACIÓN ========= */
+
+.manualidad-info {
+  padding: 22px;
+}
+
+.manualidad-titulo {
+  font-size: 25px;
+
+  color: #222;
+
+  margin-bottom: 10px;
+}
+
+.manualidad-autor {
+  color: #666;
+
+  margin-bottom: 15px;
+}
+
+.manualidad-autor i {
+  color: #d19c99;
+
+  margin-right: 6px;
+}
+
+.manualidad-descripcion {
+  color: #666;
+
+  line-height: 1.7;
+
+  min-height: 85px;
+}
+
+.añadir-boton{
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    z-index: 999;
+    text-decoration: none;
+}
+
+.boton-plus{
+    width: 65px;
+    height: 65px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #f8bbb8;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,.20);
+
+    transition: all .3s ease;
+}
+
+.boton-plus:hover{
+    background: #d39895;
+    transform: scale(1.1) rotate(90deg);
+}
+
+.boton-plus i{
+    font-size: 28px;
+    color: #ffffff;
+    line-height: 1;
+}
+
+
+/* ========= RESPONSIVE ========= */
+
+@media (max-width: 768px) {
+  .boton-flotante {
+    width: 55px;
+
+    height: 55px;
+
+    bottom: 20px;
+
+    right: 20px;
+
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 425px) {
+  .boton-flotante {
+    width: 50px;
+
+    height: 50px;
+
+    bottom: 18px;
+
+    right: 18px;
+
+    font-size: 20px;
+  }
+}

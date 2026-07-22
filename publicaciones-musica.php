@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Music Page</title>
+    <title>Musica</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="styles/publicaciones-musica.css">
@@ -13,10 +13,12 @@
     <!-- FONT AWESOME -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
+        <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
+    </head>
+
 
 <body>
-
+    <canvas id="canvas"></canvas>
     <!-- CONTENEDOR PRINCIPAL -->
     <div class="app">
 
@@ -41,16 +43,8 @@
 
                 <img src="images/album.jpg" alt="">
 
-                <!-- SI QUIERES VIDEO USA ESTO -->
-                <!--
-                <video controls>
-                    <source src="video/video.mp4">
-                </video>
-                -->
-
             </div>
 
-            <!-- TITULO -->
             <h1>TITULO DE MUSICA</h1>
 
             <!-- DESCRIPCION -->
@@ -97,7 +91,7 @@
         </main>
 
     </div>
-
+    
 </body>
 
 </html>

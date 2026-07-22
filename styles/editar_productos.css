@@ -1,0 +1,185 @@
+body{
+    background:#f5f7fb;
+    font-family:Segoe UI,sans-serif;
+}
+
+.contenedor{
+    max-width:700px;
+    margin:50px auto;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+h1{
+    margin-bottom:20px;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+input,
+textarea{
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+textarea{
+    min-height:150px;
+    resize:none;
+}
+
+button{
+    background:#4576a8;
+    color:white;
+    border:none;
+    padding:12px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+button:hover{
+    background:#c7e3ff;
+}
+
+.barra-superior{
+    max-width:700px;
+    margin:30px auto 0;
+}
+
+.btn-volver{
+    display:inline-block;
+    text-decoration:none;
+    background:#6b7280;
+    color:white;
+    padding:10px 18px;
+    border-radius:10px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-volver:hover{
+    background:#4b5563;
+}
+
+/* SoyArte palette button hover */
+button:hover,
+.btn:hover,
+[class^='btn-']:hover,
+[class*=' btn-']:hover{
+    color:#2c4e7e;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width:768px){
+
+    body{
+        padding:20px 15px;
+    }
+
+    .barra-superior{
+        max-width:100%;
+        margin:20px auto 10px;
+    }
+
+    .contenedor{
+        max-width:100%;
+        margin:15px auto;
+        padding:25px 20px;
+        border-radius:15px;
+    }
+
+    h1{
+        font-size:2rem;
+        text-align:center;
+    }
+
+    input,
+    textarea{
+        font-size:16px;
+        padding:14px;
+    }
+
+    button{
+        width:100%;
+        padding:14px;
+        font-size:1rem;
+    }
+
+    .btn-volver{
+        display:block;
+        width:100%;
+        text-align:center;
+        padding:12px;
+    }
+
+}
+
+@media (max-width:480px){
+
+    body{
+        padding:10px;
+    }
+
+    .contenedor{
+        padding:20px 15px;
+        border-radius:12px;
+    }
+
+    h1{
+        font-size:1.6rem;
+        margin-bottom:15px;
+    }
+
+    form{
+        gap:12px;
+    }
+
+    input,
+    textarea{
+        padding:12px;
+        font-size:15px;
+    }
+
+    textarea{
+        min-height:120px;
+    }
+
+    button{
+        padding:12px;
+        font-size:.95rem;
+    }
+
+    .btn-volver{
+        font-size:.95rem;
+        padding:12px;
+    }
+
+}
+
+@media (max-width:360px){
+
+    .contenedor{
+        padding:15px 12px;
+    }
+
+    h1{
+        font-size:1.4rem;
+    }
+
+    input,
+    textarea,
+    button{
+        font-size:.9rem;
+    }
+
+}
