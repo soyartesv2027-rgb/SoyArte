@@ -101,7 +101,6 @@ session_start();
 
     <div class="contenido">
 
-<<<<<<< HEAD
       <div class="texto-info">
         <div class="glass-card">
           <div class="icono-art">
@@ -110,35 +109,6 @@ session_start();
           <h2>Inspira. Crea. Comparte.</h2>
           <p>Soy Arte es una plataforma diseñada para artistas, creadores y soñadores que desean expresar sus ideas a través de la música, pintura, poesía y arte digital.</p>
           <p>Explora experiencias inmersivas, comparte tus obras y conecta con una comunidad apasionada por la creatividad.</p>
-=======
-        <!-- TEXTO -->
-
-        <div class="texto-info">
-
-            <div class="glass-card">
-
-                <div class="icono-art">
-                    <i class="fa-solid fa-palette"></i>
-                </div>
-
-                <h2>
-                    Crea. Inspira. Comparte.
-                </h2>
-
-                <p>
-                    Soy Arte es una plataforma diseñada para artistas,
-                    creadores y soñadores que desean expresar sus ideas
-                    a través de la música, pintura, poesía y arte digital.
-                </p>
-
-                <p>
-                    Explora experiencias inmersivas, comparte tus obras
-                    y conecta con una comunidad apasionada por la creatividad.
-                </p>
-
-            </div>
-
->>>>>>> e4fb1438416079680dbae7a01f4d086f299599e3
         </div>
       </div>
 
@@ -300,14 +270,10 @@ session_start();
 
           <span class="promo-editor-tag">🎨 CREATIVIDAD DIGITAL</span>
 
-<<<<<<< HEAD
-          <h1>crea tu propia <span>obra de arte digital</span></h1>
-=======
                 <h1>
                     Crea tu propia
                     <span>obra de arte digital</span>
                 </h1>
->>>>>>> e4fb1438416079680dbae7a01f4d086f299599e3
 
           <p>Dibuja, pinta y da vida a tus ideas con nuestro editor de arte profesional. Pinceles, formas, colores y efectos para que explores todo tu potencial creativo sin límites.</p>
 
