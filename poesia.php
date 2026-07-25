@@ -5,9 +5,7 @@ include("php/funciones-poesia.php");
  
 $usuario_id = isset($_SESSION['usuario_id']) ? (int) $_SESSION['usuario_id'] : null;
  
-/* -------------------------------------------------------------
-   Like desde la tarjeta del listado (boton "Like" en cada poema)
-   ------------------------------------------------------------- */
+/*  (boton "Like" en cada poema) */
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accion']) && $_POST['accion'] === 'like') {
  
     if (!$usuario_id) {
@@ -80,8 +78,7 @@ $resultado = $stmt->get_result();
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-light">
-    <?php $seccion = 'poesia'; include("components/navbar.php"); ?>
- 
+    <?php $seccion = 'poesia'; include("components/navbar-unificado.php"); ?>
     <div class="hero-poesia">
         <div class="hero-poesia-img"></div>
         <div class="text-center hero-poesia-texto">
@@ -148,16 +145,14 @@ $resultado = $stmt->get_result();
             <?php endwhile; ?>
         </div>
     </div>
- 
-    <?php if (isset($_SESSION['usuario_id'])): ?>
-    <a href="publicar-poesia.php" class="floating-btn">
-        <i class="fa-solid fa-plus"></i>
-    </a>
-<?php else: ?>
-    <a href="php/login.php" class="floating-btn">
-        <i class="fa-solid fa-plus"></i>
-    </a>
-<?php endif; ?>
+
+
+    <a href="publicar-poesia.php" class="añadir-boton">
+    <button class="boton-plus">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+  </a>
+
  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script>

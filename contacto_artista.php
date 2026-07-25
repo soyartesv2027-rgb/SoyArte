@@ -46,7 +46,7 @@ $otroUsuario = ($usuarioActual == $conversacion['usuario1_id'])
     : $conversacion['usuario1_id'];
 
 //OBTENER DATOS DEL OTRO USUARIO //
-$sqlUsuario = "SELECT id,nombre,foto_perfil
+$sqlUsuario = "SELECT id,nombre,foto_perfil,tipo_usuario
     FROM usuarios
     WHERE id=?";
 $stmtUsuario = $conn->prepare($sqlUsuario);
@@ -56,13 +56,16 @@ $stmtUsuario->execute();
 $usuario = $stmtUsuario->get_result()->fetch_assoc();
 
 // OBTENER DATOS DEL PRODUCTO //
-$sqlProducto = "SELECT id,nombre,precio,imagen
-    FROM productos
-    WHERE id=?";
-$stmtProducto = $conn->prepare($sqlProducto);
-$stmtProducto->bind_param("i",$conversacion['producto_id']);
-$stmtProducto->execute();
-$producto = $stmtProducto->get_result()->fetch_assoc();
+$producto = null;
+if (!empty($conversacion['producto_id'])) {
+    $sqlProducto = "SELECT id,nombre,precio,imagen
+        FROM productos
+        WHERE id=?";
+    $stmtProducto = $conn->prepare($sqlProducto);
+    $stmtProducto->bind_param("i",$conversacion['producto_id']);
+    $stmtProducto->execute();
+    $producto = $stmtProducto->get_result()->fetch_assoc();
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -74,7 +77,7 @@ $producto = $stmtProducto->get_result()->fetch_assoc();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles/chat.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="styles/contacto_artista.css?v=<?php echo time(); ?>">
 </head>
 <body>
 
@@ -103,7 +106,7 @@ $producto = $stmtProducto->get_result()->fetch_assoc();
                     </h2>
 
                     <span class="estado">
-                        Artista
+                        <?php echo htmlspecialchars($usuario['tipo_usuario'] ?? 'Artista'); ?>
                     </span>
 
                 </div>
@@ -113,6 +116,8 @@ $producto = $stmtProducto->get_result()->fetch_assoc();
         </div>
 
         <!-- INFORMACIÓN DEL PRODUCTO -->
+
+        <?php if ($producto) { ?>
 
         <div class="producto-chat">
 
@@ -145,6 +150,8 @@ $producto = $stmtProducto->get_result()->fetch_assoc();
             </div>
 
         </div>
+
+        <?php } ?>
 
         <!-- MENSAJES -->
 
@@ -316,6 +323,6 @@ $producto = $stmtProducto->get_result()->fetch_assoc();
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="JavaScript/script.js"></script>
-    <script src="JavaScript/chat.js"></script>
+    <script src="JavaScript/contacto_artista.js"></script>
 </body>
 </html>

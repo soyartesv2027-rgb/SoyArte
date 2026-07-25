@@ -194,18 +194,18 @@ enviarImagen.addEventListener("click", enviarMensaje);
 
 function abrirImagen(src) {
     imagenGrande.src = src;
-    visorImagen.style.display = "flex";
+    visorImagen.classList.add("active");
 }
 
 window.abrirImagen = abrirImagen;
 
 cerrarVisor.addEventListener("click", function () {
-    visorImagen.style.display = "none";
+    visorImagen.classList.remove("active");
 });
 
 visorImagen.addEventListener("click", function (e) {
     if (e.target.id === "visorImagen") {
-        this.style.display = "none";
+        this.classList.remove("active");
     }
 });
 
@@ -214,7 +214,6 @@ function actualizarActividad() {
         .catch(error => console.error(error));
 }
 
-marcarEntregado();
 cargarMensajes();
 setInterval(cargarMensajes, 20000);
 setInterval(actualizarActividad, 30000);

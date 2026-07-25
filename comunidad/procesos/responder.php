@@ -20,7 +20,7 @@ if (isset($_FILES['archivo']) && $_FILES['archivo']['error'] === UPLOAD_ERR_OK) 
 }
 
 if ($tema_id <= 0 || ($contenido === '' && $archivo === null)) {
-    header("Location: ../tema.php?slug=" . urlencode($_POST['slug'] ?? '') . "&error=vacio");
+    header("Location: ../../tema.php?slug=" . urlencode($_POST['slug'] ?? '') . "&error=vacio");
     exit();
 }
 
@@ -31,7 +31,7 @@ $tema = $stmt->get_result()->fetch_assoc();
 $stmt->close();
 
 if (!$tema || $tema['es_cerrado'] == 1) {
-    header("Location: ../foro.php");
+    header("Location: ../../foro.php");
     exit();
 }
 
@@ -44,7 +44,7 @@ if ($archivo !== null) {
     $permitidas = array_merge($img_permitidas, $audio_permitidas);
 
     if (!in_array($extension, $permitidas)) {
-        header("Location: ../tema.php?slug=$slug&error=formato");
+        header("Location: ../../tema.php?slug=$slug&error=formato");
         exit();
     }
 
@@ -55,13 +55,13 @@ if ($archivo !== null) {
     ];
 
     if (!in_array($mime, $mime_permitidos)) {
-        header("Location: ../tema.php?slug=$slug&error=formato");
+        header("Location: ../../tema.php?slug=$slug&error=formato");
         exit();
     }
 
     $max_size = 10 * 1024 * 1024;
     if ($archivo["size"] > $max_size) {
-        header("Location: ../tema.php?slug=$slug&error=peso");
+        header("Location: ../../tema.php?slug=$slug&error=peso");
         exit();
     }
 
@@ -86,8 +86,8 @@ try {
     $stmt->close();
 
     $conn->commit();
-    header("Location: ../tema.php?slug=$slug#respuestas");
+    header("Location: ../../tema.php?slug=$slug#respuestas");
 } catch (Exception $e) {
     $conn->rollback();
-    header("Location: ../tema.php?slug=$slug&error=error");
+    header("Location: ../../tema.php?slug=$slug&error=error");
 }

@@ -8,6 +8,11 @@ if (!isset($_SESSION['usuario_id'])) {
 }
 $usuarioActual = $_SESSION['usuario_id'];
 
+$carpetaContacto = __DIR__ . "/../uploads/contacto_artista/";
+if (!is_dir($carpetaContacto)) {
+    mkdir($carpetaContacto, 0755, true);
+}
+
 //RECIBIR DATOS //
 $conversacion = isset($_POST['conversacion'])
     ? intval($_POST['conversacion'])
@@ -89,7 +94,7 @@ if ($archivo !== null) {
     }
 
     // Tamaño máximo: 5 MB para imágenes, 20 MB para video/audio
-    $maxSize = str_starts_with($mime, "image/") ? 5 * 1024 * 1024 : 20 * 1024 * 1024;
+    $maxSize = (strpos($mime, "image/") === 0) ? 5 * 1024 * 1024 : 20 * 1024 * 1024;
 
     if($archivo["size"] > $maxSize){
         exit("El archivo supera el tamaño máximo permitido.");
@@ -99,10 +104,10 @@ if ($archivo !== null) {
 
     move_uploaded_file(
         $archivo["tmp_name"],
-        "../uploads/chat/".$nombreArchivo
+        "../uploads/contacto_artista/".$nombreArchivo
     );
 
-    $tipoMensaje = str_starts_with($mime, "image/") ? "imagen" : "archivo";
+    $tipoMensaje = (strpos($mime, "image/") === 0) ? "imagen" : "archivo";
 }
 
 //GUARDAR MENSAJE //

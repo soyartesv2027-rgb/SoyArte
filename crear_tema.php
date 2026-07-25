@@ -1,10 +1,10 @@
 <?php
 session_start();
-require_once __DIR__ . '/../php/conexion.php';
-require_once __DIR__ . '/funciones_foro.php';
+require_once __DIR__ . '/php/conexion.php';
+require_once __DIR__ . '/comunidad/funciones_foro.php';
 
 if (!isset($_SESSION['usuario_id'])) {
-    header("Location: ../login.html");
+    header("Location: login.html");
     exit();
 }
 
@@ -38,12 +38,12 @@ if (isset($_GET['error'])) {
     <title>Nuevo Tema - Comunidad SoyArte</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="shortcut icon" href="../favicon_io/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../style.css?v=<?php echo time(); ?>">
-    <link rel="stylesheet" href="../styles/comunidad.css?v=<?php echo time(); ?>">
+    <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="styles/comunidad.css?v=<?php echo time(); ?>">
 </head>
 <body>
-    <?php include("../components/navbar.php"); ?>
+    <?php include("components/navbar.php"); ?>
 
     <div class="foro-header">
         <h1><i class="fa-solid fa-feather-pointed"></i> Nuevo Tema</h1>
@@ -62,7 +62,7 @@ if (isset($_GET['error'])) {
             <div class="foro-alert foro-alert-error"><i class="fa-solid fa-exclamation-circle"></i> <?php echo $error; ?></div>
         <?php endif; ?>
 
-        <form class="foro-form" method="POST" action="procesos/crear_tema.php">
+        <form class="foro-form" method="POST" action="comunidad/procesos/crear_tema.php">
             <input type="hidden" name="categoria_id" value="<?php echo $categoria['id']; ?>">
             <input type="hidden" name="categoria_slug" value="<?php echo htmlspecialchars($categoria['slug']); ?>">
 
@@ -82,9 +82,9 @@ if (isset($_GET['error'])) {
         </form>
     </div>
 
-    <?php include("../components/footer.php"); ?>
+    <?php include("components/footer.php"); ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../JavaScript/script.js"></script>
+    <script src="JavaScript/script.js"></script>
 </body>
 </html>
 <?php $conn->close(); ?>

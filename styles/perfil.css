@@ -252,13 +252,64 @@ body{
     background:#c7e3ff;
 }
 
+.mensaje-perfil {
+    padding: 14px 20px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.mensaje-perfil-success {
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+.mensaje-perfil-error {
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
 .perfil-artistico{
     margin-top:40px;
 }
 
-.perfil-artistico h3{
-    font-size:1.5rem;
-    margin-bottom:20px;
+.perfil-artistico-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.perfil-artistico-header h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.btn-editar-perfil {
+    background: #4576a8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.25s;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.btn-editar-perfil:hover {
+    background: #2c4e7e;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(44, 78, 126, 0.2);
 }
 
 .datos-artista{
@@ -330,7 +381,299 @@ body{
     transform:translateY(-2px);
 }
 
-/* SoyArte palette button hover */
+/* ========================================= */
+/* MODAL EDITAR PERFIL ARTÍSTICO            */
+/* ========================================= */
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+}
+
+.modal-overlay.activo {
+    display: flex;
+}
+
+.modal-contenido {
+    background: white;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 580px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+    animation: modalIn 0.3s ease;
+}
+
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 28px 0;
+}
+
+.modal-header h3 {
+    font-size: 1.3rem;
+    color: #1e293b;
+    margin: 0;
+}
+
+.modal-header h3 i {
+    color: #4576a8;
+    margin-right: 8px;
+}
+
+.modal-cerrar {
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #94a3b8;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    transition: 0.2s;
+}
+
+.modal-cerrar:hover {
+    color: #475569;
+}
+
+.modal-body {
+    padding: 24px 28px;
+}
+
+.modal-footer {
+    display: flex;
+    gap: 12px;
+    padding: 0 28px 24px;
+    justify-content: flex-end;
+}
+
+.campo-modal {
+    margin-bottom: 20px;
+}
+
+.campo-modal label {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    color: #374151;
+    margin-bottom: 10px;
+}
+
+.campo-modal select,
+.campo-modal textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    background: #fafcff;
+    font-size: 14px;
+    font-family: 'Segoe UI', sans-serif;
+    transition: 0.25s;
+    color: #1e293b;
+}
+
+.campo-modal select:focus,
+.campo-modal textarea:focus {
+    outline: none;
+    border-color: #2c4e7e;
+    box-shadow: 0 0 0 4px rgba(44, 78, 126, 0.10);
+}
+
+.campo-modal textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.campo-modal select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+}
+
+.cards-modal {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.card-modal {
+    border: 2px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 16px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+    background: white;
+    user-select: none;
+}
+
+.card-modal:hover {
+    border-color: #94a3b8;
+    transform: translateY(-2px);
+}
+
+.card-modal input {
+    display: none;
+}
+
+.card-modal span {
+    display: block;
+    font-size: 13px;
+    color: #475569;
+}
+
+.card-modal .card-icon-modal {
+    font-size: 24px;
+    margin-bottom: 6px;
+}
+
+.card-modal.selected {
+    border-color: #2c4e7e;
+    background: #f0f5ff;
+    box-shadow: 0 0 0 3px rgba(44, 78, 126, 0.10);
+    transform: scale(1.02);
+}
+
+.card-modal.selected span {
+    color: #2c4e7e;
+    font-weight: 600;
+}
+
+.tags-modal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag-modal {
+    display: inline-flex;
+    padding: 8px 18px;
+    border-radius: 50px;
+    background: #f1f4f9;
+    color: #475569;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+    border: 2px solid transparent;
+    user-select: none;
+}
+
+.tag-modal:hover {
+    background: #e2e8f0;
+}
+
+.tag-modal input {
+    display: none;
+}
+
+.tag-modal.checked {
+    background: #e8effa;
+    border-color: #2c4e7e;
+    color: #2c4e7e;
+    font-weight: 600;
+}
+
+.btn-modal {
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+    border: none;
+    font-family: 'Segoe UI', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-modal-primary {
+    background: #2c4e7e;
+    color: white;
+}
+
+.btn-modal-primary:hover {
+    background: #1e3a5f;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(44, 78, 126, 0.2);
+}
+
+.btn-modal-outline {
+    background: white;
+    color: #475569;
+    border: 2px solid #e2e8f0;
+}
+
+.btn-modal-outline:hover {
+    border-color: #94a3b8;
+    background: #f8fafc;
+}
+
+@media (max-width: 480px) {
+    .modal-contenido {
+        border-radius: 16px;
+    }
+
+    .modal-header {
+        padding: 18px 18px 0;
+    }
+
+    .modal-body {
+        padding: 18px;
+    }
+
+    .modal-footer {
+        padding: 0 18px 18px;
+    }
+
+    .cards-modal {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .card-modal {
+        padding: 12px 8px;
+    }
+
+    .card-modal .card-icon-modal {
+        font-size: 20px;
+    }
+
+    .btn-modal {
+        flex: 1;
+        justify-content: center;
+        font-size: 13px;
+        padding: 11px 16px;
+    }
+}
+
 button:hover,
 .btn:hover,
 [class^='btn-']:hover,

@@ -25,10 +25,7 @@ $resultado = $conn->query($sql);
 
 <body>
 
-    <?php
-    $seccion = 'manualidades';
-    include("components/navbar.php");
-    ?>
+     <?php $seccion = 'manualidades'; include("components/navbar-unificado.php"); ?>
 
     <div class="contenedor">
 
@@ -53,7 +50,7 @@ $resultado = $conn->query($sql);
         </section>
 
         <!-- Tarjetas -->
-        <div class="manualidades-grid">
+        <main class="manualidades-grid">
 
             <?php if ($resultado->num_rows > 0): ?>
 
@@ -75,9 +72,7 @@ $resultado = $conn->query($sql);
                                 alt="<?php echo htmlspecialchars($fila['nombre']); ?>"
                                 onerror="this.src='images/sin-imagen.png'">
 
-                            <span class="manualidad-tag">
-                                Manualidad
-                            </span>
+
                         </div>
 
                         <div class="manualidad-info">
@@ -111,10 +106,10 @@ $resultado = $conn->query($sql);
                                     ?>
                                 </span>
 
-                                <a
-                                    href="ver_manualidad.php?id=<?php echo $fila['id']; ?>"
-                                    class="manualidad-boton">
+                                <a href="ver_manualidad.php?id=<?php echo $fila['id']; ?>"
+                                    <button class="manualidad-boton">
                                     Ver más
+                                    </button>
                                 </a>
 
                             </div>
@@ -141,20 +136,15 @@ $resultado = $conn->query($sql);
 
             <?php endif; ?>
 
-        </div>
+            </main>
 
     </div>
 
-    <!-- Botón flotante -->
-
-    <?php if (isset($_SESSION['id']) || isset($_SESSION['usuario_id'])): ?>
-
-        <a href="agregar_manualidad.php" class="boton-flotante">
-            <i class="fa-solid fa-plus"></i>
-        </a>
-
-    <?php endif; ?>
-
+  <a href="agregar_manualidad.php" class="añadir-boton">
+    <button class="boton-plus">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+  </a>
 
     <!-- Buscador -->
 

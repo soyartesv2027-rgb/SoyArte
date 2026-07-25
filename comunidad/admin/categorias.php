@@ -83,7 +83,7 @@ $inactivas = $conn->query("
     <div class="foro-container">
         <div class="foro-actions">
             <h2>Panel de moderación</h2>
-            <a href="../foro.php" class="foro-btn foro-btn-outline">
+            <a href="../../foro.php" class="foro-btn foro-btn-outline">
                 <i class="fa-solid fa-arrow-left"></i> Volver a Comunidad
             </a>
         </div>

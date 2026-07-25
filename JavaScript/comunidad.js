@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
             var tipo = this.dataset.tipo;
             var targetId = this.dataset.target;
 
-            fetch('procesos/reaccionar.php', {
+            fetch('comunidad/procesos/reaccionar.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: 'tipo=' + encodeURIComponent(tipo) + '&target_id=' + encodeURIComponent(targetId)

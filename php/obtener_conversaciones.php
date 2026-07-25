@@ -98,7 +98,7 @@ while ($chat = $conversaciones->fetch_assoc()) {
 
     <a
         class="conversacion <?php echo $noLeidos > 0 ? "conversacion-pendiente" : ""; ?>"
-        href="chat.php?id=<?php echo (int)$chat['id']; ?>">
+        href="contacto_artista.php?id=<?php echo (int)$chat['id']; ?>">
         <img
             src="uploads/<?php echo htmlspecialchars($chat['imagen']); ?>"
             alt="<?php echo htmlspecialchars($chat['producto']); ?>">
