@@ -6,16 +6,14 @@ const overlay = document.getElementById("overlay");
 
 // ===== ABRIR / CERRAR SIDEBAR =====
 
-if(menuBtn && sidebar && overlay){
+if (menuBtn && sidebar && overlay) {
+  menuBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("active");
+    overlay.classList.toggle("active");
+  });
 
-    menuBtn.addEventListener("click", () => {
-        sidebar.classList.toggle("active");
-        overlay.classList.toggle("active");
-    });
-
-    overlay.addEventListener("click", () => {
-        sidebar.classList.remove("active");
-        overlay.classList.remove("active");
-    });
-
+  overlay.addEventListener("click", () => {
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+  });
 }
