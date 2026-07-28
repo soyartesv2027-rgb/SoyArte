@@ -21,10 +21,6 @@ if (!$pintura) {
     die("Pintura no encontrada");
 }
 
-/* ===========================
-   VERIFICAR SI ES EL DUEÑO
-=========================== */
-
 $esPropietario = false;
 
 if (
@@ -35,7 +31,6 @@ if (
     $esPropietario = true;
 }
 
-// Obtener comentarios
 $sqlComentarios = "
 SELECT c.*, u.nombre
 FROM comentarios_pinturas c
@@ -106,7 +101,6 @@ Por <?php echo htmlspecialchars($pintura['autor']); ?>
 
 </div>
 
-<!-- BOTONES SOLO PARA EL DUEÑO -->
 
 <?php if($esPropietario){ ?>
 

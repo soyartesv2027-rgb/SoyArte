@@ -73,8 +73,6 @@ $inactivas = $conn->query("
     <link rel="stylesheet" href="../../styles/comunidad.css?v=<?php echo time(); ?>">
 </head>
 <body>
-    <?php include("../../components/navbar.php"); ?>
-
     <div class="foro-header">
         <h1><i class="fa-solid fa-shield-halved"></i> Admin - Categorías</h1>
         <p>Gestiona las categorías de la comunidad</p>
@@ -182,8 +180,6 @@ $inactivas = $conn->query("
 
         </div>
     </div>
-
-    <?php include("../../components/footer.php"); ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../JavaScript/script.js"></script>
 </body>
