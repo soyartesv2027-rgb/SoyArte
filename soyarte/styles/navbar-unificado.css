@@ -1,84 +1,400 @@
-<?php
+/* =========================
+   NAVBAR PRINCIPAL
+========================= */
 
-$seccion = $seccion ?? 'general';
- 
-// --- Color segun seccion ---//
-$colores = [
-    'poesia'       => '#f06292',
-    'pinturas'     => '#c7e3ff',
-    'musica'       => '#2c4e7e',
-    'manualidades' => '#4576a8',
-    'general'      => '#b8cfe8',
-];
-$colorNav = $colores[$seccion] ?? $colores['general'];
- 
-// --- Logo/mascota segun seccion ---
+.nb {
 
-$logos = [
-    'poesia'       => 'images/logo-blanco.png',
-    'pinturas'     => 'images/logo',
-    'musica'       => 'images/logo-blanco.png',
-    'manualidades' => 'images/logo-blanco.png',
-    'general'      => 'images/Arty.png',
-];
-$logoNav = $logos[$seccion] ?? $logos['general'];
- 
-// --- Iconos de la derecha: los otras  3 secciones ---
-// Cada icono tiene su color propio y va a la pantalla de carga
-$todosLosModulos = [
-    'pinturas'     => [
-        'href'  => 'Pantalla-de-carga/PC-pintura.html',
-        'icon'  => 'fa-paintbrush',
-        'color' => '#c7e3ff',
-        'title' => 'Pinturas',
-        'clase' => 'icono-naranja',
-    ],
-    'musica'       => [
-        'href'  => 'Pantalla-de-carga/PC-musica.html',
-        'icon'  => 'fa-music',
-        'color' => '#2c4e7e',
-        'title' => 'Música',
-        'clase' => 'icono-azul',
-    ],
-    'poesia'       => [
-        'href'  => 'Pantalla-de-carga/PC-poesia.html',
-        'icon'  => 'fa-feather-pointed',
-        'color' => '#f06292',
-        'title' => 'Poesía',
-        'clase' => 'icono-rosa',
-    ],
-    'manualidades' => [
-        'href'  => 'Pantalla-de-carga/PC-manualidades.html',
-        'icon'  => 'fa-cube',
-        'color' => '#4576a8',
-        'title' => 'Manualidades',
-        'clase' => 'icono-verde',
-    ],
-];
- 
-// Quitar la seccion actual y tomar los primeros 3
-$iconosNav = array_filter($todosLosModulos, fn($k) => $k !== $seccion, ARRAY_FILTER_USE_KEY);
-$iconosNav = array_slice($iconosNav, 0, 3);
+    display: flex;
 
-?>
-<link rel="stylesheet" href="styles/navbar-unificado.css">
+    align-items: stretch;
 
-<nav class="navbar-soyarte" style="background-color: <?= $colorNav ?>;">
- 
-    <a href="index.php" class="navbar-soyarte-logo">
-        <img src="<?= $logoNav ?>" alt="Logo" width="80" height="80" style="object-fit:contain;">
-        Soy<span>Arte</span>
-    </a>
- 
-    <div class="navbar-soyarte-iconos">
-        <?php foreach ($iconosNav as $mod): ?>
-            <a href="<?= $mod['href'] ?>"
-               class="icono-nav-global <?= $mod['clase'] ?>"
-               title="<?= $mod['title'] ?>"
-               style="background-color: <?= $mod['color'] ?>;">
-                <i class="fa-solid <?= $mod['icon'] ?>"></i>
-            </a>
-        <?php endforeach; ?>
-    </div>
- 
-</nav>
+    justify-content: space-between;
+
+    min-height: 75px;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    position: relative;
+
+    z-index: 1000;
+
+}
+
+
+/* =========================
+   LADO IZQUIERDO
+========================= */
+
+.nb-left {
+
+    display: flex;
+
+    align-items: stretch;
+
+}
+
+
+/* =========================
+   LADO DERECHO
+========================= */
+
+.nb-right {
+
+    display: flex;
+
+    align-items: stretch;
+
+}
+
+
+/* =========================
+   BOTÓN INICIO
+========================= */
+
+.nb-home {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 60px;
+
+    background: rgba(0,0,0,0.10);
+
+    font-size: 1.1rem;
+
+    text-decoration: none;
+
+    border-right: 1px solid rgba(0,0,0,0.08);
+
+    flex-shrink: 0;
+
+    transition: background 0.2s;
+
+}
+
+
+.nb-home:hover {
+
+    background: rgba(0,0,0,0.18);
+
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.nb-logo {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0 18px;
+
+    text-decoration: none;
+
+}
+
+
+.nb-logo img {
+
+    width: 120px;
+
+    height: auto;
+
+    max-height: 100px;
+
+    object-fit: contain;
+
+}
+
+
+/* =========================
+   ICONOS DE SECCIONES
+========================= */
+
+.nb-icon {
+
+    width: 60px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 1.1rem;
+
+    text-decoration: none;
+
+    transition: filter 0.2s;
+
+}
+
+
+.nb-icon:hover {
+
+    filter: brightness(1.12);
+
+}
+
+
+/* =========================
+   CONTENEDOR TRES PUNTITOS
+========================= */
+
+.nb-more {
+
+    position: relative;
+
+    display: block;
+
+    z-index: 99999;
+
+}
+
+
+/* =========================
+   BOTÓN TRES PUNTITOS
+========================= */
+
+.nb-more-btn {
+
+    width: 50px;
+
+    height: 75px;
+
+    border: none;
+
+    font-size: 1.1rem;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-left: 1px solid rgba(0,0,0,0.08);
+
+    transition: background 0.2s;
+
+}
+
+
+.nb-more-btn:hover {
+
+    background: rgba(0,0,0,0.25) !important;
+
+}
+
+
+/* =========================
+   MENÚ DESPLEGABLE
+========================= */
+
+.nb-dropdown {
+
+    display: none;
+
+    position: absolute;
+
+    top: calc(100% + 6px);
+
+    right: 0;
+
+    width: 260px;
+
+    min-width: 260px;
+
+    background: #ffffff;
+
+    border-radius: 16px;
+
+    z-index: 999999;
+
+    overflow: hidden;
+
+    box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+
+}
+
+
+/* ABRIR MENÚ */
+
+.nb-dropdown.nb-open {
+
+    display: block;
+
+}
+
+
+/* =========================
+   TÍTULO
+========================= */
+
+.nb-dd-top {
+
+    padding: 11px 15px 9px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+
+    text-transform: uppercase;
+
+}
+
+
+/* =========================
+   OPCIONES
+========================= */
+
+.nb-dd-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    padding: 12px 15px;
+
+    text-decoration: none;
+
+    color: #222;
+
+    font-size: 0.88rem;
+
+    font-weight: 500;
+
+    border-bottom: 1px solid #f0f0f0;
+
+    transition: background 0.15s;
+
+}
+
+
+.nb-dd-item:last-child {
+
+    border-bottom: none;
+
+}
+
+
+.nb-dd-item:hover {
+
+    background: #f7f7f7;
+
+    color: #222;
+
+}
+
+
+/* =========================
+   ICONOS DEL MENÚ
+========================= */
+
+.nb-dd-icon {
+
+    width: 36px;
+
+    height: 36px;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 0.95rem;
+
+    flex-shrink: 0;
+
+}
+
+
+/* =========================
+   TEXTO DEL MENÚ
+========================= */
+
+.nb-dd-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.nb-dd-sub {
+
+    font-size: 0.71rem;
+
+    margin-top: 1px;
+
+    opacity: 0.55;
+
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 576px) {
+
+
+    .nb-icon {
+
+        width: 48px;
+
+        font-size: 1rem;
+
+    }
+
+
+    .nb-home {
+
+        width: 48px;
+
+    }
+
+
+    .nb-logo {
+
+        padding: 0 10px;
+
+    }
+
+
+    .nb-logo img {
+
+        width: 95px;
+
+    }
+
+
+    .nb-dropdown {
+
+        width: 240px;
+
+        min-width: 240px;
+
+    }
+
+
+}
