@@ -226,72 +226,107 @@ body {
   min-height: 85px;
 }
 
-.añadir-boton{
-    position: fixed;
-    right: 30px;
-    bottom: 30px;
-    z-index: 999;
-    text-decoration: none;
+/* =====================================
+   BOTÓN FLOTANTE + (NUEVO ESTILO)
+===================================== */
+
+.añadir-boton {
+  position: fixed;
+  right: 35px;
+  bottom: 35px;
+  z-index: 999;
+  text-decoration: none;
+  /* Para quitar el subrayado del enlace */
+  display: block;
+  /* Aseguramos que sea un bloque para el tamaño */
 }
 
-.boton-plus{
-    width: 65px;
-    height: 65px;
+.boton-plus {
+  /* --- TAMAÑO GRANDE --- */
+  width: 80px;
+  /* Antes era 65px */
+  height: 80px;
+  /* Antes era 65px */
 
-    border: none;
-    border-radius: 50%;
+  /* --- ESTILO VISUAL --- */
+  border: none;
+  border-radius: 50%;
+  background: #f8bbb8;
+  /* Color principal que ya tenías */
+  color: #ffffff;
 
-    background: #f8bbb8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  cursor: pointer;
 
-    cursor: pointer;
+  /* --- SOMBRA PARA DESTACAR --- */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 
-    box-shadow: 0 8px 20px rgba(0,0,0,.20);
-
-    transition: all .3s ease;
+  /* --- ANIMACIÓN --- */
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* Efecto de resorte */
 }
 
-.boton-plus:hover{
-    background: #d39895;
-    transform: scale(1.1) rotate(90deg);
+/* --- EFECTO AL PASAR EL RATÓN --- */
+.boton-plus:hover {
+  background: #d39895;
+  /* Color más oscuro para el hover */
+  transform: scale(1.12) rotate(90deg);
+  /* Más grande y girando */
+  box-shadow: 0 15px 35px rgba(211, 152, 149, 0.5);
+  /* Sombra con el color del botón */
 }
 
-.boton-plus i{
-    font-size: 28px;
-    color: #ffffff;
-    line-height: 1;
+/* --- EFECTO AL HACER CLIC (OPCIONAL) --- */
+.boton-plus:active {
+  transform: scale(0.95) rotate(90deg);
+  /* Pequeño efecto de presión */
 }
 
+/* --- ESTILO DEL ÍCONO (+) --- */
+.boton-plus i {
+  font-size: 38px;
+  /* Antes era 28px */
+  color: #ffffff;
+  line-height: 1;
+  transition: inherit;
+  /* Hereda la transición del padre */
+}
 
-/* ========= RESPONSIVE ========= */
+/* =====================================
+   RESPONSIVE (para pantallas pequeñas)
+===================================== */
 
 @media (max-width: 768px) {
-  .boton-flotante {
-    width: 55px;
+  .añadir-boton {
+    right: 25px;
+    bottom: 25px;
+  }
 
-    height: 55px;
+  .boton-plus {
+    width: 70px;
+    height: 70px;
+  }
 
-    bottom: 20px;
-
-    right: 20px;
-
-    font-size: 22px;
+  .boton-plus i {
+    font-size: 32px;
   }
 }
 
-@media (max-width: 425px) {
-  .boton-flotante {
-    width: 50px;
+@media (max-width: 480px) {
+  .añadir-boton {
+    right: 20px;
+    bottom: 20px;
+  }
 
-    height: 50px;
+  .boton-plus {
+    width: 60px;
+    height: 60px;
+  }
 
-    bottom: 18px;
-
-    right: 18px;
-
-    font-size: 20px;
+  .boton-plus i {
+    font-size: 28px;
   }
 }

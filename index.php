@@ -47,12 +47,12 @@ session_start();
         </p>
 
         <div class="sa-hero-actions">
-          <a href="#explorar" class="sa-btn sa-btn-primary">
+          <a href="pinturas.php" class="sa-btn sa-btn-primary">
             Explorar obras
             <i class="fa-solid fa-arrow-down"></i>
           </a>
 
-          <a href="registrarse.php" class="sa-text-link">
+          <a href="register.html" class="sa-text-link">
             Comparte tu talento
             <i class="fa-solid fa-arrow-right"></i>
           </a>
@@ -69,7 +69,7 @@ session_start();
       <div class="sa-hero-visual sa-reveal">
         <div class="sa-hero-image-wrap">
           <img
-            src="images/img-info.jpeg"
+            src="images/fondo-inicio.png"
             alt="Obra artística de SoyArte"
             class="sa-hero-image"
           >
@@ -140,7 +140,7 @@ session_start();
           </a>
 
           <a href="poesia.php" class="sa-gallery-slide" data-index="2">
-            <img src="images/manualidades.jpeg" alt="Poesía" loading="lazy">
+            <img src="images/poesia.png" alt="Poesía" loading="lazy">
             <div class="sa-gallery-overlay">
               <span>03 / 05</span>
               <div>
@@ -151,7 +151,7 @@ session_start();
           </a>
 
           <a href="manualidad.php" class="sa-gallery-slide" data-index="3">
-            <img src="images/Poemas.jpeg" alt="Manualidades" loading="lazy">
+            <img src="images/manualidades.png" alt="Manualidades" loading="lazy">
             <div class="sa-gallery-overlay">
               <span>04 / 05</span>
               <div>
@@ -307,16 +307,7 @@ session_start();
         </div>
 
         <div class="sa-museum-media sa-reveal">
-          <video
-            src="videos/videoPaginaInicial.mp4"
-            autoplay
-            muted
-            loop
-            playsinline
-            controls
-            aria-label="Vista previa del museo virtual">
-          </video>
-
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/uZ5a2l5t1uE?si=raTzzec9Jew2RCcW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           <div class="sa-museum-tag">
             <i class="fa-solid fa-vr-cardboard"></i>
             <span>Realidad virtual</span>
@@ -517,7 +508,7 @@ session_start();
           aquello que te hace crear.
         </p>
 
-        <a href="registrarse.php" class="sa-btn sa-btn-primary">
+        <a href="register.html" class="sa-btn sa-btn-primary">
           Únete a SoyArte
           <i class="fa-solid fa-arrow-right"></i>
         </a>
