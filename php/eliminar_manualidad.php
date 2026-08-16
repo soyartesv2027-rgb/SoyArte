@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "php/conexion.php";
+require_once __DIR__ . "/conexion.php";
 
 if(!isset($_SESSION['usuario_id'])){
     header("Location: login.php");
@@ -34,9 +34,9 @@ if($_SESSION['usuario_id'] != $manualidad['usuario_id']){
 
 if(
     !empty($manualidad['imagen']) &&
-    file_exists(__DIR__ . "/" . $manualidad['imagen'])
+    file_exists(__DIR__ . "/../" . $manualidad['imagen'])
 ){
-    unlink(__DIR__ . "/" . $manualidad['imagen']);
+    unlink(__DIR__ . "/../" . $manualidad['imagen']);
 }
 
 /* Eliminar comentarios */

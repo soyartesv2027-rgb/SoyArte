@@ -6,6 +6,7 @@ require_once 'php/conexion.php';
 $sql = "SELECT m.*, 
         (SELECT COUNT(*) FROM likes_musica WHERE musica_id = m.musica_id) as total_likes 
         FROM musica m 
+        WHERE m.estado = 'publicada'
         ORDER BY m.musica_id DESC";
 $resultado = $conn->query($sql);
 ?>

@@ -179,7 +179,7 @@ if (isset($_SESSION['usuario_id'])) {
                                 </a>
                             </li>
  
-                            <li>
+<li>
                                 <a class="dropdown-item" href="mensajes.php">
                                     <i class="fa-solid fa-message me-2"></i>
                                     <span
@@ -189,7 +189,16 @@ if (isset($_SESSION['usuario_id'])) {
                                     </span>
                                 </a>
                             </li>
- 
+
+                            <?php if (($_SESSION['rol'] ?? '') === 'admin'): ?>
+                            <li>
+                                <a class="dropdown-item" href="moderacion.php">
+                                    <i class="fa-solid fa-shield-halved me-2"></i>
+                                    Moderación
+                                </a>
+                            </li>
+                            <?php endif; ?>
+
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

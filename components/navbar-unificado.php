@@ -7,6 +7,7 @@ $colores = [
     'pinturas'     => '#64a0db',
     'musica'       => '#2c4e7e',
     'manualidades' => '#f8bbb8',
+    'general'      => '#2c4e7e',
 
 ];
 
@@ -262,6 +263,50 @@ $iconosNav = array_slice($iconosNav, 0, 4);
                             <span class="nb-dd-sub">
 
                                 Ver conversaciones
+
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                <?php endif; ?>
+
+
+                <?php if (($_SESSION['rol'] ?? '') === 'admin'): ?>
+
+
+                    <!-- MODERACIÓN -->
+
+                    <a
+                        class="nb-dd-item"
+                        href="moderacion.php">
+
+                        <div
+                            class="nb-dd-icon"
+                            style="
+                                background:#ede7f6;
+                                color:#4527a0;
+                            ">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                        </div>
+
+
+                        <div class="nb-dd-text">
+
+                            <span>
+
+                                Moderación
+
+                            </span>
+
+
+                            <span class="nb-dd-sub">
+
+                                Panel administrativo
 
                             </span>
 

@@ -21,6 +21,14 @@ if (!$pintura) {
     die("Pintura no encontrada");
 }
 
+$esAdmin = ($_SESSION['rol'] ?? '') === 'admin';
+if (($pintura['estado'] ?? 'publicada') !== 'publicada' && !$esAdmin) {
+    include("components/flash.php");
+    die("Esta publicación no está disponible.");
+}
+
+include("components/flash.php");
+
 $esPropietario = false;
 
 if (
@@ -126,6 +134,12 @@ Eliminar
 </div>
 
 <?php } ?>
+
+<?php
+$mod_tipo = 'pintura';
+$mod_id = $id;
+include("components/denunciar.php");
+?>
 
 <hr>
 

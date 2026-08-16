@@ -2,7 +2,7 @@
 session_start();
 require_once "php/conexion.php";
 
-$sql = "SELECT * FROM manualidades ORDER BY id DESC";
+$sql = "SELECT * FROM manualidades WHERE estado = 'publicada' ORDER BY id DESC";
 $resultado = $conn->query($sql);
 ?>
 

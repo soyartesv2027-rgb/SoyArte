@@ -16,6 +16,14 @@ if(!$musica){
     die("Canción no encontrada");
 }
 
+$esAdmin = ($_SESSION['rol'] ?? '') === 'admin';
+if (($musica['estado'] ?? 'publicada') !== 'publicada' && !$esAdmin) {
+    include("components/flash.php");
+    die("Esta publicación no está disponible.");
+}
+
+include("components/flash.php");
+
 $esPropietario = false;
 
 if(isset($_SESSION['usuario_id'])){
@@ -114,6 +122,12 @@ if(isset($_SESSION['usuario_id'])){
 </div>
 
 <?php endif; ?>
+
+<?php
+$mod_tipo = 'musica';
+$mod_id = (int)$musica['musica_id'];
+include("components/denunciar.php");
+?>
 
 </div>
 

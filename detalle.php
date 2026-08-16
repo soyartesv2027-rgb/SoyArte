@@ -72,6 +72,15 @@ if (!$obra) {
     echo "La obra no existe.";
     exit;
 }
+
+$esAdminDetalle = ($_SESSION['rol'] ?? '') === 'admin';
+if (($obra['estado'] ?? 'publicada') !== 'publicada' && !$esAdminDetalle) {
+    include("components/flash.php");
+    echo "Esta publicación no está disponible.";
+    exit;
+}
+
+include("components/flash.php");
  
 $src = imagenSrc($obra['imagen']);
 $totalLikes = $conn->query("SELECT COUNT(*) AS total FROM likes WHERE obra_id = $obra_id")->fetch_assoc()['total'];
@@ -182,7 +191,15 @@ $esPropietario = $usuario_id && $usuario_id === (int) $obra['usuario_id'];
  
         </div>
     </div>
- 
+
+    <!-- ==================== DENUNCIAR ==================== -->
+    <?php
+    $mod_tipo = 'poesia';
+    $mod_id = $obra_id;
+    include("components/denunciar.php");
+    ?>
+    <!-- ==================== FIN DENUNCIAR ==================== -->
+
     <!-- ==================== COMENTARIOS ==================== -->
     <?php
     // Traer comentarios de esta obra
@@ -190,8 +207,7 @@ $esPropietario = $usuario_id && $usuario_id === (int) $obra['usuario_id'];
                        FROM comentarios_poesia
                        JOIN usuarios ON comentarios_poesia.usuario_id = usuarios.id
                        WHERE comentarios_poesia.obra_id = ?
-                       ORDER BY comentarios_poesia.creado_en DESC";
-    $stmtC = $conn->prepare($sqlComentarios);
+                       ORDER BY comentarios_poesia.creado_en DESC";    $stmtC = $conn->prepare($sqlComentarios);
     $stmtC->bind_param("i", $obra_id);
     $stmtC->execute();
     $comentarios = $stmtC->get_result();

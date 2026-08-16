@@ -21,6 +21,14 @@ if($resultado->num_rows==0){
 
 $manualidad = $resultado->fetch_assoc();
 
+$esAdmin = ($_SESSION['rol'] ?? '') === 'admin';
+if (($manualidad['estado'] ?? 'publicada') !== 'publicada' && !$esAdmin) {
+    include("components/flash.php");
+    die("Esta publicación no está disponible.");
+}
+
+include("components/flash.php");
+
 /* ==========================
    COMENTARIOS
 ========================== */
@@ -249,7 +257,7 @@ Editar
 </a>
 
 <a
-href="eliminar_manualidad.php?id=<?php echo $manualidad['id']; ?>"
+href="php/eliminar_manualidad.php?id=<?php echo $manualidad['id']; ?>"
 class="eliminar"
 onclick="return confirm('¿Seguro que deseas eliminar esta manualidad?');">
 
@@ -262,6 +270,12 @@ Eliminar
 </div>
 
 <?php endif; ?>
+
+<?php
+$mod_tipo = 'manualidad';
+$mod_id = (int)$manualidad['id'];
+include("components/denunciar.php");
+?>
 
 </div>
 

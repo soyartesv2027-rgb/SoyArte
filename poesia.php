@@ -43,7 +43,8 @@ if ($busqueda !== '') {
                    EXISTS(SELECT 1 FROM likes WHERE likes.obra_id = obras.id AND likes.usuario_id = ?) AS ya_le_dio_like
             FROM obras
             JOIN usuarios ON obras.usuario_id = usuarios.id
-            WHERE obras.titulo LIKE ? OR obras.autor LIKE ?
+            WHERE (obras.titulo LIKE ? OR obras.autor LIKE ?)
+            AND obras.estado = 'publicada'
             ORDER BY obras.id DESC";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("iss", $usuarioParaLikes, $like, $like);
@@ -53,6 +54,7 @@ if ($busqueda !== '') {
                    EXISTS(SELECT 1 FROM likes WHERE likes.obra_id = obras.id AND likes.usuario_id = ?) AS ya_le_dio_like
             FROM obras
             JOIN usuarios ON obras.usuario_id = usuarios.id
+            WHERE obras.estado = 'publicada'
             ORDER BY obras.id DESC";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $usuarioParaLikes);

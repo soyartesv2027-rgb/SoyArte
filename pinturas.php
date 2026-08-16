@@ -10,6 +10,7 @@ $sql = "SELECT
         FROM pinturas p
         LEFT JOIN likes_pinturas lp
             ON p.ID = lp.id_pintura
+        WHERE p.estado = 'publicada'
         GROUP BY p.ID
         ORDER BY p.ID DESC";
 
